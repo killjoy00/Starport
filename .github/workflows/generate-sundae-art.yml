@@ -1,0 +1,51 @@
+name: Generate Sundae scene art
+
+on:
+  push:
+    branches: [feat/sundae-switch-adventure]
+    paths:
+      - scripts/generate_sundae_art.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-art:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install image renderer
+        run: python3 -m pip install --disable-pip-version-check Pillow
+      - name: Render nine distinct original illustrations
+        run: python3 scripts/generate_sundae_art.py
+      - name: Check all art assets
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          root=Path("StuffyLand/Assets.xcassets")
+          for n in (1,3,5,7,9,11,13,15,17):
+              name=f"sundae-scene-{n:02}"
+              p=root/f"{name}.imageset"
+              spec=json.loads((p/"Contents.json").read_text())
+              file=p/spec["images"][0]["filename"]
+              assert Image.open(file).size==(1200,720),file
+              assert file.stat().st_size>10000,file
+          print("Nine rendered images verified.")
+          PY
+      - name: Commit generated art back to the feature branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add StuffyLand/Assets.xcassets/sundae-scene-*.imageset
+          if git diff --cached --quiet; then
+            echo "Illustrations already up to date."
+          else
+            git commit -m "Add nine illustrated Sundae Switch story scenes"
+            git push origin HEAD:feat/sundae-switch-adventure
+          fi

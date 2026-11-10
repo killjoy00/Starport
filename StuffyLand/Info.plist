@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- TestFlight uses the official Google test ID. Live ads are OFF. -->
+    <key>GADApplicationIdentifier</key>
+    <string>ca-app-pub-3940256099942544~1458002511</string>
+    <key>STARPORT_BANNER_UNIT_ID</key>
+    <string>ca-app-pub-3940256099942544/2934735716</string>
+    <key>STARPORT_ADS_LIVE_APPROVED</key>
+    <string>NO</string>
+    <!-- The apps share source but have distinct content and visual identities. -->
+    <key>STORY_BRAND</key>
+    <string>stuffyland</string>
+</dict>
+</plist>

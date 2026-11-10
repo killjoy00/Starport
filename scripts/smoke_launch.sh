@@ -35,8 +35,17 @@ if [ -z "$pid" ]; then
 fi
 
 sleep 8
-if ! xcrun simctl spawn "$device" ps -p "$pid" -o pid= | grep -Eq "[0-9]+"; then
-    echo "::error::Starport crashed or exited within 8 seconds of launch."
+# Simulator images omit /bin/ps. Calling simctl launch again without
+# --terminate-running-process returns the existing PID when the app survived.
+# A crashed app would be relaunched with a different PID.
+if ! still_running=$(xcrun simctl launch "$device" "$bundle_id" 2>&1); then
+    echo "::error::Starport was not launchable after 8 seconds: $still_running"
+    exit 1
+fi
+echo "$still_running"
+remaining_pid=$(printf '%s' "$still_running" | sed -nE 's/^.*: ([0-9]+)$/\1/p' | tail -n1)
+if [ "$remaining_pid" != "$pid" ]; then
+    echo "::error::Starport process changed between checks (before $pid, after $remaining_pid)."
     xcrun simctl spawn "$device" log show --last 45s --style compact \
       --predicate 'process == "Starport"' 2>/dev/null | tail -n 65 || true
     exit 1

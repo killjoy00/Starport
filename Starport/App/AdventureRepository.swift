@@ -35,6 +35,7 @@ final class AdventureRepository {
     }
 
     func load(_ listing: AdventureListing) throws -> StoryBook {
+        guard listing.format == .adventure else { throw StoryError.missingResource }
         guard StoryLoader.isSafeFilename(listing.id), StoryLoader.isSafeFilename(listing.filename) else {
             throw StoryError.missingResource
         }
@@ -49,6 +50,25 @@ final class AdventureRepository {
             throw StoryError.invalidBook("The downloaded adventure is unavailable. Check for updates.")
         }
         return story
+    }
+
+    func loadReader(_ listing: AdventureListing) throws -> RegularBook {
+        guard listing.format == .reader,
+              StoryLoader.isSafeFilename(listing.id),
+              StoryLoader.isSafeFilename(listing.filename) else {
+            throw StoryError.missingResource
+        }
+        let cached = folder.appendingPathComponent("\(listing.id)_\(listing.contentVersion).json")
+        if let data = try? Data(contentsOf: cached),
+           let book = try? StoryLoader.decodeReader(data),
+           book.id == listing.id && book.contentVersion == listing.contentVersion {
+            return book
+        }
+        let book = try StoryLoader.loadReader(filename: listing.filename)
+        guard book.id == listing.id && book.contentVersion == listing.contentVersion else {
+            throw StoryError.invalidBook("The reader story is unavailable. Check for updates.")
+        }
+        return book
     }
 
     func refresh() async throws -> AdventureCatalog {
@@ -66,15 +86,29 @@ final class AdventureRepository {
             if let local = bundled.adventures.first(where: {
                 $0.id == listing.id && $0.contentVersion == listing.contentVersion
             }) {
-                let localStory = try StoryLoader.load(filename: local.filename)
-                guard localStory.id == listing.id else {
-                    throw StoryError.invalidBook("Bundled adventure ID mismatch.")
+                let matches: Bool
+                if listing.format == .reader {
+                    let book = try StoryLoader.loadReader(filename: local.filename)
+                    matches = book.id == listing.id && book.contentVersion == listing.contentVersion
+                } else {
+                    let book = try StoryLoader.load(filename: local.filename)
+                    matches = book.id == listing.id && book.contentVersion == listing.contentVersion
+                }
+                guard matches else {
+                    throw StoryError.invalidBook("Bundled story does not match its catalog entry.")
                 }
                 continue
             }
             let data = try await fetch("\(listing.filename).json", sizeLimit: 1_000_000)
-            let story = try StoryLoader.decode(data)
-            guard story.id == listing.id, story.contentVersion == listing.contentVersion else {
+            let matches: Bool
+            if listing.format == .reader {
+                let book = try StoryLoader.decodeReader(data)
+                matches = book.id == listing.id && book.contentVersion == listing.contentVersion
+            } else {
+                let book = try StoryLoader.decode(data)
+                matches = book.id == listing.id && book.contentVersion == listing.contentVersion
+            }
+            guard matches else {
                 throw StoryError.invalidBook("Downloaded story does not match its catalog entry.")
             }
             try data.write(to: folder.appendingPathComponent("\(listing.id)_\(listing.contentVersion).json"), options: .atomic)

@@ -17,7 +17,7 @@ final class AdsController: ObservableObject {
 
     var bannerUnitID: String? {
         #if DEBUG
-        return "ca-app-pub-3940256099942544/2435281174"
+        return "ca-app-pub-3940256099942544/2934735716"
         #else
         guard Self.isReleaseConfigured else { return nil }
         return Bundle.main.object(forInfoDictionaryKey: "STARPORT_BANNER_UNIT_ID") as? String
@@ -50,7 +50,7 @@ final class AdsController: ObservableObject {
         configuration.publisherPrivacyPersonalizationState = .disabled
 
         let consent = ConsentInformation.shared
-        let parameters = ConsentRequestParameters()
+        let parameters = RequestParameters()
         await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
             consent.requestConsentInfoUpdate(with: parameters) { _ in
                 continuation.resume()
@@ -65,7 +65,7 @@ final class AdsController: ObservableObject {
 
         privacyOptionsRequired = consent.privacyOptionsRequirementStatus == .required
         guard consent.canRequestAds else { return }
-        MobileAds.shared.start()
+        _ = await MobileAds.shared.start()
         canShowBanner = true
     }
 

@@ -4,9 +4,10 @@ Stuffy Land is a separate iOS app inside the Starport repository. It shares the 
 
 ## The collection
 
-The real Opal universe replaces the provisional Button Hill shelf. There are **13 stories**:
+The real Opal universe replaces the provisional Button Hill shelf. There are **14 stories**:
 
-- Two interactive adventures: **Opal and the Great Pillow-Fort Mystery** and **Opal and the Great Snore-Snatcher**. Each has 36 scenes, 17 decisions per completed route, four pairs of distinct investigation/action branches, five endings, and ten rewindable detours. Clues and promises affect later prose and available endings.
+- Two adventures adapted from the recovered archive: **Opal and the Great Pillow-Fort Mystery** and **Opal and the Great Snore-Snatcher**. Each has 36 scenes, 17 decisions per completed route, four pairs of distinct investigation/action branches, five endings, and ten rewindable detours. Clues and promises affect later prose and available endings.
+- One **new original interactive adventure**, **Opal and the Great Sundae Switch**. The reader makes choices across 18 main story scenes, with five endings and ten rewindable detours. Nine of the 18 scenes have individually composed illustrations (50%). This new story is separate from recovered source material.
 - Eleven regular books with saved places, adjustable text, and Read Aloud. **The Giggle Games** preserves the complete recovered wording. Nine stories expand surviving summaries. **The Treasure of the Thousand Traps** is new fiction inspired by a surviving title and premise, because its original plot and ending were unavailable.
 
 Reader pages have no added chapter headings. Provenance appears on cards, in the reader, and in “About these stories.” Complete source prose and new adaptations are kept separately in `Editorial/`. The two DOCX uploads were byte-identical and are counted once. Old pilot fixtures remain for compatibility tests, but are absent from the visible shelf and ignored when an older cached catalog is combined with the current collection.

@@ -26,6 +26,8 @@ Opal's gemstone amplifies collective effort or reveals a useful connection; it c
 
 Use a title, no added chapter headings unless requested, and finish new linear stories with “The End.” App pages are silent reading sections, not newly invented chapters. Read-aloud duration depends on voice speed: the newly expanded shorter stories are about 5–7 minutes, and the supplied Giggle Games is longer. Future 12–15 minute requests need more developed scenes, not slower narration or inflated estimates.
 
+New original interactive stories must be labeled as new fiction in the provenance index. When adding illustrations, count distinct **main story scenes**, not endings or rewindable detours, and avoid repeating a generic cover in place of scene art. Sundae Switch illustrates nine of its eighteen main scenes; its art is generated deterministically by the accompanying illustration script and is distinct from the recovered images.
+
 ## Interactive adventures
 
 The reader helps Opal decide. Phrase choices as specific actions: “Study the moving star” or “Ask Duke what keeps him awake.” Use two or three plausible actions in ordinary scenes. Endings can have a wider set of visible options with clear prerequisite hints.

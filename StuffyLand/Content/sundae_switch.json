@@ -1,0 +1,1166 @@
+{
+  "id": "stuffy-sundae-switch",
+  "contentVersion": 1,
+  "title": "Opal and the Great Sundae Switch",
+  "subtitle": "Save a runaway sundae and find a new beginning with Swirly.",
+  "start": "s01",
+  "minimumDecisions": 7,
+  "nodes": [
+    {
+      "id": "s01",
+      "act": "The Annoyings Express",
+      "title": "The runaway cherry",
+      "paragraphs": [
+        "The cherry rose out of Opal’s sundae as neatly as if it had been invited. It floated across the galaxy tent and landed directly in Langston’s mouth. He chewed once and spread his arms. “Excellent. The Annoyings Express is now fully operational.”",
+        "Frosted Kitty, the donut cat, stood proudly beside him in a flour-dusted apron. “We're the fastest dessert delivery service in Stuffy Land.” Behind her, chocolate flowed up a fountain, curled into the letters OPAL, then splattered across Opal’s pillow.",
+        "Lolo, Opal’s slender gray-and-tan sloth lovey, watched a scoop of vanilla ice cream turn upside down. “I think part of the delivery has escaped.”",
+        "Swirly pushed through the tent flap. The chocolate-brown ice-cream cat looked from the pillow to Opal. “Of course.” Opal folded her arms. “I didn't do it.” “I haven't said what you did.” “You were about to.”",
+        "There was already a line of tiny delivery spoons floating toward the tent flap. One spoon carried a napkin; another carried a strawberry with great dignity. Opal reached to catch the nearest one, but Lolo gently reminded her to watch where it went first. The tiny spoon turned left at a gold star stitched into the blanket roof, then right at a ribbon tied by the doorway. The magic had a pattern, and patterns could be understood. Langston, meanwhile, was trying to persuade Frosted Kitty that catching flying cherries counted as quality control.",
+        "More sundaes were floating away outside, as though invisible waiters had very bad directions. Opal needed to find out what was happening before the village celebration was ruined."
+      ],
+      "illustration": {
+        "asset": "sundae-scene-01",
+        "alt": "Opal in purple star pajamas holds her gray-and-tan sloth Lolo as a cherry floats toward Langston in a galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s01_choice_1",
+          "label": "Study the chocolate message and dessert magic",
+          "to": "s02",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "route_sketch"
+            }
+          ]
+        },
+        {
+          "id": "s01_choice_2",
+          "label": "Talk to Swirly before this becomes an argument",
+          "to": "s03",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "first_listened"
+            }
+          ]
+        },
+        {
+          "id": "s01_choice_3",
+          "label": "Question Langston and Frosted Kitty about the Express",
+          "to": "s04",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "express_interview"
+            }
+          ]
+        },
+        {
+          "id": "s01_detour",
+          "label": "Let Langston catch every flying cherry with his mouth",
+          "to": "detour_1"
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "act": "The Annoyings Express",
+      "title": "The chocolate message",
+      "paragraphs": [
+        "The drips on Opal’s pillow had not landed randomly. They made little curved streaks, almost like arrows. Finley, the larger fluffy white doodle dog, inspected them with her detective notebook. Stella, smaller and calmer, sat close to Opal.",
+        "Cinny measured the spaces between the drips with a ribbon. “The pattern repeats. That usually means a route.” Near the pillow seam, Opal found a small delivery tag with chocolate on one end and vanilla frosting on the other.",
+        "Frosted Kitty winced. “That is definitely Annoyings Express equipment.” “Was it supposed to come apart?” Lolo asked. “We have a flexible policy about that,” Frosted Kitty replied.",
+        "Finley carefully drew three little arrows in her notebook and placed a paw print beside the one that seemed most important. Stella lay across the far corner of the paper so it would not curl. “She wants you to keep the evidence in order,” Opal translated. Lolo examined the chocolate on the ribbon tag. It was fresh, but the knot had an older bit of dried icing inside. Whatever had gone wrong had started with the setup, not with somebody touching Opal’s pillow. Opal felt a little less accused and a little more curious.",
+        "The tag pointed toward the cushion tunnels, but its symbols could also be compared with the delivery board. Opal had two useful leads and one very messy pillow."
+      ],
+      "choices": [
+        {
+          "id": "s02_choice_1",
+          "label": "Follow the chocolate-ribbon trail into the cushions",
+          "to": "s05",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "ribbon_trail"
+            }
+          ]
+        },
+        {
+          "id": "s02_choice_2",
+          "label": "Compare the tag with the official delivery board",
+          "to": "s06",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "message_pattern"
+            }
+          ]
+        },
+        {
+          "id": "s02_detour",
+          "label": "Let Langston draw the route in cookie crumbs",
+          "to": "detour_2"
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "act": "The Annoyings Express",
+      "title": "A difficult conversation",
+      "paragraphs": [
+        "Opal turned away from the chocolate long enough to face Swirly. Lolo settled beside her, waiting while Opal found a way to begin.",
+        "“I really didn't make the sundaes go wild,” Opal said. Swirly’s tail twitched. “This is landing on my side of the celebration.” “What celebration?” Opal asked.",
+        "Vanilla-y, Swirly’s best friend, appeared with a dab of cream on her paw. The two cats had been preparing a surprise in the village square all morning.",
+        "Swirly looked furious, but Lolo noticed that she kept glancing toward the doorway. “You were worried before you came in,” Lolo said. “Was there something important on those trays?” Swirly gave the tiniest shrug. “Maybe.”",
+        "Swirly had always been quick to answer Opal’s teasing with a sharper remark. Opal remembered the time their disagreement over dessert flavors had ended with neither wanting to sit near the other. It would be easy to assume this was more of the same. Yet Vanilla-y had been smoothing the edge of an empty serving tray as if something delicate had been lost. Lolo watched her, then glanced at Opal. “Maybe this is important in a way we haven't heard yet,” she suggested. Opal decided to ask instead of making the whole conversation about who was right.",
+        "Opal could ask her directly or let Vanilla-y explain what had gone missing. Neither choice would erase their old disagreement, but Opal could listen before she guessed."
+      ],
+      "illustration": {
+        "asset": "sundae-scene-03",
+        "alt": "Opal and chocolate-brown Swirly face each other in the galaxy tent while Lolo listens."
+      },
+      "choices": [
+        {
+          "id": "s03_choice_1",
+          "label": "Ask Swirly what she is worried about",
+          "to": "s07",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "talked_swirly"
+            }
+          ]
+        },
+        {
+          "id": "s03_choice_2",
+          "label": "Ask Vanilla-y about the missing centerpiece",
+          "to": "s08",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "vanilla_spoke"
+            }
+          ]
+        },
+        {
+          "id": "s03_detour",
+          "label": "Ask Langston to settle the argument with a speech",
+          "to": "detour_3"
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "act": "The Annoyings Express",
+      "title": "The Annoyings Express",
+      "paragraphs": [
+        "Langston straightened the apron over his blue hoodie. “Our service delivers premium desserts with speed, style, and only a medium amount of stickiness!”",
+        "Frosted Kitty pointed to three signal cards: a cherry, a swirl, and a star. “Those tell the trays where to go.” “What does each symbol mean?” Opal asked. Langston looked at Frosted Kitty. Frosted Kitty looked at Langston. “Leadership things,” Langston said.",
+        "Coatl arrived with a slow, steady step, his turtle shell high on his back. “A delivery route needs careful testing,” he observed. Axey, Opal’s pink axolotl explorer, bounced on the spot. “A mystery route!”",
+        "Frosted Kitty produced a delivery license made from a folded napkin. It had two signatures, three sprinkles, and a sticky thumbprint that may have been Langston’s. “We were going to have an opening ceremony,” she said. “We did have one,” Langston corrected. “I shouted OPEN.” Coatl watched a floating tray spin twice and return to where it started. “An enthusiastic beginning is not quite the same as a finished plan,” he told them. Langston removed his imaginary manager's hat. “Are you saying we should have made a map?” “A map would be a start,” Opal replied.",
+        "Finley examined the delivery board. Beside it, a little mechanical spinner clicked and rattled. Opal could study the signs or inspect the machine before it launched another flying scoop."
+      ],
+      "choices": [
+        {
+          "id": "s04_choice_1",
+          "label": "Help Cinny check the delivery board",
+          "to": "s06",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "flip_suspected"
+            }
+          ]
+        },
+        {
+          "id": "s04_choice_2",
+          "label": "Inspect the launch spinner with Axey",
+          "to": "s09",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "machine_checked"
+            }
+          ]
+        },
+        {
+          "id": "s04_detour",
+          "label": "Let Langston relabel the arrows from memory",
+          "to": "detour_4"
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "act": "Follow the clues",
+      "title": "The cushion tunnel",
+      "paragraphs": [
+        "The chocolate-and-ribbon trail led through low tunnels made from lavender cushions. Axey bounded ahead, then came back when Lolo reminded him that clues worked better if explorers did not step on them. “Important detective adjustment,” he said.",
+        "Finley followed the drips with her notebook while Stella stayed close to Opal. A knot of purple ribbon hung from the ceiling. Two arrows pointed in opposite directions. Someone had tied an outgoing route to an incoming one.",
+        "The tunnel divided. One side passed behind the reading pillows, toward a storage nook. The other led outside to the ribbon bridge over the garden moss, where a strawberry was bobbing in the air.",
+        "A small yellow curl of ribbon clung to one cushion seam. Axey crouched to examine it and noticed chocolate on the underside, which meant the ribbon had been dragged through the tunnel rather than hung there on purpose. He made a tiny arrow in Finley’s notebook, then remembered it wasn't his notebook and asked first. Finley wagged approvingly. Stella waited at the split and sniffed both ways. She could not choose for them, but she made it easier for Opal to see that no one had been hurt by the wandering desserts. The problem was still one they could solve together.",
+        "“Which way would a confused sundae go?” Opal asked. “Whichever way the ribbon sends it,” Lolo replied. They had better follow a clue instead of guessing."
+      ],
+      "illustration": {
+        "asset": "sundae-scene-05",
+        "alt": "Axey the pink axolotl and two white doodle dogs investigate chocolate drips in a cushion tunnel."
+      },
+      "choices": [
+        {
+          "id": "s05_choice_1",
+          "label": "Investigate behind the reading pillows",
+          "to": "s10",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "tunnel_clue"
+            }
+          ]
+        },
+        {
+          "id": "s05_choice_2",
+          "label": "Follow the strawberry trail toward the bridge",
+          "to": "s11",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "garden_trail"
+            }
+          ]
+        },
+        {
+          "id": "s05_detour",
+          "label": "Send Axey through the tunnel as fast as possible",
+          "to": "detour_5"
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "act": "Follow the clues",
+      "title": "The upside-down board",
+      "paragraphs": [
+        "Cinny spread the delivery board flat beside the chocolate-stained tag. The cherry symbol pointed inward instead of toward the village. The swirl symbol was reversed too.",
+        "Langston leaned over her shoulder. “Unless we accidentally hung the board upside down.” Everyone looked at the board and then at Langston. “A decorative error,” he said.",
+        "“It would send deliveries backward,” Cinny explained. “And the spinner could send them around again.” She traced a circle with her measuring ribbon. “The machine isn't trying to reach Opal. It's returning to the start, then being sent the wrong way.”",
+        "Cinny marked the correct direction with a tiny chalk star and the wrong direction with a loop of thread. Each time she flipped the board, Langston tried to stand on the other side so it would look right to him. “The symbols don’t change just because you do,” Cinny told him. “An important discovery,” he said, writing it on his napkin license. Opal held the tag against the board and felt the pieces begin to fit. They had found an explanation rather than a person to blame. Now they needed to find out whether the machine was still following its broken instructions.",
+        "That explained the wandering sundaes, but not what had happened to the special centerpiece Swirly was worried about. Opal could examine the spinner or follow the crooked ribbon route."
+      ],
+      "choices": [
+        {
+          "id": "s06_choice_1",
+          "label": "Inspect the machine that sends trays back",
+          "to": "s09",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "reversed_route"
+            }
+          ]
+        },
+        {
+          "id": "s06_choice_2",
+          "label": "Trace the crooked route through the cushions",
+          "to": "s10",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "route_marks"
+            }
+          ]
+        },
+        {
+          "id": "s06_detour",
+          "label": "Turn the delivery board over one more time",
+          "to": "detour_6"
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "act": "Follow the clues",
+      "title": "What Swirly made",
+      "paragraphs": [
+        "“What was supposed to happen today?” Opal asked. Swirly inspected a cushion seam. “Nothing dramatic.” Vanilla-y gave her a look. Lolo waited without interrupting.",
+        "Finally Swirly muttered, “I made something for you.” Opal blinked. “For me?” Swirly’s ears dipped. “Not because we're best friends. We're obviously not best friends.”",
+        "It was a sundae with chocolate curls carefully arranged around the top, a cherry, and a little note. Swirly had planned to offer it during the celebration, quietly, but when the deliveries went wrong she had assumed Opal would laugh at the whole idea.",
+        "Opal felt her face grow warm. She had been so ready for Swirly to be difficult that she had not imagined a peace offering.",
+        "Swirly had practiced making the chocolate curls several times, Vanilla-y admitted. One was too thick, one cracked, and one had looked more like Langston’s hair than a decoration. Swirly had kept working anyway. “I wanted it to look right,” she said. Opal looked at Lolo, remembering the care she took with her lovey’s ribbon after a long day. Something could be small and still take a great deal of love. “I'm sorry I was ready to laugh,” Opal said. Swirly said nothing for a moment. Then she asked whether Opal was going to help find the dessert.",
+        "“I would have liked to know,” Opal said. “I was trying to show you,” Swirly answered. Lolo squeezed Opal’s hand. They could still find that sundae."
+      ],
+      "illustration": {
+        "asset": "sundae-scene-07",
+        "alt": "Opal and chocolate-brown Swirly have a thoughtful conversation with gray-and-tan sloth Lolo."
+      },
+      "choices": [
+        {
+          "id": "s07_choice_1",
+          "label": "Promise Swirly you will help recover her gift",
+          "to": "s12",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "shared_worry"
+            }
+          ]
+        },
+        {
+          "id": "s07_choice_2",
+          "label": "Ask Vanilla-y to show you the surprise table",
+          "to": "s08",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "listened_again"
+            }
+          ]
+        },
+        {
+          "id": "s07_detour",
+          "label": "Have Langston deliver an apology for Opal",
+          "to": "detour_7"
+        }
+      ]
+    },
+    {
+      "id": "s08",
+      "act": "Follow the clues",
+      "title": "The empty place",
+      "paragraphs": [
+        "Behind a folding screen stood a table dressed in lavender cloth. Three spoons lay beside three place cards. The middle place was empty. Vanilla-y looked at it and sighed.",
+        "Opal read the little note: FOR OPAL — IF YOU WOULD LIKE TO START OVER, ONE SPOONFUL AT A TIME. Beneath the words was a carefully drawn chocolate curl.",
+        "Swirly watched from the doorway while pretending to check the tablecloth. Lolo nodded toward the empty spot. “The surprise matters more when we know whom it was for.”",
+        "Vanilla-y lifted the empty silver tray stand to show the place where its ribbon had been tied. A chocolate smudge shaped like a little paw remained on the handle. Swirly had made the knot herself, tightening it until the card lay straight. “She checked it twice,” Vanilla-y whispered. “Three times,” Swirly corrected from the doorway. Opal did not ask why she had been so nervous. She knew how it felt to hope a surprise would be welcomed. Lolo looked from the empty tray to the garden path. “We can still get it back,” she said. “And it can still mean what it meant.”",
+        "Opal could follow the delivery trail at once or tell Swirly that she wanted to help rescue her gift. Both would take courage of a different sort."
+      ],
+      "choices": [
+        {
+          "id": "s08_choice_1",
+          "label": "Follow the marked route toward the garden",
+          "to": "s10",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "peace_note"
+            }
+          ]
+        },
+        {
+          "id": "s08_choice_2",
+          "label": "Tell Swirly you want to help save the surprise",
+          "to": "s12",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "gift_context"
+            }
+          ]
+        },
+        {
+          "id": "s08_detour",
+          "label": "Let Frosted Kitty rewrite the missing note",
+          "to": "detour_8"
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "act": "Follow the clues",
+      "title": "The jammed spinner",
+      "paragraphs": [
+        "Behind the reading pillows, Axey found a round route spinner fitted to a silver tray stand. One arrow had been bent backward. Another was stuck in a clot of chocolate. The delivery card had been shoved upside down into the slot.",
+        "“I found the problem!” Axey called. Finley opened her notebook and Stella sat beside Coatl as he steadied the stand. The correct sequence should have been CHERRY, STAR, SWIRL. Instead, the machine told the tray to return before it had arrived.",
+        "Frosted Kitty looked unusually thoughtful. “We may have invented an Express Loop.” “A very efficient loop,” Langston added. “Not for getting anywhere,” Opal replied.",
+        "Axey leaned very close to the spinner, his pink gills trembling with concentration. He discovered that the bent arrow was not broken at all; a knot of ribbon had caught beneath it. “I can pull the knot out,” he offered. “Slowly,” Coatl said. Langston reached for a spoon to use as a lever, but Opal asked him to hold the extra cushions instead. There was no reason to make the machine angrier. Finley marked the position of each arrow while Stella sat beside the stand. Even a machine designed by The Annoyings could be improved with careful paws and a little patience.",
+        "They could fix the spinner before it launched another sundae or leave Coatl holding it safely while they hurried to warn the village."
+      ],
+      "illustration": {
+        "asset": "sundae-scene-09",
+        "alt": "Opal and pink Axey investigate a jammed dessert-route spinner and upside-down card behind pillows."
+      },
+      "choices": [
+        {
+          "id": "s09_choice_1",
+          "label": "Help Axey free the sticky spinner",
+          "to": "s10",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "spinner_untangled"
+            }
+          ]
+        },
+        {
+          "id": "s09_choice_2",
+          "label": "Have Coatl hold the machine while you warn the village",
+          "to": "s13",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "machine_stabilized"
+            }
+          ]
+        },
+        {
+          "id": "s09_detour",
+          "label": "Press all of the spinner's controls",
+          "to": "detour_9"
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "act": "Follow the clues",
+      "title": "The surprise route",
+      "paragraphs": [
+        "The strawberry trail, the chocolate arrows, and Cinny’s corrected board pointed toward the same answer: the missing centerpiece was still moving.",
+        "Finley drew the route in her notebook. Stella kept the page from blowing away. “It must pass the ribbon bridge before it reaches the square,” Axey said. “Unless it flies over the garden,” Frosted Kitty added.",
+        "Opal studied the pattern. The delivery magic was simply following bad directions. It wasn't angry with anyone, and it hadn't singled her out. Lolo looked between Opal and Swirly. “We can stop looking for someone to blame while there's still something to save.”",
+        "On Finley’s map, the route looked like a loose bow: one ribbon around the pillows, one under the bridge, one toward the lantern tree. Cinny drew a clear line through the middle. That was where the missing centerpiece would have to pass, unless the wind had pushed it off course. Opal imagined Swirly standing before the party table with nothing to give. She wanted to promise that everything would be perfect, but Lolo shook her head very slightly. They could promise to try, to keep the guests safe, and to ask for help. Perfect was not something anyone could guarantee.",
+        "Opal nodded. They could follow the garden route or carry their findings directly to the village so everyone could help."
+      ],
+      "choices": [
+        {
+          "id": "s10_choice_1",
+          "label": "Follow Finley's route toward the bridge",
+          "to": "s11",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "tracks_mapped"
+            }
+          ]
+        },
+        {
+          "id": "s10_choice_2",
+          "label": "Take your clues directly to the square",
+          "to": "s13",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "no_blame"
+            }
+          ]
+        },
+        {
+          "id": "s10_detour",
+          "label": "Let everyone follow a different ribbon",
+          "to": "detour_10"
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "act": "Save the sundae",
+      "title": "The runaway centerpiece",
+      "paragraphs": [
+        "Beyond the ribbon bridge floated a magnificent silver tray. On it leaned a towering sundae with chocolate curls, two proud scoops, whipped cream, and one cherry that kept trying to escape.",
+        "“It's beautiful,” Opal said. “It is endangered,” Cinny replied. Every time the tray reached a ribbon marker, it wobbled and turned toward the crowded village square.",
+        "Langston appeared behind a hedge with Frosted Kitty. “If I were a giant runaway dessert, I would choose dramatic scenery.” Finley found a scrape in the moss where the tray had dipped too low; Stella discovered a striped spoon hanging from a ribbon.",
+        "The cherry on top of the giant sundae drifted sideways and nearly struck a hanging lantern. Axey jumped up to catch it, then remembered that saving the whole tray mattered more than one cherry. Below the bridge, Finley and Stella carefully counted the ribbons, checking which led to safe ground. Swirly was only a few steps behind Opal. Her ears were flattened, and her eyes were fixed on the chocolate curls. For the first time Opal understood why she had been so upset: not because she wanted to win an argument, but because she thought her attempt at kindness had been lost.",
+        "Axey pointed. “If it reaches the celebration tables at that speed, it'll knock everything over!” Opal could run ahead to clear the square or ask Swirly how to land her fragile masterpiece."
+      ],
+      "illustration": {
+        "asset": "sundae-scene-11",
+        "alt": "A gigantic floating sundae flies toward the plush village as Opal and friends hurry after it."
+      },
+      "choices": [
+        {
+          "id": "s11_choice_1",
+          "label": "Run ahead to clear the celebration tables",
+          "to": "s14",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "reached_square"
+            }
+          ]
+        },
+        {
+          "id": "s11_choice_2",
+          "label": "Ask Swirly how to land the centerpiece",
+          "to": "s15",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "swirly_advice"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "act": "Save the sundae",
+      "title": "An honest promise",
+      "paragraphs": [
+        "Opal turned to Swirly. “I want to help save it. Not just the party. Your surprise too.” Swirly studied her with an expression that suggested she expected a trick.",
+        "“It isn't a trick,” Lolo said. Vanilla-y stepped closer. Swirly finally nodded. “The chocolate curls are fragile. The top scoop slides left when the tray tilts. We'll need a cool landing and something steady beneath it.”",
+        "Axey volunteered to climb the decoration arch. Coatl could brace a table. Finley and Stella would keep everyone away from the landing spot. Langston volunteered “heroic dessert negotiations,” but Opal thanked him and gave him the vital job of carrying cushions.",
+        "Swirly hesitated before answering. She was used to being the one who complained first, and it was easier to sound angry than to say she had hoped Opal would be pleased. Vanilla-y stayed beside her without speaking for her. Opal looked at Lolo and took a little breath. “I don't expect you to forget everything we argued about,” she said. “I just don't want us to keep guessing what the other one means.” Swirly considered that. “I can try,” she said at last. It wasn't a grand reunion, but it gave them something useful: the beginning of trust.",
+        "Opal did not pretend their disagreement had vanished. “We can talk about us later. Can we be on the same team now?” Swirly lifted her chin. “For dessert emergencies, certainly.”"
+      ],
+      "choices": [
+        {
+          "id": "s12_choice_1",
+          "label": "Plan the landing together",
+          "to": "s13",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "swirly_cooperates"
+            }
+          ]
+        },
+        {
+          "id": "s12_choice_2",
+          "label": "Warn the guests while Swirly prepares",
+          "to": "s14",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "headstart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "act": "Save the sundae",
+      "title": "A plan in the square",
+      "paragraphs": [
+        "The floating tray crept toward the village square while everyone gathered beside the lantern tree. Cherryberry organized the kitties. Cinny laid out the route cards. Finley showed the scrape marks in her notebook.",
+        "Swirly explained how the chocolate curls would crack if the tray tipped. Vanilla-y could make a cool cream cushion; Coatl could brace a landing table; Axey could free the bent ribbon marker. Langston offered to make a speech and was instead asked to bring more pillows.",
+        "Opal’s gemstone glowed. It did not stop the tray or magically fix the machine. It lit the ribbon route, showing each friend how their part of the plan fitted with the others.",
+        "Finley’s notebook showed where the tray would turn. Axey’s route drawing showed where to climb. Cinny’s measurement showed how wide the landing table needed to be. Opal asked each friend what they could do safely, rather than telling them to be brave at the same thing. Stella was assigned the important job of accompanying any frightened little plush away from the landing spot. Coatl checked that his shell would fit beneath the table without crushing the decorations. Even Langston’s broad shoulders and ridiculous supplies would help if someone needed to move a heavy cushion quickly. The gemstone glowed brighter as the plan made sense.",
+        "The group had two good approaches. They could clear the crowded square first or build a careful landing path together."
+      ],
+      "illustration": {
+        "asset": "sundae-scene-13",
+        "alt": "Opal, Swirly, Vanilla-y, Axey, Coatl and two white doodle dogs plan a rescue in the village square."
+      },
+      "choices": [
+        {
+          "id": "s13_choice_1",
+          "label": "Clear the square and keep the little plushies safe",
+          "to": "s14",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "cleared_plan"
+            }
+          ]
+        },
+        {
+          "id": "s13_choice_2",
+          "label": "Make a careful landing path with Swirly and Vanilla-y",
+          "to": "s15",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "team_plan"
+            }
+          ]
+        }
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "swirly_cooperates",
+            "hint": "A memory from earlier in the adventure."
+          },
+          "text": "Because Opal promised to work with Swirly, the chocolate-brown kitty comes forward with her landing advice before anyone asks."
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "act": "Save the sundae",
+      "title": "Make room to land",
+      "paragraphs": [
+        "Opal asked Cherryberry to move the little plushies toward the lantern tree. Stella walked gently beside them. Finley checked beneath every table while Langston picked up an entire bench as though he were performing a heroic rescue.",
+        "Coatl stood firm at the edge of the cleared square. Now there was space for the tray to land safely. But it was still wobbling, trying to obey a route that no longer made sense.",
+        "Swirly looked up at the leaning top scoop. “A safe landing might not be a neat landing.” Lolo nodded. “That's all right if everyone knows what they're trying to protect.”",
+        "A small kitty stopped beside the table and looked back toward her dessert bowl. Stella gently nudged her toward Cherryberry, who promised to bring it over when the square was ready. Finley drew a line across the safe path so none of the smaller plushies would wander beneath the tray. Langston carried two benches at once and almost called himself a hero, but Lolo put one soft paw to her mouth. He set them down quietly instead. Opal looked at the room they had made. Clearing the space would not save the curls, but it gave everyone a chance to watch the rescue without being in the way.",
+        "Opal could call Swirly and Vanilla-y to guide the sundae down or settle for the softest possible landing in the spare cushions."
+      ],
+      "choices": [
+        {
+          "id": "s14_choice_1",
+          "label": "Ask Swirly and Vanilla-y to guide the tray down",
+          "to": "s15",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "safe_space"
+            }
+          ]
+        },
+        {
+          "id": "s14_choice_2",
+          "label": "Use spare cushions for a soft landing",
+          "to": "s16",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "villagers_protected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "act": "Save the sundae",
+      "title": "A landing together",
+      "paragraphs": [
+        "“We do this together,” Opal said. Swirly shaped chocolate ridges along the landing cloth. Vanilla-y smoothed a cool ribbon of cream between them. Coatl braced the table with one broad shoulder.",
+        "Axey climbed the decoration arch and carefully unhooked the bent route ribbon. “Now!” he called. Opal raised her gemstone, and its warm glow lit the path the others had made. It could not do their work for them.",
+        "A little left, Swirly called. A little slower, Vanilla-y guided. Finley barked once. Stella wagged with complete faith. To everyone’s surprise, Langston held the spare pillows without announcing anything.",
+        "Swirly’s chocolate ridges were not ordinary decoration. Their shape held the silver tray steady, while Vanilla-y’s cool cream stopped the lower scoop sliding. The two friends worked without needing to explain every movement to each other. Axey called from the arch when he could see the ribbon slacken. Coatl shifted his weight by an inch; the table stopped wobbling. Opal saw all of it through the gentle light of her gemstone and understood that the most useful magic was showing the team what they had already made possible. Langston whispered, “I am being extremely professional,” which was nearly as astonishing as the flying dessert.",
+        "The tray descended. They had made a landing path, but the last few inches would decide whether the sundae arrived perfect or wonderfully lopsided."
+      ],
+      "illustration": {
+        "asset": "sundae-scene-15",
+        "alt": "Swirly and Vanilla-y guide the floating sundae while Coatl braces a table, Axey climbs and Opal's gem lights the way."
+      },
+      "choices": [
+        {
+          "id": "s15_choice_1",
+          "label": "Lower the tray the last few inches using everyone’s signals",
+          "to": "s16",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "landing_ready"
+            }
+          ]
+        },
+        {
+          "id": "s15_choice_2",
+          "label": "Let Swirly direct the final approach",
+          "to": "s17",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "landing_prepared"
+            }
+          ]
+        }
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "spinner_untangled",
+            "hint": "A memory from earlier in the adventure."
+          },
+          "text": "The spinner is no longer pushing the tray in circles. Axey's earlier discovery makes the final approach steadier."
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "act": "Save the sundae",
+      "title": "The last few inches",
+      "paragraphs": [
+        "The silver tray tilted toward the table’s edge. One chocolate curl fell, and Langston caught it on a clean plate with the serious expression of someone protecting a rare treasure.",
+        "Swirly shifted the chocolate ridge. Vanilla-y cooled the sliding scoop. Coatl held the table still while Axey tightened the last ribbon. The tray gave a shiver.",
+        "Opal could ask Swirly to guide the exact final movement while everyone kept their roles, or choose the safer cushion landing. Both would keep the village safe. Only the first offered a chance to save every carefully arranged curl.",
+        "For a long breath nobody moved. The tray creaked against the ribbon. Swirly watched the chocolate curls, but Opal noticed that she also glanced toward the little kitties waiting by the lantern tree. She wanted her gift to arrive beautifully, not at the cost of anyone getting knocked over. Vanilla-y offered a reassuring nod. “There's enough cream for a soft landing either way.” Coatl held firm. Axey waited for a signal. This was the moment when Opal could listen to the people who understood the dessert, or accept an imperfect but safe result. Either choice could lead to a good afternoon.",
+        "Lolo leaned against Opal. “You don't have to be the only one who knows what to do,” she said. Opal looked at the friends waiting for her decision."
+      ],
+      "choices": [
+        {
+          "id": "s16_choice_1",
+          "label": "Let Swirly direct the last careful movement",
+          "to": "s17",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "gentle_landing"
+            }
+          ]
+        },
+        {
+          "id": "s16_choice_2",
+          "label": "Settle the tray safely into cushions",
+          "to": "s18",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "cushion_landing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "act": "Save the sundae",
+      "title": "The saved sundae",
+      "paragraphs": [
+        "The centerpiece stood on the table, perhaps leaning a little, but clearly the special sundae. The cherry had finally stopped trying to escape. Cherryberry gathered everyone for the celebration.",
+        "Opal noticed the little note beside the striped spoons. Swirly noticed it too and suddenly became fascinated by the other side of the square. Vanilla-y gave her friend an encouraging nudge.",
+        "Langston cleared his throat. “As co-founder of The Annoyings Express, I announce our temporary retirement from unsupervised dessert routing.” Frosted Kitty gasped. “Temporary?” “Very temporary,” he whispered.",
+        "Swirly had one little spoon tucked beneath her paw. She moved it closer to the note, then farther away, then closer again. Opal remembered how nervous she had felt before offering someone a gift she had made. For once the two of them seemed to be waiting for the same thing. Lolo tucked her long sloth arm gently around Opal’s wrist. “You don't have to do this perfectly,” she murmured. “You just have to mean it.” Across the square Axey was telling Finley about the ribbon bridge, while Stella rested at Coatl’s feet. The rescue was over; the next choice belonged to Opal.",
+        "Opal had one final small decision: invite Swirly to share the first spoonful quietly, or ask her to present the rescued dessert to everyone who had helped save it."
+      ],
+      "illustration": {
+        "asset": "sundae-scene-17",
+        "alt": "Opal and Swirly share a quiet smile beside the rescued sundae as Lolo watches in lantern light."
+      },
+      "choices": [
+        {
+          "id": "s17_choice_1",
+          "label": "Invite Swirly to share the first spoonful quietly",
+          "to": "s18",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "first_spoonful"
+            }
+          ]
+        },
+        {
+          "id": "s17_choice_2",
+          "label": "Let Swirly unveil the dessert with everyone",
+          "to": "s18",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "sharing_credit"
+            }
+          ]
+        }
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "shared_worry",
+            "hint": "A memory from earlier in the adventure."
+          },
+          "text": "Swirly catches Opal’s eye. “Thanks for asking instead of guessing,” she says quietly."
+        }
+      ]
+    },
+    {
+      "id": "s18",
+      "act": "A Stuffy Land memory",
+      "title": "The celebration begins",
+      "paragraphs": [
+        "Lanterns glowed over the village square. Bowls and spoons found their places, and Opal remembered all the pieces of the rescue: Axey’s exploring, Finley’s notebook, Stella’s calm help, Coatl’s steady strength, and the care Swirly had put into her chocolate curls.",
+        "No one magic trick had fixed everything. Even Langston had helped by holding pillows rather than making another speech.",
+        "The old argument between Opal and Swirly was still part of their story. Neither had to pretend otherwise. But they had followed clues, listened when it was difficult, and found a way to share a task that neither could do alone. Opal looked at the chocolate-brown kitty and decided that a first step did not need to be a final answer. Lolo smiled, her cream-and-tan face warm in the lantern light. Langston was quietly trying to decide whether a spoon counted as a medal. The afternoon could finish with a laugh, a shared serving, or simply the promise to talk another time.",
+        "Lolo tucked herself against Opal’s shoulder. “There can be more than one good way to remember today,” she said. Whether the sundae was perfect or lopsided, Opal had a choice about how to finish the afternoon."
+      ],
+      "choices": [
+        {
+          "id": "finish_1",
+          "label": "Share the first spoonful with Swirly",
+          "to": "final_1",
+          "requirements": [
+            {
+              "flag": "first_spoonful",
+              "hint": "Invite Swirly to share the first spoonful."
+            },
+            {
+              "flag": "landing_prepared",
+              "hint": "Prepare the careful landing with Swirly."
+            }
+          ]
+        },
+        {
+          "id": "finish_2",
+          "label": "Invite Swirly to present the dessert",
+          "to": "final_2",
+          "requirements": [
+            {
+              "flag": "sharing_credit",
+              "hint": "Let Swirly present the dessert to everyone."
+            },
+            {
+              "flag": "landing_prepared",
+              "hint": "Prepare the team landing first."
+            }
+          ]
+        },
+        {
+          "id": "finish_3",
+          "label": "Enjoy the safe village celebration",
+          "to": "final_3",
+          "requirements": [
+            {
+              "flag": "villagers_protected",
+              "hint": "Choose the cushion landing after clearing the square."
+            }
+          ]
+        },
+        {
+          "id": "finish_4",
+          "label": "Remember how the clues helped everyone",
+          "to": "final_4",
+          "requirements": [
+            {
+              "stat": "clues",
+              "atLeast": 3,
+              "hint": "Find at least three clues along the route."
+            }
+          ]
+        },
+        {
+          "id": "finish_5",
+          "label": "Share the lopsided sundae",
+          "to": "final_5"
+        }
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "first_spoonful",
+            "hint": "A memory from earlier in the adventure."
+          },
+          "text": "Opal remembers the quiet invitation she made to Swirly."
+        },
+        {
+          "requirement": {
+            "flag": "sharing_credit",
+            "hint": "A memory from earlier in the adventure."
+          },
+          "text": "Opal remembers promising that everyone could share the credit for the rescue."
+        }
+      ]
+    },
+    {
+      "id": "detour_1",
+      "act": "A little detour",
+      "title": "The cherry-catching contest",
+      "paragraphs": [
+        "Langston suggests catching every cherry by opening his mouth beneath the fountain. Lolo points out that cherries are not directions. He agrees to stop before anything bounces into somebody's face."
+      ],
+      "ending": {
+        "id": "detour_1",
+        "kind": "detour",
+        "title": "The cherry-catching contest",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "detour_2",
+      "act": "A little detour",
+      "title": "The crumb compass",
+      "paragraphs": [
+        "Langston lays cookie crumbs to show the route. Finley politely sniffs one and then the next. The entire map disappears in seven seconds. They try the ribbon instead."
+      ],
+      "ending": {
+        "id": "detour_2",
+        "kind": "detour",
+        "title": "The crumb compass",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "detour_3",
+      "act": "A little detour",
+      "title": "The royal announcement",
+      "paragraphs": [
+        "Langston declares that Opal and Swirly must stop arguing immediately. They both glare at him. “I appear to have united them,” he whispers. Lolo suggests a quieter conversation."
+      ],
+      "ending": {
+        "id": "detour_3",
+        "kind": "detour",
+        "title": "The royal announcement",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "detour_4",
+      "act": "A little detour",
+      "title": "The emergency signs",
+      "paragraphs": [
+        "Langston replaces the cards with enormous signs that all say THIS WAY. One points at his snack basket. Cinny gently takes the pencil away."
+      ],
+      "ending": {
+        "id": "detour_4",
+        "kind": "detour",
+        "title": "The emergency signs",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "detour_5",
+      "act": "A little detour",
+      "title": "The record-speed explorer",
+      "paragraphs": [
+        "Axey races through the tunnel too fast to see any clues and returns wearing a ribbon around his head. “New record!” he says. Then he tries clue-finding speed."
+      ],
+      "ending": {
+        "id": "detour_5",
+        "kind": "detour",
+        "title": "The record-speed explorer",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "detour_6",
+      "act": "A little detour",
+      "title": "Even more upside down",
+      "paragraphs": [
+        "Frosted Kitty flips the board again. Every sundae makes a tiny loop and returns to the starting table. “Efficient!” Langston says. “Not for arriving,” Cinny replies."
+      ],
+      "ending": {
+        "id": "detour_6",
+        "kind": "detour",
+        "title": "Even more upside down",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "detour_7",
+      "act": "A little detour",
+      "title": "The very loud apology",
+      "paragraphs": [
+        "Langston delivers an apology through a folded paper trumpet. Swirly covers her ears and Opal closes her eyes. Lolo suggests that Opal speak for herself."
+      ],
+      "ending": {
+        "id": "detour_7",
+        "kind": "detour",
+        "title": "The very loud apology",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "detour_8",
+      "act": "A little detour",
+      "title": "A replacement note",
+      "paragraphs": [
+        "Frosted Kitty offers a replacement card reading CONGRATULATIONS ON YOUR DESSERT. Swirly shakes her head. The original words matter, so they look for the real card."
+      ],
+      "ending": {
+        "id": "detour_8",
+        "kind": "detour",
+        "title": "A replacement note",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "detour_9",
+      "act": "A little detour",
+      "title": "The every-button solution",
+      "paragraphs": [
+        "Axey reaches for all the spinner buttons at once. Coatl’s warning lights glow. He gently holds the machine still. “One at a time,” he says."
+      ],
+      "ending": {
+        "id": "detour_9",
+        "kind": "detour",
+        "title": "The every-button solution",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "detour_10",
+      "act": "A little detour",
+      "title": "The ribbon parade",
+      "paragraphs": [
+        "Langston tells everyone to choose their own ribbon route. Soon six groups are marching in circles. Finley opens her notebook and brings everyone back to one useful path."
+      ],
+      "ending": {
+        "id": "detour_10",
+        "kind": "detour",
+        "title": "The ribbon parade",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "final_1",
+      "act": "A Stuffy Land memory",
+      "title": "One Spoonful at a Time",
+      "paragraphs": [
+        "Opal offered Swirly a striped spoon. “Would you share the first bite with me?” Swirly blinked. Vanilla-y nearly toppled off her cushion. “I suppose that would be acceptable,” Swirly said. Together they tasted chocolate, vanilla, and neatly rescued curls.",
+        "“It's really good,” Opal said. “Obviously.” Swirly's tail gave one pleased flick. Lolo snuggled against Opal while the lanterns glowed. Their old disagreement was not magically gone, but they had a spoonful, a shared laugh, and somewhere gentle to begin again.",
+        "Langston announced that The Annoyings Express was retiring from unsupervised dessert routing. “For one afternoon,” Frosted Kitty corrected. Everyone laughed. The End."
+      ],
+      "ending": {
+        "id": "final_1",
+        "kind": "final",
+        "rank": 1,
+        "title": "One Spoonful at a Time",
+        "note": "This ending is saved in your memory book. You can try another way on your next visit."
+      }
+    },
+    {
+      "id": "final_2",
+      "act": "A Stuffy Land memory",
+      "title": "The Grand Unveiling",
+      "paragraphs": [
+        "Swirly stood beside the rescued centerpiece with Vanilla-y at her shoulder. Opal offered her the place at the front. “It was your idea, and everybody helped save it.”",
+        "Langston climbed a basket to announce the unveiling. He bowed so extravagantly that a chocolate curl landed on his nose. Swirly laughed, then passed Opal a bowl. “There's more chocolate if you want some.”",
+        "Finley recorded the rescue in her notebook. Stella curled up beside Coatl, exhausted by the excitement. Lolo leaned into Opal's side while the village shared the celebration. The End."
+      ],
+      "ending": {
+        "id": "final_2",
+        "kind": "final",
+        "rank": 2,
+        "title": "The Grand Unveiling",
+        "note": "This ending is saved in your memory book. You can try another way on your next visit."
+      }
+    },
+    {
+      "id": "final_3",
+      "act": "A Stuffy Land memory",
+      "title": "The Party Is Saved",
+      "paragraphs": [
+        "The village square was clear when the tray dipped too quickly. It slid into the emergency cushions instead of the crowded tables. Langston caught a loose scoop on a clean plate with an expression of enormous pride.",
+        "Swirly's chocolate curls had collapsed, but Vanilla-y helped repair what they could. Later Opal found Swirly beneath the lantern tree. “It wasn't the landing we wanted.” “No,” Swirly said, then held out a spoon. “But everybody's safe. And it tastes good.”",
+        "They ate beside Lolo. There was still work to do between them, but they did not have to do it all tonight. The End."
+      ],
+      "ending": {
+        "id": "final_3",
+        "kind": "final",
+        "rank": 3,
+        "title": "The Party Is Saved",
+        "note": "This ending is saved in your memory book. You can try another way on your next visit."
+      }
+    },
+    {
+      "id": "final_4",
+      "act": "A Stuffy Land memory",
+      "title": "The Mapmakers' Rescue",
+      "paragraphs": [
+        "Finley’s notebook and Cinny’s drawing told everyone where to move the cushions. Axey corrected the last ribbon marker, and the cherry found its place beside the chocolate curls.",
+        "“You followed the clues,” Swirly told Opal. “And you made the plan with us,” Opal answered. They were not suddenly best friends; they were two people who had solved a problem without making each other the problem.",
+        "Cinny saved the new route map. Langston immediately tried to explain it while holding it backward, which made Opal, Swirly and Lolo laugh at exactly the same moment. The End."
+      ],
+      "ending": {
+        "id": "final_4",
+        "kind": "final",
+        "rank": 4,
+        "title": "The Mapmakers' Rescue",
+        "note": "This ending is saved in your memory book. You can try another way on your next visit."
+      }
+    },
+    {
+      "id": "final_5",
+      "act": "A Stuffy Land memory",
+      "title": "The Lopsided Sundae",
+      "paragraphs": [
+        "The tray landed safely but not very neatly. A chocolate curl slid into the whipped cream, the cherry rolled into an empty bowl, and one vanilla scoop looked like a very delighted mountain.",
+        "“A masterpiece of unexpected architecture,” Langston declared. “It's crooked,” Swirly said. “Both things can be true,” Lolo replied.",
+        "Opal helped carry the bowls to the lantern tree. “I'm sorry I assumed the worst,” she told Swirly. “I was ready to do that too,” Swirly admitted. They shared a smile, not a promise to forget everything. Axey got a clean bowl, Stella rested beside Coatl, and The Annoyings promised to build a less ambitious machine next time. The End."
+      ],
+      "ending": {
+        "id": "final_5",
+        "kind": "final",
+        "rank": 5,
+        "title": "The Lopsided Sundae",
+        "note": "This ending is saved in your memory book. You can try another way on your next visit."
+      }
+    }
+  ]
+}

@@ -32,6 +32,21 @@
       "editorialNote": "Interactive adaptation of a complete recovered story."
     },
     {
+      "id": "stuffy-sundae-switch",
+      "filename": "sundae_switch",
+      "contentVersion": 1,
+      "kind": "adventure",
+      "title": "Opal and the Great Sundae Switch",
+      "subtitle": "Save a runaway sundae and find a new beginning with Swirly.",
+      "blurb": "The Annoyings Express sends a special dessert flying across Stuffy Land. Follow the clues, save the celebration, and decide how to begin again with Swirly.",
+      "genre": "Choose your adventure",
+      "symbol": "birthday.cake.fill",
+      "estimatedMinutes": 13,
+      "coverAsset": "sundae-scene-01",
+      "collection": "Choose an adventure",
+      "editorialNote": "New original interactive story, written for the Stuffy Land app; not a recovered transcript."
+    },
+    {
       "id": "stuffy-giggle-games",
       "filename": "giggle_games",
       "contentVersion": 1,

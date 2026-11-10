@@ -13,9 +13,9 @@ final class StuffyCollectionTests: XCTestCase {
     func testEveryPublishedStoryDecodesWithTheActualAppModels() throws {
         let catalog = try JSONDecoder().decode(AdventureCatalog.self, from: data("catalog"))
         try StoryLoader.validateCatalog(catalog)
-        XCTAssertEqual(catalog.adventures.count, 13)
+        XCTAssertEqual(catalog.adventures.count, 14)
         XCTAssertEqual(catalog.adventures.filter { $0.format == .reader }.count, 11)
-        XCTAssertEqual(catalog.adventures.filter { $0.format == .adventure }.count, 2)
+        XCTAssertEqual(catalog.adventures.filter { $0.format == .adventure }.count, 3)
         XCTAssertFalse(catalog.adventures.contains { $0.id == "stuffy-bell" || $0.id == "stuffy-reader-sample" })
         for entry in catalog.adventures {
             XCTAssertNotNil(entry.editorialNote)
@@ -33,6 +33,18 @@ final class StuffyCollectionTests: XCTestCase {
         }
     }
 
+    func testSundaeSwitchIllustratesExactlyHalfOfItsMainScenes() throws {
+        let book = try StoryLoader.decode(data("sundae_switch"))
+        let mainScenes = book.nodes.filter { $0.ending == nil }
+        let sceneArt = mainScenes.compactMap { $0.illustration?.asset }
+        XCTAssertEqual(mainScenes.count, 18)
+        XCTAssertEqual(sceneArt.count, 9)
+        XCTAssertEqual(Set(sceneArt).count, 9)
+        XCTAssertEqual(book.finalCount, 5)
+        XCTAssertEqual(book.detourCount, 10)
+        XCTAssertGreaterThanOrEqual(book.minimumDecisions, 7)
+    }
+
     func testOriginalGiggleGamesSurvivesPaginationVerbatim() throws {
         let original = try String(contentsOf: root.appendingPathComponent("StuffyLand/Editorial/source/giggle_games.txt"), encoding: .utf8)
             .trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: "\n\n")
@@ -41,8 +53,8 @@ final class StuffyCollectionTests: XCTestCase {
         XCTAssertEqual(book.pages.flatMap(\.paragraphs), Array(original.dropFirst()))
     }
 
-    func testBothAdventuresCanReachEveryEndingAndRewindEveryDetour() throws {
-        for filename in ["pillow_fort", "snore_snatcher"] {
+    func testAllAdventuresCanReachEveryEndingAndRewindEveryDetour() throws {
+        for filename in ["pillow_fort", "snore_snatcher", "sundae_switch"] {
             let book = try StoryLoader.decode(data(filename))
             let relevantFlags = Set(book.nodes.flatMap { $0.choices ?? [] }
                 .flatMap { $0.requirements ?? [] }.compactMap(\.flag))
@@ -85,6 +97,24 @@ final class StuffyCollectionTests: XCTestCase {
             XCTAssertEqual(finals, Set((1...5).map { "final_\($0)" }))
             XCTAssertEqual(detours.count, 10)
         }
+    }
+
+    func testSundaeEndingMemoriesAndClueBadgesAreAdventureSpecific() throws {
+        let book = try StoryLoader.decode(data("sundae_switch"))
+        var engine = try AdventureEngine(book: book)
+        while !engine.isComplete {
+            let candidates = engine.choices.filter {
+                $0.isAvailable(stats: engine.progress.stats, flags: engine.progress.flags)
+                    && book.node($0.to)?.ending?.kind != .detour
+            }
+            let selected = try XCTUnwrap(candidates.first)
+            try engine.choose(selected.id)
+        }
+        let expected = "sundae_ending_\(engine.node.ending!.rank!)"
+        let earned = AchievementCatalog.unlockedBy(engine, event: .choice, stuffyLand: true)
+        XCTAssertTrue(earned.contains(expected))
+        XCTAssertFalse(earned.contains(where: { $0.hasPrefix("snore_ending_") }))
+        XCTAssertFalse(earned.contains(where: { $0.hasPrefix("pillow_ending_") }))
     }
 
     func testEndingMemoriesAreScopedToTheirAdventure() throws {

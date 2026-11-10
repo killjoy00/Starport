@@ -307,9 +307,27 @@ def main():
         duration = max(4, math.ceil(sum(len(p.split()) for p in body)/145))
         listings.append({'id': book['id'], 'filename': filename, 'contentVersion': 1, 'kind': 'reader', 'title': title, 'subtitle': subtitle, 'blurb': subtitle, 'genre': 'Read or listen', 'symbol': symbol, 'estimatedMinutes': duration, 'coverAsset': 'stuffy-tent', 'collection': 'Read or listen', 'editorialNote': note})
         provenance.append({'id': book['id'], 'status': {'original':'recovered_original', 'summary':'summary_adaptation', 'premise':'premise_inspired_new_story'}[status], 'source': str(src.relative_to(EDITORIAL)), 'notes': note})
+    # The new interactive Sundae Switch is authored as its own story graph,
+    # not extracted from the recovered transcript. Preserve its catalog entry
+    # when this deterministic builder regenerates the original collection.
+    sundae = json.loads((CONTENT / 'sundae_switch.json').read_text())
+    listings.insert(2, {
+        'id': sundae['id'], 'filename': 'sundae_switch', 'contentVersion': sundae['contentVersion'],
+        'kind': 'adventure', 'title': sundae['title'], 'subtitle': sundae['subtitle'],
+        'blurb': 'The Annoyings Express sends a special dessert flying across Stuffy Land. Follow the clues, save the celebration, and decide how to begin again with Swirly.',
+        'genre': 'Choose your adventure', 'symbol': 'birthday.cake.fill',
+        'estimatedMinutes': 13, 'coverAsset': 'sundae-scene-01',
+        'collection': 'Choose an adventure',
+        'editorialNote': 'New original interactive story, written for the Stuffy Land app; not a recovered transcript.'
+    })
+    provenance.append({
+        'id': sundae['id'], 'status': 'new_original_interactive',
+        'source': '../Content/sundae_switch.json',
+        'notes': 'Original new interactive story based on the approved Sundae Switch pitch; 18 main scenes, nine scene illustrations, five endings and ten short rewindable detours. Not recovered archive material.'
+    })
     write(CONTENT / 'catalog.json', {'formatVersion': 1, 'adventures': listings})
     write(EDITORIAL / 'story-provenance.json', {'sourceDocumentSHA256': 'ab0dbfbe1381b242ed7da202ae18a6fd52a231cc37e26bf8a649db5b8ac31a63', 'duplicateAttachments': True, 'stories': provenance})
-    print(f'Built {len(listings)} stories: 2 adventures and {len(readers)} readers')
+    print(f'Built {len(listings)} stories: 3 adventures and {len(readers)} readers')
 
 
 if __name__ == '__main__':

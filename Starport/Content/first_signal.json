@@ -1,6 +1,6 @@
 {
   "id": "door-tomorrow",
-  "contentVersion": 3,
+  "contentVersion": 4,
   "title": "The Door That Opens Tomorrow",
   "subtitle": "A ship due tomorrow sends a warning today.",
   "start": "s01",
@@ -14,7 +14,9 @@
         "The arrival board says the Wren won't reach Starport Nine until tomorrow. The empty dock disagrees. Its bell rings twice and a child's voice comes through the radio: “Don't open the door.”",
         "Through the glass, the planet Pel glows red. A silver storm is gathering along its horizon. You're the station's youngest navigation cadet—and the only one close enough to answer.",
         "Your hand is still on the station's school assignment: a chart of tomorrow's shipping traffic, three ordinary cargo vessels, and one late courier named the Wren. You had been worrying about whether Chief Osei would mark your work as careful enough. Now the courier's name is glowing on a radio channel that should be silent.",
-        "From a nearby repair bay comes the sound of Ren arguing with a vending machine. Somewhere down the corridor, the station's lights dim as the storm brushes the solar panels. You know the rules: cadets report odd signals, adults make the decisions. But no adult is standing beside this radio. The voice whispers again, closer this time, as if the child aboard the Wren has turned toward you."
+        "From a nearby repair bay comes the sound of Ren arguing with a vending machine. Somewhere down the corridor, the station's lights dim as the storm brushes the solar panels. You know the rules: cadets report odd signals, adults make the decisions. But no adult is standing beside this radio. The voice whispers again, closer this time, as if the child aboard the Wren has turned toward you.",
+        "The watch desk is not a heroic place. It has a mug with a chipped handle, a row of pencils sharpened at both ends, and a reminder from Chief Osei to stop leaving orange peels in the chart drawer. You were supposed to finish your practice navigation before supper. Now the bell from an empty dock is ringing through the bones of the station, and the mug is making tiny circles on its coaster.",
+        "You press the replay key. The child sounds as if they are trying not to wake someone nearby. In the background, something clicks four times: three quick taps, then one slow. It is the sort of small sound a person might forget after hearing a warning like that. You find yourself listening for it again."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -67,7 +69,8 @@
         "Dock Seven's window shows a perfectly empty stretch of space. The bell rings again. The station computer, TAVI, says the dock's pressure sensors report a ship—and also report absolutely nothing.",
         "A printed sign reads DO NOT TRUST YOUR EYES DURING A GLASS STORM. Someone has underlined YOUR EYES three times.",
         "You press your forehead against the thick glass, then pull back when your own reflection does something strange. For a moment it looks as though you are standing a little to the left of yourself. TAVI says this is a known optical effect and lists three possible explanations. When you ask which one it believes, the computer says, “None of them.”",
-        "The bell sounds through the floor rather than the air. You can feel it in the soles of your shoes. Whatever is happening outside, it seems to have learned how to get inside."
+        "The bell sounds through the floor rather than the air. You can feel it in the soles of your shoes. Whatever is happening outside, it seems to have learned how to get inside.",
+        "The camera on the outside wall swivels obediently when you ask. Behind the window, ice dust drifts past in silver loops. Its shadow crosses the far bulkhead half a second before the dust reaches it. You compare the camera clock with the wristwatch Chief Osei gave you for finishing your first training year; they disagree by exactly three seconds. TAVI proposes resetting both. You tell it to leave the clocks alone. The wrong time might be the only honest thing on either screen."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -117,7 +120,9 @@
         "Ren meets you halfway down the corridor, swinging a wrench like a conductor's baton. “The dock bell has no power,” they say. “I personally unplugged it yesterday.”",
         "There's only one way to reach the emergency cable: a ladder over a ventilation fan.",
         "Ren has always repaired things by talking to them. Usually the things ignore the conversation, but tonight the station's ventilation fan gives a small grateful squeak as Ren tightens a bolt. “See? It likes me,” they say, and you almost smile.",
-        "You have known Ren long enough to spot their serious face beneath the jokes. They are watching the cable the way a pilot watches a damaged wing. If the disconnected bell has started ringing, then the whole station may be trusting equipment that isn't telling the truth."
+        "You have known Ren long enough to spot their serious face beneath the jokes. They are watching the cable the way a pilot watches a damaged wing. If the disconnected bell has started ringing, then the whole station may be trusting equipment that isn't telling the truth.",
+        "Ren takes a screwdriver from behind one ear and points toward the hatch with it. “I can mend the fan,” they say. “I can tell you why the bell was disconnected. I can't tell you why the sound is coming through a cable that ends in a box of spare screws.” They say the last part very quietly. Ren's confidence is usually loud enough to fill a repair bay, so you pay attention.",
+        "A loose washer rattles down from the ladder and skates across the floor. Ren traps it beneath a boot, then hands it to you. “Keep that,” they say. “When everybody starts saying we imagined this, we'll have something that actually fell.” You slip it into your pocket beside your school badge."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -177,7 +182,9 @@
         "The signature at the bottom is dated tomorrow. Even the ink scan is marked as received.",
         "Mika is not a name you know. You zoom in on the junior pilot's picture: an ordinary face, a bright orange flight jacket, and a lopsided grin caught by the identification camera. The kind of person you might have met at a station school and argued with about the fastest racing ships.",
         "At the bottom of the list, beside the seedlings, is an additional cargo note: LAST VIABLE PEL ORCHARD STOCK. You remember a documentary about trees that used to grow on the planet before the great dust years. The Wren isn't only delivering passengers. It is carrying a piece of Pel's future.",
-        "The manifest is signed with tomorrow's date. That should make it a harmless mistake. Instead you find yourself holding your breath. If the ship has not launched yet, then Mika has not heard the warning you are about to send."
+        "The manifest is signed with tomorrow's date. That should make it a harmless mistake. Instead you find yourself holding your breath. If the ship has not launched yet, then Mika has not heard the warning you are about to send.",
+        "One of the scientists on the manifest is listed as Dr. Iona Bel, the botanist who spent twelve years cataloguing the last surviving Pel orchard. She has packed an entire lifetime of work into sixteen boxes with ordinary cargo numbers. A note beside the seventh box says WATER EVERY SIX HOURS, EVEN IF THE SHIP IS LATE. You imagine her walking between those crates while the Wren's engine shakes and the lights go out.",
+        "TAVI has found the manifest's original submission record. It was written by an ordinary clerk on Pel and sent through ordinary channels. The impossible part is the receipt: Starport Nine stamped it tomorrow, then revised the time twice as though someone had tried to correct a typo and made it worse. You can almost see the clerk frowning at a terminal on the other side of the solar system."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -231,7 +238,9 @@
         "Outside, the red planet vanishes behind the first bright ribbon of the storm.",
         "Chief Osei was once a rescue officer. You know this because every student on Starport Nine knows the story of the flood at the south hydroponics deck, when Osei kept thirteen families calm by asking them to count the lights in the ceiling. They are not easily impressed by a frightened cadet with a strange recording.",
         "But they do not laugh. They ask three questions you hadn't thought of: who else heard the voice, what equipment received it, and whether anyone has opened Dock Seven. When you say the hatch is still closed, Osei nods as though that may be the most important answer of all.",
-        "“You have my attention,” the chief says. “But attention is not the same thing as permission. Bring me something we can verify.” The order is firm. So is the trust behind it: Osei is treating you like someone who might actually find the answer."
+        "“You have my attention,” the chief says. “But attention is not the same thing as permission. Bring me something we can verify.” The order is firm. So is the trust behind it: Osei is treating you like someone who might actually find the answer.",
+        "The chief puts a hand flat on the desk while you explain the bell. One finger taps three times, then a fourth, slower tap. You stop speaking. Osei notices where you're looking and stills their hand. “An old habit,” they say. “That's how the rescue teams used to check a radio line.” You wonder whether a habit can travel through time, or whether somebody aboard the Wren learned the same rhythm.",
+        "A message arrives from the shelter coordinator: two classrooms have been moved away from Dock Seven, and one family refuses to leave their luggage behind. Osei answers it before looking back at you. They are responsible for a station full of small, particular emergencies. Your impossible warning is one more item on their list, and perhaps the only one they can't solve by giving a clear order."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -280,7 +289,9 @@
         "TAVI fires a tiny test pulse through the docking mirror. The reflected signal returns three seconds before the pulse leaves. The computer displays the result, erases it, displays it again, and finally says, “I dislike this answer.” The glass storm is bending more than light.",
         "Ren has found two ways to investigate. The first leads into the station archives, where old flight maps and original mirror records may explain the impossible timing. The second leads through a maintenance airlock onto the station's outer hull, where the disconnected bell has started vibrating again.",
         "You cannot follow both routes before the storm reaches Dock Seven. The archive is safer but may leave the physical evidence untouched. The hull could show you something the cameras have missed, but it means trusting your suit and Ren's steady hand.",
-        "Chief Osei calls once more: “Don't chase every answer. Choose the one you can bring back.” The radio crackles with Mika's voice, too faint to understand. You choose where to begin."
+        "Chief Osei calls once more: “Don't chase every answer. Choose the one you can bring back.” The radio crackles with Mika's voice, too faint to understand. You choose where to begin.",
+        "Ren spreads the two route diagrams across the workbench. On one, the archives are marked in pencil with the names of people who have retired or died. On the other, a maintenance line crosses the station's outer wall beside a patch of welds. “I can follow either of these,” Ren says, “but not both. My spare suit is in the airlock, and the archive doors will seal when the emergency schedule starts.”",
+        "The bell knocks again while you study the maps. It sounds less like an alarm now and more like someone on the other side of a thick door waiting for you to answer. Chief Osei does not call twice. You have to decide what kind of proof will matter most before the choice is made for you."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -348,7 +359,9 @@
       "paragraphs": [
         "Emergency strips flicker along the floor. Everyone is heading toward the shelter doors, but you need to reach the weather station.",
         "A maintenance cart has rolled across the corridor. Behind it, a box of glass-storm sensors rattles.",
-        "At the bend in the corridor an older passenger is struggling to keep a rolling case upright. His hands are shaking. You almost pass him—your evidence matters, and every minute counts—but then you remember what Chief Osei would ask. Evidence of danger means very little if the people nearest it can't get to safety. The cart's wheel has jammed in a drainage grate, and the whole corridor is beginning to bottleneck."
+        "At the bend in the corridor an older passenger is struggling to keep a rolling case upright. His hands are shaking. You almost pass him—your evidence matters, and every minute counts—but then you remember what Chief Osei would ask. Evidence of danger means very little if the people nearest it can't get to safety. The cart's wheel has jammed in a drainage grate, and the whole corridor is beginning to bottleneck.",
+        "The man with the case says his name is Mr. Em. He is carrying the wooden parts of a model ship he has been building for fifteen years. One wheel catches in the grating every time he tries to pull the case free. You want to tell him the model can wait. Instead you see the care with which he has packed each piece in cloth and understand why he can't bring himself to leave it.",
+        "Across the corridor a nurse is helping two children count the red emergency lights. One counts too fast and has to start again. They are frightened, but the counting gives them something to do with the fear. You remember Osei's old rescue story and wonder whether the chief learned that trick from someone else."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -399,7 +412,9 @@
         "Pilot Juno once flew that yellow route, back when the outer mirror still worked by hand.",
         "The yellow route is printed so faintly that you have to hold the map against a ceiling lamp. Its line passes through a sector marked INSTRUMENT SHADOW, where ships used to navigate by counting radio pulses rather than staring at lights.",
         "Near the bottom, someone has written a line in pencil: FIND THE HOME THAT DOESN'T MOVE. There are other notes beside the map, most crossed out. You begin to suspect that the bright new docking system was built to solve a problem the older pilots understood in a different way.",
-        "Behind the map you discover a photograph of Pilot Juno beside a small rescue shuttle. One window is shattered. Someone has carefully folded the picture so the broken glass doesn't show."
+        "Behind the map you discover a photograph of Pilot Juno beside a small rescue shuttle. One window is shattered. Someone has carefully folded the picture so the broken glass doesn't show.",
+        "The map's glass has a crack shaped like a river, and you have to peer around it to read the old route's distance marks. One of the notes in the margin is Juno's unmistakable handwriting: TRUST THE TURN YOU CAN MEASURE. Beneath it someone else has written, in newer ink, TOO SLOW. The disagreement has lasted for years without either pilot ever meeting the other in this room.",
+        "The young version of Juno in the photograph is laughing at the camera, one boot hooked over the shuttle's landing rail. You fold the photograph carefully again, keeping the damaged window out of sight as she did. Whatever happened on that flight, the map survived because somebody thought it might still help."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -452,7 +467,9 @@
         "Mika's name flashes on your radio screen, but the channel stays quiet. You remember the Wren's launch schedule: the ship isn't even loaded yet.",
         "A station bulletin announces that all courier departures are delayed by the glass storm. Tomorrow hasn't gotten the memo.",
         "You try Mika's name aloud. It sounds strange in an empty corridor, like calling someone you haven't met through a door you aren't allowed to open. The radio does not answer immediately. Instead the ship's identification tone repeats, then drops into a hiss of distant engine noise.",
-        "TAVI suggests that a message aimed at tomorrow might arrive anywhere along the Wren's route, not necessarily in its cockpit. You think of Mika sitting on a launch pad, hearing a voice that says the ship is already in danger. How would you prove that voice was trying to help?"
+        "TAVI suggests that a message aimed at tomorrow might arrive anywhere along the Wren's route, not necessarily in its cockpit. You think of Mika sitting on a launch pad, hearing a voice that says the ship is already in danger. How would you prove that voice was trying to help?",
+        "You consider asking TAVI to send a recording of your voice to the Wren's launch office. It would be an easy way to prove you exist, but it might also frighten Mika before the ship has even boarded its passengers. Ren says you can always send a second message to explain the first. TAVI replies that the station's present problem began with precisely that sort of second message.",
+        "A burst of static carries a laugh so brief you almost miss it. You replay the sound and think of Mika's identification picture, with that crooked grin. It's a strange thing to learn about someone while trying to prevent a disaster: a person can be brave enough to make a warning sound calm and still laugh at a joke in a cockpit."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -515,7 +532,9 @@
         "The next page is missing. Someone tore it out cleanly.",
         "The archive's lights turn on one row at a time, revealing boxes of paper charts and obsolete control panels. Juno's old notebook is wedged beneath a training manual titled DOCKING WHEN THINGS GO WRONG. Its first page says that most emergencies begin with a small decision someone is certain is harmless.",
         "You trace a fingertip over the torn binding. This page wasn't lost by accident; the paper was removed carefully, as though its owner wanted to keep one particular answer close. The remaining ink reads USE THE SHADOW, then stops at the jagged edge.",
-        "When you reach for your wrist radio, a transmission slips through the static. It isn't Mika this time. It is the sound of your own breathing, a few beats too fast, followed by a word you have not yet said."
+        "When you reach for your wrist radio, a transmission slips through the static. It isn't Mika this time. It is the sound of your own breathing, a few beats too fast, followed by a word you have not yet said.",
+        "The missing page has left a shallow impression on the sheet beneath it. You tilt the notebook toward the light and catch a few letters where a hard pencil pressed through: SHADOW IS NOT EMPTY. Most of the sentence is gone. TAVI offers to reconstruct the handwriting from a hundred samples in the station records. You tell it not to. Some missing words should stay missing until someone who knows them can explain.",
+        "The archive door rattles as a supply trolley passes outside. For a breath you think somebody is coming to tell you the warning was a mistake and the Wren is safe. It is only a cleaner with a bucket, moving carefully so the cart won't disturb the old paper. You hold the notebook a little tighter."
       ],
       "conditionalParagraphs": [
         {
@@ -572,7 +591,9 @@
         "The manifest signature blinks out and returns with a new date: two days from now. Only you and TAVI notice.",
         "'A paperwork error?' TAVI asks. It sounds as if the computer hopes you will say yes.",
         "Somewhere behind the wall a small clock begins ticking backward. The archive's clock is still ticking forward. You listen to both, trying to understand which one belongs to the station.",
-        "TAVI asks permission to delete the impossible timestamp as corrupted data. You refuse. If somebody from tomorrow has found a way to send a warning, then deleting the evidence is the one mistake you know you cannot afford. You are beginning to understand why Chief Osei demanded proof instead of a story."
+        "TAVI asks permission to delete the impossible timestamp as corrupted data. You refuse. If somebody from tomorrow has found a way to send a warning, then deleting the evidence is the one mistake you know you cannot afford. You are beginning to understand why Chief Osei demanded proof instead of a story.",
+        "TAVI brings up a list of routine clock corrections made during the last week. The station has never been perfectly punctual; its cheap corridor clocks often lose a second during heater maintenance. This error is different. Every correction points forward to a moment that has not happened, then returns to the present as though the system is apologizing for knowing too much.",
+        "You save both versions of the manifest under separate names instead of replacing one with the other. Ren would call it a messy repair. Chief Osei might call it evidence handling. You simply don't want tomorrow's children to inherit a story with the inconvenient parts erased."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -625,7 +646,9 @@
         "At the end of the archive corridor—or the outer-hull walk, if that was the path you took—the station cameras all display the same impossible skip. At 09:39 the dock is empty. At 09:41 it is still empty. The minute between them has been torn out as neatly as Juno's missing notebook page.",
         "Ren says the mirror's motor may have recorded something that happened tomorrow and played it backward through the station's power lines. Pilot Juno, watching the data from her room, disagrees. “A captain can fly through a false image,” she says. “The danger is believing the wrong map.”",
         "Two people who know the station are offering you different answers. The engineers want to climb into the machinery and find out what caused the lost minute. Juno wants you in her old training cockpit, where a pilot can learn to steer without trusting a single bright reflection.",
-        "There's no time to do both. You can become an investigator of the station itself, or learn how to help the Wren fly a route no modern autopilot would choose. Whichever you pick, the other answer will remain out of reach for now."
+        "There's no time to do both. You can become an investigator of the station itself, or learn how to help the Wren fly a route no modern autopilot would choose. Whichever you pick, the other answer will remain out of reach for now.",
+        "Ren draws two small circles on a scrap of paper. One represents the station; the other, the Wren. They connect them with a straight line and add a second line that curls backward. “If the ship can talk through the curl,” they say, “then maybe we can send it something useful. But a bad instruction travels just as well as a good one.” Juno, listening on the radio, says the first job of a pilot is not to trust instructions until they can be checked against the actual sky.",
+        "You keep both versions of the drawing. One looks like a machine problem. The other looks like a person trying to find a home. The missing minute is still missing, but at least the two people arguing over it are trying to save the same ship."
       ],
       "conditionalParagraphs": [
         {
@@ -706,7 +729,9 @@
         "TAVI reports that the mirror's motor is drawing power from the wrong deck. Something is steering it.",
         "The corridor rocks beneath your boots again. A cart rolls sideways across the floor, and for one impossible second a loose bolt hangs motionless in front of your eyes. Then gravity returns and everything drops with a clatter. You catch the bolt before it rolls into a drain.",
         "Ren inspects the motor diagram. The wrong circuit isn't random; a sequence of tiny power requests has been sent from the mirror to the station's old engine deck. Each request has a timestamp three seconds ahead of the last. Somebody—or something—is walking a signal through the equipment.",
-        "If you follow the requests, you might discover where the impossible minute went. But the shelter lights still depend on those same circuits, and every measurement risks disturbing a system full of frightened people."
+        "If you follow the requests, you might discover where the impossible minute went. But the shelter lights still depend on those same circuits, and every measurement risks disturbing a system full of frightened people.",
+        "The station's old generator is housed behind a grille thick with faded safety stickers. Its indicator has been replaced three times; Ren recognizes each repair by the shape of the solder. “My grandfather put in the first one,” they say, sounding almost pleased. “He would have hated the new software. He liked switches that stayed where you left them.”",
+        "You follow the current on a strip of copper tape. At each junction the pulse hesitates for the same length of time, as if whoever is sending it is counting steps from a map. When you reach the final junction, the line points toward Dock Seven, even though the main controls claim the dock has no power."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -756,7 +781,9 @@
         "The old engine deck is cold enough to frost your breath. A coolant pipe has cracked, leaving silver crystals across the floor.",
         "Ren offers to patch it. TAVI says the spare battery beside the pipe is still charged.",
         "The cracked coolant pipe is no bigger than your thumb, but the frost spreading from it has reached the lower wall. Ren kneels beside the leak, hands moving with the concentration you usually see only when they are building a new drone.",
-        "You hear a faint tapping under the pipe's rattle. A warning rhythm, four beats long. It doesn't seem possible that a coolant line could carry a radio signal. Then you remember the bell outside. Tonight, every piece of metal is part of the same strange message."
+        "You hear a faint tapping under the pipe's rattle. A warning rhythm, four beats long. It doesn't seem possible that a coolant line could carry a radio signal. Then you remember the bell outside. Tonight, every piece of metal is part of the same strange message.",
+        "Ren breaks the seal on a packet of emergency insulation. Inside are six thin patches and a handwritten instruction to peel them slowly in cold conditions. The small print seems absurd against the spreading frost. Ren reads it anyway. “You'd be amazed how many emergencies happen because people skip the boring bit,” they say.",
+        "As they work, a maintenance worker calls from the shelter deck to ask why the heating system is coughing. You can hear someone behind them asking for another blanket. It would be easy to take the battery and leave the pipe for later, except later is where all the station's problems seem to be gathering."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -807,7 +834,9 @@
         "You have time for one more measurement before the camera resets.",
         "On the camera feed, the phantom corridor ends at a door with a hand-painted star. You look up and see a blank wall in exactly the place the corridor ought to exist. You have walked past that wall a hundred times. There has never been a door.",
         "TAVI tries to overlay a thermal image, but the two pictures won't agree. You can tell where the false light begins because its shadows do not move when the camera turns. Ren calls it a bad copy of the station, made by someone who has seen the rooms but not lived in them.",
-        "The phantom Wren appears for only a few seconds, and you can almost make out a face behind its cockpit glass. A person, not a symbol on a display. The thought makes the mystery more urgent than any warning alarm."
+        "The phantom Wren appears for only a few seconds, and you can almost make out a face behind its cockpit glass. A person, not a symbol on a display. The thought makes the mystery more urgent than any warning alarm.",
+        "You pause the phantom-corridor image and examine the metal around the door that shouldn't exist. The false wall has the same scratches as the real one, except that a dent made during last winter's cargo accident is absent. TAVI pulls up the repair record and gives you the date. The picture may be a memory of the station before the dent, or a version of the station where the accident never happened.",
+        "For a moment you wish you could use the mirror to see smaller lost things: a favorite glove, a conversation you wish you had ended differently, the shuttle in Juno's photograph before its window cracked. Then the Wren appears in the same impossible corridor and reminds you that this isn't a toy."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -869,7 +898,9 @@
         "The service door has only a keypad and a message: THIS ACCESS POINT IS CLOSED UNTIL TOMORROW. Your badge shouldn't work, but the lock briefly turns green.",
         "From behind the hatch comes the familiar three-fast-one-slow knock.",
         "Ren braces the hatch with one shoulder and gives you the look they reserve for equipment that has broken the rules of physics. You both hear the knock again. Three quick beats, one slow. The metal is warm to the touch.",
-        "The badge's date changes just as you lift it. For a moment your own identification photo appears older, as though a day on the station has passed while you were walking down the corridor. Then it returns to normal. You wonder whether the person on the other side of this door has already made a decision you have yet to face."
+        "The badge's date changes just as you lift it. For a moment your own identification photo appears older, as though a day on the station has passed while you were walking down the corridor. Then it returns to normal. You wonder whether the person on the other side of this door has already made a decision you have yet to face.",
+        "The keypad shows two lights, green and amber. Neither light appears on the wiring plan Ren printed for you. When you ask about it, Ren says they installed the keypad six months ago using entirely normal parts. They would remember adding an extra light. Their fingers hover over the panel but do not touch it.",
+        "TAVI quietly lists the people who have authorization to pass through this hatch. The list includes Chief Osei, two retired engineers, and a version of your cadet badge with tomorrow's expiration date. You make the computer read that entry a second time. It does not disappear."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -916,7 +947,9 @@
         "The drone still has the first station map in its memory. Its tiny camera points at the storm.",
         "Ren built the drone from spare parts during a long power outage. It is small enough to fit inside a lunch box and has a habit of turning toward whoever is speaking, as if it wants to be included in conversations.",
         "When the drone wakes, its blue indicator flashes in the same rhythm you heard in the station's strange messages. Ren starts to say that they taught it the pattern years ago, then stops. They remember teaching it three quick blinks and one slow blink because it made the little machine look happy. Maybe the storm has been borrowing familiar signals all along.",
-        "TAVI offers to wipe the drone's old memory before sending it out. Ren says no. Sometimes old mistakes are exactly what a new problem needs."
+        "TAVI offers to wipe the drone's old memory before sending it out. Ren says no. Sometimes old mistakes are exactly what a new problem needs.",
+        "The drone's name is Cricket, because it used to chirp when its left wheel got stuck. Ren claims it has no feelings, then immediately asks it not to fly into the ventilation fan. Cricket turns its camera toward Ren and gives two offended beeps. The little argument steadies you. Not everything on the station has to be mysterious tonight.",
+        "You notice that Cricket's old memory card has a physical switch to protect it from being overwritten. Ren installed the switch after a mapping accident sent the drone in circles for an afternoon. “Sometimes it needs to remember being wrong,” they say. You think of the impossible timestamps you refused to delete."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -973,7 +1006,9 @@
         "The ventilation shaft carries a warning in your own voice: “The mirror is lying.” Ren hears it too, although they have been beside you all evening. You can hear the rattle of air rushing through the vent, then a softer sound beneath it: someone tapping three times quickly and once slowly.",
         "TAVI traces two directions for the sound. One path leads to the Wren's live radio frequency, where Mika may be waiting for guidance. The other leads deeper into the mirror's memory, through a signal that seems to hold copies of the station and copies of its future.",
         "The radio route offers a chance to talk to the real people aboard the ship. The echo route may show why the false light is so convincing, and why someone from tomorrow is trying to warn you. The two signals are drifting apart, and TAVI can keep only one in focus.",
-        "Ren asks which voice you believe: the person who needs help, or the version of yourself who already knows what can go wrong. It's an unfair question. You make the choice anyway."
+        "Ren asks which voice you believe: the person who needs help, or the version of yourself who already knows what can go wrong. It's an unfair question. You make the choice anyway.",
+        "The ventilation grille rattles each time the warning repeats. The voice is yours down to the way you rush the last word when you're nervous. TAVI compares it with the recordings you made for school and announces a near-perfect match. You would find that more reassuring if you had any memory of speaking the sentence.",
+        "Mika is still breathing at the other end of the live channel. Behind them you hear a chair scrape and the captain ask how much fuel remains. The voice from the echo sounds certain; Mika sounds frightened. You have to decide whether certainty is worth leaving an actual person waiting on the radio."
       ],
       "conditionalParagraphs": [
         {
@@ -1056,7 +1091,9 @@
         "Mika's voice returns, much clearer. “We're just outside the station,” they say. “I know that's impossible. I can see two Dock Sevens, and one is made of ice.”",
         "Behind Mika, an alarm pulses in the Wren's cabin. You can hear someone counting backward.",
         "Mika sounds closer now. You can hear somebody in the Wren's cockpit trying to silence an alarm and another voice reading a checklist with forced calm. Mika says the bright station is so beautiful that it hurts to look at. The other one is dim and ordinary. You remember the old map's warning: find the home that doesn't move.",
-        "You tell Mika to breathe and describe something they can actually touch. They choose the edge of their seat and the buckle of a safety strap. For a minute the fear in their voice eases. You have never met, but you understand that a person on the other end of the radio is counting on you to stay calm."
+        "You tell Mika to breathe and describe something they can actually touch. They choose the edge of their seat and the buckle of a safety strap. For a minute the fear in their voice eases. You have never met, but you understand that a person on the other end of the radio is counting on you to stay calm.",
+        "Mika asks whether Starport Nine has a school. It is a ridiculous question in the middle of a rescue, but you answer. You describe the observation classroom with its slightly warped window and the teacher who insists every pilot should be able to navigate with a pencil when the computers fail. Mika laughs, then admits that they failed the paper-map exam twice.",
+        "“The captain says I talk too much on open channels,” Mika adds. “But if I stop talking, the bright dock looks like the right one again.” You tell them to keep talking. Every detail they can describe gives the two of you something real to share."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -1110,7 +1147,9 @@
         "The computer calls the second path a 'predictive image.' No one asks whether the image came from a prediction or a memory.",
         "The two paths don't split when the storm reaches the ship. They split much earlier, at a tiny navigation adjustment Mika will make after hearing the station's first signal. The difference is so small that the Wren's own systems call it a rounding error.",
         "You ask TAVI whether choosing the better path will erase the warning that helped you find it. The computer considers this for a long moment and then says, “I would prefer a universe in which that is the most confusing thing we have to solve.”",
-        "Ren asks to see the map and points to an area where neither path has been plotted. A narrow passage runs behind the station's dark side, hidden from the bright false dock. It may be the only approach the storm cannot imitate."
+        "Ren asks to see the map and points to an area where neither path has been plotted. A narrow passage runs behind the station's dark side, hidden from the bright false dock. It may be the only approach the storm cannot imitate.",
+        "TAVI overlays the small adjustment on a diagram of the Wren's engines. The correction is measured in fractions of a degree—less than the turn a person makes when looking over a shoulder. The computer would normally round it away. In the storm's mirrored corridor, that tiny turn becomes the distance between the station and a sheet of ice.",
+        "The ship's navigator is not old enough to have flown the forgotten route, but Mika recognizes the kind of problem from practice. “Our instructor calls these the embarrassing mistakes,” they say. “Too small to notice. Big enough to hit something.” You hear the captain quietly approve the explanation."
       ],
       "conditionalParagraphs": [
         {
@@ -1167,7 +1206,9 @@
         "A fresh transmission arrives from a second possible future. “Do not trust the rescue beacon,” says Mika, in a voice that sounds older by a hundred years.",
         "Ren taps the screen. “How can there be two messages if we only have one tomorrow?”",
         "Mika sends a photograph from the Wren's front window. In it, a silver wall of ice rises where the station should be. At the bottom corner of the image is a faint shape like a doorway. You stare at it too long and almost convince yourself that the door is opening.",
-        "The second transmission contains a single extra word in its emergency code: REMEMBER. You don't know whether the message is a warning from a failed future or a memory from a successful one. Either way, it has arrived because somebody on the Wren believed you might understand it."
+        "The second transmission contains a single extra word in its emergency code: REMEMBER. You don't know whether the message is a warning from a failed future or a memory from a successful one. Either way, it has arrived because somebody on the Wren believed you might understand it.",
+        "The first transmission carries a little background music. It is faint and badly distorted, but Mika recognizes it: a song the botanists have been playing over the seedlings to keep the cargo bay crew cheerful. The second message has no music at all. The same warning, the same voice, but a different room behind it.",
+        "You think of the choices already made on Starport Nine and wonder how many of those rooms could have existed together. Perhaps a version of the Wren sent its warning from a warm cockpit full of ordinary noise. Perhaps another version sent it from a ship that had already lost its lights. You can hear both; that does not mean you can save both."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -1226,7 +1267,9 @@
         "The crate's heat sensor is linked to the same guidance frequency as the docking mirror. That seems like an odd coincidence.",
         "You remember the school garden on Starport Nine, where every student is assigned a tiny plant to keep alive through the dark weeks. Ren once watered theirs with a cup of orange soda and was banned from the greenhouse for a month.",
         "The Pel seedlings are not a school experiment. They carry the genes of trees that disappeared when the planet's rivers dried. If the Wren fails to reach the station, the scientists may lose their only chance to grow them again. Mika tells you there is a small handwritten note strapped to the cargo box: FOR THE FIRST RAIN.",
-        "For the first time tonight, the ship isn't simply a problem to solve. It carries people and a promise. You find yourself hoping there is a way to save both without pretending the danger is smaller than it is."
+        "For the first time tonight, the ship isn't simply a problem to solve. It carries people and a promise. You find yourself hoping there is a way to save both without pretending the danger is smaller than it is.",
+        "Dr. Bel speaks briefly over the Wren's radio. She does not talk about the seedlings as specimens. She calls them “the little orchard” and says each crate contains a different kind of hope: trees that drink deep water, trees that withstand the dust, trees that might shade a child on Pel a hundred years from now.",
+        "The cargo bay sensor is wrapped in tape because a connector shook loose during takeoff. Mika repaired it with a borrowed pocketknife and a patient botanist holding a flashlight. It is not much of a navigation beacon, but it has one advantage over the beautiful docking mirror: somebody on the real Wren can touch it."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -1280,7 +1323,9 @@
         "A single wrong flash could trick the ship into turning toward empty space.",
         "Each ice fragment catches the station light and returns a tiny copy of Dock Seven. Seen together, the shards make a whole city of false harbors, bright enough to tempt any tired pilot. Mika's voice grows quiet. They are trying not to look.",
         "TAVI suggests extinguishing every unnecessary lamp. Chief Osei worries that the station's own shelters may need those lights if the storm worsens. The room falls silent. It is easy to say that nobody should make a dangerous choice until you have to choose which people you are protecting.",
-        "Through the window, one ice shard slowly turns and the mirror makes a thousand tiny stars. The old flight route—dark, narrow, and unremarkable—suddenly looks more beautiful than all of them."
+        "Through the window, one ice shard slowly turns and the mirror makes a thousand tiny stars. The old flight route—dark, narrow, and unremarkable—suddenly looks more beautiful than all of them.",
+        "The first aid officer from the shelter deck calls to report that the children have stopped counting lights. There aren't enough working lights left to count. Osei tells them to count breaths instead. You hear a distant chorus beginning again, muffled by the closed door.",
+        "Out beyond Dock Seven, a jagged piece of ice spins until its sharp edge disappears and its flat face turns toward the Wren. A false docking window blossoms across it. The entire reflection is convincing except for one flaw: it has no sign of the tired people waiting in your station's shelters. It looks like a place that has never had to worry about anyone."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -1330,7 +1375,9 @@
         "The docking console translates Mika's latest distress message into an order: OPEN HATCH. TAVI checks the original signal, then makes a small electronic sound of embarrassment. The message actually says HOLD POSITION. A software error copied into years of navigation updates has reversed two symbols.",
         "Chief Osei calls the bridge crew together. They want everyone to hear the same warning and agree on a single plan. Ren argues there is another option: an emergency passage beneath Dock Seven leads directly to the mirror's manual control. It might let you fix the problem before the council finishes debating.",
         "You know what the chief will say. People survive emergencies when they work together and understand the risks. But the storm is now only minutes away from the dock, and TAVI's countdown is faster than the crew's conversation.",
-        "Either way, you need to stop trusting the automatic translator. You can take the evidence to the crew and build a shared plan, or go with Ren to the machinery and try to change the signal yourself. You cannot do both in time."
+        "Either way, you need to stop trusting the automatic translator. You can take the evidence to the crew and build a shared plan, or go with Ren to the machinery and try to change the signal yourself. You cannot do both in time.",
+        "The original error came from a translation table written long before Mika or you were born. One symbol for OPEN had been moved during an update, and the matching symbol for HOLD had never been moved with it. You can imagine the programmer looking at a green checkmark and going home for supper, never expecting their tidy repair to reach a ship arriving out of tomorrow.",
+        "Ren reads the correct command aloud three times, each time a little slower. Chief Osei writes it on the bridge's paper emergency sheet. Nobody argues about the words now. The argument is about how to act on them with a storm at the window and only minutes left."
       ],
       "conditionalParagraphs": [
         {
@@ -1414,7 +1461,9 @@
         "They promise to back your decision if you can explain the risks.",
         "Osei's clearance card is warm from the chief's pocket and slightly bent at one corner. It feels surprisingly ordinary for an object that can change the course of a ship. Beside the bridge window, the crew has gathered around the two docking charts in a rough circle.",
         "The chief does not ask whether you are brave. They ask what you know, what you suspect, and what you are prepared to risk if you are wrong. You realize those are three different questions.",
-        "Ren stands across the room beside a toolbox, and Juno watches from the doorway. Neither offers you an easy answer. For once, the grown-ups are waiting to hear yours."
+        "Ren stands across the room beside a toolbox, and Juno watches from the doorway. Neither offers you an easy answer. For once, the grown-ups are waiting to hear yours.",
+        "Osei opens the meeting by asking each person to state what would make them change their mind. Ren says a measured signal from the real Wren. Juno says a safe approach that doesn't rely on the mirror. The shelter coordinator, speaking over a wall phone, says they would like the lights to stay on until everyone has reached a bunk. Nobody laughs. It's the most practical request in the room.",
+        "You look around and see the same people who taught you the ordinary rules of station life. It turns out those rules were not invented to keep cadets away from exciting things. They were made by people who had once been frightened and wanted the next person to have a better chance."
       ],
       "conditionalParagraphs": [
         {
@@ -1472,7 +1521,9 @@
         "You realize one map is showing where the dock will be tomorrow.",
         "Juno lays her old paper chart over the glowing projection and smooths the corners with both hands. The two maps agree on the red planet, the ice ring, and the station's shadow, but the blue dock symbol seems to float an inch from the paper.",
         "She explains that the map was drawn by pilots who navigated using gravity and radio pulses. The new map was drawn by computers trained to follow the brightest guide light. Both systems work perfectly on ordinary days. This is not an ordinary day.",
-        "When you shift the paper so the stars line up instead of the docks, a narrow path appears between the ice fragments. It is not on any automated list of safe approaches. Nobody has flown it in years, but it may be the only route that keeps the Wren away from the mirror's lie."
+        "When you shift the paper so the stars line up instead of the docks, a narrow path appears between the ice fragments. It is not on any automated list of safe approaches. Nobody has flown it in years, but it may be the only route that keeps the Wren away from the mirror's lie.",
+        "Juno produces a pencil that has been chewed almost flat at one end. She uses it to draw the Wren's position from the planet's gravity rather than the station lights. Her first line is ugly and crooked; the second follows the old yellow approach. TAVI draws a flawless blue curve beside it.",
+        "“Don't make the pencil pretty,” Juno tells you. “Make it useful.” You hold the paper up to the window and see that the crooked yellow line avoids three bright shards that the blue curve passes through. For a second the oldest thing in the room seems like the cleverest."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -1530,7 +1581,9 @@
         "Ren reminds everyone that tomorrow's crew can hear what you do today.",
         "The vote begins badly. One engineer wants to shut the mirror down; another wants to flood the ring with warning lights. Juno says neither will help a pilot who cannot distinguish the station from its reflection.",
         "You remember Osei's flood story and ask everyone to stop talking for ten seconds. Nobody likes the request, but the chief supports it. In the quiet you can hear the Wren's captain breathing through the open channel. They are listening, too.",
-        "One by one, the crew starts naming what each plan protects and what it risks. You write the answers where everyone can see them. Suddenly the problem is still difficult, but it no longer feels impossible to discuss."
+        "One by one, the crew starts naming what each plan protects and what it risks. You write the answers where everyone can see them. Suddenly the problem is still difficult, but it no longer feels impossible to discuss.",
+        "Ren asks the bridge crew to imagine the Wren's cockpit instead of the station. “They don't have our maps spread out across a table,” they say. “They have alarms, a captain who needs an answer, and a window showing two ways home. We owe them instructions they can remember.”",
+        "Juno reduces the rescue plan to four spoken commands and a hand-drawn diagram. The navigator repeats the commands without looking at the board. The first time they get them wrong. The second time they get them right. You have the uncomfortable thought that the whole crew just witnessed the difference between a clever plan and a usable one."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -1589,7 +1642,9 @@
         "There is also a weaker signal. It won't change tomorrow, but it might guide the ship away from the ice.",
         "The strong signal would burn through most of the spare power and might reach the Wren before the ship sends its first warning. TAVI calls this a time-loop correction, then admits it cannot explain what happens to the memory of a message that never needed to exist.",
         "Ren calls it expensive electricity with very good intentions. The smaller signal leaves the station safer but gives the Wren less information. Neither plan is a free victory.",
-        "You imagine the families waiting under the emergency lights and Mika waiting in the cockpit. Choosing where the power goes means choosing who will have to trust someone else in the dark."
+        "You imagine the families waiting under the emergency lights and Mika waiting in the cockpit. Choosing where the power goes means choosing who will have to trust someone else in the dark.",
+        "The engineer in charge of reserve power lays out four actual batteries on a cart to make the choice visible. The strong signal costs the equivalent of two. One battery runs the emergency heaters near the shelter doors. Another powers the old antenna. Suddenly the numbers TAVI has been showing you have handles and warning labels.",
+        "“Could we charge them afterward?” you ask. The engineer shakes their head. “Afterward is easy. This is the hard part.” They explain that the station's panels will spend the next several hours hidden behind the storm. You can borrow from tomorrow's power supply, but you cannot promise exactly when tomorrow will pay it back."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -1643,7 +1698,9 @@
         "Nobody has an answer. The computer asks you to choose whether that matters more than the people aboard the Wren.",
         "The question hangs over Control longer than anyone expects. If the warning prevents the accident, the Wren may never send it. If the warning is never sent, you may never know to prevent the accident. It is the kind of puzzle that sounds fun in a classroom and terrible when real people are involved.",
         "Osei comes to stand beside you. “You don't have to solve time,” the chief says quietly. “You have to make a good decision with the information you have.” You try to hold onto that distinction.",
-        "TAVI opens its earliest memory of the docking mirror. Hidden beneath decades of routine logs is a recording made by a cadet who sounds almost like you. The recording ends with the same four-note knock. You wonder if the station has been waiting a long time for somebody to listen."
+        "TAVI opens its earliest memory of the docking mirror. Hidden beneath decades of routine logs is a recording made by a cadet who sounds almost like you. The recording ends with the same four-note knock. You wonder if the station has been waiting a long time for somebody to listen.",
+        "TAVI is quiet long enough for its status light to blink through a whole cycle. Then it plays the old recording again, this time with the background noise amplified. Beneath the cadet's voice is the rattle of a loose fan blade. Ren recognizes it immediately. “The vent outside my repair bay,” they say. “It's been rattling like that for years.”",
+        "The computer has kept the recording not because it understands it but because an earlier technician marked it DO NOT DELETE. A small, ordinary decision made by someone you have never met has carried a warning through decades of software updates. You wish you could thank them. You also wish you knew what happened to that cadet."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -1696,7 +1753,9 @@
         "The dock bell stops ringing. For the first time since the warning arrived, the station is quiet enough to hear the ventilation fans turn. On the main screen, the Wren is making its last approach. The glass storm has swallowed the outer ice ring and begun painting bright false docks across the sky.",
         "Chief Osei lays out the final options. You can stay in Control, coordinate a careful blue-light signal with Mika and the entire bridge crew, and try to guide the Wren to the true dock. Or you can join Ren at the outer mirror's manual control, where a physical adjustment may cut through the interference but carries the risk of damaging the station.",
         "The first plan relies on people following one shared rhythm. The second relies on machinery you can touch and a decision you might have to make without the crew beside you. There is not enough time to prepare both. Osei asks you to choose one.",
-        "Mika's voice comes through the radio: “Whatever you do, please tell us before you do it.” You promise you will. Then you decide where to spend the last minutes before tomorrow arrives."
+        "Mika's voice comes through the radio: “Whatever you do, please tell us before you do it.” You promise you will. Then you decide where to spend the last minutes before tomorrow arrives.",
+        "The Wren's captain asks whether the station can promise a clear dock. Osei replies, “We can promise to tell you what we know and when we no longer know it.” It isn't the answer the captain hoped for, but they acknowledge it. You find that exchange strangely reassuring. Nobody is pretending this is a rescue with a guaranteed ending.",
+        "You can see the blue pulse on the bridge console and the motor's physical position on Ren's map. Both plans have been tested as far as testing is possible. The difference now is who will carry the uncertainty: the crew acting together at the radio, or the two of you turning a heavy machine beneath a locked shutter."
       ],
       "conditionalParagraphs": [
         {
@@ -1776,7 +1835,9 @@
         "To send a rescue signal, someone will need to route it around that shutter.",
         "The service antenna was built when Starport Nine had only a handful of residents and everyone knew which switch did what. Its cables are painted with names instead of numbers. Ren recognizes one label from an old repair manual, then reaches through a maintenance gap to test the line.",
         "Osei tells the shelter crew to stay clear of Dock Seven. You imagine the families waiting behind sealed doors and find yourself grateful that someone is making the ordinary safety decisions while you chase the impossible ones.",
-        "Beyond the glass, the Wren's lights vanish behind a silver ribbon. When they reappear, there are two sets. You have to keep reminding yourself that the brighter set is not necessarily real."
+        "Beyond the glass, the Wren's lights vanish behind a silver ribbon. When they reappear, there are two sets. You have to keep reminding yourself that the brighter set is not necessarily real.",
+        "The old antenna passes through a service closet that has been turned into a storage room. Someone has stacked three winter coats and a crate of birthday decorations over its access panel. Ren pulls the decorations aside, and a paper star falls from the box. It sticks to your sleeve as if the station has chosen an absurd moment to celebrate.",
+        "Ren works the stiff connector loose with a piece of cloth around their hand. The metal is too cold to touch directly. You hear a tiny crackle through your headset as the antenna wakes. It isn't much, but the sound is clean. For the first time in hours, something on Dock Seven behaves exactly as its manual says it should."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -1826,7 +1887,9 @@
         "Ren says you can take a cell from the antenna, but the climb will cost a minute.",
         "The battery cell is heavier than it looks. Ren lifts it onto a bench and checks the indicator twice, as if a second look might make the charge last longer. The power meter continues to fall.",
         "You can hear the station's shelter lights clicking on in the background. Every time the Wren sends a transmission, the mirror draws another pulse from the emergency circuit. The problem feels less like a number and more like a room full of people counting on you not to spend their last light.",
-        "Ren asks whether they should fetch another cell from the cold deck. There isn't time. You work with what is already in front of you."
+        "Ren asks whether they should fetch another cell from the cold deck. There isn't time. You work with what is already in front of you.",
+        "You ask where the station keeps its records of past power failures. TAVI sends you a list that reaches back sixty-three years. Most of the emergencies were small: a kitchen freezer lost its charge, a school corridor went dark, a crew member left a heater running overnight. One entry describes a storm in which the station saved its guide light by shutting off the hydroponics room. The plants survived, but only because the crew carried them into their own warm quarters.",
+        "That note was signed by Juno. She remembers it when you read it aloud and smiles faintly. “We were all very tired,” she says. “And the tomatoes hated the move.”"
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -1883,7 +1946,9 @@
         "A shape slides across the glass: a ship with the Wren's silhouette, except its engines are dark. Its reflection moves in the wrong direction.",
         "TAVI labels it ECHO, not SHIP. You press your palm against the cold window.",
         "The false ship passes so close to the docking window that you can see a row of little squares where its windows should be. Behind one of those squares a figure raises a hand. Then the whole image slides sideways and vanishes into an ice shard.",
-        "Ren doesn't see the figure. They see the station crew watching you, waiting to learn whether the bright shape can be trusted. You choose your words carefully. It is hard to tell someone you have seen something impossible without making them afraid of every ordinary thing around them."
+        "Ren doesn't see the figure. They see the station crew watching you, waiting to learn whether the bright shape can be trusted. You choose your words carefully. It is hard to tell someone you have seen something impossible without making them afraid of every ordinary thing around them.",
+        "The false ship has a name painted beneath its cockpit. You zoom in until you can read it: WREN. The letters are almost right, except that the N leans backward, the way letters do in a mirror. You write the detail on the edge of your map. The storm can copy a ship's shape; it doesn't seem to know how to write its name correctly.",
+        "Somebody on the bridge asks if you are certain. You're not. But you can explain the letter, point to the real photograph, and let another person check. That feels different from insisting they believe what only you have seen."
       ],
       "conditionalParagraphs": [
         {
@@ -1950,7 +2015,9 @@
         "Your wrist radio vibrates. Mika is waiting.",
         "TAVI reduces every display to a single waveform and a simple blue line. No bright arrows, no helpful animations, no automatic suggestions. For the first time, the station's technology seems to be listening rather than insisting it knows best.",
         "Mika taps three times quickly and once slowly. You answer with the same rhythm. The signal crosses the storm, and the Wren answers again. It is such a small exchange that you could almost miss how important it is: two people agreeing that they are talking to each other, not to a reflection.",
-        "Chief Osei moves closer to the console but does not take it away from you. “Tell us when,” the chief says. All the voices on the bridge go quiet. You have never felt a room become so still."
+        "Chief Osei moves closer to the console but does not take it away from you. “Tell us when,” the chief says. All the voices on the bridge go quiet. You have never felt a room become so still.",
+        "TAVI asks if it should strip all other traffic from the channel. There are ordinary messages queued behind Mika's voice: a mechanic requesting a replacement filter, a school administrator asking about dinner, a botanist requesting warmer air for the seedlings. The station has not stopped living just because you have been frightened.",
+        "You save the messages for later, then clear the channel. Mika hears the silence and says, “Did you lose everybody?” “No,” you reply. “We made room for you.” They breathe out. The next four taps come through as cleanly as someone knocking on a classroom desk."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -2004,7 +2071,9 @@
         "Osei places a hand on the console. Nobody will take the decision away from you now.",
         "Through the open channel you hear the Wren's captain explain the plan back to the crew. There is a little uncertainty in their voice, and you are relieved by it. They are not pretending to know more than they do.",
         "Mika repeats the route with the careful concentration of someone threading a needle in the dark. You repeat each turn as if it were the only important thing in the universe. Ren stands by the manual safety switch in case the mirror moves unexpectedly.",
-        "At the edge of the screen, the false docking marker begins to fade. You don't know whether you are saving the ship, rewriting tomorrow, or doing both. You know only that the people aboard the Wren are still answering."
+        "At the edge of the screen, the false docking marker begins to fade. You don't know whether you are saving the ship, rewriting tomorrow, or doing both. You know only that the people aboard the Wren are still answering.",
+        "The captain asks Mika to read the altitude aloud, then asks again a few seconds later. Both readings match the old yellow route within a few meters. Mika sounds startled, as if they hadn't expected numbers to stay put after a night of reflections. You realize how long they have been flying without believing their own instruments.",
+        "Ren gives you a small nod from the safety switch. Osei has positioned one crew member at every manual cutoff, and the shelter coordinator is still counting breaths with the children. The whole station is involved now, whether or not anyone outside Control knows exactly how."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -2054,7 +2123,9 @@
         "You remember the first message: DON'T OPEN THE DOOR. It never said not to turn on the light.",
         "The first voice you heard today returns over the radio. This time you recognize Mika's breathing, the soft hum of the cockpit, and the captain's quiet instruction to hold position. The warning no longer sounds like a mystery. It sounds like someone trying very hard to keep another person safe.",
         "You think of the different places the day might have taken you: a dusty archive, the cold outside rail, an old pilot's simulator, a doubled signal, the crowded bridge, or a hidden motor beneath the shutter. Not all of those places could fit into a single day. The choices you made determine which evidence and allies you brought here.",
-        "Whatever happens next, you won't be able to take this decision back. The emergency hatch is sealed. Beyond it, the bright reflection waits. The real ship is somewhere behind the ice."
+        "Whatever happens next, you won't be able to take this decision back. The emergency hatch is sealed. Beyond it, the bright reflection waits. The real ship is somewhere behind the ice.",
+        "You set your practice navigation chart beside the emergency controls. This morning the Wren was a small mark on tomorrow's timetable. You had written its expected arrival in neat pencil and underlined it twice because you were worried about getting the assignment wrong. The pencil mark is still there. All the people aboard the ship, the seedlings, and the choices you've made have been hiding behind that one ordinary line.",
+        "Mika asks if you can see them. You can see a pulse on the screen, and sometimes a flash of running lights behind the ice. “Not clearly,” you say. “But we're here.” Their reply takes a moment to reach you. “That's enough to keep trying.” Whatever command you send next, you will remember that answer."
       ],
       "conditionalParagraphs": [
         {
@@ -2613,7 +2684,9 @@
       "paragraphs": [
         "Ren leads you past the crowds sheltering in the central corridor. The last door on Deck Seven is painted a shade of orange that looks almost rude beside the station's careful blues. A label says EXTERIOR MAINTENANCE—AUTHORIZED CREW ONLY. Ren takes a key from the lining of their glove.",
         "“I was saving this for a real emergency,” they say. “And before you ask, yes, the chief knows I borrowed it. Probably.” Their grin slips when the door opens. A thin frost clings to the inside of the airlock, although the station's temperature gauge reads normal.",
-        "You help Ren check the suit seals while TAVI speaks through your earpiece. “If you leave the station, I cannot promise what the cameras will show.” Ren snaps their helmet shut. “Then we'll have to trust what we actually touch.” For the first time tonight, that sounds like a sensible plan."
+        "You help Ren check the suit seals while TAVI speaks through your earpiece. “If you leave the station, I cannot promise what the cameras will show.” Ren snaps their helmet shut. “Then we'll have to trust what we actually touch.” For the first time tonight, that sounds like a sensible plan.",
+        "The airlock's inspection plate bears Ren's initials beneath a row of older marks. Every repair crew has signed this door for nearly forty years. Ren runs a finger over the scratches, then checks both your suit indicators in turn. Their own display flickers amber for a moment before settling on green. They don't mention it until you notice.",
+        "“If the radio cuts out, tug twice on the line,” Ren says. “If you see something impossible, tug once and then explain it slowly.” You practice until you can tell the difference through thick gloves. The routine feels almost silly. You are grateful for it as the outer door begins to open."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -2662,7 +2735,9 @@
       "paragraphs": [
         "On the other side of the hatch there is no up or down, only the soft pull of your magnetic boots and a red planet hanging enormous beneath the station. Pel's clouds stretch across a whole hemisphere. The edge of the glass storm glitters like crushed silver foil.",
         "Ren clips a safety line from your belt to theirs. “Rule one of spacewalking: never let the story get more interesting than your safety line.” Every few meters, a fresh alarm trembles in your headset. But this alarm is not from Starport Nine. It is the Wren's docking bell, somehow echoing through the metal under your feet.",
-        "For a moment you see a ship reflected in the station window. You turn your head; there is nothing where the ship ought to be. You understand now why the old sign warned people not to trust their eyes."
+        "For a moment you see a ship reflected in the station window. You turn your head; there is nothing where the ship ought to be. You understand now why the old sign warned people not to trust their eyes.",
+        "You can feel the station's small vibrations through the soles of your boots. Someone is moving a cart in the distant hangar; someone else has switched on a pump. Those ordinary noises are travelling through metal where no air can carry them. You listen for the sound of living people inside the huge shell behind you.",
+        "Ren points to a series of old painted numbers along the service rail. The last two have been scraped almost clean by ice dust. You copy them onto your wrist display so the return walk won't depend on a reflection."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -2715,7 +2790,9 @@
       "paragraphs": [
         "The bell is exactly where Ren said it would be, behind a bolted panel on the outer wall. Its cable has been cut, capped, and tied neatly in a loop. There is no way it could be ringing.",
         "Yet when Ren presses a gloved finger to its casing, you both feel two sharp knocks travel through the metal. Then a third. Then nothing. TAVI reports that no part of the station has moved.",
-        "Ren turns their helmet so they can look directly at you. “Somebody is knocking from the other side of tomorrow,” they say. “Are we really going to pretend this is ordinary?” You can't. But you also can't answer a knock until you know where it came from."
+        "Ren turns their helmet so they can look directly at you. “Somebody is knocking from the other side of tomorrow,” they say. “Are we really going to pretend this is ordinary?” You can't. But you also can't answer a knock until you know where it came from.",
+        "A fresh nick sits beside one of the bolts holding the disconnected bell. Ren studies it with a light pressed close to the metal. The mark was made from the wrong angle for someone standing on the service rail. Whoever—or whatever—last touched the bell was somewhere there isn't a place to stand.",
+        "Ren wants to call it a faulty tool mark. They look over your shoulder at the dark ice ring and do not quite finish the sentence. You're both trying to be careful about the difference between a thing you have measured and the story you might make of it."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -2867,7 +2944,9 @@
       "paragraphs": [
         "Pilot Juno lives in a room overlooking the service hangar. It is filled with paper maps, tea cups, and a broken flight stick that has clearly been repaired more times than it should. She does not seem surprised when you mention the disappearing minute.",
         "“The mirror was supposed to make us safer,” she says, pulling a folded chart from a drawer. “Before it, a pilot could choose where to look. After it, the beam did the looking for us.” She sets down a photograph of a much younger Juno beside a damaged rescue shuttle. The photograph shows no casualties, but the shuttle's cracked window is enough to explain why Juno never flew that route again.",
-        "You tell her about the Wren. She listens as though your voice is part of a conversation she has been expecting for years. “Then we have a chance to make the right mistake,” she says. “First we'll need to find out which of the two routes is real.”"
+        "You tell her about the Wren. She listens as though your voice is part of a conversation she has been expecting for years. “Then we have a chance to make the right mistake,” she says. “First we'll need to find out which of the two routes is real.”",
+        "Juno serves tea in two mismatched cups and forgets to drink her own. You recognize the photograph on her wall before she notices you looking. The rescue shuttle's window is cracked in a perfect spiderweb. She turns the frame face down with one finger, then thinks better of it and turns it back.",
+        "“I used to be good at telling cadets what not to fear,” she says. “After the accident I was better at naming things to avoid. It took me a long time to realize those were not the same skill.” She pushes a chart toward you and asks what you think a pilot can still trust when the windows lie."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -2919,7 +2998,9 @@
       "paragraphs": [
         "Juno leads you into a tiny training cockpit whose windows have been painted black. Three switches are missing their labels. The seat belt is held together with a strip of bright yellow tape that says DO NOT WORRY. You worry anyway.",
         "“In a glass storm, a pretty picture can be a trap,” she says. “Good pilots learn what their ship is telling them before they ask their eyes.” She turns on the training alarm. The simulator shakes. The screen offers two different docking approaches, both labelled SAFE.",
-        "Outside the cockpit, you can hear evacuees talking in the corridor. Their voices make this feel less like a game. Somewhere in tomorrow's real cockpit, Mika will face the same impossible pair of routes. You put a hand on the unlabeled switches and begin."
+        "Outside the cockpit, you can hear evacuees talking in the corridor. Their voices make this feel less like a game. Somewhere in tomorrow's real cockpit, Mika will face the same impossible pair of routes. You put a hand on the unlabeled switches and begin.",
+        "On the first attempt you turn too early, and the simulator marks the imaginary Wren against a wall of orange lights. Juno does not lecture you. She resets the clock and asks what you noticed just before the warning. You admit that you were looking at the brightest thing on the screen because it seemed like the safest.",
+        "“Brightness is good at getting attention,” she says. “Not so good at telling the truth.” She takes the paper map off your knee and covers the simulated window with it. On the next attempt, the rough pencil line matters more than the beautifully rendered stars."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -3017,7 +3098,9 @@
       "paragraphs": [
         "Juno opens the cockpit door to find Mika's voice spilling from the hallway speakers. “I can't make the left turn,” Mika says. “The bright dock is pulling the instruments toward it.” Juno freezes. She recognizes the words.",
         "“That's what I told my instructor before the rescue shuttle hit the ring,” she says. The admission costs her something. You think of the old photograph and the fact that Juno kept the broken flight stick instead of throwing it away.",
-        "You have an opportunity to ask what happened next. But the radio is still open, and Mika can hear every word. You can protect Juno's privacy or give Mika the warning that might help them survive."
+        "You have an opportunity to ask what happened next. But the radio is still open, and Mika can hear every word. You can protect Juno's privacy or give Mika the warning that might help them survive.",
+        "Juno sits down very carefully, as if the chair might move beneath her. Mika's voice has made the old training room a place where the accident can happen again. You want to make a joke about the worn-out seat belt or the terrible simulator coffee, but you can tell she needs a moment without either.",
+        "“I never told my crew I was afraid of the left turn,” Juno says. “I told them I wanted another calculation. We had plenty of calculations. What we needed was for me to say what I knew.” Her hands are steady by the time she reaches for the radio."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -3119,7 +3202,9 @@
       "paragraphs": [
         "You set TAVI to listen past the loudest radio message, down into the thin hiss that every transmission carries. Deep inside it is a second signal. Not a voice: the sound of footsteps crossing a metal corridor, one after another, although no microphone on Starport Nine is near a corridor.",
         "Ren turns down the lights so you can hear without distraction. It is a ridiculous instruction—darkness should not make a radio louder—but when the room grows dim, the footsteps separate into two sets. One belongs to someone running. The other keeps pace without ever touching the floor.",
-        "TAVI points at the clock. The footsteps are recorded one minute before the first warning, in a minute that has not happened. Whoever is making them is either inside tomorrow or inside the mirror's memory of it."
+        "TAVI points at the clock. The footsteps are recorded one minute before the first warning, in a minute that has not happened. Whoever is making them is either inside tomorrow or inside the mirror's memory of it.",
+        "The footsteps stop at what should be the outer shutter. Then you hear a scrape like a chair being pulled across tile and a muffled voice asking whether the children have reached the shelters. It is the voice of the station's nurse, but the nurse is presently three decks away.",
+        "TAVI cross-checks the recording against the live shelter feed. In one version, the nurse answers yes. In the other, there is no answer. The echo is showing you consequences without telling you what caused them. You think that may be the cruelest way to receive a warning."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -3220,7 +3305,9 @@
       "paragraphs": [
         "The silhouette makes the same motion you make, half a second before you think of moving. Its voice arrives over the dead channel: “Don't try the easy path. That's how the dock disappears.”",
         "You ask the figure who it is. There is a pause long enough for you to hear Ren breathing, and then the answer: “Someone who already tried the bright door.” The figure steps sideways. Behind it is a much darker hallway and a faint red light that might be a way out.",
-        "TAVI is unusually quiet. Finally it says, “A mirrored signal can be useful evidence, but I recommend not trusting it with the entire future.” You have to decide which part of the echo deserves another look."
+        "TAVI is unusually quiet. Finally it says, “A mirrored signal can be useful evidence, but I recommend not trusting it with the entire future.” You have to decide which part of the echo deserves another look.",
+        "For one moment the other version of you looks away from the camera. Behind them, the corridor is empty except for a schoolbag resting against the wall. It is your schoolbag, identifiable by the crooked patch Ren sewed over a tear last winter. The patch is on the opposite side in the reflection.",
+        "You want to ask whether the other version made the right decisions. But if they had, perhaps they wouldn't still be standing in a dark corridor trying to talk through yesterday's radio. The image trembles before you can decide what to say."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -3425,7 +3512,9 @@
       "paragraphs": [
         "The translator has been repaired or worked around, but the damaged message still haunts the docking console: OPEN HATCH, it says, when it means HOLD POSITION. While Chief Osei gathers the bridge crew, Ren points to a handwritten note tucked beneath the emergency shutter.",
         "It is addressed to YOU, in handwriting you don't recognize. The note says the mirror can be turned manually if the main control room loses power. Beneath the instruction someone has drawn a tiny wrench with a smiley face. Ren insists that part is not theirs.",
-        "You could join the meeting and present what you've learned. But the voice from tomorrow is fading, and there might not be time for a committee to finish disagreeing. You follow Ren down a narrow service ladder into the machinery underneath Dock Seven."
+        "You could join the meeting and present what you've learned. But the voice from tomorrow is fading, and there might not be time for a committee to finish disagreeing. You follow Ren down a narrow service ladder into the machinery underneath Dock Seven.",
+        "Ren shows you the emergency diagram folded inside their jacket. It has an oily thumbprint in the corner and a warning written so faintly that you have to use your wrist light: MANUAL CONTROL IS NOT A SHORTCUT. The chief signed the last inspection, but the date was six months ago. The mirror has been left alone since.",
+        "From Control comes the sound of the council beginning its meeting. Osei's voice is calm, and you catch the words “everybody understands the risk.” You do not want to be the person who hides from that meeting. You also can't stop imagining Mika running out of fuel while the adults explain themselves."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -3536,7 +3625,9 @@
         "At the bottom of the ladder you reach a corridor filled with people. They're not actually there: the glass storm is reflecting another possible evacuation through the wall. Some are heading to safety. Some run the other way, toward a door marked DOCK SEVEN.",
         "A small child in the reflection points toward you. You know the child can't see you. Still, you want to wave. Ren gently pulls your hand down. “The mirror loves making us care about things we can't reach,” they say.",
         "Two paths split around the motor assembly. One crosses the electrical floor where the station's power is stored. The other follows a ventilation shaft where you can still hear Mika's voice. Neither seems safe, and the chief cannot help from the bridge.",
-        "You realize the choice isn't only about danger. If you pick one path, there will not be time to investigate the other before the storm peaks."
+        "You realize the choice isn't only about danger. If you pick one path, there will not be time to investigate the other before the storm peaks.",
+        "One of the people in the reflected evacuation is wearing the same orange coat as the shelter coordinator. They keep lifting a clipboard and pointing toward a stairwell that has no matching door on your side. In another version, the clipboard has been dropped and the crowd is moving in the opposite direction. You realize how easily a confident person can lead everyone wrong if the map is wrong.",
+        "Ren takes a pen from their sleeve and marks the real electrical floor on the printed plan. “We choose a route,” they say. “Then we walk it. No chasing a better-looking hallway halfway through.” You nod, though every reflected doorway looks like it might contain the answer."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -3745,7 +3836,9 @@
       "paragraphs": [
         "The bell has gone silent, but the wall beneath Dock Seven is still vibrating. TAVI says the outer mirror's motor can be reached through an emergency service tunnel. It was built before the automated guide lights, when people still turned the equipment by hand.",
         "You tell Osei where you're going. The chief gives you one of those looks adults use when they want to say no but know there isn't time. “Do not open the hatch,” they say. “Whatever you see through the glass, do not let it into the station.”",
-        "Ren joins you at the tunnel entrance. They carry a heavy torch, a tool kit, and an expression of stubborn loyalty. You carry the old warning in your head. The two of you crawl past pipes that shiver with the storm."
+        "Ren joins you at the tunnel entrance. They carry a heavy torch, a tool kit, and an expression of stubborn loyalty. You carry the old warning in your head. The two of you crawl past pipes that shiver with the storm.",
+        "The service tunnel is only wide enough for one person at a time. Ren goes first, setting the torch on the metal floor whenever they need both hands. Its beam catches little objects left by previous repair crews: a pencil stub, a bolt in a paper wrapper, and a paper tag that says CHECKED TWICE. You're glad that strangers took time to write things down.",
+        "Above the tunnel, the station's main hall vibrates with the crowd moving toward shelter. You can hear their footsteps like a distant rain. Turning the mirror might help the Wren, but there are people behind this wall who don't know you've taken hold of the machine."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -3847,7 +3940,9 @@
         "As the last bright rectangle fades, a person appears behind it. They're wearing a cadet's jacket exactly like yours. Their face is hidden by the glare. The figure holds a hand against the glass, and you instinctively do the same.",
         "The other hand moves before yours. It points toward a small blue lamp above the service hatch, then toward the mirror. The message is obvious enough that you wish it were reassuring: the bright pictures are false; the little blue light is telling the truth.",
         "Ren sees only an empty window. That makes you uncertain about what you've learned. A clue only you can see may still be real, but it isn't proof you can hand to a room full of frightened people.",
-        "A faint metallic knock echoes from your side of the glass. It has the same four-note rhythm as the original warning, only slower. Tomorrow, it seems, is beginning to run out of patience."
+        "A faint metallic knock echoes from your side of the glass. It has the same four-note rhythm as the original warning, only slower. Tomorrow, it seems, is beginning to run out of patience.",
+        "You glance back toward Ren, hoping to see the reflection on their face too. They are busy tightening the crank's safety latch and have no idea why you've gone still. You could describe what you saw and risk sounding frightened, or keep it to yourself and let the image carry more weight than it deserves.",
+        "The blue lamp above the hatch blinks once. In the mirror, the figure's hand remains raised. Your wristwatch ticks forward normally. That small, stubborn fact is enough to get you moving again."
       ],
       "conditionalParagraphs": [],
       "choices": [
@@ -3949,7 +4044,9 @@
         "The mirror hums, its blue pulse small against the vast silver storm. For a second you see the Wren move through a clean gap in the ice. Then a shard passes between the ship and station and the signal splits into two.",
         "You can keep pushing the motor toward the ship, but doing so may overload the docking clamps. Or you can cut power and send the Wren around the long route, leaving the impossible warning unexplained.",
         "Ren presses a hand against the wall to feel the motor's vibration. “We can get them home,” they say. “But I can't promise the station will look the same afterward.” That is the most helpful kind of honesty: it gives you a real choice instead of a comforting lie.",
-        "You climb out of the tunnel and return to Control. Osei has kept the door sealed just as promised. The final command is still waiting for you."
+        "You climb out of the tunnel and return to Control. Osei has kept the door sealed just as promised. The final command is still waiting for you.",
+        "Ren reads the motor temperature out loud as it climbs. Each number is ordinary on its own. Together they tell you the mechanism is being asked to do something its designers never imagined. You think of the scratched inspection plate outside and all the people who signed it believing the next crew would look after their work.",
+        "Mika calls for confirmation of the final approach. You answer with the truth: the mirror is working for the moment, and there is a safe return route if it stops. The captain repeats both parts back. You wish you could offer an easier promise; you are relieved they don't ask for one."
       ],
       "conditionalParagraphs": [],
       "choices": [

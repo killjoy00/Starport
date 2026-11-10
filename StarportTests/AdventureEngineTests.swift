@@ -13,7 +13,7 @@ final class AdventureEngineTests: XCTestCase {
         let listing = try XCTUnwrap(catalog.adventures.first)
         let book = try story()
         XCTAssertEqual(listing.id, book.id)
-        XCTAssertEqual(listing.contentVersion, 3)
+        XCTAssertEqual(listing.contentVersion, 4)
         XCTAssertEqual(book.contentVersion, listing.contentVersion)
         XCTAssertEqual(book.nodes.count, 81)
         XCTAssertEqual(book.finalCount, 5)
@@ -30,9 +30,9 @@ final class AdventureEngineTests: XCTestCase {
         // two short sentences before another button.
         let lengths = scenes.map { $0.paragraphs.joined(separator: " ").split(whereSeparator: \.isWhitespace).count }
         let words = book.nodes.flatMap(\.paragraphs).joined(separator: " ").split(whereSeparator: \.isWhitespace).count
-        XCTAssertGreaterThan(words, 10_000)
+        XCTAssertGreaterThan(words, 16_000)
         XCTAssertGreaterThan(try XCTUnwrap(lengths.max()) - XCTUnwrap(lengths.min()), 100)
-        XCTAssertGreaterThanOrEqual(scenes.filter { $0.paragraphs.count >= 4 }.count, 25)
+        XCTAssertGreaterThanOrEqual(scenes.filter { $0.paragraphs.count >= 5 }.count, 45)
     }
 
     func testStoryHasSeparateBranchesBeforeTheLastChoice() throws {
@@ -218,11 +218,33 @@ final class AdventureEngineTests: XCTestCase {
         values["decisionCount"] = 17
         let oldSave = try JSONSerialization.data(withJSONObject: values)
         let updated = try AdventureEngine(book: book, restored: oldSave)
-        XCTAssertEqual(updated.progress.bookVersion, 3)
+        XCTAssertEqual(updated.progress.bookVersion, 4)
         XCTAssertEqual(updated.progress.nodeID, "s01")
         XCTAssertEqual(updated.progress.decisionCount, 0)
         XCTAssertEqual(updated.progress.endingsFound, ["final_2", "final_5"])
         XCTAssertEqual(updated.progress.detoursFound, ["detour_1"])
+    }
+
+    func testContentOnlyEditionFourPreservesAnExistingStarportRun() throws {
+        let book = try story()
+        var original = try AdventureEngine(book: book)
+        for i in 1...7 {
+            try original.choose(String(format: "s%02d_1", i))
+        }
+        let current = original.progress
+        var payload = try XCTUnwrap(
+            JSONSerialization.jsonObject(with: original.encodedProgress()) as? [String: Any])
+        // Only the prose and catalog version changed; the decision graph didn't.
+        payload["bookVersion"] = 3
+        let v3Save = try JSONSerialization.data(withJSONObject: payload)
+        let migrated = try AdventureEngine(book: book, restored: v3Save)
+        XCTAssertEqual(migrated.progress.bookVersion, 4)
+        XCTAssertEqual(migrated.progress.nodeID, current.nodeID)
+        XCTAssertEqual(migrated.progress.decisionCount, current.decisionCount)
+        XCTAssertEqual(migrated.progress.stats, current.stats)
+        XCTAssertEqual(migrated.progress.flags, current.flags)
+        XCTAssertEqual(migrated.progress.history, current.history)
+        XCTAssertEqual(migrated.progress.started, current.started)
     }
 
     func testCatalogRejectsUnsafePaths() {

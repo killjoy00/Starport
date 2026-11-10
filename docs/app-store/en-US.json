@@ -1,0 +1,13 @@
+{
+  "locale": "en-US",
+  "appName": "StarPort",
+  "subtitle": "Sci-fi stories shaped by you",
+  "description": "At StarPort, you decide what happens next.\n\nBegin with The Door That Opens Tomorrow. A ship due tomorrow sends a warning today. You're a navigation cadet on Starport Nine, and the warning reaches you first. Follow the signal, work with the crew, and try to bring the ship home.\n\nYour decisions affect the clues you collect, the power you have left, and who trusts you. Some wrong turns end the scene with a chance to rewind. Reach one of the five final endings, though, and you'll have to start over to try another route.\n\nThe first adventure includes:\n• 37 decisions on every completed route\n• Five final endings, from best to worst\n• 12 short, rewindable wrong turns\n• Illustrations throughout the story\n• 25 achievements to collect\n\nStarPort saves your progress on your device. Read downloaded adventures offline, choose dark or light mode, and check the library for new stories.\n\nFor ages 13 and up. No account required.",
+  "promotionalText": "A ship due tomorrow sends a warning today. Start with The Door That Opens Tomorrow and see which of five endings you find.",
+  "keywords": "interactive fiction,branching,space mystery,text adventure,reading,exploration,science fiction",
+  "supportUrl": "https://github.com/killjoy00/Starport/blob/main/docs/support.md",
+  "privacyPolicyUrl": "https://github.com/killjoy00/Starport/blob/main/docs/privacy.md",
+  "category": "Games",
+  "subcategory": "Adventure",
+  "version": "0.2.0"
+}

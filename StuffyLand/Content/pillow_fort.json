@@ -1,0 +1,1210 @@
+{
+  "id": "stuffy-pillow-fort",
+  "contentVersion": 1,
+  "title": "Opal and the Great Pillow-Fort Mystery",
+  "subtitle": "Help Opal lead a search for the Lost Star without leaving her cozy blankets.",
+  "start": "s01",
+  "minimumDecisions": 17,
+  "nodes": [
+    {
+      "id": "detour_1",
+      "act": "A little detour",
+      "title": "The loud whisper",
+      "paragraphs": [
+        "Langston demonstrates his quietest announcement. The fort roof flutters. Opal giggles, then asks for a truly quiet start. Lolo waits while everybody practices indoor voices."
+      ],
+      "ending": {
+        "id": "detour_1",
+        "kind": "detour",
+        "title": "The loud whisper",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s01",
+      "act": "An Opal adventure",
+      "title": "An adventure delivered",
+      "paragraphs": [
+        "The galaxy tent paints stars across Opal's blanket, but her head feels heavy and her nose is sniffly. Lolo, her gray-and-tan sloth lovey, tucks herself beside her.",
+        "“I wanted an adventure,” Opal says.",
+        "Langston bursts in, notices her tissues, and lowers his voice to a very loud whisper. “THE ADVENTURE DELIVERY SERVICE IS OPEN!”",
+        "You help Opal decide how to lead from her resting place. On every route, she stays tucked up and her friends do the exploring."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s01_choose_1",
+          "label": "Ask Lolo to help make a cozy plan",
+          "to": "s02",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "rest_plan"
+            }
+          ]
+        },
+        {
+          "id": "s01_choose_2",
+          "label": "Ask Langston to gather the adventure crew",
+          "to": "s02",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "crew_call"
+            }
+          ]
+        },
+        {
+          "id": "s01_detour",
+          "label": "Ask for Langston’s loudest delivery announcement",
+          "to": "detour_1"
+        }
+      ]
+    },
+    {
+      "id": "detour_2",
+      "act": "A little detour",
+      "title": "The enormous entrance",
+      "paragraphs": [
+        "Langston builds a doorway exactly his size. There are no pillows left for walls. Coatl looks at the empty basket. The friends will need a smaller design."
+      ],
+      "ending": {
+        "id": "detour_2",
+        "kind": "detour",
+        "title": "The enormous entrance",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s02",
+      "act": "An Opal adventure",
+      "title": "Build the resting castle",
+      "paragraphs": [
+        "Axey brings his explorer bag. Finley arrives with her notebook, and Stella drags a blanket almost as big as she is. Coatl carries smooth stones for the corners.",
+        "Langston drops an enormous pillow. FWOOOMP.",
+        "“Important equipment,” he announces. The friends begin building Opal's Royal Resting Castle. Where should the first team work?"
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s02_choose_1",
+          "label": "Have Coatl steady a little cushion tower",
+          "to": "s03",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "steady_tower"
+            }
+          ]
+        },
+        {
+          "id": "s02_choose_2",
+          "label": "Ask Unique Pink to make a blanket doorway",
+          "to": "s03",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "ribbon_door"
+            }
+          ]
+        },
+        {
+          "id": "s02_detour",
+          "label": "Use every cushion to make a troll-sized doorway",
+          "to": "detour_2"
+        }
+      ]
+    },
+    {
+      "id": "s03_1",
+      "act": "Your plan unfolds",
+      "title": "The moving star",
+      "paragraphs": [
+        "Opal asks Axey to walk around one cushion at a time. Each time he searches, the map slides its star elsewhere. Lolo holds the map where Opal can see it without sitting up. They have discovered a rule, not a broken map."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s03_1_continue",
+          "label": "Mark the searched cushions for everyone",
+          "to": "s04",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s03_1_notice",
+          "label": "Ask how the rule points to an unsearched place",
+          "to": "s04",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s03_2",
+      "act": "Your plan unfolds",
+      "title": "The paw-print puzzle",
+      "paragraphs": [
+        "Finley follows small prints under a hanging blanket. Stella finds a golden thread caught on the seam. Their clue leads upward, away from the floor. Opal keeps the thread where she can compare it with the map later."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s03_2_continue",
+          "label": "Thank both detectives for their clue",
+          "to": "s04",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s03_2_notice",
+          "label": "Examine where the golden thread came from",
+          "to": "s04",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "detour_3",
+      "act": "A little detour",
+      "title": "The cookie map",
+      "paragraphs": [
+        "Langston traces the star with cookie crumbs. Finley politely eats one and the map is no easier to understand. Opal decides to start again with a pencil."
+      ],
+      "ending": {
+        "id": "detour_3",
+        "kind": "detour",
+        "title": "The cookie map",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s03",
+      "act": "An Opal adventure",
+      "title": "The golden map",
+      "paragraphs": [
+        "Cherryberry arrives with the kitty friends. Unique Pink brings a crown; Cinny brings a cinnamon-roll pillow. Inside the fort, a golden spark unfolds into a map.",
+        "THE LOST STAR OF STUFFY LAND.",
+        "The star on the map shifts when Axey walks past it. Opal leans forward, then settles back when Lolo offers her water.",
+        "“We can investigate from here,” Lolo says."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s03_choose_1",
+          "label": "Study how the star moves on the map",
+          "to": "s03_1",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "map_rule"
+            }
+          ]
+        },
+        {
+          "id": "s03_choose_2",
+          "label": "Ask Finley to inspect the tracks around the fort",
+          "to": "s03_2",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "paw_clue"
+            }
+          ]
+        },
+        {
+          "id": "s03_detour",
+          "label": "Let Langston chart a route with mission cookies",
+          "to": "detour_3"
+        }
+      ]
+    },
+    {
+      "id": "s04_1",
+      "act": "Your plan unfolds",
+      "title": "Axey’s tiny expedition",
+      "paragraphs": [
+        "Axey crawls into the tunnel with a ribbon tied loosely to his pack. Lolo holds the other end so he can find the entrance again. Inside, a sparkle on the ceiling shows that the tunnel passes beneath the high tower."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s04_1_continue",
+          "label": "Let Lolo guide her best friend back",
+          "to": "s05",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s04_1_notice",
+          "label": "Have Axey sketch the ceiling sparkle",
+          "to": "s05",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s04_2",
+      "act": "Your plan unfolds",
+      "title": "The blanket-edge patrol",
+      "paragraphs": [
+        "Finley and Stella walk the outside edge together. Behind a fold, they find an old star-shaped stitch that points toward the tower. Stella stays beside the fold while Finley brings the observation back to Opal."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s04_2_continue",
+          "label": "Keep the two detectives working together",
+          "to": "s05",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s04_2_notice",
+          "label": "Compare the stitch with the tower’s position",
+          "to": "s05",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "detour_4",
+      "act": "A little detour",
+      "title": "Everyone in one tunnel",
+      "paragraphs": [
+        "The whole crew tries to enter the little tunnel together. There is a great deal of polite shuffling and no exploring at all. Nobody is stuck; everybody simply backs out."
+      ],
+      "ending": {
+        "id": "detour_4",
+        "kind": "detour",
+        "title": "Everyone in one tunnel",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s04",
+      "act": "An Opal adventure",
+      "title": "A commander needs a crew",
+      "paragraphs": [
+        "Axey raises his paw. “I volunteer for exploring!”",
+        "Finley opens her notebook. Stella tests a cushion by lying on it. Coatl waits beside the tower, solid as a small hill.",
+        "Opal can send the first search party in two directions. Neither requires her to leave the blankets."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s04_choose_1",
+          "label": "Send Axey through the cushion tunnel",
+          "to": "s04_1",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "tunnel_team"
+            }
+          ]
+        },
+        {
+          "id": "s04_choose_2",
+          "label": "Send Finley and Stella around the blanket edge",
+          "to": "s04_2",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "blanket_team"
+            }
+          ]
+        },
+        {
+          "id": "s04_detour",
+          "label": "Send the whole crew into the tiny tunnel",
+          "to": "detour_4"
+        }
+      ]
+    },
+    {
+      "id": "detour_5",
+      "act": "A little detour",
+      "title": "An upside-down clue",
+      "paragraphs": [
+        "Opal turns the map upside down. The star politely turns too. Lolo smiles. It seems the map needs an observation rather than a new direction."
+      ],
+      "ending": {
+        "id": "detour_5",
+        "kind": "detour",
+        "title": "An upside-down clue",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s05",
+      "act": "An Opal adventure",
+      "title": "The places not searched",
+      "paragraphs": [
+        "The search party returns. The star on the map has slipped away again.",
+        "“It keeps moving whenever we look somewhere,” Opal says. “Maybe it shows where the star isn't.”",
+        "Langston arrives with mission cookies. “I have searched these extremely thoroughly.”",
+        "Lolo points out the only part of the fort that nobody has inspected: the high pillow tower."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s05_choose_1",
+          "label": "Compare the search notes with the map",
+          "to": "s06",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "compared_map"
+            }
+          ]
+        },
+        {
+          "id": "s05_choose_2",
+          "label": "Ask Coatl to check the tower from below",
+          "to": "s06",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "tower_checked"
+            }
+          ]
+        },
+        {
+          "id": "s05_detour",
+          "label": "Rotate the map until the answer looks obvious",
+          "to": "detour_5"
+        }
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "map_rule",
+            "hint": "A clue from your earlier plan."
+          },
+          "text": "Because you tested the moving star, Opal can cross out the places already searched."
+        },
+        {
+          "requirement": {
+            "flag": "paw_clue",
+            "hint": "A clue from your earlier plan."
+          },
+          "text": "Finley’s golden thread still points upward. The detectives have given Opal a different route to the same tower."
+        }
+      ]
+    },
+    {
+      "id": "s06_1",
+      "act": "Your plan unfolds",
+      "title": "The smallest climber",
+      "paragraphs": [
+        "Coatl braces the tower. Axey tests the first cushion, then the second. Opal makes him stop whenever anything wobbles. Langston holds the loose blankets out of the way, giving his height a useful job."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s06_1_continue",
+          "label": "Check that everyone knows their role",
+          "to": "s07",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s06_1_notice",
+          "label": "Ask Axey to test each next foothold",
+          "to": "s07",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s06_2",
+      "act": "Your plan unfolds",
+      "title": "A sling made of ribbons",
+      "paragraphs": [
+        "Unique Pink knots wide ribbons around a soft cushion. Langston lifts one end while Coatl anchors the other. The sling can reach behind the top pillow without anyone climbing. Opal checks the knot from her blanket."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s06_2_continue",
+          "label": "Let the crafters explain the knot together",
+          "to": "s07",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s06_2_notice",
+          "label": "Follow the ribbon’s route before lifting",
+          "to": "s07",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "detour_6",
+      "act": "A little detour",
+      "title": "A magnificent leap",
+      "paragraphs": [
+        "Langston announces that he will jump over the tower. Coatl asks him to try on the empty cushion mat first. He lands with a very impressive FWOOOMP. The star remains where it was."
+      ],
+      "ending": {
+        "id": "detour_6",
+        "kind": "detour",
+        "title": "A magnificent leap",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s06",
+      "act": "An Opal adventure",
+      "title": "The tower wobbles",
+      "paragraphs": [
+        "A gold sparkle peeks from the top cushion. Langston reaches toward it and the tower leans.",
+        "“Careful!” Opal calls.",
+        "He slides gently into a blanket pile. His pumpkin helmet rolls away. “I have discovered a very comfortable landing.”",
+        "Opal waits while he gets up, then plans a steadier way to reach the light."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s06_choose_1",
+          "label": "Plan a small explorer climb with Coatl holding the base",
+          "to": "s06_1",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "small_climb"
+            }
+          ]
+        },
+        {
+          "id": "s06_choose_2",
+          "label": "Ask Unique Pink to make a soft ribbon sling",
+          "to": "s06_2",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "ribbon_sling"
+            }
+          ]
+        },
+        {
+          "id": "s06_detour",
+          "label": "Test Langston’s giant pillow leap",
+          "to": "detour_6"
+        }
+      ]
+    },
+    {
+      "id": "detour_7",
+      "act": "A little detour",
+      "title": "The snack inspection",
+      "paragraphs": [
+        "Langston checks every cookie for hidden starlight. None contains a star. Several contain less cookie than before. Cinny retrieves the real checklist."
+      ],
+      "ending": {
+        "id": "detour_7",
+        "kind": "detour",
+        "title": "The snack inspection",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s07",
+      "act": "An Opal adventure",
+      "title": "Check every corner",
+      "paragraphs": [
+        "Before anyone climbs, Finley checks the floor. Stella pushes the loose helmet out of the way. Coatl examines the seams between the cushions.",
+        "Lolo notices Opal rubbing her eyes. “We can take a little pause.”",
+        "The star is still there. The friends can make the next step ready while their commander rests."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s07_choose_1",
+          "label": "Rest while Cinny double-checks the team plan",
+          "to": "s08",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "shared_plan"
+            }
+          ]
+        },
+        {
+          "id": "s07_choose_2",
+          "label": "Ask Lolo to read the next instructions aloud",
+          "to": "s08",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "lolo_reader"
+            }
+          ]
+        },
+        {
+          "id": "s07_detour",
+          "label": "Let Langston inspect the snack plate first",
+          "to": "detour_7"
+        }
+      ]
+    },
+    {
+      "id": "s08_1",
+      "act": "Your plan unfolds",
+      "title": "Explorer above the pillows",
+      "paragraphs": [
+        "Axey climbs slowly with Coatl steadying the base. At the top he finds a golden star caught behind a seam. He frees it with two careful paws and carries it back down. Langston provides a triumphant whisper."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s08_1_continue",
+          "label": "Have Axey place it beside Opal",
+          "to": "s09",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s08_1_notice",
+          "label": "Ask which seam held the star",
+          "to": "s09",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s08_2",
+      "act": "Your plan unfolds",
+      "title": "The softest delivery",
+      "paragraphs": [
+        "The ribbon sling rises beside the sparkle. Unique Pink tips it just enough to lift the star, then the team lowers it toward Opal. Langston tries to announce a delivery fee of one biscuit. Lolo raises an eyebrow."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s08_2_continue",
+          "label": "Thank every friend holding the ribbons",
+          "to": "s09",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s08_2_notice",
+          "label": "Examine the star while it settles",
+          "to": "s09",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "detour_8",
+      "act": "A little detour",
+      "title": "A fishing expedition",
+      "paragraphs": [
+        "A pretend fishing rod catches Langston’s cape instead of the star. He bows as though this was the plan. The friends untangle it and try a tool they can control."
+      ],
+      "ending": {
+        "id": "detour_8",
+        "kind": "detour",
+        "title": "A fishing expedition",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s08",
+      "act": "An Opal adventure",
+      "title": "Bring down the star",
+      "paragraphs": [
+        "The safe route is ready. Axey waits at the bottom of the tower and Unique Pink holds her ribbons.",
+        "“Small paws,” Opal says. “Slow movements.”",
+        "Langston salutes so carefully that he barely rustles the blanket roof. There is more than one way to get the star down without knocking over the fort."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s08_choose_1",
+          "label": "Send Axey up the supported cushion steps",
+          "to": "s08_1",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "axey_retrieval"
+            }
+          ]
+        },
+        {
+          "id": "s08_choose_2",
+          "label": "Have the ribbon team lower the star gently",
+          "to": "s08_2",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "sling_retrieval"
+            }
+          ]
+        },
+        {
+          "id": "s08_detour",
+          "label": "Fish for the star with the pretend rod",
+          "to": "detour_8"
+        }
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "small_climb",
+            "hint": "A clue from your earlier plan."
+          },
+          "text": "Coatl remembers the supported climbing plan and checks the base again."
+        },
+        {
+          "requirement": {
+            "flag": "ribbon_sling",
+            "hint": "A clue from your earlier plan."
+          },
+          "text": "Unique Pink brings the sling you asked her to prepare."
+        }
+      ]
+    },
+    {
+      "id": "detour_9",
+      "act": "A little detour",
+      "title": "One very shiny helmet",
+      "paragraphs": [
+        "The star rests on the pumpkin helmet and lights it like a lantern. It is beautiful, but the sharing message stays dim. Langston agrees that his head is not the whole crew."
+      ],
+      "ending": {
+        "id": "detour_9",
+        "kind": "detour",
+        "title": "One very shiny helmet",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s09",
+      "act": "An Opal adventure",
+      "title": "A message in the light",
+      "paragraphs": [
+        "The star arrives on a cushion beside Opal. Gold spreads across the fort, revealing a new message.",
+        "THE STAR SHINES BRIGHTEST WHEN EVERYONE SHARES ITS LIGHT.",
+        "Opal touches one point. It glows, but the rest stays dim. Lolo studies the message with her.",
+        "“What might sharing mean?” she asks."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s09_choose_1",
+          "label": "Invite every friend to lend a paw",
+          "to": "s10",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "share_star"
+            }
+          ]
+        },
+        {
+          "id": "s09_choose_2",
+          "label": "Look for the constellation pattern on the map",
+          "to": "s10",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "star_pattern"
+            }
+          ]
+        },
+        {
+          "id": "s09_detour",
+          "label": "Let Langston wear the star on his helmet",
+          "to": "detour_9"
+        }
+      ]
+    },
+    {
+      "id": "detour_10",
+      "act": "A little detour",
+      "title": "The closed curtain",
+      "paragraphs": [
+        "The friends draw a curtain around the star so it will look mysterious. Now nobody can see it. Stella nudges the curtain open again, and the crew reconsiders what sharing means."
+      ],
+      "ending": {
+        "id": "detour_10",
+        "kind": "detour",
+        "title": "The closed curtain",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s10",
+      "act": "An Opal adventure",
+      "title": "Make room for everyone",
+      "paragraphs": [
+        "The smallest kitty waits behind the larger cushions. The Dragon Couple stay together beside the entrance. Finley and Stella sit side by side.",
+        "“We can move closer to Opal,” Lolo suggests, “instead of asking Opal to move to us.”",
+        "Langston lifts one enormous cushion and suddenly there is room."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s10_choose_1",
+          "label": "Bring the whole circle to Opal’s bedside",
+          "to": "s11",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "whole_circle"
+            }
+          ]
+        },
+        {
+          "id": "s10_choose_2",
+          "label": "Pass the star around on its soft cushion",
+          "to": "s11",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "star_pass"
+            }
+          ]
+        },
+        {
+          "id": "s10_detour",
+          "label": "Hide the star behind a fancy curtain",
+          "to": "detour_10"
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "act": "An Opal adventure",
+      "title": "The quiet part",
+      "paragraphs": [
+        "The star shines warmly. Opal smiles, then yawns. Lolo draws the blanket up around her shoulders.",
+        "Langston sees a tiny golden cookie appear above his helmet. “THE STAR UNDERSTANDS ME!”",
+        "He catches Lolo's look and finishes the sentence in a whisper. Opal can decide what to do with the last of her energy."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s11_choose_1",
+          "label": "Let the crew finish while Opal rests",
+          "to": "s12",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "rest_finish"
+            }
+          ]
+        },
+        {
+          "id": "s11_choose_2",
+          "label": "Ask Lolo to help explain the final pattern",
+          "to": "s12",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "pattern_finish"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "act": "An Opal adventure",
+      "title": "Choose a light to keep",
+      "paragraphs": [
+        "The search is finished. The fort is steady, and the star is safe beside Opal's pillow. What happens next depends on how the friends have prepared to share it.",
+        "“You were our commander the whole time,” Axey whispers.",
+        "“Even when I needed a pause?”",
+        "“Especially then,” Lolo says."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal and Lolo inside their warm purple galaxy tent."
+      },
+      "choices": [
+        {
+          "id": "s12_choose_1",
+          "label": "Gather the crew for a quiet thank-you",
+          "to": "resolution",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "crew_thanks"
+            }
+          ]
+        },
+        {
+          "id": "s12_choose_2",
+          "label": "Ask Finley to record the adventure in her notebook",
+          "to": "resolution",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "recorded"
+            }
+          ]
+        }
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "rest_finish",
+            "hint": "A clue from your earlier plan."
+          },
+          "text": "The crew has done the last work while Opal rests; her help never depended on leaving her blankets."
+        }
+      ]
+    },
+    {
+      "id": "resolution",
+      "act": "The last choice",
+      "title": "What will you carry home?",
+      "paragraphs": [
+        "Help Opal lead a search for the Lost Star without leaving her cozy blankets.",
+        "Opal looks at the friends beside her. The discoveries and promises you made have opened different ways to finish."
+      ],
+      "choices": [
+        {
+          "id": "finish_1",
+          "label": "Make the Friendship Star together",
+          "to": "final_1",
+          "requirements": [
+            {
+              "flag": "map_rule",
+              "hint": "Discover how the moving map works."
+            },
+            {
+              "flag": "share_star",
+              "hint": "Invite the friends to share the star."
+            },
+            {
+              "flag": "whole_circle",
+              "hint": "Make room for the whole circle beside Opal."
+            }
+          ]
+        },
+        {
+          "id": "finish_2",
+          "label": "Carry the light from friend to friend",
+          "to": "final_2",
+          "requirements": [
+            {
+              "flag": "star_pass",
+              "hint": "Choose to pass the star around safely."
+            }
+          ]
+        },
+        {
+          "id": "finish_3",
+          "label": "Trace a constellation from the map",
+          "to": "final_3",
+          "requirements": [
+            {
+              "flag": "star_pattern",
+              "hint": "Study the constellation pattern."
+            }
+          ]
+        },
+        {
+          "id": "finish_4",
+          "label": "Save the star beside Opal’s pillow",
+          "to": "final_4"
+        },
+        {
+          "id": "finish_5",
+          "label": "Let the crew build a new resting fort",
+          "to": "final_5"
+        }
+      ]
+    },
+    {
+      "id": "final_1",
+      "act": "A Stuffy Land memory",
+      "title": "A galaxy for everyone",
+      "paragraphs": [
+        "Opal explains the map’s moving star, then invites every friend into the bedside circle. They touch the light together. Constellations bloom across the blanket roof, joining every paw with a golden line.",
+        "Some days courage means exploring. Today it also meant resting and letting friends help. Langston hangs a NO TROLL SHOUTING sign outside. His goodnight is almost quiet. Lolo stays tucked against Opal as the Friendship Star shines.",
+        "The End."
+      ],
+      "ending": {
+        "id": "final_1",
+        "kind": "final",
+        "rank": 1,
+        "title": "A galaxy for everyone",
+        "note": "This ending is saved in your memory book. You can return to the story and discover another way."
+      }
+    },
+    {
+      "id": "final_2",
+      "act": "A Stuffy Land memory",
+      "title": "The traveling star",
+      "paragraphs": [
+        "The star passes around on its cushion. Each friend adds a warm little spark, and Opal receives it last without leaving her blankets. It becomes a lantern for future story nights.",
+        "The roof stays a blanket rather than a galaxy, but nobody has to look at the light alone. Axey promises to draw the whole route in the morning. Lolo helps Opal close her eyes.",
+        "The End."
+      ],
+      "ending": {
+        "id": "final_2",
+        "kind": "final",
+        "rank": 2,
+        "title": "The traveling star",
+        "note": "This ending is saved in your memory book. You can return to the story and discover another way."
+      }
+    },
+    {
+      "id": "final_3",
+      "act": "A Stuffy Land memory",
+      "title": "The mapmakers’ night",
+      "paragraphs": [
+        "With Lolo beside her, Opal traces the star pattern on the map. Finley marks each place the crew searched. One small constellation appears above Opal’s pillow: a record of all their careful work.",
+        "They have not made the full Friendship Star tonight. Tomorrow they can invite more paws into the circle. For now, Opal rests beneath the gentle glow, and Langston finally whispers.",
+        "The End."
+      ],
+      "ending": {
+        "id": "final_3",
+        "kind": "final",
+        "rank": 3,
+        "title": "The mapmakers’ night",
+        "note": "This ending is saved in your memory book. You can return to the story and discover another way."
+      }
+    },
+    {
+      "id": "final_4",
+      "act": "A Stuffy Land memory",
+      "title": "A light for tomorrow",
+      "paragraphs": [
+        "The friends place the star on a safe cushion beside Opal. There is no new galaxy tonight. Solving the search was quite enough for one sniffly commander.",
+        "They tidy quietly and promise to return when she feels better. Lolo keeps her paw in Opal’s hand. Outside, Langston turns his announcement sign around: RESTING IN PROGRESS.",
+        "The End."
+      ],
+      "ending": {
+        "id": "final_4",
+        "kind": "final",
+        "rank": 4,
+        "title": "A light for tomorrow",
+        "note": "This ending is saved in your memory book. You can return to the story and discover another way."
+      }
+    },
+    {
+      "id": "final_5",
+      "act": "A Stuffy Land memory",
+      "title": "A smaller castle",
+      "paragraphs": [
+        "The crew decides to move the cushions into a lower, simpler fort. The star slips into its soft sling while Coatl steadies the walls. It shines as one ordinary golden light.",
+        "The big tower and its mysterious pattern will wait. Opal has a safe place to sleep, and her friends have learned that an enormous castle is less useful than a comfortable one. Langston requests an equally comfortable snack corner.",
+        "The End."
+      ],
+      "ending": {
+        "id": "final_5",
+        "kind": "final",
+        "rank": 5,
+        "title": "A smaller castle",
+        "note": "This ending is saved in your memory book. You can return to the story and discover another way."
+      }
+    }
+  ]
+}

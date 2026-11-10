@@ -16,6 +16,7 @@ public struct RegularBook: Codable, Sendable {
     public let title: String
     public let subtitle: String
     public let author: String?
+    public let editorialNote: String?
     public let pages: [RegularBookPage]
 }
 

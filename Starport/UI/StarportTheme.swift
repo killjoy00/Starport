@@ -15,46 +15,24 @@ enum AppearanceMode: String, CaseIterable, Identifiable {
 }
 
 enum StarportTheme {
-    private static func adaptive(light: UIColor, dark: UIColor) -> Color {
-        Color(uiColor: UIColor { trait in
-            trait.userInterfaceStyle == .dark ? dark : light
-        })
+    private static func palette(_ light: UInt32, _ dark: UInt32, _ starLight: UInt32, _ starDark: UInt32) -> Color {
+        func ui(_ hex: UInt32) -> UIColor {
+            UIColor(red: CGFloat((hex >> 16) & 255) / 255,
+                    green: CGFloat((hex >> 8) & 255) / 255,
+                    blue: CGFloat(hex & 255) / 255, alpha: 1)
+        }
+        let isStuffy = AppBrand.current.isStuffyLand
+        let day = ui(isStuffy ? light : starLight)
+        let night = ui(isStuffy ? dark : starDark)
+        return Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? night : day })
     }
-    static let ink = AppBrand.current.isStuffyLand ? adaptive(
-        light: UIColor(red: 0.972, green: 0.950, blue: 0.923, alpha: 1),
-        dark: UIColor(red: 0.092, green: 0.084, blue: 0.154, alpha: 1)) : adaptive(
-        light: UIColor(red: 0.955, green: 0.969, blue: 0.978, alpha: 1),
-        dark: UIColor(red: 0.035, green: 0.068, blue: 0.12, alpha: 1))
-    static let panel = AppBrand.current.isStuffyLand ? adaptive(
-        light: UIColor(red: 1, green: 0.990, blue: 0.974, alpha: 1),
-        dark: UIColor(red: 0.168, green: 0.145, blue: 0.220, alpha: 1)) : adaptive(
-        light: UIColor(red: 0.996, green: 0.997, blue: 1, alpha: 1),
-        dark: UIColor(red: 0.085, green: 0.135, blue: 0.21, alpha: 1))
-    static let line = AppBrand.current.isStuffyLand ? adaptive(
-        light: UIColor(red: 0.80, green: 0.74, blue: 0.74, alpha: 1),
-        dark: UIColor(red: 0.37, green: 0.31, blue: 0.42, alpha: 1)) : adaptive(
-        light: UIColor(red: 0.77, green: 0.82, blue: 0.86, alpha: 1),
-        dark: UIColor(red: 0.24, green: 0.33, blue: 0.42, alpha: 1))
-    static let teal = AppBrand.current.isStuffyLand ? adaptive(
-        light: UIColor(red: 0.43, green: 0.27, blue: 0.58, alpha: 1),
-        dark: UIColor(red: 0.83, green: 0.68, blue: 0.98, alpha: 1)) : adaptive(
-        light: UIColor(red: 0.02, green: 0.42, blue: 0.44, alpha: 1),
-        dark: UIColor(red: 0.47, green: 0.91, blue: 0.88, alpha: 1))
-    static let orange = AppBrand.current.isStuffyLand ? adaptive(
-        light: UIColor(red: 0.66, green: 0.33, blue: 0.29, alpha: 1),
-        dark: UIColor(red: 0.98, green: 0.73, blue: 0.57, alpha: 1)) : adaptive(
-        light: UIColor(red: 0.63, green: 0.28, blue: 0.12, alpha: 1),
-        dark: UIColor(red: 1, green: 0.66, blue: 0.40, alpha: 1))
-    static let paper = AppBrand.current.isStuffyLand ? adaptive(
-        light: UIColor(red: 0.20, green: 0.16, blue: 0.24, alpha: 1),
-        dark: UIColor(red: 0.98, green: 0.95, blue: 0.94, alpha: 1)) : adaptive(
-        light: UIColor(red: 0.075, green: 0.13, blue: 0.20, alpha: 1),
-        dark: UIColor(red: 0.95, green: 0.96, blue: 0.95, alpha: 1))
-    static let muted = AppBrand.current.isStuffyLand ? adaptive(
-        light: UIColor(red: 0.43, green: 0.38, blue: 0.46, alpha: 1),
-        dark: UIColor(red: 0.79, green: 0.72, blue: 0.83, alpha: 1)) : adaptive(
-        light: UIColor(red: 0.31, green: 0.40, blue: 0.45, alpha: 1),
-        dark: UIColor(red: 0.68, green: 0.76, blue: 0.79, alpha: 1))
+    static let ink = palette(0xF8F1E8, 0x21152E, 0xF4F7F9, 0x09111F)
+    static let panel = palette(0xFFFBF5, 0x32213F, 0xFEFEFF, 0x162236)
+    static let line = palette(0xD2C1D7, 0x695274, 0xC4D1DB, 0x3D546B)
+    static let teal = palette(0x714391, 0xD8B9F2, 0x056B70, 0x78E8E0)
+    static let orange = palette(0x91551D, 0xF3C477, 0xA1471F, 0xFFA866)
+    static let paper = palette(0x302438, 0xF8F0E7, 0x132133, 0xF2F5F2)
+    static let muted = palette(0x6C5A74, 0xCCBED8, 0x4F6673, 0xADC2C9)
 }
 
 struct Starfield: View {
@@ -69,14 +47,14 @@ struct Starfield: View {
                     endPoint: .bottomTrailing
                 )
                 Canvas { context, size in
-                    for index in 0..<90 {
+                    for index in 0..<(AppBrand.current.isStuffyLand ? 24 : 90) {
                         let x = CGFloat((index * 127 + 37) % 997) / 997 * size.width
                         let y = CGFloat((index * 293 + 79) % 991) / 991 * size.height
                         let diameter = index.isMultiple(of: 9) ? 3.2 : 1.3
                         let opacity = index.isMultiple(of: 5) ? 0.35 : 0.16
                         context.fill(
                             Path(ellipseIn: CGRect(x: x, y: y, width: diameter, height: diameter)),
-                            with: .color((scheme == .dark ? Color.white : Color.black).opacity(opacity))
+                            with: .color((AppBrand.current.isStuffyLand ? StarportTheme.orange : (scheme == .dark ? Color.white : Color.black)).opacity(AppBrand.current.isStuffyLand ? opacity * 0.35 : opacity))
                         )
                     }
                 }
@@ -137,47 +115,14 @@ struct OrbitArtwork: View {
 
 struct StorybookPlushArtwork: View {
     var body: some View {
-        GeometryReader { geometry in
-            let side = min(geometry.size.width, geometry.size.height)
-            ZStack {
-                Ellipse()
-                    .fill(StarportTheme.teal.opacity(0.2))
-                    .frame(width: side * 1.4, height: side * 0.6)
-                    .offset(y: side * 0.35)
-                Circle()
-                    .fill(StarportTheme.orange)
-                    .frame(width: side * 0.27, height: side * 0.27)
-                    .offset(x: -side * 0.24, y: -side * 0.20)
-                Circle()
-                    .fill(StarportTheme.orange)
-                    .frame(width: side * 0.27, height: side * 0.27)
-                    .offset(x: side * 0.24, y: -side * 0.20)
-                Capsule()
-                    .fill(StarportTheme.orange)
-                    .frame(width: side * 0.50, height: side * 0.48)
-                    .offset(y: side * 0.30)
-                Circle()
-                    .fill(StarportTheme.orange)
-                    .frame(width: side * 0.62, height: side * 0.57)
-                HStack(spacing: side * 0.22) {
-                    Circle().fill(StarportTheme.ink).frame(width: 7, height: 7)
-                    Circle().fill(StarportTheme.ink).frame(width: 7, height: 7)
-                }
-                .offset(y: -side * 0.06)
-                Ellipse()
-                    .fill(StarportTheme.paper.opacity(0.80))
-                    .frame(width: side * 0.22, height: side * 0.14)
-                    .offset(y: side * 0.10)
-                Image(systemName: "heart.fill")
-                    .font(.system(size: side * 0.10))
-                    .foregroundStyle(StarportTheme.teal)
-                    .offset(y: side * 0.34)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
-        .accessibilityHidden(true)
+        Image("stuffy-logo")
+            .resizable()
+            .scaledToFit()
+            .clipShape(RoundedRectangle(cornerRadius: 24))
+            .accessibilityHidden(true)
     }
 }
+
 
 struct StarportMasthead: View {
     var body: some View {

@@ -59,3 +59,18 @@ jobs:
         run: python3 scripts/check_release_plist.py "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/StuffyLand.app" pro.stuffyland.stories
       - name: Launch Stuffy Land on simulator and verify it stays alive
         run: bash scripts/smoke_launch.sh "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/StuffyLand.app" pro.stuffyland.stories
+      - name: Capture Stuffy Land shelf in both reading appearances
+        run: |
+          mkdir -p "$RUNNER_TEMP/stuffy-preview"
+          for appearance in dark light; do
+            xcrun simctl terminate booted pro.stuffyland.stories || true
+            xcrun simctl launch booted pro.stuffyland.stories -starport.confirmed13Plus YES -starport.appearance "$appearance"
+            sleep 3
+            xcrun simctl io booted screenshot "$RUNNER_TEMP/stuffy-preview/stuffy-shelf-$appearance.png"
+          done
+      - name: Preserve native Stuffy Land previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: stuffy-land-native-previews
+          path: ${{ runner.temp }}/stuffy-preview
+          retention-days: 7

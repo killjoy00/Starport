@@ -123,6 +123,9 @@ final class AdventureRepository {
     private static func combined(bundled: AdventureCatalog, updates: AdventureCatalog) -> AdventureCatalog {
         var entries = bundled.adventures
         for item in updates.adventures {
+            if AppBrand.current.isStuffyLand && ["stuffy-bell", "stuffy-reader-sample"].contains(item.id) {
+                continue
+            }
             if let index = entries.firstIndex(where: { $0.id == item.id }) {
                 if item.contentVersion >= entries[index].contentVersion {
                     entries[index] = item

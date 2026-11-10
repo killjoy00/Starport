@@ -34,7 +34,7 @@ struct AchievementsScreen: View {
 
                     ForEach(Achievement.Group.allCases, id: \.self) { group in
                         VStack(alignment: .leading, spacing: 11) {
-                            Text(group.rawValue.uppercased())
+                            Text(AppBrand.current.isStuffyLand && group == .endings ? "STORY ENDINGS" : group.rawValue.uppercased())
                                 .font(.system(.caption, design: .monospaced, weight: .bold))
                                 .tracking(1.3)
                                 .foregroundStyle(StarportTheme.orange)
@@ -51,7 +51,7 @@ struct AchievementsScreen: View {
                 .frame(maxWidth: .infinity)
             }
             .background(Starfield())
-            .navigationTitle("Achievements")
+            .navigationTitle(AppBrand.current.isStuffyLand ? "Memory book" : "Achievements")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {

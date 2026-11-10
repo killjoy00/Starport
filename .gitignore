@@ -14,3 +14,7 @@ xcuserdata/
 *.p12
 *.mobileprovision
 .env
+
+# Python validation caches
+__pycache__/
+*.pyc

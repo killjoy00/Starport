@@ -77,32 +77,63 @@ for listing in catalog["adventures"]:
                 queue.append(nxt)
     assert all(depths[n["id"]] >= book["minimumDecisions"] for n in finals)
 
-    # An all-helpful route must allow all five endings so none is accidentally
-    # locked by a mis-typed requirement or flag. Other choices still matter.
-    stats = {"clues": 0, "power": 3, "trust": 1}
-    flags = set()
-    current = book["start"]
-    while "ending" not in nodes[current]:
-        choices = nodes[current]["choices"]
-        if all("ending" in nodes[c["to"]] for c in choices):
-            available = [
-                c["to"] for c in choices
-                if all(
-                    (req.get("stat") is None or stats[req["stat"]] >= req["atLeast"])
-                    and (req.get("flag") is None or req["flag"] in flags)
-                    for req in c.get("requirements", [])
-                )
-            ]
-            assert {n["id"] for n in finals} == set(available), "A permanent ending is unreachable"
-            break
-        choice = choices[0]
-        for effect in choice.get("effects", []):
-            if "flag" in effect:
-                flags.add(effect["flag"])
-            if "stat" in effect:
-                key = effect["stat"]
-                stats[key] = max(0, min(5, stats[key] + effect["delta"]))
-        current = choice["to"]
+    # Explore actual available choices, including every relevant stat/flag state.
+    # Prepared endings are allowed to be locked on other routes, but every
+    # ending must be attainable and no reachable decision may strand a player.
+    required_flags = {r["flag"] for n in nodes.values() for c in n.get("choices", [])
+                      for r in c.get("requirements", []) if "flag" in r}
+    pending = [(book["start"], (0, 3, 1), frozenset())]
+    seen_states, earned = set(), set()
+    keys = ["clues", "power", "trust"]
+    while pending:
+        current, values, flags = pending.pop()
+        key = (current, values, flags)
+        if key in seen_states:
+            continue
+        seen_states.add(key)
+        node = nodes[current]
+        if "ending" in node:
+            if node["ending"]["kind"] == "final":
+                earned.add(current)
+            continue
+        stats = dict(zip(keys, values))
+        available = [c for c in node["choices"] if all(
+            ("stat" not in r or stats[r["stat"]] >= r["atLeast"])
+            and ("flag" not in r or r["flag"] in flags)
+            for r in c.get("requirements", []))]
+        assert available, ("Reachable dead end", current, values, flags)
+        for choice in available:
+            updated, new_flags = dict(stats), set(flags)
+            for effect in choice.get("effects", []):
+                if "stat" in effect:
+                    k = effect["stat"]
+                    updated[k] = max(0, min(5, updated[k] + effect["delta"]))
+                if effect.get("flag") in required_flags:
+                    new_flags.add(effect["flag"])
+            pending.append((choice["to"], tuple(updated[k] for k in keys), frozenset(new_flags)))
+    assert earned == {n["id"] for n in finals}, ("Unattainable ending", earned)
 
     print(f"PASS {listing['title']}: {len(nodes)} nodes, {len(finals)} finals, {len(detours)} detours")
 print(f"PASS Stuffy Land catalog: {len(seen_ids)} total stories (both formats)")
+
+# Verify the visible collection accounts for every recovered story once.
+root = content.parents[1]
+provenance = json.loads((root / "StuffyLand/Editorial/story-provenance.json").read_text())
+assert {p["id"] for p in provenance["stories"]} == seen_ids
+assert len(seen_ids) == 13
+assert sum(x.get("kind") == "reader" for x in catalog["adventures"]) == 11
+assert sum(x.get("kind") == "adventure" for x in catalog["adventures"]) == 2
+original = (root / "StuffyLand/Editorial/source/giggle_games.txt").read_text().strip().split("\n\n")
+giggles = json.loads((content / "giggle_games.json").read_text())
+assert [p for page in giggles["pages"] for p in page["paragraphs"]] == original[1:], "Original Giggle Games text changed"
+project = (root / "Starport.xcodeproj/project.pbxproj").read_text()
+resource_phase = project.split("/* Begin PBXResourcesBuildPhase section */")[1].split("/* End PBXResourcesBuildPhase section */")[0]
+for entry in catalog["adventures"]:
+    assert entry["filename"] + ".json in Stuffy Resources" in resource_phase, ("Story not bundled", entry["filename"])
+    book = json.loads((content / (entry["filename"] + ".json")).read_text())
+    illustrations = [p["illustration"] for p in book.get("pages", book.get("nodes", [])) if "illustration" in p]
+    for art in [entry["coverAsset"]] + [i["asset"] for i in illustrations]:
+        folder = root / "StuffyLand/Assets.xcassets" / (art + ".imageset")
+        meta = json.loads((folder / "Contents.json").read_text())
+        assert (folder / meta["images"][0]["filename"]).is_file(), ("Missing art", art)
+print("PASS provenance, verbatim original, bundled resource membership, and artwork files")

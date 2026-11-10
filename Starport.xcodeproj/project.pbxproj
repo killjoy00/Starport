@@ -60,6 +60,19 @@
 		D3000000000000000000003A /* BookReaderView.swift in Stuffy Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000003 /* BookReaderView.swift */; };
 		D30000000000000000000004 /* button_at_window.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000004 /* button_at_window.json */; };
 
+        D40000000000000000000001 /* concert.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C40000000000000000000001 /* concert.json */; };
+        D40000000000000000000002 /* giggle_games.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C40000000000000000000002 /* giggle_games.json */; };
+        D40000000000000000000003 /* gigglequake.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C40000000000000000000003 /* gigglequake.json */; };
+        D40000000000000000000004 /* heart_monster.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C40000000000000000000004 /* heart_monster.json */; };
+        D40000000000000000000005 /* impossible_birthday.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C40000000000000000000005 /* impossible_birthday.json */; };
+        D40000000000000000000006 /* inside_out.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C40000000000000000000006 /* inside_out.json */; };
+        D40000000000000000000007 /* invisible_bracelet.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C40000000000000000000007 /* invisible_bracelet.json */; };
+        D40000000000000000000008 /* monster_disguise.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C40000000000000000000008 /* monster_disguise.json */; };
+        D40000000000000000000009 /* pillow_fort.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C40000000000000000000009 /* pillow_fort.json */; };
+        D4000000000000000000000A /* sneaky_troll.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C4000000000000000000000A /* sneaky_troll.json */; };
+        D4000000000000000000000B /* snore_snatcher.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C4000000000000000000000B /* snore_snatcher.json */; };
+        D4000000000000000000000C /* star_eater.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C4000000000000000000000C /* star_eater.json */; };
+        D4000000000000000000000D /* thousand_traps.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C4000000000000000000000D /* thousand_traps.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +109,19 @@
 		C30000000000000000000003 /* BookReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReaderView.swift; sourceTree = "<group>"; };
 		C30000000000000000000004 /* button_at_window.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = button_at_window.json; sourceTree = "<group>"; };
 
+        C40000000000000000000001 /* concert.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = concert.json; sourceTree = "<group>"; };
+        C40000000000000000000002 /* giggle_games.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = giggle_games.json; sourceTree = "<group>"; };
+        C40000000000000000000003 /* gigglequake.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gigglequake.json; sourceTree = "<group>"; };
+        C40000000000000000000004 /* heart_monster.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = heart_monster.json; sourceTree = "<group>"; };
+        C40000000000000000000005 /* impossible_birthday.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = impossible_birthday.json; sourceTree = "<group>"; };
+        C40000000000000000000006 /* inside_out.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = inside_out.json; sourceTree = "<group>"; };
+        C40000000000000000000007 /* invisible_bracelet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = invisible_bracelet.json; sourceTree = "<group>"; };
+        C40000000000000000000008 /* monster_disguise.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = monster_disguise.json; sourceTree = "<group>"; };
+        C40000000000000000000009 /* pillow_fort.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pillow_fort.json; sourceTree = "<group>"; };
+        C4000000000000000000000A /* sneaky_troll.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sneaky_troll.json; sourceTree = "<group>"; };
+        C4000000000000000000000B /* snore_snatcher.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = snore_snatcher.json; sourceTree = "<group>"; };
+        C4000000000000000000000C /* star_eater.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = star_eater.json; sourceTree = "<group>"; };
+        C4000000000000000000000D /* thousand_traps.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = thousand_traps.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +212,7 @@
         B10000000000000000000003 /* Stuffy Content */ = {
             isa = PBXGroup;
             children = (C1000000000000000000000B /* catalog.json */, C1000000000000000000000C /* bell_button_hill.json */,
-                C30000000000000000000004 /* button_at_window.json */,);
+                C30000000000000000000004 /* button_at_window.json */, C40000000000000000000001 /* concert.json */, C40000000000000000000002 /* giggle_games.json */, C40000000000000000000003 /* gigglequake.json */, C40000000000000000000004 /* heart_monster.json */, C40000000000000000000005 /* impossible_birthday.json */, C40000000000000000000006 /* inside_out.json */, C40000000000000000000007 /* invisible_bracelet.json */, C40000000000000000000008 /* monster_disguise.json */, C40000000000000000000009 /* pillow_fort.json */, C4000000000000000000000A /* sneaky_troll.json */, C4000000000000000000000B /* snore_snatcher.json */, C4000000000000000000000C /* star_eater.json */, C4000000000000000000000D /* thousand_traps.json */,);
             path = "StuffyLand/Content";
             sourceTree = "<group>";
         };
@@ -252,6 +278,19 @@
             D1000000000000000000000B /* Stuffy catalog.json in Resources */,
             D1000000000000000000000C /* bell_button_hill.json in Resources */,
             D30000000000000000000004 /* button_at_window.json in Stuffy Resources */,
+            D40000000000000000000001 /* concert.json in Stuffy Resources */,
+            D40000000000000000000002 /* giggle_games.json in Stuffy Resources */,
+            D40000000000000000000003 /* gigglequake.json in Stuffy Resources */,
+            D40000000000000000000004 /* heart_monster.json in Stuffy Resources */,
+            D40000000000000000000005 /* impossible_birthday.json in Stuffy Resources */,
+            D40000000000000000000006 /* inside_out.json in Stuffy Resources */,
+            D40000000000000000000007 /* invisible_bracelet.json in Stuffy Resources */,
+            D40000000000000000000008 /* monster_disguise.json in Stuffy Resources */,
+            D40000000000000000000009 /* pillow_fort.json in Stuffy Resources */,
+            D4000000000000000000000A /* sneaky_troll.json in Stuffy Resources */,
+            D4000000000000000000000B /* snore_snatcher.json in Stuffy Resources */,
+            D4000000000000000000000C /* star_eater.json in Stuffy Resources */,
+            D4000000000000000000000D /* thousand_traps.json in Stuffy Resources */,
             D1000000000000000000000D /* Stuffy Assets.xcassets in Resources */,
             D1000000000000000000000E /* PrivacyInfo.xcprivacy in Stuffy Resources */,
         ); runOnlyForDeploymentPostprocessing = 0; };

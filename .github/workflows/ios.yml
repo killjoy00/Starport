@@ -30,6 +30,8 @@ jobs:
         run: python3 scripts/check_compiled_icon.py "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app"
       - name: Validate generated Info.plist contains AdMob initialization and release privacy switches
         run: python3 scripts/check_release_plist.py "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app"
+      - name: Install and launch the actual app on an iPhone simulator
+        run: bash scripts/smoke_launch.sh "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app"
       - name: Check iPad and iPhone rotation declarations in built app
         run: |
           plist="$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app/Info.plist"

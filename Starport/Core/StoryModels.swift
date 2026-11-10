@@ -160,6 +160,7 @@ public struct AdventureListing: Codable, Identifiable, Equatable, Sendable {
     public var format: StoryFormat { kind ?? .adventure }
     /// Optional shelf label for large themed libraries, absent in older catalogs.
     public let collection: String?
+    public let editorialNote: String?
 }
 
 public struct AdventureCatalog: Codable, Sendable {

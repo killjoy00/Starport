@@ -99,34 +99,38 @@ public enum AchievementCatalog {
         return earned
     }
 
-    /// Distinct achievement shelf for Stuffy Land. The five named outcomes
-    /// belong to the Button Hill pilot; they are never earned by other stories.
-    public static let stuffyLand: [Achievement] = [
-        Achievement("bell_ending_1", "A Bell for Everyone", "Find the best Button Hill ending.", "heart.fill", .endings, secret: true),
-        Achievement("bell_ending_2", "Home Again", "Bring the village home.", "house.fill", .endings, secret: true),
-        Achievement("bell_ending_3", "Wren's Song", "Hear a new way home.", "bird.fill", .endings, secret: true),
-        Achievement("bell_ending_4", "The Quiet Hill", "Finish without ringing the bell.", "moon.fill", .endings, secret: true),
-        Achievement("bell_ending_5", "A Cracked Bell", "Find the hardest ending.", "bell.slash.fill", .endings, secret: true),
-        Achievement("first_choice", "First Stitch", "Make your first Stuffy Land choice.", "hand.point.up.left.fill", .exploration),
-        Achievement("ten_choices", "A Story Unfolds", "Make ten choices in one run.", "book", .exploration),
-        Achievement("twenty_choices", "Nearly Home", "Make twenty choices in one run.", "book.closed.fill", .exploration),
-        Achievement("first_detour", "A Little Detour", "Find a false ending.", "arrow.uturn.backward", .exploration),
-        Achievement("three_detours", "A Winding Path", "Discover three different detours.", "map.fill", .exploration),
-        Achievement("all_detours", "Every Wrong Turn", "Discover all twelve pilot detours.", "map", .exploration),
-        Achievement("first_rewind", "Try That Again", "Undo a false ending.", "arrow.counterclockwise", .exploration),
-        Achievement("helped_mallow", "Good Neighbor", "Help Mallow at the bridge.", "hands.sparkles", .exploration),
-        Achievement("made_promise", "A Promise to Dot", "Make Dot a promise.", "hand.raised.fill", .exploration),
-        Achievement("shared_map", "A Map for Everyone", "Promise to share the map.", "map", .exploration),
-        Achievement("found_song", "Four Little Notes", "Find the bell's song.", "music.note.list", .exploration),
-        Achievement("forgave_wren", "Room for Sorry", "Help Wren make things right.", "heart", .exploration),
-        Achievement("moon_path", "The Moonlit Way", "Share a new path home.", "moon.stars.fill", .exploration),
-        Achievement("full_curiosity", "Curious Paws", "Fill the Curiosity meter.", "eye.fill", .mastery),
-        Achievement("full_courage", "Brave Enough", "Fill the Courage meter.", "shield.fill", .mastery),
-        Achievement("full_friendship", "Good Friends", "Fill the Friendship meter.", "person.2.fill", .mastery),
-        Achievement("clean_run", "Straight Home", "Reach a final ending without a detour in that run.", "checkmark.seal.fill", .mastery),
-        Achievement("two_endings", "Another Way", "Find two endings for the bell story.", "arrow.triangle.branch", .mastery),
-        Achievement("all_endings", "Five Ways Home", "Find all five Button Hill endings.", "star.circle.fill", .mastery)
-    ]
+    /// Canonical memories belong to one of the two Opal adventures.
+    public static let stuffyLand: [Achievement] = {
+        let stories = [
+            ("pillow", ["A Galaxy for Everyone", "The Traveling Star", "The Mapmakers’ Night", "A Light for Tomorrow", "A Smaller Castle"]),
+            ("snore", ["Rest and Sound", "The First Soft Wall", "An Invitation", "Home Again", "The Quiet Castle"])
+        ]
+        let endings = stories.flatMap { prefix, titles in
+            titles.enumerated().map { index, title in
+                Achievement("\(prefix)_ending_\(index + 1)", title,
+                            "Discover this Stuffy Land ending.", "star.fill", .endings, secret: true)
+            }
+        }
+        return endings + [
+            Achievement("first_choice", "First Stitch", "Make your first Stuffy Land choice.", "hand.point.up.left.fill", .exploration),
+            Achievement("ten_choices", "A Story Unfolds", "Make ten choices in one adventure.", "book", .exploration),
+            Achievement("first_detour", "A Little Detour", "Discover a funny turn in the story.", "arrow.uturn.backward", .exploration),
+            Achievement("three_detours", "A Winding Path", "Discover three different detours in one story.", "map.fill", .exploration),
+            Achievement("all_detours", "Every Little Turn", "Discover every detour in one adventure.", "map", .exploration),
+            Achievement("first_rewind", "Try That Again", "Try another way after a detour.", "arrow.counterclockwise", .exploration),
+            Achievement("map_rule", "The Moving Star", "Discover what the golden map is showing.", "sparkle", .exploration),
+            Achievement("share_star", "Room for Everyone", "Invite every friend to share the star.", "person.3", .exploration),
+            Achievement("heard_duke", "A Listening Ear", "Listen to why Duke cannot sleep.", "ear", .exploration),
+            Achievement("quiet_room", "A Place to Rest", "Help Duke plan a quiet room.", "moon.zzz", .exploration),
+            Achievement("laughter_clue", "A Laugh Gets Loose", "Discover how laughter frees the sounds.", "music.note", .exploration),
+            Achievement("full_curiosity", "Curious Paws", "Fill the Curiosity meter.", "eye.fill", .mastery),
+            Achievement("full_courage", "Brave Enough", "Fill the Courage meter.", "shield.fill", .mastery),
+            Achievement("full_friendship", "Good Friends", "Fill the Friendship meter.", "person.2.fill", .mastery),
+            Achievement("clean_run", "A Steady Path", "Finish an adventure without taking a detour.", "checkmark.seal.fill", .mastery),
+            Achievement("two_endings", "Another Way", "Discover two endings in one adventure.", "arrow.triangle.branch", .mastery),
+            Achievement("all_endings", "Every Way Home", "Discover all five endings in one adventure.", "star.circle.fill", .mastery)
+        ]
+    }()
 
     public static func all(forStuffyLand: Bool) -> [Achievement] {
         forStuffyLand ? stuffyLand : all
@@ -137,28 +141,31 @@ public enum AchievementCatalog {
         var earned: Set<String> = []
         if p.decisionCount >= 1 { earned.insert("first_choice") }
         if p.decisionCount >= 10 { earned.insert("ten_choices") }
-        if p.decisionCount >= 20 { earned.insert("twenty_choices") }
         if p.detoursFound.count >= 1 { earned.insert("first_detour") }
         if p.detoursFound.count >= 3 { earned.insert("three_detours") }
-        if engine.book.id == "stuffy-bell" && p.detoursFound.count >= 12 {
+        if engine.book.detourCount > 0 && p.detoursFound.count >= engine.book.detourCount {
             earned.insert("all_detours")
         }
         if case .rewind = event { earned.insert("first_rewind") }
-        for flag in ["helped_mallow", "made_promise", "shared_map", "found_song", "forgave_wren", "moon_path"] where p.flags.contains(flag) {
+        for flag in ["map_rule", "share_star", "heard_duke", "quiet_room", "laughter_clue"] where p.flags.contains(flag) {
             earned.insert(flag)
         }
         if p.stats.clues == 5 { earned.insert("full_curiosity") }
         if p.stats.power == 5 { earned.insert("full_courage") }
         if p.stats.trust == 5 { earned.insert("full_friendship") }
-        if engine.node.ending?.kind == .final && p.runDetoursTriggered == 0 {
-            earned.insert("clean_run")
+        if engine.node.ending?.kind == .final && p.runDetoursTriggered == 0 { earned.insert("clean_run") }
+        let prefix: String?
+        switch engine.book.id {
+        case "stuffy-pillow-fort": prefix = "pillow"
+        case "stuffy-snore-snatcher": prefix = "snore"
+        default: prefix = nil
         }
-        if engine.book.id == "stuffy-bell" {
-            for rank in 1...5 where p.endingsFound.contains("final_\(rank)") {
-                earned.insert("bell_ending_\(rank)")
+        if let prefix {
+            for rank in 1...engine.book.finalCount where p.endingsFound.contains("final_\(rank)") {
+                earned.insert("\(prefix)_ending_\(rank)")
             }
             if p.endingsFound.count >= 2 { earned.insert("two_endings") }
-            if p.endingsFound.count >= 5 { earned.insert("all_endings") }
+            if p.endingsFound.count >= engine.book.finalCount { earned.insert("all_endings") }
         }
         return earned
     }

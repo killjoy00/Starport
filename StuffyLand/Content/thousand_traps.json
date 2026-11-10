@@ -1,0 +1,70 @@
+{
+  "id": "stuffy-thousand-traps",
+  "contentVersion": 1,
+  "title": "The Treasure of the Thousand Traps",
+  "subtitle": "A new expedition inspired by the surviving treasure-hunt premise.",
+  "editorialNote": "New story inspired by a surviving title and premise; the original plot and ending were unavailable.",
+  "pages": [
+    {
+      "id": "page_01",
+      "paragraphs": [
+        "Axey found the map folded inside an explorer's biscuit tin. It promised a treasure beyond a thousand traps.",
+        "“A thousand,” Langston said. “We'll need a larger snack bag.”",
+        "Opal spread the map on the floor. A thin line ran from the galaxy tent to a small door beneath the roots of a tree. Along it were footprints, loops, and one tiny picture of a hand.",
+        "Lolo touched the hand. “Maybe that's a clue.”",
+        "“Or the treasure has fingers,” Langston said. “Important to be prepared.”",
+        "They set off with Coatl, Finley, Stella, and a few kitty friends. Unique Pink brought ribbons. Aaron-y and Caterpillar Kitty checked the narrow spaces ahead. The Dragon Couple stayed together above the path.",
+        "The first trap was a row of soft tiles. Each time somebody hurried across, the last tile tipped into a pillow pit.",
+        "Axey took one quick step. Then another.",
+        "Ploof.",
+        "His pink head appeared between two cushions.",
+        "“Found the first trap.”",
+        "Coatl helped him out. Finley examined the tiles instead of stepping on them. Along their edges were tiny pictures: a paw, another paw, and a pause.",
+        "“Take turns,” she said.",
+        "They crossed slowly, waiting for each friend to reach the other side. The tiles held."
+      ],
+      "illustration": {
+        "asset": "stuffy-tent",
+        "alt": "Opal holds her sloth lovey Lolo while reading inside the purple galaxy tent."
+      }
+    },
+    {
+      "id": "page_02",
+      "paragraphs": [
+        "Beyond them was a room of silver strings. At its center floated a key. Langston could almost reach it, but every string he touched made another loop tighten around the doorway.",
+        "“An unfriendly knitting project,” he muttered.",
+        "Onion Ring Kitty shrank to crumb size and slipped beneath the lowest loop. Aaron-y followed her directions while Unique Pink used a ribbon to keep the safe route marked. Caterpillar Kitty anchored the loose strings with sticky goo.",
+        "Together they lowered the key without tightening a single loop.",
+        "The next passage offered two doors. One read BRAVEST. The other read CLEVERER THAN EVERYBODY ELSE.",
+        "Langston looked offended. “Where is TALLEST?”",
+        "Opal tried the clever door. It opened onto a mirror that showed her holding the treasure alone. Behind the reflection, her friends grew smaller and smaller.",
+        "She stepped away.",
+        "Lolo pointed to a little door between the two large ones. It had no grand words, only the tiny hand from the map.",
+        "Opal held Lolo's paw. Axey held Lolo's other paw. They asked everyone to join the line.",
+        "The little door opened wide enough for all of them.",
+        "Inside sat a chest with a thousand small clasps. Opal's shoulders sank.",
+        "“We'll never finish before bedtime.”",
+        "Cinny studied the clasps. They were connected. Each one bore the name of a different kind of help: listening, waiting, sharing, asking, trying again."
+      ]
+    },
+    {
+      "id": "page_03",
+      "paragraphs": [
+        "Stella rested her paw on waiting. Finley touched noticing. Coatl chose holding steady. Langston considered being magnificent, which was not available, and selected making somebody laugh.",
+        "The clasps began opening together.",
+        "The chest held no coins. Inside was a quilt, unfinished at the edges, stitched with paths that looked just like the map.",
+        "A note lay on top: A THOUSAND TRAPS ARE EASIER WITH MORE THAN ONE PAIR OF PAWS.",
+        "Opal ran her hand over the quilt. Each patch showed a small moment from their journey: Axey climbing out of the cushions, Finley studying the tiles, Lolo finding the little door.",
+        "“We made the treasure,” she said.",
+        "“And we can finish it,” Unique Pink added.",
+        "Back in the galaxy tent, everyone chose a patch. Langston's showed a very tall snack bag. Nobody objected.",
+        "When the quilt was finished, they spread it over the cushions and sat close enough that every friend had a corner.",
+        "Axey opened his biscuit tin.",
+        "“Next expedition?”",
+        "“Tomorrow,” Opal said.",
+        "Lolo tucked the map into a safe fold. For tonight, they had already found somewhere worth staying.",
+        "The End."
+      ]
+    }
+  ]
+}

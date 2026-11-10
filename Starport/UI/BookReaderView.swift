@@ -51,6 +51,12 @@ struct BookReaderView: View {
                                         .font(.subheadline)
                                         .foregroundStyle(StarportTheme.muted)
                                 }
+                                if let note = book.editorialNote {
+                                    Text(note)
+                                        .font(.footnote)
+                                        .foregroundStyle(StarportTheme.muted)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                }
                                 Text("PAGE \(game.readerPageIndex + 1) OF \(book.pages.count)")
                                     .font(.system(.caption, design: .monospaced, weight: .semibold))
                                     .tracking(1.2)
@@ -212,7 +218,7 @@ struct BookReaderView: View {
                 .pickerStyle(.menu)
                 .disabled(narrator.isPlaying)
             }
-            Text("Uses your iPhone's built-in voice. Narration continues through the book until you pause or stop.")
+            Text("Settle in and listen. The story continues until you pause or stop.")
                 .font(.footnote)
                 .foregroundStyle(StarportTheme.muted)
                 .fixedSize(horizontal: false, vertical: true)

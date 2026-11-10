@@ -1,0 +1,1202 @@
+{
+  "id": "stuffy-snore-snatcher",
+  "contentVersion": 1,
+  "title": "Opal and the Great Snore-Snatcher",
+  "subtitle": "Recover the stolen sounds and decide how to help a very tired pillow villain.",
+  "start": "s01",
+  "minimumDecisions": 17,
+  "nodes": [
+    {
+      "id": "detour_1",
+      "act": "A little detour",
+      "title": "The louder announcement",
+      "paragraphs": [
+        "Langston shouts harder. His silent face becomes very dramatic, but no one learns anything. Opal points to Finley’s notebook instead. They can communicate without winning a shouting contest."
+      ],
+      "ending": {
+        "id": "detour_1",
+        "kind": "detour",
+        "title": "The louder announcement",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s01",
+      "act": "An Opal adventure",
+      "title": "The missing giggle",
+      "paragraphs": [
+        "Cherryberry tells a joke in the village square. Her mouth moves, but the punchline makes no sound. Above the fountain floats Duke Dozington, an enormous purple pillow creature with a curled mustache and a nightcap.",
+        "SHLUUUURP. His trumpet vacuum gathers a cloud of golden notes.",
+        "Langston is shouting something dramatic. For once, nobody can hear it. Opal takes Lolo's paw. They need a way to communicate before they investigate."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s01_choose_1",
+          "label": "Have Unique Pink make picture cards for the crew",
+          "to": "s02",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "picture_cards"
+            }
+          ]
+        },
+        {
+          "id": "s01_choose_2",
+          "label": "Ask Finley to mark a clue trail in her notebook",
+          "to": "s02",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "notebook_code"
+            }
+          ]
+        },
+        {
+          "id": "s01_detour",
+          "label": "Ask Langston to shout louder than the vacuum",
+          "to": "detour_1"
+        }
+      ]
+    },
+    {
+      "id": "detour_2",
+      "act": "A little detour",
+      "title": "The everything button",
+      "paragraphs": [
+        "Opal reaches toward EVERYTHING, then stops when Coatl’s warning lights glow. The unknown button might collect even more sounds. They set the controller down and choose a way to learn first."
+      ],
+      "ending": {
+        "id": "detour_2",
+        "kind": "detour",
+        "title": "The everything button",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s02",
+      "act": "An Opal adventure",
+      "title": "The dropped controller",
+      "paragraphs": [
+        "Near the tent, Finley finds purple feathers. Stella follows them to a small metal box. Its screen reads SNORE-SNATCHER 3000.",
+        "There are buttons marked GIGGLES, SONGS, and SNORES, plus one enormous red button marked EVERYTHING.",
+        "Opal studies it from a safe distance. They can learn about the controller without pressing a mystery button."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s02_choose_1",
+          "label": "Inspect the controller’s little diagrams",
+          "to": "s03",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "controller_diagram"
+            }
+          ]
+        },
+        {
+          "id": "s02_choose_2",
+          "label": "Let Coatl detect the magic around it",
+          "to": "s03",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "magic_trace"
+            }
+          ]
+        },
+        {
+          "id": "s02_detour",
+          "label": "Consider pressing the enormous mystery button",
+          "to": "detour_2"
+        }
+      ]
+    },
+    {
+      "id": "s03_1",
+      "act": "Your plan unfolds",
+      "title": "The feather detectives",
+      "paragraphs": [
+        "Finley follows the dropped feathers to a side doorway. Stella spots an OPEN WHEN NAPPING sign, showing that Duke has tried to warn visitors. The trail gives them both an entrance and a question to ask him."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s03_1_continue",
+          "label": "Bring the sign’s meaning back to Opal",
+          "to": "s04",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s03_1_notice",
+          "label": "Check the doorway for a safe approach",
+          "to": "s04",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s03_2",
+      "act": "Your plan unfolds",
+      "title": "The quiet overlook",
+      "paragraphs": [
+        "Axey and Lolo reach a low hill overlooking the castle. Birds sing directly above Duke’s bedroom window, and the humming mushrooms crowd its wall. Lolo sees why sleeping here could be difficult, though stealing sounds cannot be the answer."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s03_2_continue",
+          "label": "Let Lolo explain what she noticed",
+          "to": "s04",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s03_2_notice",
+          "label": "Have Axey sketch the bedroom and machine",
+          "to": "s04",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "detour_3",
+      "act": "A little detour",
+      "title": "A very obvious disguise",
+      "paragraphs": [
+        "Langston hides beneath a blanket that leaves his legs showing. Duke immediately points at the moving knees. Nobody is caught; the crew simply waits for him to look away and rethinks the approach."
+      ],
+      "ending": {
+        "id": "detour_3",
+        "kind": "detour",
+        "title": "A very obvious disguise",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s03",
+      "act": "An Opal adventure",
+      "title": "Into the Whispering Woods",
+      "paragraphs": [
+        "A trail of purple feathers leads past glowing mushrooms and a wobbly bridge. Far ahead, a pillow castle rises above sleepy flowers.",
+        "Lolo stays beside Opal. Axey points out two possible ways to investigate: follow Duke's feather trail or climb a little overlook where they can study the castle first."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s03_choose_1",
+          "label": "Follow the feathers with Finley and Stella",
+          "to": "s03_1",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "feather_route"
+            }
+          ]
+        },
+        {
+          "id": "s03_choose_2",
+          "label": "Let Axey scout the quiet overlook with Lolo",
+          "to": "s03_2",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "overlook_route"
+            }
+          ]
+        },
+        {
+          "id": "s03_detour",
+          "label": "Have Langston sneak in disguised as a tiny pillow",
+          "to": "detour_3"
+        }
+      ]
+    },
+    {
+      "id": "detour_4",
+      "act": "A little detour",
+      "title": "Architecture wins again",
+      "paragraphs": [
+        "Langston tests the soft ground with one theatrical stomp. His boot sinks into a cushion, and Coatl helps him pull it free. They will need a crossing instead of another stomp."
+      ],
+      "ending": {
+        "id": "detour_4",
+        "kind": "detour",
+        "title": "Architecture wins again",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s04",
+      "act": "An Opal adventure",
+      "title": "The pillow moat",
+      "paragraphs": [
+        "The castle ground sinks softly under Langston's first step. Coatl helps him back onto firm ground before he goes any deeper.",
+        "“I have been attacked by architecture,” Langston announces. His voice flickers as a little stolen sound escapes a wall cushion.",
+        "Each pillow contains a laugh, a song, or a sleepy sigh. The crew needs a reliable path to the door."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s04_choose_1",
+          "label": "Ask Coatl to brace a cushion crossing",
+          "to": "s05",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "safe_crossing"
+            }
+          ]
+        },
+        {
+          "id": "s04_choose_2",
+          "label": "Ask Unique Pink to mark the firm stepping spots",
+          "to": "s05",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "marked_crossing"
+            }
+          ]
+        },
+        {
+          "id": "s04_detour",
+          "label": "Test the pillow moat with a magnificent stomp",
+          "to": "detour_4"
+        }
+      ]
+    },
+    {
+      "id": "s05_1",
+      "act": "Your plan unfolds",
+      "title": "Four hundred years of bad naps",
+      "paragraphs": [
+        "Duke waves all four arms. The birds, frogs, squirrels, wind, and even mushrooms keep him awake. When he asked for quiet, he felt laughed at. Opal listens without agreeing that he may take everyone’s voice. Lolo tells him needing help does not make him weak."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s05_1_continue",
+          "label": "Tell Duke you heard his need for rest",
+          "to": "s06",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s05_1_notice",
+          "label": "Ask which sounds reach his bedroom first",
+          "to": "s06",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s05_2",
+      "act": "Your plan unfolds",
+      "title": "Behind the glowing pipes",
+      "paragraphs": [
+        "Langston requests a detailed explanation of the castle’s snack policy. While Duke objects, Axey studies the exposed pipes. The little controller mirrors the chamber switches. A valve can return the sounds without aiming the trumpet at anyone."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s05_2_continue",
+          "label": "Have Axey share the plan with the team",
+          "to": "s06",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s05_2_notice",
+          "label": "Mark the release valve on Finley’s drawing",
+          "to": "s06",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "detour_5",
+      "act": "A little detour",
+      "title": "A shouting competition",
+      "paragraphs": [
+        "Duke shouts that he wants quiet. Langston shouts that Duke is being loud. Opal holds up a picture of a listening ear. The argument is going nowhere, so they start with a different question."
+      ],
+      "ending": {
+        "id": "detour_5",
+        "kind": "detour",
+        "title": "A shouting competition",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s05",
+      "act": "An Opal adventure",
+      "title": "Ask the important question",
+      "paragraphs": [
+        "Duke waits above the doorway with his trumpet vacuum. “I LOVE QUIET!” he booms.",
+        "“You can't take everybody's sounds,” Opal tells him.",
+        "Lolo notices how tired he looks. The group can keep behind Coatl and still ask why Duke has chosen such an unhappy plan."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s05_choose_1",
+          "label": "Ask Duke what keeps him awake",
+          "to": "s05_1",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "heard_duke"
+            }
+          ]
+        },
+        {
+          "id": "s05_choose_2",
+          "label": "Study the machine while Langston distracts Duke",
+          "to": "s05_2",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "machine_route"
+            }
+          ]
+        },
+        {
+          "id": "s05_detour",
+          "label": "Let Langston argue about who is loudest",
+          "to": "detour_5"
+        }
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "feather_route",
+            "hint": "A clue from your earlier plan."
+          },
+          "text": "Finley remembers the napping sign the detectives found by the side doorway."
+        },
+        {
+          "requirement": {
+            "flag": "overlook_route",
+            "hint": "A clue from your earlier plan."
+          },
+          "text": "Lolo remembers the birds and humming mushrooms beside Duke’s bedroom."
+        }
+      ]
+    },
+    {
+      "id": "detour_6",
+      "act": "A little detour",
+      "title": "A helmet full of snores",
+      "paragraphs": [
+        "Duke aims a brief puff at the pumpkin helmet. It begins snoring. Langston insists this is not his snore. Lolo raises one eyebrow. They set the helmet safely aside before planning the rescue."
+      ],
+      "ending": {
+        "id": "detour_6",
+        "kind": "detour",
+        "title": "A helmet full of snores",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s06",
+      "act": "An Opal adventure",
+      "title": "A heart full of sounds",
+      "paragraphs": [
+        "Behind Duke stands the Ultimate Quiet Machine. Glowing pipes lead to a glass chamber and a huge purple pillow-heart.",
+        "Duke says that when it fills, every sound in Stuffy Land will disappear.",
+        "Lolo steps closer to Opal. “Even comforting a friend?”",
+        "Duke looks away. The crew cannot leave the stolen sounds inside, whatever he needs."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s06_choose_1",
+          "label": "Promise to help with quiet after the sounds return",
+          "to": "s07",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "quiet_promise"
+            }
+          ]
+        },
+        {
+          "id": "s06_choose_2",
+          "label": "Ask Axey to map the switches that release the chamber",
+          "to": "s07",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "switch_map"
+            }
+          ]
+        },
+        {
+          "id": "s06_detour",
+          "label": "Ask Duke to demonstrate the trumpet on a helmet",
+          "to": "detour_6"
+        }
+      ]
+    },
+    {
+      "id": "detour_7",
+      "act": "A little detour",
+      "title": "An entire dance committee",
+      "paragraphs": [
+        "Everybody begins explaining a different distraction at once. Duke looks baffled, Axey cannot hear the plan, and the machine keeps rumbling. Opal asks the team to choose one leader for this part."
+      ],
+      "ending": {
+        "id": "detour_7",
+        "kind": "detour",
+        "title": "An entire dance committee",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s07",
+      "act": "An Opal adventure",
+      "title": "Assign the rescue crew",
+      "paragraphs": [
+        "The pillow-heart begins to rumble. Opal gives each friend a job. Coatl can steady the machine. Finley and Stella can inspect the chamber latch. Axey can reach the little switches.",
+        "Langston raises his hand. “I am available for extremely professional distraction.”",
+        "Lolo watches Duke as carefully as the crew watches the machine."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s07_choose_1",
+          "label": "Have Langston try the pumpkin troll dance",
+          "to": "s08",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "dance_plan"
+            }
+          ]
+        },
+        {
+          "id": "s07_choose_2",
+          "label": "Have Lolo keep Duke talking while Axey approaches",
+          "to": "s08",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "talk_plan"
+            }
+          ]
+        },
+        {
+          "id": "s07_detour",
+          "label": "Let everyone give Langston instructions at once",
+          "to": "detour_7"
+        }
+      ]
+    },
+    {
+      "id": "s08_1",
+      "act": "Your plan unfolds",
+      "title": "The pumpkin troll experiment",
+      "paragraphs": [
+        "Langston bends his knees, spins once, and lands on a soft cushion. Duke tries not to smile. Then he laughs, and three golden notes escape his mustache. Opal has found a way to loosen the machine’s hold while Axey works."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s08_1_continue",
+          "label": "Invite Duke to laugh with Langston",
+          "to": "s09",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s08_1_notice",
+          "label": "Ask Finley to count the escaping notes",
+          "to": "s09",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s08_2",
+      "act": "Your plan unfolds",
+      "title": "The switchboard puzzle",
+      "paragraphs": [
+        "Axey finds three small release switches and one large suction dial. The diagram shows that the switches must open before the dial closes. Opal repeats the order to Lolo, who repeats it to the rest of the team."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s08_2_continue",
+          "label": "Let the whole crew confirm the sequence",
+          "to": "s09",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s08_2_notice",
+          "label": "Trace the sound path one last time",
+          "to": "s09",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "detour_8",
+      "act": "A little detour",
+      "title": "Tickling the machinery",
+      "paragraphs": [
+        "Langston tickles a pipe with a feather. It rattles but does not laugh. “A difficult audience,” he says. Opal decides the clue probably belongs to Duke rather than his plumbing."
+      ],
+      "ending": {
+        "id": "detour_8",
+        "kind": "detour",
+        "title": "Tickling the machinery",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s08",
+      "act": "An Opal adventure",
+      "title": "The first escaping note",
+      "paragraphs": [
+        "A small golden note pops out of Duke's mustache. It floats toward the village before the machine pulls it back.",
+        "The friends notice that his grip loosens whenever he stops scowling. They can work with that discovery or concentrate on the chamber's release sequence."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s08_choose_1",
+          "label": "Find out whether laughter releases the stolen sounds",
+          "to": "s08_1",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "laughter_clue"
+            }
+          ]
+        },
+        {
+          "id": "s08_choose_2",
+          "label": "Compare the release switches with the controller",
+          "to": "s08_2",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "release_sequence"
+            }
+          ]
+        },
+        {
+          "id": "s08_detour",
+          "label": "Try making the machine laugh instead",
+          "to": "detour_8"
+        }
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "heard_duke",
+            "hint": "A clue from your earlier plan."
+          },
+          "text": "Opal remembers Duke’s sleeplessness; his tired eyes make more sense now."
+        },
+        {
+          "requirement": {
+            "flag": "machine_route",
+            "hint": "A clue from your earlier plan."
+          },
+          "text": "Axey brings out the pipe diagram you gave him time to study."
+        }
+      ]
+    },
+    {
+      "id": "detour_9",
+      "act": "A little detour",
+      "title": "Backwards counting",
+      "paragraphs": [
+        "Langston counts backward while Axey counts forward. The crew pauses before touching a switch. Stella taps a single slow rhythm so they can start together."
+      ],
+      "ending": {
+        "id": "detour_9",
+        "kind": "detour",
+        "title": "Backwards counting",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s09",
+      "act": "An Opal adventure",
+      "title": "Steady hands and paws",
+      "paragraphs": [
+        "Coatl braces the machine. Finley finds the latch while Stella keeps the smaller kitties safely back. Axey waits for Opal's signal.",
+        "The room is full of flickering notes. A hasty tug could send them down the wrong pipe.",
+        "Opal's gemstone glows, showing the sound paths rather than solving the machinery for them."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s09_choose_1",
+          "label": "Match the switches to the glowing pipes",
+          "to": "s10",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "matched_pipes"
+            }
+          ]
+        },
+        {
+          "id": "s09_choose_2",
+          "label": "Have the team count a steady rhythm together",
+          "to": "s10",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "team_rhythm"
+            }
+          ]
+        },
+        {
+          "id": "s09_detour",
+          "label": "Let Langston invent his own counting system",
+          "to": "detour_9"
+        }
+      ]
+    },
+    {
+      "id": "s10_1",
+      "act": "Your plan unfolds",
+      "title": "Laugh and release",
+      "paragraphs": [
+        "Langston performs the Troll Tornado while Axey opens the switches. Coatl holds the rattling machine and Finley and Stella pull the latch together. Lolo stays beside Opal as her gemstone lights the last pipe. The chamber opens with a harmless golden pop."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s10_1_continue",
+          "label": "Help the smallest sounds find the door",
+          "to": "s11",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s10_1_notice",
+          "label": "Check that no notes remain in the pipes",
+          "to": "s11",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s10_2",
+      "act": "Your plan unfolds",
+      "title": "The careful rescue",
+      "paragraphs": [
+        "Opal signals one switch at a time. Axey opens each valve while Coatl prevents the chamber from tilting. Lolo reassures Duke that the group will stop the machine rather than hurt him. Finley and Stella open the latch, and the golden notes pour out."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s10_2_continue",
+          "label": "Guide the sounds back toward the village",
+          "to": "s11",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s10_2_notice",
+          "label": "Ask the crew to check the empty chamber",
+          "to": "s11",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "detour_10",
+      "act": "A little detour",
+      "title": "The snack lever",
+      "paragraphs": [
+        "Langston mistakes the castle snack cupboard handle for a release lever. It opens onto crackers. Useful information, perhaps, but the stolen notes are still in the chamber. Opal points back to the real controls."
+      ],
+      "ending": {
+        "id": "detour_10",
+        "kind": "detour",
+        "title": "The snack lever",
+        "note": "Everyone is safe. Try another way from the last choice."
+      }
+    },
+    {
+      "id": "s10",
+      "act": "An Opal adventure",
+      "title": "Open the sound chamber",
+      "paragraphs": [
+        "Everything is ready. Langston has one more ridiculous dance move, Lolo has one more gentle question, and Axey can see the release lever.",
+        "“Everyone's sounds go home,” Opal says. “Then we can talk about what Duke needs.”",
+        "You choose which part of the plan takes the lead."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s10_choose_1",
+          "label": "Use the laughter and switch plan together",
+          "to": "s10_1",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "joined_rescue"
+            }
+          ]
+        },
+        {
+          "id": "s10_choose_2",
+          "label": "Lead a careful mechanical release with Coatl",
+          "to": "s10_2",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "careful_release"
+            }
+          ]
+        },
+        {
+          "id": "s10_detour",
+          "label": "Follow Langston’s promising snack-cupboard theory",
+          "to": "detour_10"
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "act": "An Opal adventure",
+      "title": "The sounds come home",
+      "paragraphs": [
+        "The pillow-heart opens in a shower of gold. Laughter returns to the woods. Birds sing, the fountain splashes, and a very familiar HONK-SHOO escapes Langston's helmet.",
+        "“I WASN'T READY!” he says.",
+        "Duke settles among the cushions, looking small despite his enormous size. Everyone has their voice back. What happens after the rescue still matters."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s11_choose_1",
+          "label": "Ask Duke to help plan a proper quiet room",
+          "to": "s12",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "quiet_room"
+            }
+          ]
+        },
+        {
+          "id": "s11_choose_2",
+          "label": "Help the village return its cushions and songs first",
+          "to": "s12",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "village_first"
+            }
+          ]
+        }
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "quiet_promise",
+            "hint": "A clue from your earlier plan."
+          },
+          "text": "Opal has not forgotten her promise to help Duke after everyone’s sounds are safe."
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "act": "An Opal adventure",
+      "title": "A different kind of quiet",
+      "paragraphs": [
+        "Opal sits beside Lolo while the crew tidies the castle. Duke's trumpet is switched off and the sound chamber stands open.",
+        "The friends have stopped the harm. Depending on what they learned and promised, they can also choose how much more to do together today."
+      ],
+      "illustration": {
+        "asset": "stuffy-snore",
+        "alt": "Opal, Lolo, and Langston face the purple, mustached Duke beside his trumpet machine."
+      },
+      "choices": [
+        {
+          "id": "s12_choose_1",
+          "label": "Invite Duke to listen while the friends explain their needs",
+          "to": "resolution",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "shared_needs"
+            }
+          ]
+        },
+        {
+          "id": "s12_choose_2",
+          "label": "Make a safe plan to return another day",
+          "to": "resolution",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "return_plan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resolution",
+      "act": "The last choice",
+      "title": "What will you carry home?",
+      "paragraphs": [
+        "Recover the stolen sounds and decide how to help a very tired pillow villain.",
+        "Opal looks at the friends beside her. The discoveries and promises you made have opened different ways to finish."
+      ],
+      "choices": [
+        {
+          "id": "finish_1",
+          "label": "Build Duke a quiet room with a shared agreement",
+          "to": "final_1",
+          "requirements": [
+            {
+              "flag": "heard_duke",
+              "hint": "Ask what keeps Duke awake."
+            },
+            {
+              "flag": "quiet_promise",
+              "hint": "Promise to help after restoring the sounds."
+            },
+            {
+              "flag": "quiet_room",
+              "hint": "Plan a proper quiet room together."
+            }
+          ]
+        },
+        {
+          "id": "finish_2",
+          "label": "Help Duke begin a quiet-room project",
+          "to": "final_2",
+          "requirements": [
+            {
+              "flag": "quiet_room",
+              "hint": "Choose to begin planning Duke’s quiet room."
+            }
+          ]
+        },
+        {
+          "id": "finish_3",
+          "label": "Leave Duke a picture invitation to talk",
+          "to": "final_3",
+          "requirements": [
+            {
+              "flag": "picture_cards",
+              "hint": "Prepare picture cards at the beginning."
+            }
+          ]
+        },
+        {
+          "id": "finish_4",
+          "label": "Return the village’s sounds and come back later",
+          "to": "final_4"
+        },
+        {
+          "id": "finish_5",
+          "label": "Make the castle safe and finish for today",
+          "to": "final_5"
+        }
+      ]
+    },
+    {
+      "id": "final_1",
+      "act": "A Stuffy Land memory",
+      "title": "A room for rest and a world of sound",
+      "paragraphs": [
+        "Duke returns the last cushion of stolen sounds and helps build a room with thick soft walls, a big blanket, and a PLEASE KNOCK sign. He apologizes to the village. The friends agree on ways to ask for quiet without stealing anyone’s voice.",
+        "A few days later, Duke invites Langston over to practice the pumpkin troll dance. He sleeps afterward while the rest of Stuffy Land enjoys its music. Opal and Lolo leave a lantern beside his door, then walk home with Axey.",
+        "The End."
+      ],
+      "ending": {
+        "id": "final_1",
+        "kind": "final",
+        "rank": 1,
+        "title": "A room for rest and a world of sound",
+        "note": "This ending is saved in your memory book. You can return to the story and discover another way."
+      }
+    },
+    {
+      "id": "final_2",
+      "act": "A Stuffy Land memory",
+      "title": "The first soft wall",
+      "paragraphs": [
+        "The friends gather spare pillows for a better bedroom. Duke helps with the work and learns that asking for help is easier than maintaining a giant machine. There are still things to understand about his long, lonely naps.",
+        "They agree to talk again when he is rested. Lolo leaves a little space beside Opal for him at the next village gathering. Langston offers design advice about the snack cupboard.",
+        "The End."
+      ],
+      "ending": {
+        "id": "final_2",
+        "kind": "final",
+        "rank": 2,
+        "title": "The first soft wall",
+        "note": "This ending is saved in your memory book. You can return to the story and discover another way."
+      }
+    },
+    {
+      "id": "final_3",
+      "act": "A Stuffy Land memory",
+      "title": "An invitation after the rescue",
+      "paragraphs": [
+        "Opal gives Duke a picture card showing a listening ear, a pillow, and an open door. He has returned the sounds, but explaining his needs will take practice.",
+        "They arrange another visit with Coatl nearby. Nobody must forgive before they are ready. Duke places the card beside his switched-off trumpet, where he will see it when he wakes.",
+        "The End."
+      ],
+      "ending": {
+        "id": "final_3",
+        "kind": "final",
+        "rank": 3,
+        "title": "An invitation after the rescue",
+        "note": "This ending is saved in your memory book. You can return to the story and discover another way."
+      }
+    },
+    {
+      "id": "final_4",
+      "act": "A Stuffy Land memory",
+      "title": "Home before the next plan",
+      "paragraphs": [
+        "The crew returns the cushions to the village. Duke stays in his castle with the machine safely switched off and its chamber open. Every stolen sound is home.",
+        "There is more to work out, but not all of it must happen today. Opal makes a plan to return with Coatl. Lolo reminds her that stopping harm and understanding somebody can take different amounts of time.",
+        "The End."
+      ],
+      "ending": {
+        "id": "final_4",
+        "kind": "final",
+        "rank": 4,
+        "title": "Home before the next plan",
+        "note": "This ending is saved in your memory book. You can return to the story and discover another way."
+      }
+    },
+    {
+      "id": "final_5",
+      "act": "A Stuffy Land memory",
+      "title": "The quiet castle",
+      "paragraphs": [
+        "Coatl disconnects the trumpet from the empty machine while the friends check every last pillow for trapped notes. Duke has to find another way to rest. He does not become their friend that evening.",
+        "Opal leaves the path clear for a future conversation and heads home beside Lolo. The village can sing again. Langston tries one very small dance, and Axey laughs all the way back to the tent.",
+        "The End."
+      ],
+      "ending": {
+        "id": "final_5",
+        "kind": "final",
+        "rank": 5,
+        "title": "The quiet castle",
+        "note": "This ending is saved in your memory book. You can return to the story and discover another way."
+      }
+    }
+  ]
+}

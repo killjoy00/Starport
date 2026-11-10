@@ -110,7 +110,7 @@ struct AdventureScreen: View {
                             )
                             ForEach(Array(paragraphs.enumerated()), id: \.offset) { _, paragraph in
                                 Text(paragraph)
-                                    .font(.body)
+                                    .font(AppBrand.current.isStuffyLand ? .system(.title3, design: .serif) : .body)
                                     .foregroundStyle(StarportTheme.paper)
                                     .lineSpacing(6)
                                     .fixedSize(horizontal: false, vertical: true)
@@ -209,7 +209,7 @@ struct AdventureScreen: View {
 
     private func detourPanel(_ ending: StoryEnding) -> some View {
         VStack(alignment: .leading, spacing: 14) {
-            Label("FALSE ENDING · KEEP PLAYING", systemImage: "arrow.uturn.backward")
+            Label(AppBrand.current.isStuffyLand ? "A LITTLE DETOUR · TRY ANOTHER WAY" : "FALSE ENDING · KEEP PLAYING", systemImage: "arrow.uturn.backward")
                 .font(.system(.caption, design: .monospaced, weight: .bold))
                 .foregroundStyle(StarportTheme.orange)
             Text(ending.title)
@@ -246,9 +246,11 @@ struct AdventureScreen: View {
                 .foregroundStyle(StarportTheme.paper)
             Text(ending.note)
                 .foregroundStyle(StarportTheme.muted)
-            Text("Outcome rank \(ending.rank ?? 0) of \(book.finalCount) · \(game.engine?.progress.decisionCount ?? 0) choices made")
-                .font(.system(.footnote, design: .monospaced))
-                .foregroundStyle(StarportTheme.orange)
+            if !AppBrand.current.isStuffyLand {
+                Text("Outcome rank \(ending.rank ?? 0) of \(book.finalCount) · \(game.engine?.progress.decisionCount ?? 0) choices made")
+                    .font(.system(.footnote, design: .monospaced))
+                    .foregroundStyle(StarportTheme.orange)
+            }
             Text("\(game.engine?.progress.endingsFound.count ?? 0) of \(book.finalCount) final endings discovered")
                 .font(.system(.footnote, design: .monospaced))
                 .foregroundStyle(StarportTheme.teal)

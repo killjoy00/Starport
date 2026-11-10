@@ -1,0 +1,84 @@
+{
+  "sourceDocumentSHA256": "ab0dbfbe1381b242ed7da202ae18a6fd52a231cc37e26bf8a649db5b8ac31a63",
+  "duplicateAttachments": true,
+  "stories": [
+    {
+      "id": "stuffy-pillow-fort",
+      "status": "interactive_adaptation",
+      "source": "source/pillow_fort.txt",
+      "notes": "New branching scenes and alternate endings; original source preserved separately."
+    },
+    {
+      "id": "stuffy-snore-snatcher",
+      "status": "interactive_adaptation",
+      "source": "source/snore_snatcher.txt",
+      "notes": "New branching scenes and alternate endings; original source preserved separately."
+    },
+    {
+      "id": "stuffy-giggle-games",
+      "status": "recovered_original",
+      "source": "source/giggle_games.txt",
+      "notes": "Original story recovered in full from the supplied transcript."
+    },
+    {
+      "id": "stuffy-invisible-bracelet",
+      "status": "summary_adaptation",
+      "source": "stories/invisible_bracelet.txt",
+      "notes": "New story adapted from a recovered plot summary; original wording was unavailable."
+    },
+    {
+      "id": "stuffy-sneaky-troll",
+      "status": "summary_adaptation",
+      "source": "stories/sneaky_troll.txt",
+      "notes": "New story adapted from a recovered plot summary; original wording was unavailable."
+    },
+    {
+      "id": "stuffy-monster-disguise",
+      "status": "summary_adaptation",
+      "source": "stories/monster_disguise.txt",
+      "notes": "New story adapted from a recovered plot summary; original wording was unavailable."
+    },
+    {
+      "id": "stuffy-heart-monster",
+      "status": "summary_adaptation",
+      "source": "stories/heart_monster.txt",
+      "notes": "New story adapted from a recovered plot summary; original wording was unavailable."
+    },
+    {
+      "id": "stuffy-concert",
+      "status": "summary_adaptation",
+      "source": "stories/concert.txt",
+      "notes": "New story adapted from a recovered plot summary; original wording was unavailable."
+    },
+    {
+      "id": "stuffy-gigglequake",
+      "status": "summary_adaptation",
+      "source": "stories/gigglequake.txt",
+      "notes": "New story adapted from a recovered plot summary; original wording was unavailable."
+    },
+    {
+      "id": "stuffy-inside-out",
+      "status": "summary_adaptation",
+      "source": "stories/inside_out.txt",
+      "notes": "New story adapted from a recovered plot summary; original wording was unavailable."
+    },
+    {
+      "id": "stuffy-impossible-birthday",
+      "status": "summary_adaptation",
+      "source": "stories/impossible_birthday.txt",
+      "notes": "New story adapted from a recovered plot summary; original wording was unavailable."
+    },
+    {
+      "id": "stuffy-star-eater",
+      "status": "summary_adaptation",
+      "source": "stories/star_eater.txt",
+      "notes": "New story adapted from a recovered plot summary; original wording was unavailable."
+    },
+    {
+      "id": "stuffy-thousand-traps",
+      "status": "premise_inspired_new_story",
+      "source": "stories/thousand_traps.txt",
+      "notes": "New story inspired by a surviving title and premise; the original plot and ending were unavailable."
+    }
+  ]
+}

@@ -58,12 +58,12 @@ struct AdventureScreen: View {
                                 HStack {
                                     Text("DECISIONS MADE")
                                     Spacer()
-                                    Text("\(engine.progress.decisionCount) / 37")
+                                    Text("\(engine.progress.decisionCount) / \(engine.book.nodes.filter { $0.ending == nil }.count)")
                                 }
                                 .font(.system(.caption2, design: .monospaced, weight: .bold))
                                 .foregroundStyle(StarportTheme.muted)
-                                ProgressView(value: Double(min(engine.progress.decisionCount, 37)),
-                                             total: 37)
+                                ProgressView(value: Double(min(engine.progress.decisionCount, engine.book.nodes.filter { $0.ending == nil }.count)),
+                                             total: Double(engine.book.nodes.filter { $0.ending == nil }.count))
                                     .tint(StarportTheme.teal)
                             }
                             .accessibilityElement(children: .combine)
@@ -144,7 +144,7 @@ struct AdventureScreen: View {
                             }
                         }
 
-                        Text("STARPORT NINE  /  FIELD NOTES")
+                        Text(AppBrand.current.readerFooter)
                             .font(.system(.caption2, design: .monospaced))
                             .tracking(1.4)
                             .foregroundStyle(StarportTheme.muted.opacity(0.65))
@@ -191,7 +191,7 @@ struct AdventureScreen: View {
             }
             .accessibilityHint("Your progress is saved automatically.")
             Spacer()
-            Text("STARPORT  /  \(game.engine?.book.title ?? "STORY")")
+            Text("\(AppBrand.current.masthead)  /  \(game.engine?.book.title ?? "STORY")")
                 .font(.system(.caption2, design: .monospaced, weight: .bold))
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
@@ -223,7 +223,7 @@ struct AdventureScreen: View {
             PrimaryAction(label: "Undo last choice") {
                 game.rewindDetour()
             }
-            Text("Your clues, power, trust and decision count will go back to where they were.")
+            Text("Your \(AppBrand.current.statTitle(.clues).lowercased()), \(AppBrand.current.statTitle(.power).lowercased()), \(AppBrand.current.statTitle(.trust).lowercased()) and decision count will go back to where they were.")
                 .font(.footnote)
                 .foregroundStyle(StarportTheme.muted)
         }
@@ -307,7 +307,7 @@ private struct ChoiceButton: View {
                 } else {
                     let changes = (choice.effects ?? []).compactMap { effect -> String? in
                         guard let stat = effect.stat, let delta = effect.delta else { return nil }
-                        return "\(delta > 0 ? "+" : "")\(delta) \(stat.title)"
+                        return "\(delta > 0 ? "+" : "")\(delta) \(AppBrand.current.statTitle(stat))"
                     }
                     if !changes.isEmpty {
                         Text(changes.joined(separator: "   ·   "))

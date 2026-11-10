@@ -33,7 +33,7 @@ assert 'Button { onOpen(unfinishedStory) }' in root
 assert 'ForEach(filtered) { entry in' in root
 assert 'storyRow(entry)' in root
 assert 'Button { onOpen(entry) } label:' in root
-assert 'Text(entry.subtitle)' not in root[root.index("/// Stuffy Land\\'s compact bookshelf."):]
+assert 'Text(entry.subtitle)' not in root[root.index("/// Stuffy Land's compact bookshelf."):]
 assert 'Text("Read-alongs").tag(1)' in root
 assert 'Text("Adventures").tag(2)' in root
 

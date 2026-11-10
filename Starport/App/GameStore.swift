@@ -18,12 +18,12 @@ final class GameStore: ObservableObject {
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
-        achievements = Set(defaults.stringArray(forKey: "starport.achievements.v1") ?? [])
+        achievements = Set(defaults.stringArray(forKey: "\(AppBrand.current.storagePrefix).achievements.v1") ?? [])
         do {
             let shelf = try AdventureRepository()
             repository = shelf
             catalog = shelf.catalog
-            let selected = defaults.string(forKey: "starport.lastAdventure") ??
+            let selected = defaults.string(forKey: "\(AppBrand.current.storagePrefix).lastAdventure") ??
                 shelf.catalog.adventures[0].id
             if shelf.catalog.adventures.contains(where: { $0.id == selected }) {
                 select(selected)
@@ -47,7 +47,7 @@ final class GameStore: ObservableObject {
             let loaded = try AdventureEngine(book: book, restored: restored)
             engine = loaded
             selectedID = id
-            defaults.set(id, forKey: "starport.lastAdventure")
+            defaults.set(id, forKey: "\(AppBrand.current.storagePrefix).lastAdventure")
             errorMessage = nil
             awardAchievements(event: .newRun)
         } catch {
@@ -118,16 +118,16 @@ final class GameStore: ObservableObject {
 
     private func awardAchievements(event: AchievementEvent) {
         guard let engine else { return }
-        let eligible = AchievementCatalog.unlockedBy(engine, event: event)
+        let eligible = AchievementCatalog.unlockedBy(engine, event: event, stuffyLand: AppBrand.current.isStuffyLand)
         let newlyEarned = eligible.subtracting(achievements)
         guard !newlyEarned.isEmpty else { return }
         achievements.formUnion(newlyEarned)
-        defaults.set(achievements.sorted(), forKey: "starport.achievements.v1")
-        lastAchievement = AchievementCatalog.all.first { newlyEarned.contains($0.id) }
+        defaults.set(achievements.sorted(), forKey: "\(AppBrand.current.storagePrefix).achievements.v1")
+        lastAchievement = AchievementCatalog.all(forStuffyLand: AppBrand.current.isStuffyLand).first { newlyEarned.contains($0.id) }
     }
     func clearLibraryMessage() { libraryMessage = nil }
 
-    private func progressKey(_ id: String) -> String { "starport.progress.\(id).v2" }
+    private func progressKey(_ id: String) -> String { "\(AppBrand.current.storagePrefix).progress.\(id).v2" }
 
     private func save() {
         guard let engine, let selectedID else { return }

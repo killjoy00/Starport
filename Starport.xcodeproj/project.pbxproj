@@ -28,6 +28,30 @@
 		D00000000000000000000007 /* AdventureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000007 /* AdventureEngine.swift */; };
 		D00000000000000000000008 /* StoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000008 /* StoryLoader.swift */; };
 		D00000000000000000000009 /* first_signal.json in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000009 /* first_signal.json */; };
+		D20000000000000000000002 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000002 /* GameStore.swift */; };
+		D20000000000000000000003 /* StarportTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000003 /* StarportTheme.swift */; };
+		D20000000000000000000004 /* StarportRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000004 /* StarportRootView.swift */; };
+		D20000000000000000000005 /* AdventureScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000005 /* AdventureScreen.swift */; };
+		D20000000000000000000006 /* StoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000006 /* StoryModels.swift */; };
+		D20000000000000000000007 /* AdventureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000007 /* AdventureEngine.swift */; };
+		D20000000000000000000008 /* StoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000008 /* StoryLoader.swift */; };
+		D2000000000000000000000B /* AdventureRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000B /* AdventureRepository.swift */; };
+		D2000000000000000000000C /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000C /* PurchaseManager.swift */; };
+		D2000000000000000000000D /* AdsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000D /* AdsController.swift */; };
+		D2000000000000000000000E /* AdBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000E /* AdBannerView.swift */; };
+		D2000000000000000000000F /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000F /* SettingsScreen.swift */; };
+		D20000000000000000000010 /* AgeGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000010 /* AgeGateView.swift */; };
+		D20000000000000000000011 /* AchievementsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000011 /* AchievementsScreen.swift */; };
+		D20000000000000000000012 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000012 /* Achievements.swift */; };
+		D20000000000000000000016 /* StoryIllustrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000016 /* StoryIllustrationView.swift */; };
+		D10000000000000000000001 /* AppBrand.swift in Starport Sources */ = {isa = PBXBuildFile; fileRef = C10000000000000000000001 /* AppBrand.swift */; };
+		D10000000000000000000002 /* AppBrand.swift in Stuffy Sources */ = {isa = PBXBuildFile; fileRef = C10000000000000000000001 /* AppBrand.swift */; };
+		D1000000000000000000000A /* StuffyLandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1000000000000000000000A /* StuffyLandApp.swift */; };
+		D1000000000000000000000B /* Stuffy catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = C1000000000000000000000B /* catalog.json */; };
+		D1000000000000000000000C /* bell_button_hill.json in Resources */ = {isa = PBXBuildFile; fileRef = C1000000000000000000000C /* bell_button_hill.json */; };
+		D1000000000000000000000D /* Stuffy Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1000000000000000000000D /* Stuffy Assets.xcassets */; };
+		D1000000000000000000000E /* PrivacyInfo.xcprivacy in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000A /* PrivacyInfo.xcprivacy */; };
+		D10000000000000000000014 /* GoogleMobileAds in Stuffy Frameworks */ = {isa = PBXBuildFile; productRef = A00000000000000000000003 /* GoogleMobileAds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,10 +77,17 @@
 		C00000000000000000000008 /* StoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryLoader.swift; sourceTree = "<group>"; };
 		C00000000000000000000009 /* first_signal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = first_signal.json; sourceTree = "<group>"; };
 		C00000000000000000000063 /* Starport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Starport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C10000000000000000000001 /* AppBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBrand.swift; sourceTree = "<group>"; };
+		C1000000000000000000000A /* StuffyLandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuffyLandApp.swift; sourceTree = "<group>"; };
+		C1000000000000000000000B /* catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalog.json; sourceTree = "<group>"; };
+		C1000000000000000000000C /* bell_button_hill.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bell_button_hill.json; sourceTree = "<group>"; };
+		C1000000000000000000000D /* Stuffy Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = StuffyLand/Assets.xcassets; sourceTree = "<group>"; };
+		C1000000000000000000000E /* StuffyLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StuffyLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E00000000000000000000003 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (D00000000000000000000014 /* GoogleMobileAds in Frameworks */,); runOnlyForDeploymentPostprocessing = 0; };
+		E10000000000000000000003 /* Stuffy Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (D10000000000000000000014 /* GoogleMobileAds in Stuffy Frameworks */,); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -68,6 +99,7 @@
 				B0000000000000000000000C /* Core */,
 				B0000000000000000000000D /* Content */,
                 C00000000000000000000015 /* Assets.xcassets */,
+				B10000000000000000000001 /* StuffyLand */,
 				B00000000000000000000002 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				C00000000000000000000001 /* StarportApp.swift */,
+				C10000000000000000000001 /* AppBrand.swift */,
 				C00000000000000000000002 /* GameStore.swift */,
 				C0000000000000000000000B /* AdventureRepository.swift */,
 				C0000000000000000000000C /* PurchaseManager.swift */,
@@ -120,7 +153,27 @@
 			path = "Starport/Content";
 			sourceTree = "<group>";
 		};
-		B00000000000000000000002 /* Products */ = {isa = PBXGroup; children = (C00000000000000000000063 /* Starport.app */,); name = Products; sourceTree = "<group>"; };
+		B00000000000000000000002 /* Products */ = {isa = PBXGroup; children = (C00000000000000000000063 /* Starport.app */, C1000000000000000000000E /* StuffyLand.app */,); name = Products; sourceTree = "<group>"; };
+
+        B10000000000000000000001 /* StuffyLand */ = {
+            isa = PBXGroup;
+            children = (B10000000000000000000002 /* Stuffy App */, B10000000000000000000003 /* Stuffy Content */, C1000000000000000000000D /* Stuffy Assets.xcassets */,);
+            name = StuffyLand;
+            sourceTree = "<group>";
+        };
+        B10000000000000000000002 /* Stuffy App */ = {
+            isa = PBXGroup;
+            children = (C1000000000000000000000A /* StuffyLandApp.swift */,);
+            path = "StuffyLand/App";
+            sourceTree = "<group>";
+        };
+        B10000000000000000000003 /* Stuffy Content */ = {
+            isa = PBXGroup;
+            children = (C1000000000000000000000B /* catalog.json */, C1000000000000000000000C /* bell_button_hill.json */,);
+            path = "StuffyLand/Content";
+            sourceTree = "<group>";
+        };
+
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -136,12 +189,26 @@
 			packageProductDependencies = (A00000000000000000000003 /* GoogleMobileAds */,);
 			productType = "com.apple.product-type.application";
 		};
+
+        F10000000000000000000001 /* StuffyLand */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = 200000000000000000000003 /* Stuffy build configurations */;
+            buildPhases = (E10000000000000000000001 /* Stuffy Sources */, E10000000000000000000003 /* Stuffy Frameworks */, E10000000000000000000002 /* Stuffy Resources */,);
+            buildRules = ();
+            dependencies = ();
+            name = StuffyLand;
+            productName = StuffyLand;
+            productReference = C1000000000000000000000E /* StuffyLand.app */;
+            packageProductDependencies = (A00000000000000000000003 /* GoogleMobileAds */,);
+            productType = "com.apple.product-type.application";
+        };
+
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A00000000000000000000001 /* Project object */ = {
 			isa = PBXProject;
-			attributes = {BuildIndependentTargetsInParallel = YES; LastUpgradeCheck = 1600; TargetAttributes = {F00000000000000000000001 = {CreatedOnToolsVersion = 16.0; }; }; };
+			attributes = {BuildIndependentTargetsInParallel = YES; LastUpgradeCheck = 1600; TargetAttributes = {F00000000000000000000001 = {CreatedOnToolsVersion = 16.0; }; F10000000000000000000001 = {CreatedOnToolsVersion = 16.0; }; }; };
 			buildConfigurationList = 200000000000000000000001 /* Build configuration list for PBXProject "Starport" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
@@ -152,7 +219,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			packageReferences = (A00000000000000000000002 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,);
-			targets = (F00000000000000000000001 /* Starport */,);
+			targets = (F00000000000000000000001 /* Starport */, F10000000000000000000001 /* StuffyLand */,);
 		};
 /* End PBXProject section */
 
@@ -163,6 +230,14 @@
 				D00000000000000000000013 /* catalog.json in Resources */,
                 D00000000000000000000015 /* Assets.xcassets in Resources */,
 			); runOnlyForDeploymentPostprocessing = 0; };
+
+        E10000000000000000000002 /* Stuffy Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (
+            D1000000000000000000000B /* Stuffy catalog.json in Resources */,
+            D1000000000000000000000C /* bell_button_hill.json in Resources */,
+            D1000000000000000000000D /* Stuffy Assets.xcassets in Resources */,
+            D1000000000000000000000E /* PrivacyInfo.xcprivacy in Stuffy Resources */,
+        ); runOnlyForDeploymentPostprocessing = 0; };
+
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -184,7 +259,30 @@
 				D00000000000000000000011 /* AchievementsScreen.swift in Sources */,
 				D00000000000000000000012 /* Achievements.swift in Sources */,
                 D00000000000000000000016 /* StoryIllustrationView.swift in Sources */,
+                D10000000000000000000001 /* AppBrand.swift in Starport Sources */,
 			); runOnlyForDeploymentPostprocessing = 0; };
+
+        E10000000000000000000001 /* Stuffy Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (
+            D1000000000000000000000A /* StuffyLandApp.swift in Sources */,
+            D10000000000000000000002 /* AppBrand.swift in Stuffy Sources */,
+            D20000000000000000000002 /* GameStore.swift in Sources */,
+            D20000000000000000000003 /* StarportTheme.swift in Sources */,
+            D20000000000000000000004 /* StarportRootView.swift in Sources */,
+            D20000000000000000000005 /* AdventureScreen.swift in Sources */,
+            D20000000000000000000006 /* StoryModels.swift in Sources */,
+            D20000000000000000000007 /* AdventureEngine.swift in Sources */,
+            D20000000000000000000008 /* StoryLoader.swift in Sources */,
+            D2000000000000000000000B /* AdventureRepository.swift in Sources */,
+            D2000000000000000000000C /* PurchaseManager.swift in Sources */,
+            D2000000000000000000000D /* AdsController.swift in Sources */,
+            D2000000000000000000000E /* AdBannerView.swift in Sources */,
+            D2000000000000000000000F /* SettingsScreen.swift in Sources */,
+            D20000000000000000000010 /* AgeGateView.swift in Sources */,
+            D20000000000000000000011 /* AchievementsScreen.swift in Sources */,
+            D20000000000000000000012 /* Achievements.swift in Sources */,
+            D20000000000000000000016 /* StoryIllustrationView.swift in Sources */,
+        ); runOnlyForDeploymentPostprocessing = 0; };
+
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -198,6 +296,8 @@
 			ENABLE_PREVIEWS = YES;
 			GENERATE_INFOPLIST_FILE = YES;
 			INFOPLIST_KEY_CFBundleDisplayName = Starport;
+            INFOPLIST_KEY_STORY_BRAND = starport;
+            INFOPLIST_KEY_STORY_BRAND = starport;
 			INFOPLIST_KEY_GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
 			INFOPLIST_KEY_STARPORT_BANNER_UNIT_ID = "ca-app-pub-3940256099942544/2934735716";
 			INFOPLIST_KEY_STARPORT_ADS_LIVE_APPROVED = NO;
@@ -230,6 +330,50 @@
 			SWIFT_VERSION = 5.0;
 			TARGETED_DEVICE_FAMILY = "1,2";
 		}; name = Release; };
+
+        100000000000000000000005 /* Debug StuffyLand */ = {isa = XCBuildConfiguration; buildSettings = {
+            ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+            CODE_SIGN_STYLE = Automatic;
+            CURRENT_PROJECT_VERSION = 1;
+            GENERATE_INFOPLIST_FILE = YES;
+            INFOPLIST_KEY_CFBundleDisplayName = "Stuffy Land";
+            INFOPLIST_KEY_STORY_BRAND = stuffyland;
+            INFOPLIST_KEY_GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
+            INFOPLIST_KEY_STARPORT_BANNER_UNIT_ID = "ca-app-pub-3940256099942544/2934735716";
+            INFOPLIST_KEY_STARPORT_ADS_LIVE_APPROVED = NO;
+            INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+            INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+            IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+            MARKETING_VERSION = 0.1.0;
+            PRODUCT_BUNDLE_IDENTIFIER = pro.stuffyland.stories;
+            PRODUCT_NAME = "$(TARGET_NAME)";
+            SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+            SWIFT_VERSION = 5.0;
+            TARGETED_DEVICE_FAMILY = "1,2";
+        }; name = Debug; };
+
+
+        100000000000000000000006 /* Release StuffyLand */ = {isa = XCBuildConfiguration; buildSettings = {
+            ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+            CODE_SIGN_STYLE = Automatic;
+            CURRENT_PROJECT_VERSION = 1;
+            GENERATE_INFOPLIST_FILE = YES;
+            INFOPLIST_KEY_CFBundleDisplayName = "Stuffy Land";
+            INFOPLIST_KEY_STORY_BRAND = stuffyland;
+            INFOPLIST_KEY_GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
+            INFOPLIST_KEY_STARPORT_BANNER_UNIT_ID = "ca-app-pub-3940256099942544/2934735716";
+            INFOPLIST_KEY_STARPORT_ADS_LIVE_APPROVED = NO;
+            INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+            INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+            IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+            MARKETING_VERSION = 0.1.0;
+            PRODUCT_BUNDLE_IDENTIFIER = pro.stuffyland.stories;
+            PRODUCT_NAME = "$(TARGET_NAME)";
+            SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+            SWIFT_VERSION = 5.0;
+            TARGETED_DEVICE_FAMILY = "1,2";
+        }; name = Release; };
+
 /* End XCBuildConfiguration section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -251,6 +395,9 @@
 /* Begin XCConfigurationList section */
 		200000000000000000000001 /* Build configuration list for PBXProject "Starport" */ = {isa = XCConfigurationList; buildConfigurations = (100000000000000000000001 /* Debug */, 100000000000000000000002 /* Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
 		200000000000000000000002 /* Build configuration list for PBXNativeTarget "Starport" */ = {isa = XCConfigurationList; buildConfigurations = (100000000000000000000003 /* Debug */, 100000000000000000000004 /* Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+
+        200000000000000000000003 /* Stuffy build configurations */ = {isa = XCConfigurationList; buildConfigurations = (100000000000000000000005 /* Debug */, 100000000000000000000006 /* Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+
 /* End XCConfigurationList section */
 	};
 	rootObject = A00000000000000000000001 /* Project object */;

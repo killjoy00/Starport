@@ -74,19 +74,19 @@ struct StarportRootView: View {
                 VStack(alignment: .leading, spacing: 11) {
                     HStack(spacing: 7) {
                         Image(systemName: "sparkle")
-                        Text("INTERACTIVE FICTION")
+                        Text(AppBrand.current.heroEyebrow)
                     }
                     .font(.system(.caption, design: .monospaced, weight: .bold))
                     .tracking(1.4)
                     .foregroundStyle(StarportTheme.orange)
 
-                    Text("Choose a story.\nChange the ending.")
+                    Text(AppBrand.current.heroTitle)
                         .font(.system(size: 33, weight: .bold, design: .rounded))
                         .tracking(-0.8)
                         .foregroundStyle(StarportTheme.paper)
                         .fixedSize(horizontal: false, vertical: true)
 
-                    Text("The story moves forward because of your decisions.")
+                    Text(AppBrand.current.heroDescription)
                         .font(.body)
                         .foregroundStyle(StarportTheme.muted)
                         .fixedSize(horizontal: false, vertical: true)
@@ -120,7 +120,7 @@ struct StarportRootView: View {
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Can't open the library")
                             .font(.title2.bold())
-                        Text(game.errorMessage ?? "Please try opening Starport again.")
+                        Text(game.errorMessage ?? "Please try opening \(AppBrand.current.name) again.")
                             .foregroundStyle(StarportTheme.muted)
                     }
                 }
@@ -155,7 +155,7 @@ struct StarportRootView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(StarportTheme.panel.opacity(0.95), in: RoundedRectangle(cornerRadius: 16))
 
-                Text("STARPORT  ·  FOR READERS AGES 13+")
+                Text("\(AppBrand.current.masthead)  ·  FOR READERS AGES 13+")
                     .font(.system(.caption2, design: .monospaced))
                     .tracking(0.7)
                     .foregroundStyle(StarportTheme.muted)

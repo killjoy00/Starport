@@ -12,6 +12,10 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
+      - name: Verify committed app icon matches approved artwork
+        run: |
+          bash scripts/bake_approved_icon.sh
+          git diff --exit-code -- Starport/Assets.xcassets/AppIcon.appiconset/AppIcon.png
       - name: Validate embedded artwork and coverage
         run: python3 scripts/audit_artwork.py
       - name: Run Swift tests
@@ -24,6 +28,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Xcode version
         run: xcodebuild -version
+      - name: Verify committed app icon matches approved artwork
+        run: |
+          bash scripts/bake_approved_icon.sh
+          git diff --exit-code -- Starport/Assets.xcassets/AppIcon.appiconset/AppIcon.png
       - name: Build
         run: xcodebuild -project Starport.xcodeproj -scheme Starport -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/starport-build" CODE_SIGNING_ALLOWED=NO build
       - name: Verify compiled app icon is present in the app bundle

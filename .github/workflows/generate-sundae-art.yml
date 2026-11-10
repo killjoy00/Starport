@@ -5,6 +5,7 @@ on:
     branches: [feat/sundae-switch-adventure]
     paths:
       - scripts/generate_sundae_art.py
+      - .github/workflows/generate-sundae-art.yml
   workflow_dispatch:
 
 permissions:

@@ -120,9 +120,16 @@ print(f"PASS Stuffy Land catalog: {len(seen_ids)} total stories (both formats)")
 root = content.parents[1]
 provenance = json.loads((root / "StuffyLand/Editorial/story-provenance.json").read_text())
 assert {p["id"] for p in provenance["stories"]} == seen_ids
-assert len(seen_ids) == 13
+assert len(seen_ids) == 14
 assert sum(x.get("kind") == "reader" for x in catalog["adventures"]) == 11
-assert sum(x.get("kind") == "adventure" for x in catalog["adventures"]) == 2
+assert sum(x.get("kind") == "adventure" for x in catalog["adventures"]) == 3
+sundae = json.loads((content / "sundae_switch.json").read_text())
+sundae_scenes = [node for node in sundae["nodes"] if not node.get("ending")]
+sundae_art = [node["illustration"]["asset"] for node in sundae_scenes if "illustration" in node]
+assert len(sundae_scenes) == 18, "Sundae Switch must have 18 main story scenes"
+assert len(sundae_art) == 9 and len(set(sundae_art)) == 9, "Exactly half the main scenes must have distinct artwork"
+assert len([node for node in sundae["nodes"] if node.get("ending", {}).get("kind") == "final"]) == 5
+assert len([node for node in sundae["nodes"] if node.get("ending", {}).get("kind") == "detour"]) == 10
 original = (root / "StuffyLand/Editorial/source/giggle_games.txt").read_text().strip().split("\n\n")
 giggles = json.loads((content / "giggle_games.json").read_text())
 assert [p for page in giggles["pages"] for p in page["paragraphs"]] == original[1:], "Original Giggle Games text changed"

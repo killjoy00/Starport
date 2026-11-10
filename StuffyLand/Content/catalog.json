@@ -1,0 +1,17 @@
+{
+  "formatVersion": 1,
+  "adventures": [
+    {
+      "id": "stuffy-bell",
+      "filename": "bell_button_hill",
+      "contentVersion": 1,
+      "title": "The Bell of Button Hill",
+      "subtitle": "The bell that calls everyone home has disappeared.",
+      "blurb": "A missing bell, a sleeping forest, and a promise to keep.",
+      "genre": "Stuffy Land adventure",
+      "symbol": "heart",
+      "estimatedMinutes": 35,
+      "coverAsset": "cover-bell-button-hill"
+    }
+  ]
+}

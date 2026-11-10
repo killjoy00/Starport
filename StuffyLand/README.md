@@ -8,6 +8,17 @@ Stuffy Land is a **second iOS app target inside the Starport repository**, not a
 
 The first version uses native, lightweight placeholder artwork in the reader and on library cards rather than claiming that finished cover/scene illustrations exist.
 
+## Two types of stories
+
+Stuffy Land's library supports **interactive adventures** and **regular read-through books**:
+
+- **Adventure** (existing format): branching `nodes`, decisions, stats, rewindable detours, multiple endings and achievements. Older catalog entries omit `kind`, which defaults to `adventure`.
+- **Reader** (`"kind": "reader"` in `catalog.json`): a linear document with `id`, `contentVersion`, `title`, `subtitle`, optional `author`, and an ordered array of `pages`. Each page has a unique `id`, optional `heading`, and `paragraphs` (prose strings). Optional `illustration` objects contain the asset name and accessible alt text.
+
+The library groups both formats into collections. Reader progress is saved per book/version. The e-reader has larger/smaller text, previous/next sections and **Read to me** playback (pause, resume, stop, speed control, automatic continuation). It uses the iPhone's built-in speech synthesis without recording, server upload, or AI voice charges, and narration stops when leaving the reader.
+
+**The Button at the Window** is a seven-section demonstration book, not established Stuffy Land canon. Both pilot stories are placeholders until the actual user-provided Stuffy Land stories arrive. Future books can be added as content-only JSON updates without recompiling after the first version ships.
+
 ## Separate publishing and safety decisions
 
 The initial build retains a **13+ age gate** and teen non-personalized ad behavior as conservative development defaults. This is **not an audience decision** for Stuffy Land: confirm its actual intended age range, children's privacy design, App Store classification and ad suitability **before TestFlight or release**. Do not enable live AdMob or the real Remove Ads product until the Stuffy Land app's own IDs and disclosures are reviewed. The App Store product placeholder is `pro.stuffyland.stories.remove_ads`.

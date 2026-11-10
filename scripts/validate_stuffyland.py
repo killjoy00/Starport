@@ -16,6 +16,23 @@ for listing in catalog["adventures"]:
     book = json.loads((content / (listing["filename"] + ".json")).read_text())
     assert book["id"] == listing["id"]
     assert book["contentVersion"] == listing["contentVersion"]
+    kind = listing.get("kind", "adventure")
+    assert kind in {"adventure", "reader"}, ("Unknown story format", listing["id"])
+    if kind == "reader":
+        pages = book["pages"]
+        assert 1 <= len(pages) <= 500, ("Bad reader page count", listing["id"])
+        assert len({p["id"] for p in pages}) == len(pages), "Duplicate reader page IDs"
+        for page in pages:
+            assert page["id"], "Empty page ID"
+            assert 1 <= len(page["paragraphs"]) <= 40
+            assert all(isinstance(p, str) and p.strip() and len(p) <= 15000
+                       for p in page["paragraphs"]), "Blank/invalid page text"
+            if "illustration" in page:
+                assert page["illustration"]["asset"]
+                assert page["illustration"]["alt"].strip()
+        print(f"PASS {listing['title']}: {len(pages)} read-through pages")
+        continue
+
     nodes = {node["id"]: node for node in book["nodes"]}
     assert len(nodes) == len(book["nodes"])
     finals = [n for n in nodes.values() if n.get("ending", {}).get("kind") == "final"]
@@ -88,4 +105,4 @@ for listing in catalog["adventures"]:
         current = choice["to"]
 
     print(f"PASS {listing['title']}: {len(nodes)} nodes, {len(finals)} finals, {len(detours)} detours")
-print(f"PASS Stuffy Land catalog: {len(seen_ids)} adventure(s)")
+print(f"PASS Stuffy Land catalog: {len(seen_ids)} total stories (both formats)")

@@ -12,6 +12,18 @@
       "symbol": "sparkles",
       "estimatedMinutes": 90,
       "coverAsset": "cover-door-tomorrow"
+    },
+    {
+      "id": "car-thirteen",
+      "filename": "car_thirteen",
+      "contentVersion": 1,
+      "title": "The Thirteenth Car",
+      "subtitle": "Twelve cars on the list. Thirteen on the track.",
+      "blurb": "A star train. A car nobody coupled. Something singing behind a door with no handle. Seven endings, and no two journeys the same.",
+      "genre": "Sci-fi adventure",
+      "symbol": "tram.fill",
+      "estimatedMinutes": 90,
+      "coverAsset": "cover-car-thirteen"
     }
   ]
 }

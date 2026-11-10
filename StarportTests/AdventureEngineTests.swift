@@ -9,7 +9,7 @@ final class AdventureEngineTests: XCTestCase {
     func testAdventureLibraryAndExpandedStory() throws {
         let catalog = try StoryLoader.loadCatalog()
         XCTAssertEqual(catalog.formatVersion, 1)
-        XCTAssertEqual(catalog.adventures.count, 1)
+        XCTAssertEqual(catalog.adventures.count, 2)
         let listing = try XCTUnwrap(catalog.adventures.first)
         let book = try story()
         XCTAssertEqual(listing.id, book.id)

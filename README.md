@@ -1,4 +1,14 @@
-# Starport
+# Starport & Stuffy Land
+
+This repository contains **two distinct iOS apps** using one shared branching-adventure engine. `Starport` is the science-fiction adventure shelf. `StuffyLand` is a separately installed, independently branded storybook app with its own catalog, achievements, save keys, App Store configuration and ad/purchase IDs.
+
+The current first Stuffy Land story is a **provisional pilot**, not established Stuffy Land canon. See [StuffyLand/README.md](StuffyLand/README.md) for story contents, target setup and the age/privacy release blockers.
+
+Both apps have their own Xcode schemes in `Starport.xcodeproj`. Choose `Starport` or `StuffyLand`. They share files from `Starport/Core`, `Starport/App` and `Starport/UI`, but bundle different content resources. Run `python3 scripts/validate_stuffyland.py` for the Stuffy Land graph validation; CI also builds both targets.
+
+---
+
+## Starport
 
 **Starport** is a native iOS adventure library intended **only for people ages 13 and older**. It has a 13+ self-declaration gate before the library, stories, ads, or purchase UI becomes accessible. No birth date, name, or account is required.
 

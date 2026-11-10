@@ -104,17 +104,22 @@ struct StarportRootView: View {
                 }
 
                 if let entries = game.catalog?.adventures {
-                    ForEach(entries) { entry in
-                        Button {
-                            game.select(entry.id)
-                            guard game.selectedID == entry.id else { return }
-                            if game.engine?.isComplete == true { game.restart() }
-                            game.begin()
-                            reading = true
-                        } label: {
-                            adventureCard(entry)
+                    if AppBrand.current.isStuffyLand {
+                        ForEach(Array(Set(entries.map { $0.collection ?? "Other Adventures" })).sorted(), id: \.self) { shelf in
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text(shelf.uppercased())
+                                    .font(.system(.caption, design: .rounded, weight: .bold))
+                                    .tracking(1.2)
+                                    .foregroundStyle(StarportTheme.orange)
+                                ForEach(entries.filter { ($0.collection ?? "Other Adventures") == shelf }) { entry in
+                                    adventureButton(entry)
+                                }
+                            }
                         }
-                        .buttonStyle(.plain)
+                    } else {
+                        ForEach(entries) { entry in
+                            adventureButton(entry)
+                        }
                     }
                 } else {
                     VStack(alignment: .leading, spacing: 10) {
@@ -168,6 +173,19 @@ struct StarportRootView: View {
             .padding(.bottom, 34)
             .frame(maxWidth: .infinity)
         }
+    }
+
+    private func adventureButton(_ entry: AdventureListing) -> some View {
+        Button {
+            game.select(entry.id)
+            guard game.selectedID == entry.id else { return }
+            if game.engine?.isComplete == true { game.restart() }
+            game.begin()
+            reading = true
+        } label: {
+            adventureCard(entry)
+        }
+        .buttonStyle(.plain)
     }
 
     private func adventureCard(_ entry: AdventureListing) -> some View {

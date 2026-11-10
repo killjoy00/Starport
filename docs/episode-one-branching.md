@@ -1,6 +1,6 @@
 # Episode 01 — The Door That Opens Tomorrow: branching audit
 
-This is a map of the actual **first_signal.json, contentVersion 3** story, not just planned design.
+This is a map of the actual **first_signal.json, contentVersion 4** story, not just planned design.
 
 ## Decision structure
 
@@ -28,10 +28,10 @@ All five are reachable. Automated engine tests explore **every distinct relevant
 
 ## Editorial approach
 
-The original draft used two very short paragraphs on nearly every screen, and both ordinary choices on scenes 1–36 led to the same next scene. The new edition varies passages from about 100 to more than 200 words, with 3–5 paragraphs on most pages and fuller dialogue, motivations and consequences. The full multi-route manuscript is roughly **11,400 words**, but readers encounter only the portion on their chosen path. The 13+ product audience is unchanged; the prose remains an accessible middle-grade style.
+The original draft used two very short paragraphs on nearly every screen, and both ordinary choices on scenes 1–36 led to the same next scene. This edition deepens the existing scenes to approximately 125–330 words per interactive scene, with varied pacing and more conversations, physical details and consequences. The earlier narrative forks and ending requirements are unchanged. The full multi-route manuscript is about **16,900 words**, but readers encounter only the portion on their chosen path. The 13+ product audience is unchanged; the prose remains an accessible middle-grade style.
 
 The story retains original artwork on more than one third of the interactive pages, along with the cover, app icon, achievement collection, and Dark/Light/System modes.
 
 ## Save compatibility
 
-The catalog and story both use `contentVersion: 3`. Changing the graph invalidates the current run from version 2. The engine resets the reader to the opening scene **without discarding recorded permanent endings or discovered detours**. The library shows a non-blocking explanatory message. Separate Stuffy Land content and saved progress remain independent.
+The catalog and story use `contentVersion: 4`. Edition 4 adds prose while retaining edition 3's choices, effects and scene IDs, so StarPort readers keep their active v3 run and discovered endings. Older or structurally incompatible editions restart the active run but keep discovered endings and detours. The separate Stuffy Land app's content and behavior remain untouched.

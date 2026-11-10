@@ -44,6 +44,21 @@ jobs:
         run: python3 scripts/check_release_plist.py "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app"
       - name: Install and launch the actual app on an iPhone simulator
         run: bash scripts/smoke_launch.sh "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app"
+      - name: Capture native StarPort home in dark and light
+        run: |
+          mkdir -p "$RUNNER_TEMP/starport-home-preview"
+          for appearance in dark light; do
+            xcrun simctl terminate booted pro.starport.story || true
+            xcrun simctl launch booted pro.starport.story -starport.confirmed13Plus YES -starport.appearance "$appearance"
+            sleep 3
+            xcrun simctl io booted screenshot "$RUNNER_TEMP/starport-home-preview/starport-home-$appearance.png"
+          done
+      - name: Preserve StarPort home previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: starport-home-previews
+          path: ${{ runner.temp }}/starport-home-preview
+          retention-days: 7
       - name: Check iPad and iPhone rotation declarations in built app
         run: |
           plist="$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app/Info.plist"

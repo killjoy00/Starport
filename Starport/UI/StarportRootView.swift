@@ -62,130 +62,231 @@ struct StarportRootView: View {
         .tint(StarportTheme.teal)
     }
 
+    // StarPort's home is separate from the Stuffy Land bookshelf below.
+    private var featuredStory: AdventureListing? {
+        let entries = game.catalog?.adventures ?? []
+        return entries.first(where: { $0.id == game.selectedID }) ?? entries.first
+    }
+
     private var library: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                HStack {
-                    StarportMasthead()
-                    Button { showingAchievements = true } label: {
-                        Image(systemName: "trophy")
-                            .font(.headline)
-                            .frame(width: 44, height: 44)
-                            .contentShape(Rectangle())
-                    }
-                    .accessibilityLabel("Achievements, \(game.achievements.count) unlocked")
-                    Button { showingSettings = true } label: {
-                        Image(systemName: "gearshape")
-                            .font(.headline)
-                            .frame(width: 44, height: 44)
-                            .contentShape(Rectangle())
-                    }
-                    .accessibilityLabel("Settings and Remove Ads")
-                }
-                .padding(.top, 10)
-
-                VStack(alignment: .leading, spacing: 11) {
-                    HStack(spacing: 7) {
-                        Image(systemName: "sparkle")
-                        Text(AppBrand.current.heroEyebrow)
-                    }
-                    .font(.system(.caption, design: .monospaced, weight: .bold))
-                    .tracking(1.4)
-                    .foregroundStyle(StarportTheme.orange)
-
-                    Text(AppBrand.current.heroTitle)
-                        .font(.system(size: 33, weight: .bold, design: .rounded))
+            VStack(alignment: .leading, spacing: 21) {
+                HStack(spacing: 8) {
+                    Text("StarPort")
+                        .font(.system(size: 29, weight: .bold, design: .rounded))
                         .tracking(-0.8)
                         .foregroundStyle(StarportTheme.paper)
-                        .fixedSize(horizontal: false, vertical: true)
-
-                    Text(AppBrand.current.heroDescription)
-                        .font(.body)
-                        .foregroundStyle(StarportTheme.muted)
-                        .fixedSize(horizontal: false, vertical: true)
+                        .accessibilityAddTraits(.isHeader)
+                    Spacer(minLength: 4)
+                    Button { showingAchievements = true } label: {
+                        Label("Endings", systemImage: "trophy")
+                            .font(.subheadline.weight(.medium))
+                            .foregroundStyle(StarportTheme.paper)
+                            .padding(.horizontal, 8)
+                            .frame(minHeight: 44)
+                    }
+                    .accessibilityLabel("Discovered endings and achievements")
+                    Button { showingSettings = true } label: {
+                        Image(systemName: "gearshape")
+                            .font(.system(size: 18))
+                            .foregroundStyle(StarportTheme.paper)
+                            .frame(width: 44, height: 44)
+                    }
+                    .accessibilityLabel("Settings")
                 }
 
-                HStack {
-                    Text("THE LIBRARY")
-                        .font(.system(.caption, design: .monospaced, weight: .bold))
-                        .tracking(1.6)
-                        .foregroundStyle(StarportTheme.teal)
-                    Spacer()
-                    Text("\(game.catalog?.adventures.count ?? 0) \(AppBrand.current.isStuffyLand ? "STORIES" : "ADVENTURE")")
-                        .font(.system(.caption2, design: .monospaced))
+                if let feature = featuredStory {
+                    Text(featuredAction(for: feature).hasPrefix("Continue") ? "KEEP READING" : "FEATURED STORY")
+                        .font(.caption.weight(.semibold))
+                        .tracking(0.6)
                         .foregroundStyle(StarportTheme.muted)
-                }
+                    featuredCard(feature)
 
-                if let entries = game.catalog?.adventures {
-                    if AppBrand.current.isStuffyLand {
-                        ForEach(Array(Set(entries.map { $0.collection ?? "Other Adventures" })).sorted(), id: \.self) { shelf in
-                            VStack(alignment: .leading, spacing: 12) {
-                                Text(shelf.uppercased())
-                                    .font(.system(.caption, design: .rounded, weight: .bold))
-                                    .tracking(1.2)
-                                    .foregroundStyle(StarportTheme.orange)
-                                ForEach(entries.filter { ($0.collection ?? "Other Adventures") == shelf }) { entry in
-                                    adventureButton(entry)
-                                }
-                            }
-                        }
-                    } else {
-                        ForEach(entries) { entry in
-                            adventureButton(entry)
+                    let otherStories = (game.catalog?.adventures ?? []).filter { $0.id != feature.id }
+                    if !otherStories.isEmpty {
+                        Text("More stories")
+                            .font(.system(.title2, design: .rounded, weight: .bold))
+                            .foregroundStyle(StarportTheme.paper)
+                            .accessibilityAddTraits(.isHeader)
+                            .padding(.top, 5)
+                        ForEach(otherStories) { entry in
+                            compactStoryRow(entry)
                         }
                     }
                 } else {
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Can't open the library")
+                        Text("Your stories couldn't load")
                             .font(.title2.bold())
-                        Text(game.errorMessage ?? "Please try opening \(AppBrand.current.name) again.")
+                            .foregroundStyle(StarportTheme.paper)
+                        Text(game.errorMessage ?? "Try checking for stories or reopening StarPort.")
+                            .font(.subheadline)
                             .foregroundStyle(StarportTheme.muted)
                     }
                 }
 
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        Image(systemName: "square.stack.3d.up")
-                            .foregroundStyle(StarportTheme.orange)
-                        Text("More adventures will appear here.")
-                            .font(.headline)
-                            .foregroundStyle(StarportTheme.paper)
+                Button {
+                    Task { await game.refreshLibrary() }
+                } label: {
+                    HStack(spacing: 9) {
+                        if game.isRefreshing { ProgressView().controlSize(.small) }
+                        else { Image(systemName: "arrow.clockwise") }
+                        Text(game.isRefreshing ? "Checking stories…" : "Check for new stories")
                     }
-                    Text("New stories can be added without updating the app. Your saved adventures work offline.")
-                        .foregroundStyle(StarportTheme.muted)
-                        .font(.subheadline)
-                    Button {
-                        Task { await game.refreshLibrary() }
-                    } label: {
-                        HStack {
-                            if game.isRefreshing { ProgressView().controlSize(.small) }
-                            else { Image(systemName: "arrow.clockwise") }
-                            Text(game.isRefreshing ? "Checking..." : "Check for new adventures")
-                        }
-                        .font(.subheadline.weight(.semibold))
-                    }
-                    .disabled(game.isRefreshing)
-                    if let message = game.libraryMessage {
-                        Text(message).font(.footnote).foregroundStyle(StarportTheme.muted)
-                    }
+                    .font(.subheadline.weight(.medium))
+                    .foregroundStyle(StarportTheme.teal)
+                    .frame(minHeight: 44)
                 }
-                .padding(18)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(StarportTheme.panel.opacity(0.95), in: RoundedRectangle(cornerRadius: 16))
+                .disabled(game.isRefreshing)
 
-                Text("\(AppBrand.current.masthead)  ·  FOR READERS AGES 13+")
-                    .font(.system(.caption2, design: .monospaced))
-                    .tracking(0.7)
-                    .foregroundStyle(StarportTheme.muted)
-                    .frame(maxWidth: .infinity)
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom, 10)
+                if let note = game.libraryMessage ?? game.errorMessage {
+                    Text(note)
+                        .font(.footnote)
+                        .foregroundStyle(StarportTheme.muted)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
-            .frame(maxWidth: 610)
-            .padding(.horizontal, 23)
-            .padding(.bottom, 34)
+            .frame(maxWidth: 620)
+            .padding(.horizontal, 20)
+            .padding(.top, 14)
+            .padding(.bottom, 30)
             .frame(maxWidth: .infinity)
         }
+    }
+
+    private func featuredAction(for entry: AdventureListing) -> String {
+        guard game.selectedID == entry.id else {
+            return entry.format == .reader ? "Read story" : "Start adventure"
+        }
+        if entry.format == .reader {
+            return game.readerPageIndex > 0 ? "Continue reading" : "Read story"
+        }
+        guard let engine = game.engine, engine.progress.started else { return "Start adventure" }
+        return engine.isComplete ? "Find another ending" : "Continue adventure"
+    }
+
+    private func featuredStatus(for entry: AdventureListing) -> String {
+        guard game.selectedID == entry.id else { return "About \(entry.estimatedMinutes) min" }
+        if entry.format == .reader, let book = game.readerBook {
+            return "Page \(game.readerPageIndex + 1) of \(book.pages.count)"
+        }
+        if let engine = game.engine {
+            if engine.progress.started && !engine.isComplete {
+                return "\(engine.progress.decisionCount) decisions made · \(engine.progress.endingsFound.count) endings found"
+            }
+            if !engine.progress.endingsFound.isEmpty {
+                return "\(engine.progress.endingsFound.count) of \(engine.book.finalCount) endings found"
+            }
+        }
+        return "About \(entry.estimatedMinutes) min"
+    }
+
+    private func featuredCard(_ entry: AdventureListing) -> some View {
+        VStack(alignment: .leading, spacing: 16) {
+            HStack(alignment: .top, spacing: 15) {
+                if let cover = entry.coverAsset {
+                    Image(cover)
+                        .resizable().scaledToFill()
+                        .frame(width: 112, height: 168)
+                        .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .accessibilityHidden(true)
+                } else {
+                    Image(systemName: entry.symbol)
+                        .font(.system(size: 35))
+                        .foregroundStyle(StarportTheme.orange)
+                        .frame(width: 112, height: 168)
+                        .background(StarportTheme.ink, in: RoundedRectangle(cornerRadius: 10))
+                        .accessibilityHidden(true)
+                }
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(entry.format == .reader ? "READ OR LISTEN" : "CHOOSE YOUR PATH")
+                        .font(.caption2.weight(.semibold))
+                        .tracking(0.5)
+                        .foregroundStyle(StarportTheme.orange)
+                    Text(entry.title)
+                        .font(.system(.title2, design: .rounded, weight: .bold))
+                        .tracking(-0.4)
+                        .foregroundStyle(StarportTheme.paper)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text(entry.blurb)
+                        .font(.subheadline)
+                        .foregroundStyle(StarportTheme.muted)
+                        .lineLimit(4)
+                        .multilineTextAlignment(.leading)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            Label(featuredStatus(for: entry), systemImage: "bookmark")
+                .font(.caption)
+                .foregroundStyle(StarportTheme.muted)
+            Button { openStory(entry) } label: {
+                HStack {
+                    Text(featuredAction(for: entry))
+                        .font(.headline)
+                    Spacer()
+                    Image(systemName: "arrow.right")
+                        .font(.headline.weight(.semibold))
+                }
+                .foregroundStyle(StarportTheme.ink)
+                .padding(.horizontal, 18)
+                .frame(minHeight: 54)
+                .background(StarportTheme.teal, in: RoundedRectangle(cornerRadius: 11))
+            }
+            .buttonStyle(.plain)
+            .accessibilityHint("Open \(entry.title)")
+        }
+        .padding(18)
+        .background(StarportTheme.panel, in: RoundedRectangle(cornerRadius: 18))
+        .overlay {
+            RoundedRectangle(cornerRadius: 18)
+                .strokeBorder(StarportTheme.line.opacity(0.6), lineWidth: 1)
+        }
+    }
+
+    private func compactStoryRow(_ entry: AdventureListing) -> some View {
+        Button { openStory(entry) } label: {
+            HStack(spacing: 13) {
+                if let cover = entry.coverAsset {
+                    Image(cover)
+                        .resizable().scaledToFill()
+                        .frame(width: 59, height: 84)
+                        .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 7))
+                        .accessibilityHidden(true)
+                } else {
+                    Image(systemName: entry.symbol)
+                        .foregroundStyle(StarportTheme.orange)
+                        .frame(width: 59, height: 84)
+                        .background(StarportTheme.ink, in: RoundedRectangle(cornerRadius: 7))
+                        .accessibilityHidden(true)
+                }
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(entry.title)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(StarportTheme.paper)
+                        .multilineTextAlignment(.leading)
+                    Text(entry.subtitle)
+                        .font(.caption)
+                        .foregroundStyle(StarportTheme.muted)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                    Text(entry.format == .reader ? "Read or listen" : "Interactive story")
+                        .font(.caption2.weight(.medium))
+                        .foregroundStyle(StarportTheme.teal)
+                }
+                Spacer(minLength: 4)
+                Image(systemName: "chevron.right")
+                    .font(.footnote.weight(.semibold))
+                    .foregroundStyle(StarportTheme.muted)
+            }
+            .padding(12)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(StarportTheme.panel, in: RoundedRectangle(cornerRadius: 12))
+        }
+        .buttonStyle(.plain)
+        .accessibilityElement(children: .combine)
+        .accessibilityHint("Open \(entry.title)")
     }
 
     private func openStory(_ entry: AdventureListing) {
@@ -199,86 +300,7 @@ struct StarportRootView: View {
         game.begin()
         reading = game.engine != nil
     }
-
-    private func adventureButton(_ entry: AdventureListing) -> some View {
-        Button { openStory(entry) } label: {
-            adventureCard(entry)
-        }
-        .buttonStyle(.plain)
-    }
-
-    private func adventureCard(_ entry: AdventureListing) -> some View {
-        let selected = game.selectedID == entry.id ? game.engine : nil
-        let count = selected?.progress.endingsFound.count ?? 0
-
-        return VStack(alignment: .leading, spacing: 17) {
-            HStack(alignment: .top, spacing: 16) {
-                if let cover = entry.coverAsset {
-                    AdventureCoverView(assetName: cover)
-                }
-
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(entry.genre.uppercased())
-                        .font(.system(.caption2, design: .monospaced, weight: .bold))
-                        .tracking(1.1)
-                        .foregroundStyle(StarportTheme.orange)
-
-                    Text(entry.title)
-                        .font(.system(.title2, design: .rounded, weight: .bold))
-                        .foregroundStyle(StarportTheme.paper)
-                        .multilineTextAlignment(.leading)
-                        .fixedSize(horizontal: false, vertical: true)
-
-                    Text(entry.subtitle)
-                        .font(.subheadline)
-                        .foregroundStyle(StarportTheme.muted)
-                        .multilineTextAlignment(.leading)
-                        .fixedSize(horizontal: false, vertical: true)
-
-                    Label("\(entry.estimatedMinutes) minute \(entry.format == .reader ? "read" : "adventure")", systemImage: "clock")
-                        .font(.caption)
-                        .foregroundStyle(StarportTheme.muted)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-            }
-
-            Rectangle()
-                .fill(StarportTheme.line.opacity(0.6))
-                .frame(height: 1)
-
-            HStack(spacing: 8) {
-                Image(systemName: "bookmark")
-                if entry.format == .reader {
-                    Text(game.selectedID == entry.id && game.readerBook != nil
-                         ? "PAGE \(game.readerPageIndex + 1) OF \(game.readerBook?.pages.count ?? 1)"
-                         : "READ OR LISTEN")
-                    Spacer()
-                    Text(game.selectedID == entry.id && game.readerPageIndex > 0
-                         ? "CONTINUE" : "OPEN")
-                } else {
-                    Text(selected?.progress.started == true
-                         ? "\(count) / \(selected?.book.finalCount ?? 5) ENDINGS FOUND"
-                         : "READY TO EXPLORE")
-                    Spacer()
-                    Text(selected?.progress.started == true && selected?.isComplete == false
-                         ? "CONTINUE" : "READ")
-                }
-                Image(systemName: "arrow.up.right")
-            }
-            .font(.system(.caption, design: .monospaced, weight: .bold))
-            .foregroundStyle(StarportTheme.teal)
-        }
-        .padding(18)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(StarportTheme.panel, in: RoundedRectangle(cornerRadius: 20))
-        .overlay {
-            RoundedRectangle(cornerRadius: 20)
-                .strokeBorder(StarportTheme.line.opacity(0.8), lineWidth: 1)
-        }
-        .accessibilityElement(children: .combine)
-    }
 }
-
 
 /// Stuffy Land's compact bookshelf. Open a book straight from the shelf;
 /// the first screen is for choosing a story, not reading marketing copy.

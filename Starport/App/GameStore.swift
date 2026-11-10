@@ -64,7 +64,12 @@ final class GameStore: ObservableObject {
                     // A new branching edition cannot resume an old route.
                     // Preserve discovered endings but restart the active story.
                     defaults.set(try loaded.encodedProgress(), forKey: progressKey(id))
-                    libraryMessage = "The story has been expanded. Your current run restarted; your discovered endings were kept."
+                    if book.id == "door-tomorrow", oldVersion == 3, book.contentVersion == 4,
+                       loaded.progress.decisionCount > 0 {
+                        libraryMessage = "The story has more to read. Your place and endings are saved."
+                    } else {
+                        libraryMessage = "The story has been expanded. Your current run restarted; your discovered endings were kept."
+                    }
                 }
             }
             selectedID = id

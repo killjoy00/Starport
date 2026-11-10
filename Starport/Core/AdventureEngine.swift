@@ -15,6 +15,33 @@ public struct AdventureEngine {
                book.node(saved.nodeID) != nil,
                saved.history.first == book.start {
                 progress = saved
+            } else if book.id == "door-tomorrow",
+                      saved.bookVersion == 3, book.contentVersion == 4,
+                      saved.history.first == book.start,
+                      saved.history.last == saved.nodeID,
+                      saved.history.count == saved.decisionCount + 1,
+                      saved.history.allSatisfy({ book.node($0) != nil }),
+                      zip(saved.history, saved.history.dropFirst()).allSatisfy({ pair in
+                          book.node(pair.0)?.choices?.contains(where: { $0.to == pair.1 }) == true
+                      }) {
+                // Edition 4 adds prose only; all v3 nodes, choices and effects
+                // are unchanged. Keep this one StarPort story's active run.
+                // Stuffy Land and structurally changed stories use the safe
+                // reset behavior below.
+                var migrated = AdventureProgress(
+                    book: book,
+                    endingsFound: saved.endingsFound,
+                    detoursFound: saved.detoursFound)
+                migrated.nodeID = saved.nodeID
+                migrated.stats = saved.stats
+                migrated.flags = saved.flags
+                migrated.history = saved.history
+                migrated.decisionCount = saved.decisionCount
+                migrated.runDetoursTriggered = saved.runDetoursTriggered
+                migrated.lastOutcome = saved.lastOutcome
+                migrated.rewindSnapshot = saved.rewindSnapshot
+                migrated.started = saved.started
+                progress = migrated
             } else if saved.bookVersion != book.contentVersion {
                 // A new version can move or remove scenes. Restart the active
                 // route rather than restoring an impossible branch, but keep

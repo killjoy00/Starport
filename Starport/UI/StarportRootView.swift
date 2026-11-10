@@ -6,6 +6,7 @@ struct StarportRootView: View {
     @EnvironmentObject private var ads: AdsController
 
     @AppStorage("starport.confirmed13Plus") private var ageConfirmed = false
+    private var canOpenLibrary: Bool { !AppBrand.current.requiresInAppAgeConfirmation || ageConfirmed }
     @State private var reading = false
     @State private var showingSettings = false
     @State private var showingAchievements = false
@@ -13,7 +14,7 @@ struct StarportRootView: View {
     var body: some View {
         ZStack {
             Starfield()
-            if !ageConfirmed {
+            if !canOpenLibrary {
                 AgeGateView(onConfirm13Plus: { ageConfirmed = true })
             } else if reading, game.readerBook != nil {
                 BookReaderView(onExit: { reading = false })
@@ -34,7 +35,7 @@ struct StarportRootView: View {
             }
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
-            if ageConfirmed, purchases.entitlementsLoaded, !purchases.isAdFree,
+            if canOpenLibrary, purchases.entitlementsLoaded, !purchases.isAdFree,
                ads.canShowBanner, let unitID = ads.bannerUnitID {
                 AdBannerView(unitID: unitID)
                     .background(StarportTheme.panel)
@@ -53,8 +54,8 @@ struct StarportRootView: View {
             AchievementsScreen()
                 .environmentObject(game)
         }
-        .task(id: ageConfirmed) {
-            guard ageConfirmed else { return }
+        .task(id: canOpenLibrary) {
+            guard canOpenLibrary else { return }
             await purchases.prepare()
             await ads.prepareIfNeeded()
         }
@@ -387,9 +388,7 @@ private struct StuffyLandShelf: View {
                 .padding(22)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(StarportTheme.panel, in: RoundedRectangle(cornerRadius: 22))
-                Text("STUFFY LAND · FOR READERS AGES 13+")
-                    .font(.caption2).foregroundStyle(StarportTheme.muted)
-                    .frame(maxWidth: .infinity).multilineTextAlignment(.center)
+                // App Store age classification is metadata, not shelf copy.
             }
             .frame(maxWidth: 650)
             .padding(.horizontal, 20).padding(.top, 16).padding(.bottom, 32)

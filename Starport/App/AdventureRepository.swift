@@ -5,7 +5,7 @@ import Foundation
 /// No remote code or untrusted URLs are ever executed.
 @MainActor
 final class AdventureRepository {
-    private static let remoteRoot = "https://raw.githubusercontent.com/killjoy00/Starport/main/Starport/Content/"
+    private var remoteRoot: String { AppBrand.current.remoteContentRoot }
     private let bundled: AdventureCatalog
     private let folder: URL
     private let session: URLSession
@@ -55,7 +55,7 @@ final class AdventureRepository {
         let manifest = try await fetch("catalog.json", sizeLimit: 50_000)
         let incoming = try JSONDecoder().decode(AdventureCatalog.self, from: manifest)
         try StoryLoader.validateCatalog(incoming)
-        guard incoming.adventures.count <= 30 else {
+        guard incoming.adventures.count <= 120 else {
             throw StoryError.invalidBook("Too many stories in the catalog.")
         }
 
@@ -104,7 +104,7 @@ final class AdventureRepository {
         // Never accept URL components, parent paths or arbitrary external hosts from JSON.
         let name = String(filename.dropLast(5)) // strip ".json"
         guard filename.hasSuffix(".json"), StoryLoader.isSafeFilename(name),
-              let url = URL(string: Self.remoteRoot + filename) else {
+              let url = URL(string: remoteRoot + filename) else {
             throw StoryError.invalidBook("Invalid download name.")
         }
         var request = URLRequest(url: url)

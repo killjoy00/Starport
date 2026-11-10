@@ -333,6 +333,7 @@
 
         100000000000000000000005 /* Debug StuffyLand */ = {isa = XCBuildConfiguration; buildSettings = {
             ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+            ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
             CODE_SIGN_STYLE = Automatic;
             CURRENT_PROJECT_VERSION = 1;
             GENERATE_INFOPLIST_FILE = YES;
@@ -355,6 +356,7 @@
 
         100000000000000000000006 /* Release StuffyLand */ = {isa = XCBuildConfiguration; buildSettings = {
             ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+            ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
             CODE_SIGN_STYLE = Automatic;
             CURRENT_PROJECT_VERSION = 1;
             GENERATE_INFOPLIST_FILE = YES;

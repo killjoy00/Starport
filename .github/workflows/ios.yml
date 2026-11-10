@@ -1,0 +1,26 @@
+name: Starport iOS
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  story-tests:
+    name: Story engine and branching tests
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Swift tests
+        run: swift test
+
+  simulator-build:
+    name: Build iOS simulator app
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Xcode version
+        run: xcodebuild -version
+      - name: Build
+        run: xcodebuild -project Starport.xcodeproj -scheme Starport -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/starport-build" CODE_SIGNING_ALLOWED=NO build

@@ -1,0 +1,182 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D00000000000000000000001 /* StarportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000001 /* StarportApp.swift */; };
+		D00000000000000000000002 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000002 /* GameStore.swift */; };
+		D00000000000000000000003 /* StarportTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000003 /* StarportTheme.swift */; };
+		D00000000000000000000004 /* StarportRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000004 /* StarportRootView.swift */; };
+		D00000000000000000000005 /* AdventureScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000005 /* AdventureScreen.swift */; };
+		D00000000000000000000006 /* StoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000006 /* StoryModels.swift */; };
+		D00000000000000000000007 /* AdventureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000007 /* AdventureEngine.swift */; };
+		D00000000000000000000008 /* StoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000008 /* StoryLoader.swift */; };
+		D00000000000000000000009 /* first_signal.json in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000009 /* first_signal.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C00000000000000000000001 /* StarportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarportApp.swift; sourceTree = "<group>"; };
+		C00000000000000000000002 /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
+		C00000000000000000000003 /* StarportTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarportTheme.swift; sourceTree = "<group>"; };
+		C00000000000000000000004 /* StarportRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarportRootView.swift; sourceTree = "<group>"; };
+		C00000000000000000000005 /* AdventureScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureScreen.swift; sourceTree = "<group>"; };
+		C00000000000000000000006 /* StoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryModels.swift; sourceTree = "<group>"; };
+		C00000000000000000000007 /* AdventureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureEngine.swift; sourceTree = "<group>"; };
+		C00000000000000000000008 /* StoryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryLoader.swift; sourceTree = "<group>"; };
+		C00000000000000000000009 /* first_signal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = first_signal.json; sourceTree = "<group>"; };
+		C00000000000000000000063 /* Starport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Starport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E00000000000000000000003 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B00000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				B0000000000000000000000A /* App */,
+				B0000000000000000000000B /* UI */,
+				B0000000000000000000000C /* Core */,
+				B0000000000000000000000D /* Content */,
+				B00000000000000000000002 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B0000000000000000000000A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000001 /* StarportApp.swift */,
+				C00000000000000000000002 /* GameStore.swift */,
+			);
+			path = "Starport/App";
+			sourceTree = "<group>";
+		};
+		B0000000000000000000000B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000003 /* StarportTheme.swift */,
+				C00000000000000000000004 /* StarportRootView.swift */,
+				C00000000000000000000005 /* AdventureScreen.swift */,
+			);
+			path = "Starport/UI";
+			sourceTree = "<group>";
+		};
+		B0000000000000000000000C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000006 /* StoryModels.swift */,
+				C00000000000000000000007 /* AdventureEngine.swift */,
+				C00000000000000000000008 /* StoryLoader.swift */,
+			);
+			path = "Starport/Core";
+			sourceTree = "<group>";
+		};
+		B0000000000000000000000D /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000009 /* first_signal.json */,
+			);
+			path = "Starport/Content";
+			sourceTree = "<group>";
+		};
+		B00000000000000000000002 /* Products */ = {isa = PBXGroup; children = (C00000000000000000000063 /* Starport.app */,); name = Products; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F00000000000000000000001 /* Starport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 200000000000000000000002 /* Build configuration list for PBXNativeTarget "Starport" */;
+			buildPhases = (E00000000000000000000001 /* Sources */, E00000000000000000000003 /* Frameworks */, E00000000000000000000002 /* Resources */,);
+			buildRules = ();
+			dependencies = ();
+			name = Starport;
+			productName = Starport;
+			productReference = C00000000000000000000063 /* Starport.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A00000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {BuildIndependentTargetsInParallel = YES; LastUpgradeCheck = 1600; TargetAttributes = {F00000000000000000000001 = {CreatedOnToolsVersion = 16.0; }; }; };
+			buildConfigurationList = 200000000000000000000001 /* Build configuration list for PBXProject "Starport" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base,);
+			mainGroup = B00000000000000000000001;
+			productRefGroup = B00000000000000000000002 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (F00000000000000000000001 /* Starport */,);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E00000000000000000000002 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (
+				D00000000000000000000009 /* first_signal.json in Resources */,
+			); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E00000000000000000000001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (
+				D00000000000000000000001 /* StarportApp.swift in Sources */,
+				D00000000000000000000002 /* GameStore.swift in Sources */,
+				D00000000000000000000003 /* StarportTheme.swift in Sources */,
+				D00000000000000000000004 /* StarportRootView.swift in Sources */,
+				D00000000000000000000005 /* AdventureScreen.swift in Sources */,
+				D00000000000000000000006 /* StoryModels.swift in Sources */,
+				D00000000000000000000007 /* AdventureEngine.swift in Sources */,
+				D00000000000000000000008 /* StoryLoader.swift in Sources */,
+			); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		100000000000000000000001 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; GCC_OPTIMIZATION_LEVEL = 0; IPHONEOS_DEPLOYMENT_TARGET = 17.0; SDKROOT = iphoneos; SWIFT_VERSION = 5.0; }; name = Debug; };
+		100000000000000000000002 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; SDKROOT = iphoneos; SWIFT_VERSION = 5.0; }; name = Release; };
+		100000000000000000000003 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {
+			ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+			CODE_SIGN_STYLE = Automatic;
+			CURRENT_PROJECT_VERSION = 1;
+			ENABLE_PREVIEWS = YES;
+			GENERATE_INFOPLIST_FILE = YES;
+			INFOPLIST_KEY_CFBundleDisplayName = Starport;
+			INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+			INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			MARKETING_VERSION = 0.1.0;
+			PRODUCT_BUNDLE_IDENTIFIER = pro.starport.story;
+			PRODUCT_NAME = "$(TARGET_NAME)";
+			SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+			SWIFT_VERSION = 5.0;
+			TARGETED_DEVICE_FAMILY = "1,2";
+		}; name = Debug; };
+		100000000000000000000004 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {
+			CODE_SIGN_STYLE = Automatic;
+			CURRENT_PROJECT_VERSION = 1;
+			GENERATE_INFOPLIST_FILE = YES;
+			INFOPLIST_KEY_CFBundleDisplayName = Starport;
+			INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+			INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			MARKETING_VERSION = 0.1.0;
+			PRODUCT_BUNDLE_IDENTIFIER = pro.starport.story;
+			PRODUCT_NAME = "$(TARGET_NAME)";
+			SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+			SWIFT_VERSION = 5.0;
+			TARGETED_DEVICE_FAMILY = "1,2";
+		}; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		200000000000000000000001 /* Build configuration list for PBXProject "Starport" */ = {isa = XCConfigurationList; buildConfigurations = (100000000000000000000001 /* Debug */, 100000000000000000000002 /* Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		200000000000000000000002 /* Build configuration list for PBXNativeTarget "Starport" */ = {isa = XCConfigurationList; buildConfigurations = (100000000000000000000003 /* Debug */, 100000000000000000000004 /* Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = A00000000000000000000001 /* Project object */;
+}

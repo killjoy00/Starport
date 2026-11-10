@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Explicit source plist is merged with generated iOS keys by Xcode. -->
+    <!-- Google's SDK can terminate the process during launch when this is missing. -->
+    <key>GADApplicationIdentifier</key>
+    <string>ca-app-pub-3940256099942544~1458002511</string>
+    <key>STARPORT_BANNER_UNIT_ID</key>
+    <string>ca-app-pub-3940256099942544/2934735716</string>
+    <key>STARPORT_ADS_LIVE_APPROVED</key>
+    <string>NO</string>
+</dict>
+</plist>

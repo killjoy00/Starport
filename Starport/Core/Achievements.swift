@@ -63,7 +63,8 @@ public enum AchievementCatalog {
         Achievement("crew_pact", "Crew First", "Bring the crew together.", "person.3", .mastery)
     ]
 
-    public static func unlockedBy(_ engine: AdventureEngine, event: AchievementEvent) -> Set<String> {
+    public static func unlockedBy(_ engine: AdventureEngine, event: AchievementEvent, stuffyLand: Bool = false) -> Set<String> {
+        if stuffyLand { return stuffyUnlockedBy(engine, event: event) }
         let p = engine.progress
         let ending = engine.node.ending
         var earned: Set<String> = []
@@ -97,4 +98,69 @@ public enum AchievementCatalog {
         }
         return earned
     }
+
+    /// Distinct achievement shelf for Stuffy Land. The five named outcomes
+    /// belong to the Button Hill pilot; they are never earned by other stories.
+    public static let stuffyLand: [Achievement] = [
+        Achievement("bell_ending_1", "A Bell for Everyone", "Find the best Button Hill ending.", "heart.fill", .endings, secret: true),
+        Achievement("bell_ending_2", "Home Again", "Bring the village home.", "house.fill", .endings, secret: true),
+        Achievement("bell_ending_3", "Wren's Song", "Hear a new way home.", "bird.fill", .endings, secret: true),
+        Achievement("bell_ending_4", "The Quiet Hill", "Finish without ringing the bell.", "moon.fill", .endings, secret: true),
+        Achievement("bell_ending_5", "A Cracked Bell", "Find the hardest ending.", "bell.slash.fill", .endings, secret: true),
+        Achievement("first_choice", "First Stitch", "Make your first Stuffy Land choice.", "hand.point.up.left.fill", .exploration),
+        Achievement("ten_choices", "A Story Unfolds", "Make ten choices in one run.", "book", .exploration),
+        Achievement("twenty_choices", "Nearly Home", "Make twenty choices in one run.", "book.closed.fill", .exploration),
+        Achievement("first_detour", "A Little Detour", "Find a false ending.", "arrow.uturn.backward", .exploration),
+        Achievement("three_detours", "A Winding Path", "Discover three different detours.", "map.fill", .exploration),
+        Achievement("all_detours", "Every Wrong Turn", "Discover all twelve pilot detours.", "map", .exploration),
+        Achievement("first_rewind", "Try That Again", "Undo a false ending.", "arrow.counterclockwise", .exploration),
+        Achievement("helped_mallow", "Good Neighbor", "Help Mallow at the bridge.", "hands.sparkles", .exploration),
+        Achievement("made_promise", "A Promise to Dot", "Make Dot a promise.", "hand.raised.fill", .exploration),
+        Achievement("shared_map", "A Map for Everyone", "Promise to share the map.", "map", .exploration),
+        Achievement("found_song", "Four Little Notes", "Find the bell's song.", "music.note.list", .exploration),
+        Achievement("forgave_wren", "Room for Sorry", "Help Wren make things right.", "heart", .exploration),
+        Achievement("moon_path", "The Moonlit Way", "Share a new path home.", "moon.stars.fill", .exploration),
+        Achievement("full_curiosity", "Curious Paws", "Fill the Curiosity meter.", "eye.fill", .mastery),
+        Achievement("full_courage", "Brave Enough", "Fill the Courage meter.", "shield.fill", .mastery),
+        Achievement("full_friendship", "Good Friends", "Fill the Friendship meter.", "person.2.fill", .mastery),
+        Achievement("clean_run", "Straight Home", "Reach a final ending without a detour in that run.", "checkmark.seal.fill", .mastery),
+        Achievement("two_endings", "Another Way", "Find two endings for the bell story.", "arrow.triangle.branch", .mastery),
+        Achievement("all_endings", "Five Ways Home", "Find all five Button Hill endings.", "star.circle.fill", .mastery)
+    ]
+
+    public static func all(forStuffyLand: Bool) -> [Achievement] {
+        forStuffyLand ? stuffyLand : all
+    }
+
+    private static func stuffyUnlockedBy(_ engine: AdventureEngine, event: AchievementEvent) -> Set<String> {
+        let p = engine.progress
+        var earned: Set<String> = []
+        if p.decisionCount >= 1 { earned.insert("first_choice") }
+        if p.decisionCount >= 10 { earned.insert("ten_choices") }
+        if p.decisionCount >= 20 { earned.insert("twenty_choices") }
+        if p.detoursFound.count >= 1 { earned.insert("first_detour") }
+        if p.detoursFound.count >= 3 { earned.insert("three_detours") }
+        if engine.book.id == "stuffy-bell" && p.detoursFound.count >= 12 {
+            earned.insert("all_detours")
+        }
+        if case .rewind = event { earned.insert("first_rewind") }
+        for flag in ["helped_mallow", "made_promise", "shared_map", "found_song", "forgave_wren", "moon_path"] where p.flags.contains(flag) {
+            earned.insert(flag)
+        }
+        if p.stats.clues == 5 { earned.insert("full_curiosity") }
+        if p.stats.power == 5 { earned.insert("full_courage") }
+        if p.stats.trust == 5 { earned.insert("full_friendship") }
+        if engine.node.ending?.kind == .final && p.runDetoursTriggered == 0 {
+            earned.insert("clean_run")
+        }
+        if engine.book.id == "stuffy-bell" {
+            for rank in 1...5 where p.endingsFound.contains("final_\(rank)") {
+                earned.insert("bell_ending_\(rank)")
+            }
+            if p.endingsFound.count >= 2 { earned.insert("two_endings") }
+            if p.endingsFound.count >= 5 { earned.insert("all_endings") }
+        }
+        return earned
+    }
+
 }

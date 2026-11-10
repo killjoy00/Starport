@@ -1,34 +1,68 @@
 import SwiftUI
+import UIKit
+
+enum AppearanceMode: String, CaseIterable, Identifiable {
+    case dark, light, system
+    var id: String { rawValue }
+    var label: String { rawValue.capitalized }
+    var scheme: ColorScheme? {
+        switch self {
+        case .dark: return .dark
+        case .light: return .light
+        case .system: return nil
+        }
+    }
+}
 
 enum StarportTheme {
-    static let ink = Color(red: 0.035, green: 0.068, blue: 0.12)
-    static let panel = Color(red: 0.085, green: 0.135, blue: 0.21)
-    static let line = Color(red: 0.24, green: 0.33, blue: 0.42)
-    static let teal = Color(red: 0.47, green: 0.91, blue: 0.88)
-    static let orange = Color(red: 1, green: 0.66, blue: 0.40)
-    static let paper = Color(red: 0.95, green: 0.96, blue: 0.95)
-    static let muted = Color(red: 0.68, green: 0.76, blue: 0.79)
+    private static func adaptive(light: UIColor, dark: UIColor) -> Color {
+        Color(uiColor: UIColor { trait in
+            trait.userInterfaceStyle == .dark ? dark : light
+        })
+    }
+    static let ink = adaptive(
+        light: UIColor(red: 0.955, green: 0.969, blue: 0.978, alpha: 1),
+        dark: UIColor(red: 0.035, green: 0.068, blue: 0.12, alpha: 1))
+    static let panel = adaptive(
+        light: UIColor(red: 0.996, green: 0.997, blue: 1, alpha: 1),
+        dark: UIColor(red: 0.085, green: 0.135, blue: 0.21, alpha: 1))
+    static let line = adaptive(
+        light: UIColor(red: 0.77, green: 0.82, blue: 0.86, alpha: 1),
+        dark: UIColor(red: 0.24, green: 0.33, blue: 0.42, alpha: 1))
+    static let teal = adaptive(
+        light: UIColor(red: 0.02, green: 0.42, blue: 0.44, alpha: 1),
+        dark: UIColor(red: 0.47, green: 0.91, blue: 0.88, alpha: 1))
+    static let orange = adaptive(
+        light: UIColor(red: 0.63, green: 0.28, blue: 0.12, alpha: 1),
+        dark: UIColor(red: 1, green: 0.66, blue: 0.40, alpha: 1))
+    static let paper = adaptive(
+        light: UIColor(red: 0.075, green: 0.13, blue: 0.20, alpha: 1),
+        dark: UIColor(red: 0.95, green: 0.96, blue: 0.95, alpha: 1))
+    static let muted = adaptive(
+        light: UIColor(red: 0.31, green: 0.40, blue: 0.45, alpha: 1),
+        dark: UIColor(red: 0.68, green: 0.76, blue: 0.79, alpha: 1))
 }
 
 struct Starfield: View {
+    @Environment(\.colorScheme) private var scheme
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 LinearGradient(
-                    colors: [StarportTheme.ink, Color(red: 0.06, green: 0.11, blue: 0.19), StarportTheme.ink],
+                    colors: [StarportTheme.ink, StarportTheme.panel.opacity(0.8), StarportTheme.ink],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )
                 Canvas { context, size in
-                    // Repeatable star positions, so the background never jumps on redraw.
                     for index in 0..<90 {
                         let x = CGFloat((index * 127 + 37) % 997) / 997 * size.width
                         let y = CGFloat((index * 293 + 79) % 991) / 991 * size.height
-                        let radius = index.isMultiple(of: 9) ? 1.6 : 0.65
-                        let opacity = index.isMultiple(of: 5) ? 0.6 : 0.25
+                        let diameter = index.isMultiple(of: 9) ? 3.2 : 1.3
+                        let opacity = index.isMultiple(of: 5) ? 0.35 : 0.16
                         context.fill(
-                            Path(ellipseIn: CGRect(x: x, y: y, width: radius * 2, height: radius * 2)),
-                            with: .color(.white.opacity(opacity))
+                            Path(ellipseIn: CGRect(x: x, y: y, width: diameter, height: diameter)),
+                            with: .color((scheme == .dark ? Color.white : Color.black).opacity(opacity))
                         )
                     }
                 }
@@ -50,22 +84,21 @@ struct OrbitArtwork: View {
                     .frame(width: width * 0.90, height: width * 0.34)
                     .rotationEffect(.degrees(-25))
                 Ellipse()
-                    .stroke(StarportTheme.teal.opacity(0.45), style: StrokeStyle(lineWidth: 1.5, dash: [4, 9]))
+                    .stroke(StarportTheme.teal.opacity(0.45),
+                            style: StrokeStyle(lineWidth: 1.5, dash: [4, 9]))
                     .frame(width: width * 0.94, height: width * 0.37)
                     .rotationEffect(.degrees(28))
                 Circle()
                     .fill(
                         RadialGradient(
-                            colors: [StarportTheme.orange, Color(red: 0.68, green: 0.26, blue: 0.27), Color(red: 0.25, green: 0.17, blue: 0.25)],
+                            colors: [.orange, Color(red: 0.68, green: 0.26, blue: 0.27),
+                                     Color(red: 0.25, green: 0.17, blue: 0.25)],
                             center: .init(x: 0.25, y: 0.23),
-                            startRadius: 4,
-                            endRadius: width * 0.4
+                            startRadius: 4, endRadius: width * 0.4
                         )
                     )
                     .frame(width: width * 0.43, height: width * 0.43)
-                    .overlay {
-                        Circle().stroke(.white.opacity(0.15), lineWidth: 1)
-                    }
+                    .overlay { Circle().stroke(.white.opacity(0.15), lineWidth: 1) }
                     .shadow(color: StarportTheme.orange.opacity(0.12), radius: 32)
                 Image(systemName: "airplane")
                     .font(.system(size: 24, weight: .medium))
@@ -94,7 +127,7 @@ struct StarportMasthead: View {
                 .tracking(3)
                 .foregroundStyle(StarportTheme.paper)
             Spacer()
-            Text("EST. 2187")
+            Text("STORIES BEYOND HOME")
                 .font(.system(.caption2, design: .monospaced))
                 .foregroundStyle(StarportTheme.muted)
         }
@@ -143,11 +176,9 @@ struct PrimaryAction: View {
     var body: some View {
         Button(action: action) {
             HStack {
-                Text(label)
-                    .font(.headline)
+                Text(label).font(.headline)
                 Spacer()
-                Image(systemName: "arrow.up.right")
-                    .font(.headline)
+                Image(systemName: "arrow.up.right").font(.headline)
             }
             .foregroundStyle(StarportTheme.ink)
             .padding(19)

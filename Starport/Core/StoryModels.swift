@@ -1,10 +1,7 @@
 import Foundation
 
 public enum StoryStat: String, Codable, CaseIterable, Sendable {
-    case clues
-    case power
-    case trust
-
+    case clues, power, trust
     public var title: String {
         switch self {
         case .clues: return "Clues"
@@ -51,9 +48,8 @@ public struct StoryRequirement: Codable, Equatable, Sendable {
     public let hint: String
 
     public func isMet(stats: AdventureStats, flags: Set<String>) -> Bool {
-        let statOK = stat.map { stats[$0] >= (atLeast ?? 0) } ?? true
-        let flagOK = flag.map { flags.contains($0) } ?? true
-        return statOK && flagOK
+        (stat.map { stats[$0] >= (atLeast ?? 0) } ?? true) &&
+        (flag.map { flags.contains($0) } ?? true)
     }
 }
 
@@ -74,6 +70,7 @@ public struct StoryChoice: Codable, Identifiable, Sendable {
     public let label: String
     public let detail: String?
     public let to: String
+    public let outcome: String?
     public let requirements: [StoryRequirement]?
     public let effects: [StoryEffect]?
 
@@ -87,10 +84,22 @@ public struct StoryChoice: Codable, Identifiable, Sendable {
     }
 }
 
+public enum EndingKind: String, Codable, Sendable {
+    case final, detour
+}
+
 public struct StoryEnding: Codable, Sendable {
     public let id: String
+    public let kind: EndingKind
+    /// Final outcomes: 1 is best; 5 is worst. Detours have no rank.
+    public let rank: Int?
     public let title: String
     public let note: String
+}
+
+public struct ConditionalParagraph: Codable, Sendable {
+    public let requirement: StoryRequirement
+    public let text: String
 }
 
 public struct StoryNode: Codable, Identifiable, Sendable {
@@ -98,39 +107,94 @@ public struct StoryNode: Codable, Identifiable, Sendable {
     public let act: String
     public let title: String
     public let paragraphs: [String]
+    public let conditionalParagraphs: [ConditionalParagraph]?
     public let choices: [StoryChoice]?
     public let ending: StoryEnding?
+
+    public func visibleParagraphs(stats: AdventureStats, flags: Set<String>) -> [String] {
+        paragraphs + (conditionalParagraphs ?? [])
+            .filter { $0.requirement.isMet(stats: stats, flags: flags) }
+            .map(\.text)
+    }
 }
 
 public struct StoryBook: Codable, Sendable {
     public let id: String
+    public let contentVersion: Int
     public let title: String
     public let subtitle: String
     public let start: String
+    public let minimumDecisions: Int
     public let nodes: [StoryNode]
 
-    public func node(_ id: String) -> StoryNode? {
-        nodes.first { $0.id == id }
-    }
+    public func node(_ id: String) -> StoryNode? { nodes.first { $0.id == id } }
+    public var finalCount: Int { nodes.filter { $0.ending?.kind == .final }.count }
+    public var detourCount: Int { nodes.filter { $0.ending?.kind == .detour }.count }
+}
+
+public struct AdventureListing: Codable, Identifiable, Equatable, Sendable {
+    public let id: String
+    public let filename: String
+    public let contentVersion: Int
+    public let title: String
+    public let subtitle: String
+    public let blurb: String
+    public let genre: String
+    public let symbol: String
+    public let estimatedMinutes: Int
+}
+
+public struct AdventureCatalog: Codable, Sendable {
+    public let formatVersion: Int
+    public let adventures: [AdventureListing]
+}
+
+public struct AdventureSnapshot: Codable, Equatable, Sendable {
+    public let nodeID: String
+    public let stats: AdventureStats
+    public let flags: Set<String>
+    public let history: [String]
+    public let decisionCount: Int
+    public let lastOutcome: String?
 }
 
 public struct AdventureProgress: Codable, Equatable, Sendable {
     public let version: Int
+    public let bookID: String
+    public let bookVersion: Int
     public var nodeID: String
     public var stats: AdventureStats
     public var flags: Set<String>
     public var history: [String]
+    public var decisionCount: Int
+    public var runDetoursTriggered: Int
+    public var lastOutcome: String?
+    public var rewindSnapshot: AdventureSnapshot?
     public var endingsFound: Set<String>
+    public var detoursFound: Set<String>
     public var started: Bool
 
-    public init(start: String, endingsFound: Set<String> = []) {
-        version = 1
-        nodeID = start
+    public init(book: StoryBook, endingsFound: Set<String> = [], detoursFound: Set<String> = []) {
+        version = 2
+        bookID = book.id
+        bookVersion = book.contentVersion
+        nodeID = book.start
         stats = AdventureStats()
         flags = []
-        history = [start]
+        history = [book.start]
+        decisionCount = 0
+        runDetoursTriggered = 0
+        lastOutcome = nil
+        rewindSnapshot = nil
         self.endingsFound = endingsFound
+        self.detoursFound = detoursFound
         started = false
+    }
+
+    public var snapshot: AdventureSnapshot {
+        AdventureSnapshot(nodeID: nodeID, stats: stats, flags: flags,
+                          history: history, decisionCount: decisionCount,
+                          lastOutcome: lastOutcome)
     }
 }
 
@@ -138,6 +202,7 @@ public enum StoryError: Error, Equatable, LocalizedError {
     case invalidBook(String)
     case unknownChoice
     case lockedChoice
+    case notADetour
     case missingResource
 
     public var errorDescription: String? {
@@ -145,6 +210,7 @@ public enum StoryError: Error, Equatable, LocalizedError {
         case .invalidBook(let message): return "Invalid adventure: \(message)"
         case .unknownChoice: return "That choice doesn't exist here."
         case .lockedChoice: return "That choice isn't available yet."
+        case .notADetour: return "Only short detours can be rewound."
         case .missingResource: return "The adventure could not be loaded."
         }
     }

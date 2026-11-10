@@ -6,6 +6,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0000000000000000000000B /* AdventureRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000B /* AdventureRepository.swift */; };
+		D0000000000000000000000C /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000C /* PurchaseManager.swift */; };
+		D0000000000000000000000D /* AdsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000D /* AdsController.swift */; };
+		D0000000000000000000000E /* AdBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000E /* AdBannerView.swift */; };
+		D0000000000000000000000F /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000F /* SettingsScreen.swift */; };
+		D00000000000000000000010 /* AgeGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000010 /* AgeGateView.swift */; };
+		D00000000000000000000011 /* AchievementsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000011 /* AchievementsScreen.swift */; };
+		D00000000000000000000012 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000012 /* Achievements.swift */; };
+		D00000000000000000000013 /* catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000013 /* catalog.json */; };
+		D00000000000000000000014 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A00000000000000000000003 /* GoogleMobileAds */; };
 		D0000000000000000000000A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000A /* PrivacyInfo.xcprivacy */; };
 		D00000000000000000000001 /* StarportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000001 /* StarportApp.swift */; };
 		D00000000000000000000002 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000002 /* GameStore.swift */; };
@@ -19,6 +29,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C0000000000000000000000B /* AdventureRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureRepository.swift; sourceTree = "<group>"; };
+		C0000000000000000000000C /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		C0000000000000000000000D /* AdsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsController.swift; sourceTree = "<group>"; };
+		C0000000000000000000000E /* AdBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBannerView.swift; sourceTree = "<group>"; };
+		C0000000000000000000000F /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		C00000000000000000000010 /* AgeGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeGateView.swift; sourceTree = "<group>"; };
+		C00000000000000000000011 /* AchievementsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsScreen.swift; sourceTree = "<group>"; };
+		C00000000000000000000012 /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
+		C00000000000000000000013 /* catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalog.json; sourceTree = "<group>"; };
 		C0000000000000000000000A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		C00000000000000000000001 /* StarportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarportApp.swift; sourceTree = "<group>"; };
 		C00000000000000000000002 /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
@@ -33,7 +52,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E00000000000000000000003 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		E00000000000000000000003 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (D00000000000000000000014 /* GoogleMobileAds in Frameworks */,); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -53,6 +72,9 @@
 			children = (
 				C00000000000000000000001 /* StarportApp.swift */,
 				C00000000000000000000002 /* GameStore.swift */,
+				C0000000000000000000000B /* AdventureRepository.swift */,
+				C0000000000000000000000C /* PurchaseManager.swift */,
+				C0000000000000000000000D /* AdsController.swift */,
 			);
 			path = "Starport/App";
 			sourceTree = "<group>";
@@ -63,6 +85,10 @@
 				C00000000000000000000003 /* StarportTheme.swift */,
 				C00000000000000000000004 /* StarportRootView.swift */,
 				C00000000000000000000005 /* AdventureScreen.swift */,
+				C0000000000000000000000E /* AdBannerView.swift */,
+				C0000000000000000000000F /* SettingsScreen.swift */,
+				C00000000000000000000010 /* AgeGateView.swift */,
+				C00000000000000000000011 /* AchievementsScreen.swift */,
 			);
 			path = "Starport/UI";
 			sourceTree = "<group>";
@@ -73,6 +99,7 @@
 				C00000000000000000000006 /* StoryModels.swift */,
 				C00000000000000000000007 /* AdventureEngine.swift */,
 				C00000000000000000000008 /* StoryLoader.swift */,
+				C00000000000000000000012 /* Achievements.swift */,
 			);
 			path = "Starport/Core";
 			sourceTree = "<group>";
@@ -82,6 +109,7 @@
 			children = (
 				C00000000000000000000009 /* first_signal.json */,
 				C0000000000000000000000A /* PrivacyInfo.xcprivacy */,
+				C00000000000000000000013 /* catalog.json */,
 			);
 			path = "Starport/Content";
 			sourceTree = "<group>";
@@ -99,6 +127,7 @@
 			name = Starport;
 			productName = Starport;
 			productReference = C00000000000000000000063 /* Starport.app */;
+			packageProductDependencies = (A00000000000000000000003 /* GoogleMobileAds */,);
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -116,6 +145,7 @@
 			productRefGroup = B00000000000000000000002 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
+			packageReferences = (A00000000000000000000002 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,);
 			targets = (F00000000000000000000001 /* Starport */,);
 		};
 /* End PBXProject section */
@@ -124,6 +154,7 @@
 		E00000000000000000000002 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (
 				D00000000000000000000009 /* first_signal.json in Resources */,
 				D0000000000000000000000A /* PrivacyInfo.xcprivacy in Resources */,
+				D00000000000000000000013 /* catalog.json in Resources */,
 			); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXResourcesBuildPhase section */
 
@@ -137,6 +168,14 @@
 				D00000000000000000000006 /* StoryModels.swift in Sources */,
 				D00000000000000000000007 /* AdventureEngine.swift in Sources */,
 				D00000000000000000000008 /* StoryLoader.swift in Sources */,
+				D0000000000000000000000B /* AdventureRepository.swift in Sources */,
+				D0000000000000000000000C /* PurchaseManager.swift in Sources */,
+				D0000000000000000000000D /* AdsController.swift in Sources */,
+				D0000000000000000000000E /* AdBannerView.swift in Sources */,
+				D0000000000000000000000F /* SettingsScreen.swift in Sources */,
+				D00000000000000000000010 /* AgeGateView.swift in Sources */,
+				D00000000000000000000011 /* AchievementsScreen.swift in Sources */,
+				D00000000000000000000012 /* Achievements.swift in Sources */,
 			); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
@@ -150,10 +189,13 @@
 			ENABLE_PREVIEWS = YES;
 			GENERATE_INFOPLIST_FILE = YES;
 			INFOPLIST_KEY_CFBundleDisplayName = Starport;
+			INFOPLIST_KEY_GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
+			INFOPLIST_KEY_STARPORT_BANNER_UNIT_ID = "ca-app-pub-3940256099942544/2435281174";
+			INFOPLIST_KEY_STARPORT_ADS_LIVE_APPROVED = NO;
 			INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 			INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-			MARKETING_VERSION = 0.1.0;
+			MARKETING_VERSION = 0.2.0;
 			PRODUCT_BUNDLE_IDENTIFIER = pro.starport.story;
 			PRODUCT_NAME = "$(TARGET_NAME)";
 			SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -165,10 +207,13 @@
 			CURRENT_PROJECT_VERSION = 1;
 			GENERATE_INFOPLIST_FILE = YES;
 			INFOPLIST_KEY_CFBundleDisplayName = Starport;
+			INFOPLIST_KEY_GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
+			INFOPLIST_KEY_STARPORT_BANNER_UNIT_ID = "ca-app-pub-3940256099942544/2435281174";
+			INFOPLIST_KEY_STARPORT_ADS_LIVE_APPROVED = NO;
 			INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 			INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-			MARKETING_VERSION = 0.1.0;
+			MARKETING_VERSION = 0.2.0;
 			PRODUCT_BUNDLE_IDENTIFIER = pro.starport.story;
 			PRODUCT_NAME = "$(TARGET_NAME)";
 			SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -176,6 +221,22 @@
 			TARGETED_DEVICE_FAMILY = "1,2";
 		}; name = Release; };
 /* End XCBuildConfiguration section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A00000000000000000000002 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {kind = upToNextMinorVersion; minimumVersion = 13.11.0; };
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A00000000000000000000003 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000000000000000000002 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCConfigurationList section */
 		200000000000000000000001 /* Build configuration list for PBXProject "Starport" */ = {isa = XCConfigurationList; buildConfigurations = (100000000000000000000001 /* Debug */, 100000000000000000000002 /* Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };

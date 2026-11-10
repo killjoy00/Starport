@@ -1,0 +1,16 @@
+{
+  "formatVersion": 1,
+  "adventures": [
+    {
+      "id": "door-tomorrow",
+      "filename": "first_signal",
+      "contentVersion": 2,
+      "title": "The Door That Opens Tomorrow",
+      "subtitle": "A ship due tomorrow sends a warning today.",
+      "blurb": "An impossible radio call. A glass storm. Thirty-seven choices between you and the truth.",
+      "genre": "Sci-fi mystery",
+      "symbol": "sparkles",
+      "estimatedMinutes": 60
+    }
+  ]
+}

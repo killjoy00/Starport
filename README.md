@@ -1,46 +1,60 @@
 # Starport
 
-A native, offline choose-your-own-adventure iOS app with original science fiction for readers around ages **11–13**.
+**Starport** is a native iOS adventure library intended **only for people ages 13 and older**. It has a 13+ self-declaration gate before the library, stories, ads, or purchase UI becomes accessible. No birth date, name, or account is required.
 
-## Episode 01: The Door That Opens Tomorrow
+**Editorial distinction:** The adventures use the prose length, vocabulary, pacing, and science-fiction sensibility of strong middle-grade books (roughly a 10–12-year-old *reading level*). **The product is not intended for children aged 10–12.** Do not market it as an under-13 app or put it in Apple's Kids category. In App Store Connect, accurately answer the content questions and use **Override to Higher Age Rating → 13+** if Apple's calculated rating is lower. Self-declaration is not independent proof of age.
 
-A ship due tomorrow sends a warning today. Explore Starport Nine, gather clues, choose who to trust, and decide how to guide the ship through a glass storm.
+## Story library
 
-**This MVP includes:** 26 scenes, 52 choices, six distinct endings, conditional choices based on Clues / Power / Trust, persistent progress, ending discovery, and an accessible SwiftUI reading interface.
+Starport is a container for multiple separately packaged adventures. The app boots with one story and a **Check for new adventures** action. New stories can be published as JSON data in `Starport/Content/` on `main`, without an iOS binary change (the reader executes no downloaded code). A cached, previously validated version works offline.
 
-## Play and build
+The manifest `Starport/Content/catalog.json` lists an adventure's stable ID, version, filename, title, genre, symbol, summary, and duration. The `AdventureRepository` downloads the manifest and new stories from the public GitHub repo, validates all story graphs, and atomically activates the catalog. Only safe filenames and validated JSON are permitted. It is intentionally *opt-in*: no background refresh or automatic downloads.
 
-- Open `Starport.xcodeproj` in Xcode 16 or later.
-- Select the **Starport** scheme and an iOS 17+ simulator.
-- Press **Run**. No API keys or server are required.
-- To run the cross-platform story engine tests: `swift test`.
-- GitHub Actions runs story tests and a simulator build for each pull request.
+To add an adventure, add a validated story `<story_name>.json`, include its entry in `catalog.json`, and merge both to `main`. Increase `contentVersion` when changing a published story, because saved games are versioned per adventure.
 
-The Xcode project currently uses the placeholder bundle identifier `com.starport.story`. Choose your own unique identifier and Apple Developer signing team before distributing to devices or TestFlight. **This code is not yet a signed or App Store-published build.**
+## Episode 01 — The Door That Opens Tomorrow
 
-## How the story works
+A ship scheduled for tomorrow sends a warning today. Read the evidence, work with the crew, and decide how to guide the Wren through a glass storm.
 
-- `Starport/Content/first_signal.json` holds scenes, choices, conditional requirements, and effects. This can be edited to expand the story without rewriting the UI.
-- `Starport/Core/` loads and validates the story and applies choices.
-- `Starport/UI/` holds the visual interface.
-- `StarportTests/` tests the real graph, including whether *all six endings* can be reached with valid choices.
-- Every decision is saved locally through `UserDefaults`. Restarting a run retains discovered endings.
+- **36 story decisions plus a final decision**, so each route to a permanent ending is **37 decisions long**. The validator enforces a minimum of 30.
+- **Five permanent endings**, individually ranked from **1 (best) to 5 (worst)**. No rewind is permitted once one is reached. A new run begins at the opening scene, while the endings collection is retained.
+- **Twelve false endings** that can be immediately unwound, restoring the prior scene, Clues, Power, Trust, choice history, and decision count. Discovered detours persist as collectibles.
+- Resources and flags change choice availability, follow-up text, and the ending options. Different choices along a shared scene spine have persistent mechanical consequences.
+- **25 achievements**: one per true ending, recoverable detours, unusual clues, story allies, resource milestones, and completion challenges. Achievements persist across new runs and are displayed on an offline trophy shelf.
 
-Stats are deliberately simple and transparent:
-- **Clues** unlock sophisticated solutions.
-- **Power** is spent operating old station hardware.
-- **Trust** determines whether other people help.
+The story is suspenseful, character-driven, and age-appropriate, with no graphic violence. A poor outcome can be sad without becoming graphic.
 
-Locked options explain their requirements. No ending leads to explicit violence or harm; failures still move the story forward.
+## Appearance
 
-## Editorial guide for future episodes
+Dark mode is the default. Settings offers **Dark**, **Light**, and **System**, saved locally. Colors automatically adapt; text uses iOS Dynamic Type where possible.
 
-Write directly to the reader in the second person, with clear language, specific sensory details, and character-driven humor. Keep scenes short enough to read on a phone. Make at least two choices at meaningful crossroads and honor earlier discoveries in later decisions. Keep stakes high without gore or gratuitous cruelty. Story text is original; avoid reproducing existing science-fiction universes or passages.
+## Ads and Remove Ads
 
-## Privacy and scope
+- The fixed, clearly labelled **Google AdMob banner** appears in a separate bottom safe-area inset and does not cover the story choices.
+- A **non-consumable StoreKit 2 in-app purchase** removes banner ads across all adventures, includes a Restore Purchases action, and remains tied to the purchaser's Apple Account.
+- Google ad requests are set to **teen** age treatment, **general** creative rating, and **non-personalized** ads. UMP consent is checked before requesting ads. Users must confirm age 13+ before either SDK is prepared.
+- **Debug builds** use Google's published test App ID and test banner unit ID. **Release ads are deliberately disabled** until the application and ad unit IDs are replaced with the publisher's real IDs, `STARPORT_ADS_LIVE_APPROVED` is set to `YES`, AdMob's consent messages are configured, and the app's age/region/privacy obligations are verified.
+- The non-consumable product `pro.starport.story.remove_ads` **must be created in App Store Connect** before the purchase button will show a price. Test with StoreKit testing or the App Store sandbox; don't claim a live purchase until the product is approved.
+- Before App Store submission, complete the App Privacy disclosures based on Google's **current SDK data-collection documentation**, supply a privacy policy, verify age-based ad protections and regional consent, and test failure/restore/refund flows.
 
-The MVP has **no login, ads, analytics, chat, notifications, AI-generated responses, or network requests**. Progress stays on the device. It requires no personal information from children. Keep this privacy posture in mind when adding future features.
+**No real paid ad or purchase is live from this PR.** The screen, SDK integration, request safety configuration, and StoreKit 2 entitlement flow are wired for release configuration.
 
-The app includes a privacy manifest declaring local UserDefaults use. Apple still requires App Store Connect privacy and age-rating information before submission; the target reader age (11–13) is not itself an App Store rating.
+## Build and test
 
-This is a first playable episode, not yet a complete multi-episode game, a TestFlight build, or an App Store submission.
+1. Open `Starport.xcodeproj` in Xcode 16 or later and resolve the Google Mobile Ads Swift Package dependency.
+2. Select the `Starport` scheme and an iOS 17+ simulator.
+3. Run `swift test` to validate the story model, all five ending routes, rewind behavior, catalog safety, and achievements.
+4. GitHub Actions runs Swift package tests and a simulator build on PRs.
+
+The bundle ID is currently `pro.starport.story`. Set your Apple signing team and confirm bundle ID availability before publishing. This repository is **not yet a signed TestFlight build or an App Store submission**.
+
+### Project structure
+
+- `Starport/Core/` — Codable models, pure adventure engine, story validation, achievement definitions
+- `Starport/Content/` — editable data-only story packs, manifest, privacy declaration
+- `Starport/App/` — state, offline cache, StoreKit, AdMob/UMP controls
+- `Starport/UI/` — library, reader, 13+ gate, achievements, light/dark settings, ad banner
+- `StarportTests/` — story-graph reachability and progress tests
+- `.github/workflows/ios.yml` — test and simulator-build gates
+
+This is an early playable foundation. Experience, writing quality, purchasing and privacy must be reviewed on real iPhone hardware before release.

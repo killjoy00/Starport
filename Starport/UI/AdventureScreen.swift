@@ -13,18 +13,82 @@ struct AdventureScreen: View {
                     VStack(alignment: .leading, spacing: 23) {
                         Color.clear.frame(height: 0).id("top")
                         header
+
+                        if let unlocked = game.lastAchievement {
+                            HStack(alignment: .top, spacing: 10) {
+                                Image(systemName: "trophy.fill")
+                                    .foregroundStyle(StarportTheme.orange)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("ACHIEVEMENT UNLOCKED")
+                                        .font(.system(.caption2, design: .monospaced, weight: .bold))
+                                        .tracking(0.8)
+                                        .foregroundStyle(StarportTheme.orange)
+                                    Text(unlocked.title)
+                                        .font(.headline)
+                                        .foregroundStyle(StarportTheme.paper)
+                                    Text(unlocked.detail)
+                                        .font(.subheadline)
+                                        .foregroundStyle(StarportTheme.muted)
+                                }
+                                Spacer(minLength: 2)
+                                Button { game.dismissAchievement() } label: {
+                                    Image(systemName: "xmark.circle")
+                                        .frame(width: 30, height: 30)
+                                }
+                                .accessibilityLabel("Dismiss achievement")
+                            }
+                            .padding(14)
+                            .background(StarportTheme.panel, in: RoundedRectangle(cornerRadius: 13))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 13)
+                                    .strokeBorder(StarportTheme.orange.opacity(0.5))
+                            }
+                        }
+
                         HStack(spacing: 13) {
                             ForEach(StoryStat.allCases, id: \.self) { stat in
                                 StatPill(stat: stat, value: engine.progress.stats[stat])
                             }
                         }
                         .padding(16)
-                        .background(StarportTheme.panel.opacity(0.94), in: RoundedRectangle(cornerRadius: 15))
+                        .background(StarportTheme.panel, in: RoundedRectangle(cornerRadius: 15))
+
+                        if engine.node.ending == nil {
+                            VStack(alignment: .leading, spacing: 6) {
+                                HStack {
+                                    Text("DECISIONS MADE")
+                                    Spacer()
+                                    Text("\(engine.progress.decisionCount) / 37")
+                                }
+                                .font(.system(.caption2, design: .monospaced, weight: .bold))
+                                .foregroundStyle(StarportTheme.muted)
+                                ProgressView(value: Double(min(engine.progress.decisionCount, 37)),
+                                             total: 37)
+                                    .tint(StarportTheme.teal)
+                            }
+                            .accessibilityElement(children: .combine)
+                        }
+
+                        if let outcome = engine.progress.lastOutcome,
+                           engine.node.ending == nil {
+                            HStack(alignment: .top, spacing: 10) {
+                                Image(systemName: "arrow.turn.down.right")
+                                    .foregroundStyle(StarportTheme.teal)
+                                Text(outcome)
+                                    .font(.subheadline)
+                                    .foregroundStyle(StarportTheme.muted)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                            .padding(13)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(StarportTheme.panel.opacity(0.75),
+                                        in: RoundedRectangle(cornerRadius: 12))
+                        }
 
                         VStack(alignment: .leading, spacing: 13) {
                             Text(engine.node.act)
                                 .font(.system(.caption, design: .monospaced, weight: .bold))
-                                .tracking(1.2)
+                                .tracking(1.1)
                                 .foregroundStyle(StarportTheme.orange)
 
                             Text(engine.node.title)
@@ -37,7 +101,10 @@ struct AdventureScreen: View {
                                 .frame(width: 36, height: 3)
                                 .padding(.vertical, 5)
 
-                            ForEach(Array(engine.node.paragraphs.enumerated()), id: \.offset) { _, paragraph in
+                            let paragraphs = engine.node.visibleParagraphs(
+                                stats: engine.progress.stats, flags: engine.progress.flags
+                            )
+                            ForEach(Array(paragraphs.enumerated()), id: \.offset) { _, paragraph in
                                 Text(paragraph)
                                     .font(.body)
                                     .foregroundStyle(StarportTheme.paper)
@@ -49,7 +116,11 @@ struct AdventureScreen: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                         if let ending = engine.node.ending {
-                            endingPanel(ending)
+                            if ending.kind == .detour {
+                                detourPanel(ending)
+                            } else {
+                                finalPanel(ending, book: engine.book)
+                            }
                         } else {
                             VStack(alignment: .leading, spacing: 13) {
                                 Text("WHAT DO YOU DO?")
@@ -84,19 +155,19 @@ struct AdventureScreen: View {
                 }
             }
             .onChange(of: game.engine?.progress.nodeID) { _, _ in
-                withAnimation(.easeOut(duration: 0.25)) {
+                withAnimation(.easeOut(duration: 0.2)) {
                     proxy.scrollTo("top", anchor: .top)
                 }
             }
         }
         .confirmationDialog(
-            "Start again?",
+            "Start this adventure again?",
             isPresented: $confirmRestart,
             titleVisibility: .visible
         ) {
-            Button("Start a new run", role: .destructive) { game.restart() }
+            Button("Start new run", role: .destructive) { game.restart() }
         } message: {
-            Text("Your current choices will reset. Discovered endings will be kept.")
+            Text("Current decisions will reset. Your discovered endings and detours will be kept.")
         }
         .alert("Something went wrong", isPresented: Binding(
             get: { game.errorMessage != nil },
@@ -116,38 +187,68 @@ struct AdventureScreen: View {
             }
             .accessibilityHint("Your progress is saved automatically.")
             Spacer()
-            Text("STARPORT  /  01")
+            Text("STARPORT  /  \(game.engine?.book.title ?? "STORY")")
                 .font(.system(.caption2, design: .monospaced, weight: .bold))
-                .tracking(1)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
                 .foregroundStyle(StarportTheme.muted)
+                .frame(maxWidth: 150)
             Spacer()
-            Button {
-                confirmRestart = true
-            } label: {
+            Button { confirmRestart = true } label: {
                 Image(systemName: "arrow.counterclockwise")
                     .font(.subheadline.weight(.semibold))
                     .frame(width: 36, height: 36)
             }
-            .accessibilityLabel("Restart adventure")
+            .accessibilityLabel("Restart from beginning")
         }
     }
 
-    private func endingPanel(_ ending: StoryEnding) -> some View {
+    private func detourPanel(_ ending: StoryEnding) -> some View {
         VStack(alignment: .leading, spacing: 14) {
-            Label("ENDING FOUND", systemImage: "star.fill")
+            Label("FALSE ENDING · KEEP PLAYING", systemImage: "arrow.uturn.backward")
                 .font(.system(.caption, design: .monospaced, weight: .bold))
-                .tracking(1)
                 .foregroundStyle(StarportTheme.orange)
             Text(ending.title)
                 .font(.title2.bold())
                 .foregroundStyle(StarportTheme.paper)
             Text(ending.note)
                 .foregroundStyle(StarportTheme.muted)
-            Text("\(game.engine?.progress.endingsFound.count ?? 0) of 6 endings discovered")
+            Text("\(game.engine?.progress.detoursFound.count ?? 0) / \(game.engine?.book.detourCount ?? 0) detours found")
                 .font(.system(.footnote, design: .monospaced))
                 .foregroundStyle(StarportTheme.teal)
-                .padding(.bottom, 5)
-            PrimaryAction(label: "Try a different path") {
+            PrimaryAction(label: "Undo last choice") {
+                game.rewindDetour()
+            }
+            Text("Your clues, power, trust and decision count will go back to where they were.")
+                .font(.footnote)
+                .foregroundStyle(StarportTheme.muted)
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(StarportTheme.panel, in: RoundedRectangle(cornerRadius: 18))
+        .overlay {
+            RoundedRectangle(cornerRadius: 18)
+                .strokeBorder(StarportTheme.orange.opacity(0.7), lineWidth: 1)
+        }
+    }
+
+    private func finalPanel(_ ending: StoryEnding, book: StoryBook) -> some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Label("FINAL ENDING · RUN COMPLETE", systemImage: "star.fill")
+                .font(.system(.caption, design: .monospaced, weight: .bold))
+                .foregroundStyle(StarportTheme.orange)
+            Text(ending.title)
+                .font(.title2.bold())
+                .foregroundStyle(StarportTheme.paper)
+            Text(ending.note)
+                .foregroundStyle(StarportTheme.muted)
+            Text("Outcome rank \(ending.rank ?? 0) of \(book.finalCount) · \(game.engine?.progress.decisionCount ?? 0) choices made")
+                .font(.system(.footnote, design: .monospaced))
+                .foregroundStyle(StarportTheme.orange)
+            Text("\(game.engine?.progress.endingsFound.count ?? 0) of \(book.finalCount) final endings discovered")
+                .font(.system(.footnote, design: .monospaced))
+                .foregroundStyle(StarportTheme.teal)
+            PrimaryAction(label: "Start a new run") {
                 game.restart()
             }
             Button("Back to library", action: onExit)
@@ -214,14 +315,17 @@ private struct ChoiceButton: View {
             .foregroundStyle(available ? StarportTheme.paper : StarportTheme.muted)
             .padding(17)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(StarportTheme.panel.opacity(available ? 0.98 : 0.55), in: RoundedRectangle(cornerRadius: 14))
+            .background(StarportTheme.panel.opacity(available ? 0.98 : 0.55),
+                        in: RoundedRectangle(cornerRadius: 14))
             .overlay {
                 RoundedRectangle(cornerRadius: 14)
-                    .strokeBorder(available ? StarportTheme.line : StarportTheme.line.opacity(0.45), lineWidth: 1)
+                    .strokeBorder(available ? StarportTheme.line :
+                                    StarportTheme.line.opacity(0.45), lineWidth: 1)
             }
         }
         .buttonStyle(.plain)
         .disabled(!available)
-        .accessibilityLabel(available ? choice.label : "\(choice.label). Locked. \(choice.lockedReason(stats: stats, flags: flags) ?? "")")
+        .accessibilityLabel(available ? choice.label :
+            "\(choice.label). Locked. \(choice.lockedReason(stats: stats, flags: flags) ?? "")")
     }
 }

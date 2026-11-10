@@ -1,151 +1,137 @@
 {
   "id": "door-tomorrow",
+  "contentVersion": 2,
   "title": "The Door That Opens Tomorrow",
-  "subtitle": "Episode 01 · A signal from a ship that hasn't arrived yet.",
-  "start": "arrival",
+  "subtitle": "A ship due tomorrow sends a warning today.",
+  "start": "s01",
+  "minimumDecisions": 30,
   "nodes": [
     {
-      "id": "arrival",
-      "act": "01 / THE MESSAGE",
-      "title": "A ship that isn't here",
+      "id": "s01",
+      "act": "ACT 1 / THE IMPOSSIBLE ARRIVAL · 1 OF 36",
+      "title": "Dock Seven rings",
       "paragraphs": [
-        "Dock Seven is asking to open. Which is strange, because Dock Seven is empty.",
-        "Through the wide station window, the planet Pel hangs like a rust-red marble. On the arrival board, the courier ship Wren is listed for TOMORROW, 09:40. But your wrist radio crackles with a voice about your age: “Whatever you do, don't open Dock Seven.”",
-        "Then the station announces a glass storm in ten minutes. You are Starport Nine's youngest navigation cadet. Naturally, every adult is too busy to notice the impossible message."
+        "The arrival board says the Wren won't reach Starport Nine until tomorrow. The empty dock disagrees. Its bell rings twice and a child's voice comes through the radio: “Don't open the door.”",
+        "Through the glass, the planet Pel glows red. A silver storm is gathering along its horizon. You're the station's youngest navigation cadet—and the only one close enough to answer."
       ],
+      "conditionalParagraphs": [],
       "choices": [
         {
-          "id": "go_docks",
-          "label": "Go see what's outside Dock Seven",
-          "to": "docks",
-          "detail": "Check the door before anyone opens it.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "go_control",
-          "label": "Check the arrival board in Control",
-          "to": "control",
-          "detail": "Find out where the message came from.",
+          "label": "Record the warning",
+          "detail": "Keep the exact words and timing.",
+          "outcome": "The recording is clear. Someone on tomorrow's ship sounds very afraid.",
           "effects": [
             {
               "stat": "clues",
               "delta": 1
+            },
+            {
+              "flag": "recording"
             }
           ],
+          "id": "s01_1",
+          "to": "s02",
           "requirements": []
         },
         {
-          "id": "go_archive",
-          "label": "Search the station's old records",
-          "to": "archive",
-          "detail": "You remember a story about the glass storms.",
+          "label": "Call the repair crew",
+          "detail": "Ren knows every loose wire on the station.",
+          "outcome": "Ren answers at once and promises not to tell you you're imagining things.",
           "effects": [
             {
-              "stat": "power",
+              "stat": "trust",
               "delta": 1
+            },
+            {
+              "flag": "ally_ren"
             }
           ],
+          "id": "s01_2",
+          "to": "s02",
           "requirements": []
         }
       ],
       "ending": null
     },
     {
-      "id": "docks",
-      "act": "01 / THE SEARCH",
-      "title": "Three knocks",
+      "id": "s02",
+      "act": "ACT 1 / THE IMPOSSIBLE ARRIVAL · 2 OF 36",
+      "title": "No ship at the window",
       "paragraphs": [
-        "Dock Seven's warning light flashes amber. Nothing moves beyond its little round window. Then comes a sound from the other side of the door: knock, knock ... knock.",
-        "Ren, your friend from the repair crew, is balanced on a ladder with a wrench between their teeth. “Please tell me you heard that,” they say."
+        "Dock Seven's window shows a perfectly empty stretch of space. The bell rings again. The station computer, TAVI, says the dock's pressure sensors report a ship—and also report absolutely nothing.",
+        "A printed sign reads DO NOT TRUST YOUR EYES DURING A GLASS STORM. Someone has underlined YOUR EYES three times."
       ],
+      "conditionalParagraphs": [],
       "choices": [
         {
-          "id": "listen",
-          "label": "Count the knocks",
-          "to": "knocking",
-          "detail": "A pattern could mean something.",
+          "label": "Trust the sensors",
+          "detail": "Ask TAVI for raw readings.",
+          "outcome": "The pressure peaks every eight seconds. A useful pattern, even if it makes no sense.",
           "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ],
+          "id": "s02_1",
+          "to": "s03",
+          "requirements": []
+        },
+        {
+          "label": "Check the outside camera",
+          "detail": "Spend charge on a sharper picture.",
+          "outcome": "The camera shows silver where the ship ought to be. You save the image.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": -1
+            },
             {
               "stat": "clues",
               "delta": 2
             },
             {
-              "flag": "rhythm"
+              "flag": "silver_image"
             }
           ],
-          "requirements": []
-        },
-        {
-          "id": "inspect",
-          "label": "Open the service panel",
-          "to": "service_panel",
-          "detail": "Find out what's powering the empty dock.",
-          "effects": [
-            {
-              "stat": "power",
-              "delta": -1
-            },
-            {
-              "flag": "manual"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "ask_ren",
-          "label": "Get Ren to help",
-          "to": "ren",
-          "detail": "Two heads, one impossible door.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "ally"
-            }
-          ],
+          "id": "s02_2",
+          "to": "s03",
           "requirements": []
         }
       ],
       "ending": null
     },
     {
-      "id": "control",
-      "act": "01 / THE SEARCH",
-      "title": "The arrival that hasn't happened",
+      "id": "s03",
+      "act": "ACT 1 / THE IMPOSSIBLE ARRIVAL · 3 OF 36",
+      "title": "Ren and the repair ladder",
       "paragraphs": [
-        "Every screen in Control says the same thing: WREN / INBOUND. The recorded arrival time keeps changing, but it always lands on tomorrow.",
-        "TAVI, the station computer, speaks through a ceiling grille. “I would call this a mistake,” it says, “except mistakes usually stop when I ask nicely.”"
+        "Ren meets you halfway down the corridor, swinging a wrench like a conductor's baton. “The dock bell has no power,” they say. “I personally unplugged it yesterday.”",
+        "There's only one way to reach the emergency cable: a ladder over a ventilation fan."
       ],
+      "conditionalParagraphs": [],
       "choices": [
         {
-          "id": "check_manifest",
-          "label": "Open the passenger manifest",
-          "to": "manifest",
-          "detail": "Learn who will be aboard the Wren.",
+          "label": "Hold the ladder for Ren",
+          "detail": "Let the person who knows the wiring climb.",
+          "outcome": "Ren finds an old service path and says you can count on them.",
           "effects": [
             {
-              "stat": "clues",
+              "stat": "trust",
               "delta": 1
             },
             {
-              "flag": "manifest"
+              "flag": "ally_ren"
             }
           ],
+          "id": "s03_1",
+          "to": "s04",
           "requirements": []
         },
         {
-          "id": "isolate_echo",
-          "label": "Trace the radio frequency",
-          "to": "echo",
-          "detail": "Use some power to pull the message apart.",
+          "label": "Climb up yourself",
+          "detail": "The quickest way is to do it now.",
+          "outcome": "You copy the cable numbers before the fan starts. Ren looks impressed, if annoyed.",
           "effects": [
             {
               "stat": "clues",
@@ -154,592 +140,18 @@
             {
               "stat": "power",
               "delta": -1
-            },
-            {
-              "flag": "echo"
             }
           ],
+          "id": "s03_2",
+          "to": "s04",
           "requirements": []
         },
         {
-          "id": "ask_chief",
-          "label": "Tell Chief Osei what you found",
-          "to": "chief",
-          "detail": "Ask for help instead of sneaking around.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "clearance"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "archive",
-      "act": "01 / THE SEARCH",
-      "title": "Dusty files, fresh trouble",
-      "paragraphs": [
-        "The Archive smells like warm plastic and very old paper. The shelves hold navigation maps from before Starport Nine got its name.",
-        "A bookmark sticks out of a notebook titled THE GLASS STORMS: NOTHING TO WORRY ABOUT (REVISED). That seems a little too reassuring."
-      ],
-      "choices": [
-        {
-          "id": "read_storm",
-          "label": "Read the storm notebook",
-          "to": "storm",
-          "detail": "Something here matches the warning.",
-          "effects": [
-            {
-              "stat": "clues",
-              "delta": 2
-            },
-            {
-              "flag": "storm"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "find_map",
-          "label": "Unfold the old dock map",
-          "to": "map",
-          "detail": "Find a way behind Dock Seven.",
-          "effects": [
-            {
-              "stat": "clues",
-              "delta": 1
-            },
-            {
-              "flag": "route"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "ask_pilot",
-          "label": "Find the retired pilot in the Archive",
-          "to": "pilot",
-          "detail": "They might remember an older docking system.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "pilot"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "knocking",
-      "act": "02 / WHAT'S REAL",
-      "title": "A message in metal",
-      "paragraphs": [
-        "You tap the same rhythm against the hatch. The answer comes almost at once: three fast knocks and one slow one.",
-        "Ren points to a tiny service sticker. Three-fast-one-slow is an old Wren-class distress code. A person—or something pretending to be one—knows the rules."
-      ],
-      "choices": [
-        {
-          "id": "record_pattern",
-          "label": "Write down the full rhythm",
-          "to": "junction",
-          "detail": "Bring the evidence to the central hall.",
-          "effects": [
-            {
-              "stat": "clues",
-              "delta": 1
-            },
-            {
-              "flag": "pattern"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "tell_ren",
-          "label": "Tell Ren everything",
-          "to": "junction",
-          "detail": "You'd rather have an ally than a secret.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "response"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "service_panel",
-      "act": "02 / WHAT'S REAL",
-      "title": "An old switch",
-      "paragraphs": [
-        "Inside the panel, cables have been reconnected in a hurry. One is warm. That shouldn't be possible: Dock Seven has been shut for months.",
-        "There's a handwritten label on the power junction. It reads: GUIDANCE MIRROR. NOT A DOOR CONTROL. Someone has crossed out the second sentence."
-      ],
-      "choices": [
-        {
-          "id": "rewire",
-          "label": "Rewire the mirror sensor",
-          "to": "junction",
-          "detail": "Spend a power cell to read its last command.",
-          "effects": [
-            {
-              "stat": "power",
-              "delta": -1
-            },
-            {
-              "stat": "clues",
-              "delta": 1
-            },
-            {
-              "flag": "override"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "use_speaker",
-          "label": "Patch the old speaker",
-          "to": "junction",
-          "detail": "Let whoever is sending the message hear you.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "response"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "ren",
-      "act": "02 / WHAT'S REAL",
-      "title": "A better plan with two people",
-      "paragraphs": [
-        "Ren looks from the sealed hatch to the clock above it. “I can help, but we're going to need a plan that doesn't start with opening a mysterious door.”",
-        "They pull a small repair drone from their bag. Its sticker says 'DO NOT TEACH ME TRICKS.' You suspect Ren wrote the sticker."
-      ],
-      "choices": [
-        {
-          "id": "work_together",
-          "label": "Agree to work as a team",
-          "to": "junction",
-          "detail": "Ren promises to back your call.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "team"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "spare_cell",
-          "label": "Ask Ren for a spare power cell",
-          "to": "junction",
-          "detail": "You'll have more options at the docking console.",
-          "effects": [
-            {
-              "stat": "power",
-              "delta": 1
-            },
-            {
-              "flag": "spare_cell"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "manifest",
-      "act": "02 / WHAT'S REAL",
-      "title": "Tomorrow's passengers",
-      "paragraphs": [
-        "The Wren's passenger list includes three scientists, a crate of seedlings, and a junior pilot called Mika Vale. Their age is listed as thirteen.",
-        "The timestamp is the strange part: the list was signed tomorrow morning. Even the captain's signature is there. There is no mention of a distress call."
-      ],
-      "choices": [
-        {
-          "id": "decode_times",
-          "label": "Compare the signatures with the clock",
-          "to": "junction",
-          "detail": "The message is traveling backward through the storm.",
-          "effects": [
-            {
-              "stat": "clues",
-              "delta": 1
-            },
-            {
-              "flag": "timeline"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "send_manifest",
-          "label": "Forward the manifest to Chief Osei",
-          "to": "junction",
-          "detail": "A little proof goes a long way.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "clearance"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "echo",
-      "act": "02 / WHAT'S REAL",
-      "title": "The voice in the static",
-      "paragraphs": [
-        "TAVI strips away the hiss. The warning becomes clear. Behind it you hear a different sound: the cheerful chime from tomorrow's Wren departure announcement.",
-        "“This signal traveled in a circle,” TAVI says. “Time is behaving like a badly folded map.”"
-      ],
-      "choices": [
-        {
-          "id": "compare_waves",
-          "label": "Measure the signal's delay",
-          "to": "junction",
-          "detail": "You find a pattern in the storm's pulse.",
-          "effects": [
-            {
-              "stat": "clues",
-              "delta": 1
-            },
-            {
-              "flag": "phase"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "save_energy",
-          "label": "Disconnect the analyzer and save its charge",
-          "to": "junction",
-          "detail": "Keep enough power for the final decision.",
-          "effects": [
-            {
-              "stat": "power",
-              "delta": 1
-            },
-            {
-              "flag": "battery"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "chief",
-      "act": "02 / WHAT'S REAL",
-      "title": "An adult who listens",
-      "paragraphs": [
-        "Chief Osei folds their arms. “A distress signal from tomorrow? That's a new one.” Then they read the arrival board for themselves.",
-        "“All right, cadet. I'll give you nine minutes. But you don't open a hatch until we know what's on the other side.”"
-      ],
-      "choices": [
-        {
-          "id": "show_evidence",
-          "label": "Explain what you know",
-          "to": "junction",
-          "detail": "Keep the chief on your side.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "clearance"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "get_logs",
-          "label": "Ask to see the sealed dock logs",
-          "to": "junction",
-          "detail": "Search quietly for the missing detail.",
-          "effects": [
-            {
-              "stat": "clues",
-              "delta": 1
-            },
-            {
-              "flag": "logs"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "storm",
-      "act": "02 / WHAT'S REAL",
-      "title": "When light takes the long way",
-      "paragraphs": [
-        "The notebook's author drew a radio wave wrapping around the station's metal ring. During a glass storm, the ring can bounce a signal from the next day into the present.",
-        "Under the diagram is a warning: THE DOCKING MIRROR IS NOT A HARMLESS REFLECTOR. IF MISALIGNED, IT POINTS SHIPS TOWARD THE ICE RING."
-      ],
-      "choices": [
-        {
-          "id": "calculate_phase",
-          "label": "Copy the storm-frequency numbers",
-          "to": "junction",
-          "detail": "Numbers could help you adjust the beacon.",
-          "effects": [
-            {
-              "stat": "clues",
-              "delta": 1
-            },
-            {
-              "flag": "phase"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "trace_wiring",
-          "label": "Trace the old mirror's wiring",
-          "to": "junction",
-          "detail": "Locate the backup power line.",
-          "effects": [
-            {
-              "stat": "power",
-              "delta": 1
-            },
-            {
-              "flag": "route"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "map",
-      "act": "02 / WHAT'S REAL",
-      "title": "The tunnel nobody uses",
-      "paragraphs": [
-        "The old map shows a maintenance duct behind Dock Seven. It was bricked up on the newer maps, but Ren once told you that 'bricked up' usually means 'still opens if you kick it right.'",
-        "You mark the route on your wrist screen. It passes a narrow chamber where the mirror's repair drones are stored."
-      ],
-      "choices": [
-        {
-          "id": "mark_route",
-          "label": "Memorize the maintenance route",
-          "to": "junction",
-          "detail": "You can try the duct from the central hall.",
-          "effects": [
-            {
-              "stat": "clues",
-              "delta": 1
-            },
-            {
-              "flag": "route"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "share_map",
-          "label": "Send Ren the coordinates",
-          "to": "junction",
-          "detail": "Now someone else knows the way.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "ally"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "pilot",
-      "act": "02 / WHAT'S REAL",
-      "title": "The pilot's old mistake",
-      "paragraphs": [
-        "Pilot Juno is sitting in the Archive with a cup of tea and a model of the first Wren. They listen to your story without laughing.",
-        "“We used to guide ships with a mirror on the outer ring,” Juno says. “If it points even a little wrong during a storm, it looks like a safe dock where there's only empty space.”"
-      ],
-      "choices": [
-        {
-          "id": "ask_guidance",
-          "label": "Ask how to fix the mirror",
-          "to": "junction",
-          "detail": "Learn the old piloting trick.",
-          "effects": [
-            {
-              "stat": "clues",
-              "delta": 1
-            },
-            {
-              "flag": "phase"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "ask_backup",
-          "label": "Ask Juno to call Control",
-          "to": "junction",
-          "detail": "One more grown-up who believes you.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "clearance"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "junction",
-      "act": "02 / THE STATION",
-      "title": "The last seven minutes",
-      "paragraphs": [
-        "The station lights dim. A thin silver line crawls over the observation window: the first edge of the glass storm.",
-        "TAVI speaks through every hallway speaker. “Dock Seven is receiving a ship's signal. There is no ship outside. Both facts are true.” The guidance mirror starts turning on its own.",
-        "One more investigation might give you the missing piece. Or you could head straight for the docking console."
-      ],
-      "choices": [
-        {
-          "id": "hear_voice",
-          "label": "Speak directly to the voice",
-          "to": "voice",
-          "detail": "Ask the person in tomorrow what they know.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "scan_array",
-          "label": "Climb to the antenna",
-          "to": "antenna",
-          "detail": "Read the storm before the mirror locks.",
-          "effects": [
-            {
-              "stat": "power",
-              "delta": -1
-            },
-            {
-              "stat": "clues",
-              "delta": 1
-            }
-          ],
-          "requirements": [
-            {
-              "stat": "power",
-              "atLeast": 1,
-              "hint": "Needs 1 power"
-            }
-          ]
-        },
-        {
-          "id": "take_duct",
-          "label": "Follow the maintenance duct",
-          "to": "duct",
-          "detail": "Reach the repair drones without the main hall.",
-          "effects": [],
-          "requirements": [
-            {
-              "flag": "route",
-              "hint": "Needs the old station map"
-            }
-          ]
-        },
-        {
-          "id": "force_hatch",
-          "label": "Use the manual service path",
-          "to": "duct",
-          "detail": "A messy shortcut, but it will work.",
-          "effects": [
-            {
-              "stat": "power",
-              "delta": -1
-            }
-          ],
-          "requirements": [
-            {
-              "flag": "manual",
-              "hint": "Needs the service-panel access"
-            },
-            {
-              "stat": "power",
-              "atLeast": 1,
-              "hint": "Needs 1 power"
-            }
-          ]
-        },
-        {
-          "id": "meet_chief",
-          "label": "Find Chief Osei",
-          "to": "captain",
-          "detail": "Get someone with authority on your side.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "go_console",
-          "label": "Go to the docking console now",
-          "to": "console",
-          "detail": "It's almost time to make the call.",
+          "id": "s03_detour",
+          "label": "Take the mystery shortcut",
+          "detail": "It might avoid the crowded corridor.",
+          "to": "detour_01",
+          "outcome": null,
           "effects": [],
           "requirements": []
         }
@@ -747,242 +159,1955 @@
       "ending": null
     },
     {
-      "id": "voice",
-      "act": "03 / TOMORROW",
-      "title": "The kid aboard the Wren",
+      "id": "s04",
+      "act": "ACT 1 / THE IMPOSSIBLE ARRIVAL · 4 OF 36",
+      "title": "The passenger list",
       "paragraphs": [
-        "“Hello?” you say into the radio. “My name doesn't matter. Are you on the Wren?”",
-        "“I'm Mika,” says the voice. “I haven't left Pel yet. At least, I don't think I have. I can see Starport Nine, but the dock lights are pointing toward the ice ring. We sent the warning before—” The voice crackles. “Before what?”",
-        "You hear a breath. “Before we followed them.”"
+        "At Control, the Wren's passenger manifest is already on screen. Three scientists. Sixteen crates of seedlings. One junior pilot named Mika Vale, age thirteen.",
+        "The signature at the bottom is dated tomorrow. Even the ink scan is marked as received."
       ],
+      "conditionalParagraphs": [],
       "choices": [
         {
-          "id": "ask_proof",
-          "label": "Ask Mika for proof",
-          "to": "message",
-          "detail": "Check if the signal really is from tomorrow.",
+          "label": "Compare the signature times",
+          "detail": "Find out whether any timestamp is ordinary.",
+          "outcome": "One signature is exactly twenty-four hours ahead. You circle it.",
           "effects": [
             {
               "stat": "clues",
               "delta": 1
             },
             {
-              "flag": "proof"
+              "flag": "future_time"
             }
           ],
+          "id": "s04_1",
+          "to": "s05",
           "requirements": []
         },
         {
-          "id": "make_promise",
-          "label": "Promise to correct the guidance lights",
-          "to": "console",
-          "detail": "Sometimes being believed matters most.",
+          "label": "Send the manifest to Chief Osei",
+          "detail": "Ask for help before rumors spread.",
+          "outcome": "The chief replies: 'Meet me at Control. Bring everything.'",
           "effects": [
             {
               "stat": "trust",
               "delta": 1
             },
             {
-              "flag": "promise"
+              "flag": "chief_notice"
             }
           ],
+          "id": "s04_2",
+          "to": "s05",
           "requirements": []
         }
       ],
       "ending": null
     },
     {
-      "id": "message",
-      "act": "03 / TOMORROW",
-      "title": "Tomorrow can hear you",
+      "id": "s05",
+      "act": "ACT 1 / THE IMPOSSIBLE ARRIVAL · 5 OF 36",
+      "title": "The chief's question",
       "paragraphs": [
-        "Mika reads you an equipment code that hasn't been assigned yet. TAVI checks, pauses, then says, “That code will be printed tomorrow at 07:10. I dislike admitting this, but I believe them.”",
-        "Mika laughs, a little shakily. “So if you fix the lights today, I won't have to send this warning tomorrow?”",
-        "TAVI doesn't answer. There isn't time to find out."
+        "Chief Osei listens to your story without smiling. “If you can prove the warning is real, I'll give you the keys to the outer mirror,” they say.",
+        "Outside, the red planet vanishes behind the first bright ribbon of the storm."
       ],
+      "conditionalParagraphs": [],
       "choices": [
         {
-          "id": "copy_code",
-          "label": "Save the future equipment code",
-          "to": "console",
-          "detail": "Every detail might help you steer the mirror.",
+          "label": "Play the recording",
+          "detail": "Let the warning speak for itself.",
+          "outcome": "The chief recognizes an emergency code buried in the static.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "chief_notice"
+            }
+          ],
+          "id": "s05_1",
+          "to": "s06",
+          "requirements": []
+        },
+        {
+          "label": "Show the strange data",
+          "detail": "A pattern is harder to argue with.",
+          "outcome": "Osei studies the numbers and tells TAVI to save every reading.",
           "effects": [
             {
               "stat": "clues",
               "delta": 1
             },
             {
-              "flag": "code"
+              "flag": "chief_notice"
             }
           ],
-          "requirements": []
-        },
-        {
-          "id": "tell_chief",
-          "label": "Share Mika's warning with the crew",
-          "to": "console",
-          "detail": "Get everyone working on the same plan.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "clearance"
-            }
-          ],
+          "id": "s05_2",
+          "to": "s06",
           "requirements": []
         }
       ],
       "ending": null
     },
     {
-      "id": "antenna",
-      "act": "03 / TOMORROW",
-      "title": "Above the red planet",
+      "id": "s06",
+      "act": "ACT 1 / THE IMPOSSIBLE ARRIVAL · 6 OF 36",
+      "title": "The reflection test",
       "paragraphs": [
-        "From the antenna platform the storm looks like silver scratches across the stars. You can feel the platform hum through your boots.",
-        "The guidance mirror is pointing two degrees toward the ice ring. Not much. More than enough. A red dial ticks toward zero."
+        "TAVI has a small experiment ready: a harmless light pulse pointed at Dock Seven. If it returns before it leaves, the storm may be bending time.",
+        "The pulse generator is old, and the power meter is not encouraging."
       ],
+      "conditionalParagraphs": [],
       "choices": [
         {
-          "id": "correct_angle",
-          "label": "Adjust the mirror using the storm pulse",
-          "to": "console",
-          "detail": "The signal should point away from the ice.",
-          "effects": [
-            {
-              "stat": "clues",
-              "delta": 1
-            },
-            {
-              "flag": "phase"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "bank_charge",
-          "label": "Bank the antenna's last power cell",
-          "to": "console",
-          "detail": "You may need a bigger pulse later.",
-          "effects": [
-            {
-              "stat": "power",
-              "delta": 1
-            },
-            {
-              "flag": "battery"
-            }
-          ],
-          "requirements": []
-        }
-      ],
-      "ending": null
-    },
-    {
-      "id": "duct",
-      "act": "03 / TOMORROW",
-      "title": "Small enough to fit",
-      "paragraphs": [
-        "The maintenance duct is barely wide enough for you. At its end is a storage rack holding four ancient repair drones. Three are dead. The fourth wakes when you touch its scratched blue shell.",
-        "A message blinks on its screen: I REMEMBER THE SAFE WAY. Its tiny thrusters cough out a puff of dust."
-      ],
-      "choices": [
-        {
-          "id": "launch_drone",
-          "label": "Bring the drone online",
-          "to": "console",
-          "detail": "It might be able to guide the ship itself.",
-          "effects": [
-            {
-              "stat": "trust",
-              "delta": 1
-            },
-            {
-              "flag": "drone"
-            }
-          ],
-          "requirements": []
-        },
-        {
-          "id": "download_route",
-          "label": "Download its route map",
-          "to": "console",
-          "detail": "Use the old flight path to aim the beacon.",
+          "label": "Send one careful pulse",
+          "detail": "You get a clean reading but spend charge.",
+          "outcome": "The return pulse arrives three seconds early. TAVI falls completely silent.",
           "effects": [
             {
               "stat": "clues",
               "delta": 2
             },
             {
-              "flag": "safe_route"
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "time_proof"
             }
           ],
+          "id": "s06_1",
+          "to": "s07",
+          "requirements": []
+        },
+        {
+          "label": "Save the power",
+          "detail": "Use TAVI's old readings instead.",
+          "outcome": "You keep a little charge for later. TAVI hates leaving a question unanswered.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            }
+          ],
+          "id": "s06_2",
+          "to": "s07",
+          "requirements": []
+        },
+        {
+          "id": "s06_detour",
+          "label": "Use the emergency food dispenser",
+          "detail": "You never know what a red button does.",
+          "to": "detour_02",
+          "outcome": null,
+          "effects": [],
           "requirements": []
         }
       ],
       "ending": null
     },
     {
-      "id": "captain",
-      "act": "03 / TOMORROW",
-      "title": "No more secrets",
+      "id": "s07",
+      "act": "ACT 2 / THE EVIDENCE · 7 OF 36",
+      "title": "A corridor of red lights",
       "paragraphs": [
-        "Chief Osei is already at the docking console. They read your notes without interrupting.",
-        "“I believe you,” they say at last. “I'll keep the corridor clear. You make the call about the lights. But remember: a door can stay closed while a signal travels through it.”"
+        "Emergency strips flicker along the floor. Everyone is heading toward the shelter doors, but you need to reach the weather station.",
+        "A maintenance cart has rolled across the corridor. Behind it, a box of glass-storm sensors rattles."
       ],
+      "conditionalParagraphs": [],
       "choices": [
         {
-          "id": "ask_clearance",
-          "label": "Request full control of the guidance mirror",
-          "to": "console",
-          "detail": "You'll need help to carry out a risky plan.",
+          "label": "Help clear the corridor",
+          "detail": "People can reach shelter without a bottleneck.",
+          "outcome": "The cart moves, and the station crew promises to answer your next call.",
           "effects": [
             {
               "stat": "trust",
               "delta": 1
             },
             {
-              "flag": "clearance"
+              "flag": "crew_pact"
             }
           ],
+          "id": "s07_1",
+          "to": "s08",
           "requirements": []
         },
         {
-          "id": "ask_station",
-          "label": "Ask everyone to hold the dock shutters",
-          "to": "console",
-          "detail": "Buy the Wren another chance to find the right signal.",
+          "label": "Take a sensor from the box",
+          "detail": "TAVI can turn its readings into a storm map.",
+          "outcome": "The sensor gives you a clear pulse shape. The corridor stays blocked a little longer.",
           "effects": [
             {
               "stat": "clues",
               "delta": 1
             },
             {
-              "flag": "warning"
+              "stat": "trust",
+              "delta": -1
             }
           ],
+          "id": "s07_2",
+          "to": "s08",
           "requirements": []
         }
       ],
       "ending": null
     },
     {
-      "id": "console",
-      "act": "04 / YOUR CALL",
-      "title": "The mirror turns",
+      "id": "s08",
+      "act": "ACT 2 / THE EVIDENCE · 8 OF 36",
+      "title": "The old flight map",
       "paragraphs": [
-        "The console counts down: SIXTY SECONDS TO STORM LOCK. Beyond the window is empty space—and somewhere in tomorrow, a ship full of people who think this is their way home.",
-        "You can leave the dock sealed. You can try a new course. You can send a warning that might change tomorrow. But you cannot choose everything.",
-        "TAVI leaves one line on the screen: YOUR CALL, CADET."
+        "An ancient map of Starport Nine hangs behind clear plastic. The modern docking lane is blue. An older safe passage is marked in yellow, right through the storm's thin edge.",
+        "Pilot Juno once flew that yellow route, back when the outer mirror still worked by hand."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Copy the old route",
+          "detail": "Maybe yesterday's maps are better than tomorrow's.",
+          "outcome": "The yellow line is now on your wrist screen, complete with its sharp final turn.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "old_route"
+            }
+          ],
+          "id": "s08_1",
+          "to": "s09",
+          "requirements": []
+        },
+        {
+          "label": "Find Pilot Juno",
+          "detail": "A real pilot may know why the route was abandoned.",
+          "outcome": "Juno picks up on the second ring and agrees to meet you.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "pilot_juno"
+            }
+          ],
+          "id": "s08_2",
+          "to": "s09",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s09",
+      "act": "ACT 2 / THE EVIDENCE · 9 OF 36",
+      "title": "A name from tomorrow",
+      "paragraphs": [
+        "Mika's name flashes on your radio screen, but the channel stays quiet. You remember the Wren's launch schedule: the ship isn't even loaded yet.",
+        "A station bulletin announces that all courier departures are delayed by the glass storm. Tomorrow hasn't gotten the memo."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Send a narrow-band reply",
+          "detail": "Try a private message to Mika.",
+          "outcome": "The channel crackles: 'Is somebody there?' You have made contact.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "mika_contact"
+            }
+          ],
+          "id": "s09_1",
+          "to": "s10",
+          "requirements": []
+        },
+        {
+          "label": "Ask TAVI to keep listening",
+          "detail": "No point shouting into a storm.",
+          "outcome": "TAVI saves the frequency and uses less power than a full reply.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "listening"
+            }
+          ],
+          "id": "s09_2",
+          "to": "s10",
+          "requirements": []
+        },
+        {
+          "id": "s09_detour",
+          "label": "Follow the museum map",
+          "detail": "The highlighted corridor looks promising.",
+          "to": "detour_03",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s10",
+      "act": "ACT 2 / THE EVIDENCE · 10 OF 36",
+      "title": "A note in the Archive",
+      "paragraphs": [
+        "Juno's flight notebook smells of dust and machine oil. One page bears a warning: THE MIRROR CAN SEND A LIGHT HOME—OR SHOW A PILOT A HOME THAT ISN'T THERE.",
+        "The next page is missing. Someone tore it out cleanly."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "pilot_juno",
+            "hint": "Needs pilot_juno"
+          },
+          "text": "Because you called Juno earlier, you can hear them explaining the old rescue signal through your wrist speaker."
+        }
       ],
       "choices": [
         {
-          "id": "bridge",
-          "label": "Build a path through the storm",
-          "to": "ending_bridge",
-          "detail": "Combine the evidence, station power, and crew cooperation.",
+          "label": "Read the handwritten margins",
+          "detail": "Juno left notes between the lines.",
+          "outcome": "You find a correction to the mirror's safe angle.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "mirror_angle"
+            }
+          ],
+          "id": "s10_1",
+          "to": "s11",
+          "requirements": []
+        },
+        {
+          "label": "Ask Juno about the missing page",
+          "detail": "Maybe the paper was removed for a reason.",
+          "outcome": "Juno admits the original mirror once led a rescue ship the wrong way.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "pilot_juno"
+            }
+          ],
+          "id": "s10_2",
+          "to": "s11",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s11",
+      "act": "ACT 2 / THE EVIDENCE · 11 OF 36",
+      "title": "The signature that moved",
+      "paragraphs": [
+        "The manifest signature blinks out and returns with a new date: two days from now. Only you and TAVI notice.",
+        "'A paperwork error?' TAVI asks. It sounds as if the computer hopes you will say yes."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Freeze the screen",
+          "detail": "Preserve the changed signature as evidence.",
+          "outcome": "The data is now impossible to overwrite, even if tomorrow changes again.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "frozen_log"
+            }
+          ],
+          "id": "s11_1",
+          "to": "s12",
+          "requirements": []
+        },
+        {
+          "label": "Explain it to TAVI calmly",
+          "detail": "The computer is doing its best.",
+          "outcome": "TAVI unlocks a better set of instruments and stops calling you 'junior operator.'",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "tavi_trust"
+            }
+          ],
+          "id": "s11_2",
+          "to": "s12",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s12",
+      "act": "ACT 2 / THE EVIDENCE · 12 OF 36",
+      "title": "The missing minute",
+      "paragraphs": [
+        "On the surveillance wall, every camera skips from 09:39 to 09:41. The lost minute is the exact minute of the Wren's supposed arrival.",
+        "Ren says the station may have recorded a minute that hasn't happened yet. Their voice is almost a whisper."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Rebuild the missing minute",
+          "detail": "Use every sensor to fill the gap.",
+          "outcome": "A thin shape appears beside Dock Seven: not a ship, but its reflection.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 2
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "future_shadow"
+            }
+          ],
+          "id": "s12_1",
+          "to": "s13",
+          "requirements": []
+        },
+        {
+          "label": "Protect the original recording",
+          "detail": "Keep the evidence safe for the crew.",
+          "outcome": "You lock the files and give Osei a copy. Nothing important can vanish now.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "crew_pact"
+            }
+          ],
+          "id": "s12_2",
+          "to": "s13",
+          "requirements": []
+        },
+        {
+          "id": "s12_detour",
+          "label": "Send the standard apology",
+          "detail": "Maybe politeness will fix time.",
+          "to": "detour_04",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s13",
+      "act": "ACT 3 / THE OUTER RING · 13 OF 36",
+      "title": "Gravity has a wobble",
+      "paragraphs": [
+        "On the way to the outer ring, your feet lift an inch off the floor. You catch a handrail before the station's gravity snaps back.",
+        "TAVI reports that the mirror's motor is drawing power from the wrong deck. Something is steering it."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Redirect the gravity circuit",
+          "detail": "Keep the station steady for the crew.",
+          "outcome": "The floors settle. You gain a little power but lose your clean sensor signal.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "stat": "clues",
+              "delta": -1
+            }
+          ],
+          "id": "s13_1",
+          "to": "s14",
+          "requirements": []
+        },
+        {
+          "label": "Trace the strange motor draw",
+          "detail": "Find out what the mirror is doing.",
+          "outcome": "A hidden program is ordering it toward the ice ring.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "motor_trace"
+            }
+          ],
+          "id": "s13_2",
+          "to": "s14",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s14",
+      "act": "ACT 3 / THE OUTER RING · 14 OF 36",
+      "title": "The cold deck",
+      "paragraphs": [
+        "The old engine deck is cold enough to frost your breath. A coolant pipe has cracked, leaving silver crystals across the floor.",
+        "Ren offers to patch it. TAVI says the spare battery beside the pipe is still charged."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Help Ren patch the pipe",
+          "detail": "A warmer station is a safer station.",
+          "outcome": "Ren's repair seals the leak, and the crew can stay in the control rooms.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "crew_pact"
+            }
+          ],
+          "id": "s14_1",
+          "to": "s15",
+          "requirements": []
+        },
+        {
+          "label": "Recover the battery",
+          "detail": "Power may decide whether the mirror can turn.",
+          "outcome": "You carry a warm battery away as the coolant leak slows behind you.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 2
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            }
+          ],
+          "id": "s14_2",
+          "to": "s15",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s15",
+      "act": "ACT 3 / THE OUTER RING · 15 OF 36",
+      "title": "The mirror's blind spot",
+      "paragraphs": [
+        "The mirror camera sweeps the station's outer skin. At one angle, it shows a corridor that doesn't exist. At another, it shows tomorrow's Wren crossing the ice ring.",
+        "You have time for one more measurement before the camera resets."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Chart the safe angle",
+          "detail": "Write down where the false image disappears.",
+          "outcome": "The storm chart finally has a clear no-go zone.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "storm_chart"
+            }
+          ],
+          "id": "s15_1",
+          "to": "s16",
+          "requirements": []
+        },
+        {
+          "label": "Ask Juno to judge it by eye",
+          "detail": "An experienced pilot might spot something a sensor misses.",
+          "outcome": "Juno confirms the safe angle, and the crew begins trusting your plan.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "storm_chart"
+            }
+          ],
+          "id": "s15_2",
+          "to": "s16",
+          "requirements": []
+        },
+        {
+          "id": "s15_detour",
+          "label": "Try the automatic rest chair",
+          "detail": "The station recommends a break.",
+          "to": "detour_05",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s16",
+      "act": "ACT 3 / THE OUTER RING · 16 OF 36",
+      "title": "A hatch without a handle",
+      "paragraphs": [
+        "The service door has only a keypad and a message: THIS ACCESS POINT IS CLOSED UNTIL TOMORROW. Your badge shouldn't work, but the lock briefly turns green.",
+        "From behind the hatch comes the familiar three-fast-one-slow knock."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Use the badge once",
+          "detail": "Try to learn what the lock knows.",
+          "outcome": "A future access record appears: your own badge was used tomorrow.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "badge_record"
+            }
+          ],
+          "id": "s16_1",
+          "to": "s17",
+          "requirements": []
+        },
+        {
+          "label": "Take the safe route around",
+          "detail": "Don't trust a door that's ahead of its time.",
+          "outcome": "You keep the emergency battery on the regular route and avoid the lock.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            }
+          ],
+          "id": "s16_2",
+          "to": "s17",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s17",
+      "act": "ACT 3 / THE OUTER RING · 17 OF 36",
+      "title": "Ren's smallest drone",
+      "paragraphs": [
+        "A blue repair drone sits on a charging shelf. Its sticker says DO NOT TEACH ME TRICKS. Ren insists this was an official safety instruction.",
+        "The drone still has the first station map in its memory. Its tiny camera points at the storm."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Wake the drone",
+          "detail": "It can travel where people can't.",
+          "outcome": "The drone chirps awake. Its first word is 'LEFT,' which Ren says is encouraging.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "drone_ready"
+            }
+          ],
+          "id": "s17_1",
+          "to": "s18",
+          "requirements": []
+        },
+        {
+          "label": "Copy its route database",
+          "detail": "A map is useful even without a robot.",
+          "outcome": "You save the old flight route and leave the drone charging.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 2
+            },
+            {
+              "flag": "old_route"
+            }
+          ],
+          "id": "s17_2",
+          "to": "s18",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s18",
+      "act": "ACT 3 / THE OUTER RING · 18 OF 36",
+      "title": "Voices in the vent",
+      "paragraphs": [
+        "The ventilation shaft carries a second warning. This one is in your own voice: “The mirror is lying.”",
+        "Ren stares at the vent. “I do not remember you saying that.” Neither do you."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "ally_ren",
+            "hint": "Needs ally_ren"
+          },
+          "text": "Ren taps your shoulder and says they'll trust your next move. That makes the vent's strange voice less frightening."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Speak a question into the vent",
+          "detail": "See whether tomorrow can answer.",
+          "outcome": "The whisper replies: 'Follow the blue light, not the bright one.'",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "blue_light"
+            }
+          ],
+          "id": "s18_1",
+          "to": "s19",
+          "requirements": []
+        },
+        {
+          "label": "Seal the vent and keep moving",
+          "detail": "Avoid adding your voice to the loop.",
+          "outcome": "The strange whisper fades. The station's speakers return to normal.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            }
+          ],
+          "id": "s18_2",
+          "to": "s19",
+          "requirements": []
+        },
+        {
+          "id": "s18_detour",
+          "label": "Start the welcome ceremony",
+          "detail": "It's a little early, but it looks fun.",
+          "to": "detour_06",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s19",
+      "act": "ACT 4 / TOMORROW SPEAKS · 19 OF 36",
+      "title": "Tomorrow answers",
+      "paragraphs": [
+        "Mika's voice returns, much clearer. “We're just outside the station,” they say. “I know that's impossible. I can see two Dock Sevens, and one is made of ice.”",
+        "Behind Mika, an alarm pulses in the Wren's cabin. You can hear someone counting backward."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Ask for the real ship's coordinates",
+          "detail": "Find the Wren instead of its reflection.",
+          "outcome": "Mika reads the numbers twice. You finally have a place to send a signal.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "wren_coordinates"
+            }
+          ],
+          "id": "s19_1",
+          "to": "s20",
+          "requirements": []
+        },
+        {
+          "label": "Talk Mika through the alarm",
+          "detail": "Help them think clearly.",
+          "outcome": "Mika's breathing slows. They promise to stay on the channel.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "mika_contact"
+            }
+          ],
+          "id": "s19_2",
+          "to": "s20",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s20",
+      "act": "ACT 4 / TOMORROW SPEAKS · 20 OF 36",
+      "title": "A copy of tomorrow",
+      "paragraphs": [
+        "TAVI projects two possible arrival paths. One ends with the Wren docking safely. The other ends abruptly at the ice ring.",
+        "The computer calls the second path a 'predictive image.' No one asks whether the image came from a prediction or a memory."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "time_proof",
+            "hint": "Needs time_proof"
+          },
+          "text": "You compare the two paths with the pulse that returned early. They fit together like pieces of a cracked window."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Compare both paths",
+          "detail": "Search for the point where they split.",
+          "outcome": "The wrong turn happens seconds after the mirror flashes amber.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "split_point"
+            }
+          ],
+          "id": "s20_1",
+          "to": "s21",
+          "requirements": []
+        },
+        {
+          "label": "Show the crew both paths",
+          "detail": "Get everyone on the same page.",
+          "outcome": "The crew stops arguing about whether the warning is real.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "crew_pact"
+            }
+          ],
+          "id": "s20_2",
+          "to": "s21",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s21",
+      "act": "ACT 4 / TOMORROW SPEAKS · 21 OF 36",
+      "title": "The second warning",
+      "paragraphs": [
+        "A fresh transmission arrives from a second possible future. “Do not trust the rescue beacon,” says Mika, in a voice that sounds older by a hundred years.",
+        "Ren taps the screen. “How can there be two messages if we only have one tomorrow?”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Check the new message's code",
+          "detail": "Make sure it really came from Mika.",
+          "outcome": "The code matches the Wren's emergency key. Both messages are real.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "second_message"
+            }
+          ],
+          "id": "s21_1",
+          "to": "s22",
+          "requirements": []
+        },
+        {
+          "label": "Tell Mika about the contradiction",
+          "detail": "They deserve to know the whole danger.",
+          "outcome": "Mika says they'll watch for the false beacon and tell the captain.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "mika_contact"
+            }
+          ],
+          "id": "s21_2",
+          "to": "s22",
+          "requirements": []
+        },
+        {
+          "id": "s21_detour",
+          "label": "Put on the ancient test helmet",
+          "detail": "It might shield you from the storm.",
+          "to": "detour_07",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s22",
+      "act": "ACT 4 / TOMORROW SPEAKS · 22 OF 36",
+      "title": "The seedling crate",
+      "paragraphs": [
+        "A cargo display shows a crate of rare Pel seedlings aboard the Wren. One holds the last living seeds of a tree lost from the planet's surface.",
+        "The crate's heat sensor is linked to the same guidance frequency as the docking mirror. That seems like an odd coincidence."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Inspect the cargo signal",
+          "detail": "A crate shouldn't talk to a guidance beacon.",
+          "outcome": "The sensor is transmitting a tiny pulse—perfect for marking the real ship.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "cargo_pulse"
+            }
+          ],
+          "id": "s22_1",
+          "to": "s23",
+          "requirements": []
+        },
+        {
+          "label": "Ask Mika to secure the seedlings",
+          "detail": "Protect the cargo while the ship maneuvers.",
+          "outcome": "Mika promises to strap down the crate before the final approach.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "cargo_safe"
+            }
+          ],
+          "id": "s22_2",
+          "to": "s23",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s23",
+      "act": "ACT 4 / TOMORROW SPEAKS · 23 OF 36",
+      "title": "The ice ring",
+      "paragraphs": [
+        "The Wren is close enough that you can see ice fragments spin around the station like pale feathers. Every fragment reflects the dock lights.",
+        "A single wrong flash could trick the ship into turning toward empty space."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Measure the gaps between fragments",
+          "detail": "Find a corridor with fewer false reflections.",
+          "outcome": "You plot a narrow route through the brightest part of the storm.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "ice_gap"
+            }
+          ],
+          "id": "s23_1",
+          "to": "s24",
+          "requirements": []
+        },
+        {
+          "label": "Turn off the outer work lights",
+          "detail": "Stop the reflections multiplying.",
+          "outcome": "The station darkens, but its emergency battery holds.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "id": "s23_2",
+          "to": "s24",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s24",
+      "act": "ACT 4 / TOMORROW SPEAKS · 24 OF 36",
+      "title": "The broken translator",
+      "paragraphs": [
+        "The docking console converts the ship's distress code into an instruction: OPEN HATCH. The original code actually means HOLD POSITION.",
+        "Someone reversed two symbols in the translator years ago. Every automatic docking system has copied the mistake."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Fix the translation table",
+          "detail": "Prevent the same mistake on the next arrival.",
+          "outcome": "TAVI confirms the corrected code and starts checking the remaining messages.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "translator_fixed"
+            }
+          ],
+          "id": "s24_1",
+          "to": "s25",
+          "requirements": []
+        },
+        {
+          "label": "Ask the crew to use hand signals",
+          "detail": "Work around the broken software for now.",
+          "outcome": "Osei posts crew members at the window and sets up a manual signal board.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "manual_signals"
+            }
+          ],
+          "id": "s24_2",
+          "to": "s25",
+          "requirements": []
+        },
+        {
+          "id": "s24_detour",
+          "label": "Enable demonstration mode",
+          "detail": "Maybe the display will show more detail.",
+          "to": "detour_08",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s25",
+      "act": "ACT 5 / THE CREW DECIDES · 25 OF 36",
+      "title": "The captain's rule",
+      "paragraphs": [
+        "Chief Osei gives you an orange clearance card. “A cadet can recommend a course,” they say. “But this time you're the one who has seen everything.”",
+        "They promise to back your decision if you can explain the risks."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "chief_notice",
+            "hint": "Needs chief_notice"
+          },
+          "text": "Osei remembers the evidence you showed them at the start. They don't ask you to prove it twice."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Explain every risk aloud",
+          "detail": "Everyone should understand what could go wrong.",
+          "outcome": "The bridge crew agrees to follow a single plan.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "crew_pact"
+            }
+          ],
+          "id": "s25_1",
+          "to": "s26",
+          "requirements": []
+        },
+        {
+          "label": "Use the card to unlock the mirror",
+          "detail": "You'll need the control before the storm peaks.",
+          "outcome": "The mirror accepts your badge. A manual override appears.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "mirror_override"
+            }
+          ],
+          "id": "s25_2",
+          "to": "s26",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s26",
+      "act": "ACT 5 / THE CREW DECIDES · 26 OF 36",
+      "title": "Two maps, one destination",
+      "paragraphs": [
+        "On the wall, Juno's paper map and TAVI's projected map refuse to line up. They agree on the planet, the station, and the ice—but not on the dock itself.",
+        "You realize one map is showing where the dock will be tomorrow."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Combine the two maps",
+          "detail": "Make one route that accounts for both days.",
+          "outcome": "The safe path passes behind the station's shadow, not through the bright ice.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 2
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "combined_map"
+            }
+          ],
+          "id": "s26_1",
+          "to": "s27",
+          "requirements": []
+        },
+        {
+          "label": "Give Juno the pen",
+          "detail": "Let someone experienced draw the route.",
+          "outcome": "Juno finds an older approach line. The crew agrees to follow it.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "combined_map"
+            }
+          ],
+          "id": "s26_2",
+          "to": "s27",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s27",
+      "act": "ACT 5 / THE CREW DECIDES · 27 OF 36",
+      "title": "A vote in Control",
+      "paragraphs": [
+        "The crew gathers around the main console. Some want to shut the mirror off. Others want to send a rescue signal through it.",
+        "Ren reminds everyone that tomorrow's crew can hear what you do today."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Ask everyone to agree on one signal",
+          "detail": "Keep the plan simple enough to work.",
+          "outcome": "The votes settle. For once, no one is talking over anyone else.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 2
+            },
+            {
+              "flag": "crew_pact"
+            }
+          ],
+          "id": "s27_1",
+          "to": "s28",
+          "requirements": []
+        },
+        {
+          "label": "Write a procedure on the screen",
+          "detail": "A shared checklist keeps surprises small.",
+          "outcome": "TAVI adds the safe-angle calculation and marks the dangerous switches.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "checklist"
+            }
+          ],
+          "id": "s27_2",
+          "to": "s28",
+          "requirements": []
+        },
+        {
+          "id": "s27_detour",
+          "label": "Step inside the chronology booth",
+          "detail": "It says TIME MACHINE in big letters.",
+          "to": "detour_09",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s28",
+      "act": "ACT 5 / THE CREW DECIDES · 28 OF 36",
+      "title": "The trade with time",
+      "paragraphs": [
+        "TAVI has a proposal: send one strong signal now, and the Wren might never have to send its warning tomorrow. The price is half the station's spare power.",
+        "There is also a weaker signal. It won't change tomorrow, but it might guide the ship away from the ice."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Prepare the strong signal",
+          "detail": "Spend power to change the future itself.",
+          "outcome": "The capacitor glows blue. TAVI calls it 'a very hopeful gamble.'",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": -2
+            },
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "strong_signal"
+            }
+          ],
+          "id": "s28_1",
+          "to": "s29",
+          "requirements": []
+        },
+        {
+          "label": "Save the station's charge",
+          "detail": "A smaller plan can still be a good one.",
+          "outcome": "You keep the emergency circuit stable and mark the weaker signal frequency.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "weak_signal"
+            }
+          ],
+          "id": "s28_2",
+          "to": "s29",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s29",
+      "act": "ACT 5 / THE CREW DECIDES · 29 OF 36",
+      "title": "TAVI's impossible question",
+      "paragraphs": [
+        "“If you warn tomorrow's crew and they never need to warn us,” TAVI asks, “who sent the first message?”",
+        "Nobody has an answer. The computer asks you to choose whether that matters more than the people aboard the Wren."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Say the people matter most",
+          "detail": "The mystery can wait.",
+          "outcome": "TAVI seems relieved and assigns the rescue team to your plan.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "tavi_trust"
+            }
+          ],
+          "id": "s29_1",
+          "to": "s30",
+          "requirements": []
+        },
+        {
+          "label": "Find the first signal's source",
+          "detail": "Understanding the loop may help close it.",
+          "outcome": "The signal begins in the mirror's own memory bank.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "source_found"
+            }
+          ],
+          "id": "s29_2",
+          "to": "s30",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s30",
+      "act": "ACT 5 / THE CREW DECIDES · 30 OF 36",
+      "title": "The silent bell",
+      "paragraphs": [
+        "The dock bell stops ringing, although the warning light is still red. TAVI says that in one possible tomorrow, the Wren has already turned away.",
+        "You have five minutes to decide whether to send a new signal. A slow silver pulse crosses the window."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Test the bell's last recording",
+          "detail": "The silence might be another clue.",
+          "outcome": "You hear your own voice beneath Mika's: 'Use the blue light.'",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "blue_light"
+            }
+          ],
+          "id": "s30_1",
+          "to": "s31",
+          "requirements": []
+        },
+        {
+          "label": "Bring the whole crew to the window",
+          "detail": "Make sure nobody is left guessing.",
+          "outcome": "Ren and Osei stand beside you. You won't make the last call alone.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "crew_pact"
+            }
+          ],
+          "id": "s30_2",
+          "to": "s31",
+          "requirements": []
+        },
+        {
+          "id": "s30_detour",
+          "label": "Ask the help desk to solve the storm",
+          "detail": "They promised twenty-four-hour support.",
+          "to": "detour_10",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s31",
+      "act": "ACT 6 / THE LAST SIGNAL · 31 OF 36",
+      "title": "Seal or signal",
+      "paragraphs": [
+        "A safety shutter closes over the end of Dock Seven. The station's protection system wants every door shut for the glass storm.",
+        "To send a rescue signal, someone will need to route it around that shutter."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Route the signal through the old antenna",
+          "detail": "A longer path, but no need to open the dock.",
+          "outcome": "You find a clean channel to the Wren.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "antenna_route"
+            }
+          ],
+          "id": "s31_1",
+          "to": "s32",
+          "requirements": []
+        },
+        {
+          "label": "Hold the shutter for a moment",
+          "detail": "Let the crew prepare the signal equipment.",
+          "outcome": "The crew makes room in the service corridor before the shutter comes down.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "shutter_clear"
+            }
+          ],
+          "id": "s31_2",
+          "to": "s32",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s32",
+      "act": "ACT 6 / THE LAST SIGNAL · 32 OF 36",
+      "title": "The last battery",
+      "paragraphs": [
+        "Only two power cells remain in the console. One runs the outer mirror. The other keeps the emergency lights on in the station shelters.",
+        "Ren says you can take a cell from the antenna, but the climb will cost a minute."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Leave shelter power untouched",
+          "detail": "People on the station come first.",
+          "outcome": "The emergency lights stay on. You find a smaller charge you can spare.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "shelter_safe"
+            }
+          ],
+          "id": "s32_1",
+          "to": "s33",
+          "requirements": []
+        },
+        {
+          "label": "Borrow the antenna cell",
+          "detail": "Take the risk yourself instead of darkening shelters.",
+          "outcome": "You get one extra pulse for the mirror's motor.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 2
+            },
+            {
+              "flag": "extra_cell"
+            }
+          ],
+          "id": "s32_2",
+          "to": "s33",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s33",
+      "act": "ACT 6 / THE LAST SIGNAL · 33 OF 36",
+      "title": "The reflection window",
+      "paragraphs": [
+        "A shape slides across the glass: a ship with the Wren's silhouette, except its engines are dark. Its reflection moves in the wrong direction.",
+        "TAVI labels it ECHO, not SHIP. You press your palm against the cold window."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "storm_chart",
+            "hint": "Needs storm_chart"
+          },
+          "text": "You recognize the dangerous silver curve from your earlier measurements. The false ship is following it exactly."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Mark the echo's position",
+          "detail": "Keep the false ship out of your route.",
+          "outcome": "The echo's path gives you an exact angle to avoid.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "echo_position"
+            }
+          ],
+          "id": "s33_1",
+          "to": "s34",
+          "requirements": []
+        },
+        {
+          "label": "Warn Mika about the false shape",
+          "detail": "No one aboard should mistake it for home.",
+          "outcome": "Mika agrees to follow your voice rather than the bright outline.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "mika_contact"
+            }
+          ],
+          "id": "s33_2",
+          "to": "s34",
+          "requirements": []
+        },
+        {
+          "id": "s33_detour",
+          "label": "Try the emergency escape pod",
+          "detail": "You want another angle on the storm.",
+          "to": "detour_11",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s34",
+      "act": "ACT 6 / THE LAST SIGNAL · 34 OF 36",
+      "title": "A pulse of silver",
+      "paragraphs": [
+        "The storm is almost touching the mirror. A single burst of light can cut through it, but it may also make every piece of ice shine like a tiny false dock.",
+        "Your wrist radio vibrates. Mika is waiting."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Synchronize the pulse with Mika",
+          "detail": "One shared count could keep both crews together.",
+          "outcome": "Mika whispers 'ready' and taps the same rhythm as your heart.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "handshake"
+            }
+          ],
+          "id": "s34_1",
+          "to": "s35",
+          "requirements": []
+        },
+        {
+          "label": "Choose the measured frequency",
+          "detail": "The chart tells you where the light will go.",
+          "outcome": "Your waveform matches the map exactly. TAVI approves for the first time today.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "precision_pulse"
+            }
+          ],
+          "id": "s34_2",
+          "to": "s35",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s35",
+      "act": "ACT 6 / THE LAST SIGNAL · 35 OF 36",
+      "title": "The crew on the other side",
+      "paragraphs": [
+        "You hear the Wren's captain give an order, and then Mika says, “We can see your station. For a second we can see it twice.”",
+        "Osei places a hand on the console. Nobody will take the decision away from you now."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "label": "Send Mika your final route",
+          "detail": "Give the Wren a plan they can execute.",
+          "outcome": "Mika repeats the safe coordinates without a mistake.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "route_sent"
+            }
+          ],
+          "id": "s35_1",
+          "to": "s36",
+          "requirements": []
+        },
+        {
+          "label": "Ask the bridge crew to repeat your plan",
+          "detail": "Make sure everyone knows what will happen next.",
+          "outcome": "Three voices repeat the signal timing back to you.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "crew_pact"
+            }
+          ],
+          "id": "s35_2",
+          "to": "s36",
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s36",
+      "act": "ACT 6 / THE LAST SIGNAL · 36 OF 36",
+      "title": "No more warnings",
+      "paragraphs": [
+        "The warning lights go steady. A calm voice says the Wren has reached the last approach point. The station can send one final command.",
+        "You remember the first message: DON'T OPEN THE DOOR. It never said not to turn on the light."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "mika_contact",
+            "hint": "Needs mika_contact"
+          },
+          "text": "Mika says your name over the radio. You don't remember giving it to them, but the sound keeps you steady."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Check every safety lock",
+          "detail": "Make sure no door opens by accident.",
+          "outcome": "All pressure doors remain sealed. The only thing you can change is the guide light.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "safety_confirmed"
+            }
+          ],
+          "id": "s36_1",
+          "to": "decision",
+          "requirements": []
+        },
+        {
+          "label": "Tell Ren to guard the hatch",
+          "detail": "Someone should keep an eye on it.",
+          "outcome": "Ren gives you a two-finger salute and bolts the manual latch.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "safety_confirmed"
+            }
+          ],
+          "id": "s36_2",
+          "to": "decision",
+          "requirements": []
+        },
+        {
+          "id": "s36_detour",
+          "label": "Run the automatic victory test",
+          "detail": "Check whether the plan is good enough.",
+          "to": "detour_12",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "detour_01",
+      "act": "FALSE ENDING / 01",
+      "title": "A very final broom closet",
+      "paragraphs": [
+        "You pull the handle labeled EMERGENCY EXIT. The door swings inward. Beyond it is a broom closet, complete with a mop that falls dramatically onto your shoe."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_1",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THIS CORRIDOR)",
+        "note": "Try the hallway instead."
+      }
+    },
+    {
+      "id": "detour_02",
+      "act": "FALSE ENDING / 02",
+      "title": "The heroic snack break",
+      "paragraphs": [
+        "You press CREW EMERGENCY and a tray of hot noodles arrives from the cafeteria. The crew is grateful. The Wren, sadly, is still in danger."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_2",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF LUNCH)",
+        "note": "Lunch can wait."
+      }
+    },
+    {
+      "id": "detour_03",
+      "act": "FALSE ENDING / 03",
+      "title": "A map of the wrong station",
+      "paragraphs": [
+        "You unfold the map marked SECRET ROUTE. It is a guide to the museum's model of Starport Nine. After three turns, you are standing in front of a very small plastic dock."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_3",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THIS MAP)",
+        "note": "A real map would help more."
+      }
+    },
+    {
+      "id": "detour_04",
+      "act": "FALSE ENDING / 04",
+      "title": "The automatic apology",
+      "paragraphs": [
+        "The computer offers to apologize to tomorrow for the delay. You accept. It sends SORRY ABOUT THE WEATHER four thousand times and fills the message screen."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_4",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THE INBOX)",
+        "note": "Cancel the apology and try again."
+      }
+    },
+    {
+      "id": "detour_05",
+      "act": "FALSE ENDING / 05",
+      "title": "The twelve-second nap",
+      "paragraphs": [
+        "A medical chair promises a quick rest. You sit. It locks into overnight recovery mode and begins playing whale songs. Ren pulls the plug before you fall asleep."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_5",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF YOUR NAP)",
+        "note": "You have a ship to save."
+      }
+    },
+    {
+      "id": "detour_06",
+      "act": "FALSE ENDING / 06",
+      "title": "The victory parade",
+      "paragraphs": [
+        "You press the green control marked CELEBRATE ARRIVAL. Confetti pours from the ceiling. The Wren has not arrived, but TAVI plays a trumpet fanfare anyway."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_6",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THE PARADE)",
+        "note": "Save the confetti for later."
+      }
+    },
+    {
+      "id": "detour_07",
+      "act": "FALSE ENDING / 07",
+      "title": "The spectacularly wrong helmet",
+      "paragraphs": [
+        "The locker opens to reveal a helmet the size of a fishbowl. When you put it on, every voice sounds like a duck. Ren takes a picture for blackmail."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_7",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF COMMUNICATION)",
+        "note": "Remove the helmet."
+      }
+    },
+    {
+      "id": "detour_08",
+      "act": "FALSE ENDING / 08",
+      "title": "An upgrade nobody asked for",
+      "paragraphs": [
+        "The mirror's software offers DELUXE DEMONSTRATION MODE. You agree. Every docking arrow becomes a dancing cartoon star. TAVI refuses to continue until you undo it."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_8",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF PROFESSIONALISM)",
+        "note": "Return to the real console."
+      }
+    },
+    {
+      "id": "detour_09",
+      "act": "FALSE ENDING / 09",
+      "title": "The wrong kind of time machine",
+      "paragraphs": [
+        "You step inside the archive's chronology booth. It stamps today's date on a paper wristband. That's all it does. The attendant asks whether you want a souvenir."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_9",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF YOUR TIME TRAVEL)",
+        "note": "Try something useful instead."
+      }
+    },
+    {
+      "id": "detour_10",
+      "act": "FALSE ENDING / 10",
+      "title": "A rather permanent hold tune",
+      "paragraphs": [
+        "You call the station's help line. It puts you on hold. At least the music is pleasant. TAVI estimates a six-month wait for an operator."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_10",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THE CALL)",
+        "note": "Hang up before the next song."
+      }
+    },
+    {
+      "id": "detour_11",
+      "act": "FALSE ENDING / 11",
+      "title": "The brave escape pod",
+      "paragraphs": [
+        "You enter the escape pod to inspect the windows. A voice announces, 'This pod is decorative.' The door opens onto a gift shop."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_11",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THE ESCAPE)",
+        "note": "Return to the serious work."
+      }
+    },
+    {
+      "id": "detour_12",
+      "act": "FALSE ENDING / 12",
+      "title": "The fake finish line",
+      "paragraphs": [
+        "The console flashes YOU HAVE WON and plays a little tune. The letters below say TRAINING SIMULATION COMPLETE. The actual Wren is still waiting outside."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "detour_12",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THE TRAINING)",
+        "note": "The real final call is still ahead."
+      }
+    },
+    {
+      "id": "decision",
+      "act": "THE FINAL DECISION · 37 OF 37",
+      "title": "Your call, cadet",
+      "paragraphs": [
+        "Thirty-six decisions have brought you to the same impossible minute. Dock Seven is sealed. The Wren's lights show through the storm, sometimes doubled, sometimes gone.",
+        "You have clues, people who trust you, and whatever station power you've managed to save. The choice you make now cannot be undone. TAVI doesn't offer a suggestion. Neither does Chief Osei.",
+        "From the radio, Mika asks one simple question: “Which light is real?”"
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "handshake",
+            "hint": "Needs Mika's synchronized count"
+          },
+          "text": "You remember Mika's counted pulse. It could connect the real ship to the real dock."
+        }
+      ],
+      "choices": [
+        {
+          "id": "decide_best",
+          "label": "Send the true route together",
+          "detail": "Guide the Wren with the corrected light and both crews in sync.",
+          "to": "final_1",
+          "outcome": "The blue light reaches both days at once.",
           "effects": [],
           "requirements": [
             {
@@ -992,74 +2117,27 @@
             },
             {
               "stat": "trust",
+              "atLeast": 4,
+              "hint": "Needs 4 trust"
+            },
+            {
+              "stat": "power",
               "atLeast": 3,
-              "hint": "Needs 3 trust"
+              "hint": "Needs 3 power"
             },
             {
-              "stat": "power",
-              "atLeast": 2,
-              "hint": "Needs 2 power"
+              "flag": "handshake",
+              "hint": "Needs Mika's synchronized count"
             }
           ]
         },
         {
-          "id": "beacon",
-          "label": "Redirect the outer guidance beacon",
-          "to": "ending_beacon",
-          "detail": "A safe route, but you may lose contact with the Wren.",
-          "effects": [
-            {
-              "stat": "power",
-              "delta": -2
-            }
-          ],
-          "requirements": [
-            {
-              "stat": "clues",
-              "atLeast": 3,
-              "hint": "Needs 3 clues"
-            },
-            {
-              "stat": "power",
-              "atLeast": 2,
-              "hint": "Needs 2 power"
-            }
-          ]
-        },
-        {
-          "id": "drone_finish",
-          "label": "Send the old repair drone",
-          "to": "ending_drone",
-          "detail": "Let a small machine find the way.",
-          "effects": [
-            {
-              "stat": "power",
-              "delta": -1
-            }
-          ],
-          "requirements": [
-            {
-              "flag": "drone",
-              "hint": "Needs an awakened repair drone"
-            },
-            {
-              "stat": "power",
-              "atLeast": 1,
-              "hint": "Needs 1 power"
-            }
-          ]
-        },
-        {
-          "id": "transmit",
-          "label": "Send tomorrow a new warning",
-          "to": "ending_warning",
-          "detail": "Trust that Mika can act on what you tell them.",
-          "effects": [
-            {
-              "stat": "power",
-              "delta": -1
-            }
-          ],
+          "id": "decide_safe",
+          "label": "Guide the Wren around the ice",
+          "detail": "Take the long approach, even if the time loop stays unsolved.",
+          "to": "final_2",
+          "outcome": "The ship follows the older map, slowly and carefully.",
+          "effects": [],
           "requirements": [
             {
               "stat": "clues",
@@ -1070,27 +2148,45 @@
               "stat": "trust",
               "atLeast": 2,
               "hint": "Needs 2 trust"
-            },
-            {
-              "stat": "power",
-              "atLeast": 1,
-              "hint": "Needs 1 power"
             }
           ]
         },
         {
-          "id": "seal",
-          "label": "Seal Dock Seven and alert tomorrow's crew",
-          "to": "ending_seal",
-          "detail": "The cautious choice isn't always the wrong one.",
+          "id": "decide_rough",
+          "label": "Force the old mirror into position",
+          "detail": "Use the reserve charge for one risky flash.",
+          "to": "final_3",
+          "outcome": "The mirror moves with a grinding cry.",
           "effects": [],
-          "requirements": []
+          "requirements": [
+            {
+              "stat": "power",
+              "atLeast": 2,
+              "hint": "Needs 2 power"
+            }
+          ]
         },
         {
-          "id": "open",
-          "label": "Open Dock Seven to find out what's there",
-          "to": "ending_open",
-          "detail": "Maybe the message meant something else.",
+          "id": "decide_close",
+          "label": "Close the guide lights and delay arrival",
+          "detail": "Keep the station safe, but turn away the Wren.",
+          "to": "final_4",
+          "outcome": "The bridge shutters darken the stars.",
+          "effects": [],
+          "requirements": [
+            {
+              "stat": "trust",
+              "atLeast": 1,
+              "hint": "Needs 1 trust"
+            }
+          ]
+        },
+        {
+          "id": "decide_risk",
+          "label": "Open the main hatch and follow the brightest light",
+          "detail": "Ignore the warning and trust the easiest-looking path.",
+          "to": "final_5",
+          "outcome": "The bright line across the ice is not a docking lane.",
           "effects": [],
           "requirements": []
         }
@@ -1098,99 +2194,103 @@
       "ending": null
     },
     {
-      "id": "ending_bridge",
-      "act": "ENDING / 01",
-      "title": "A bridge across tomorrow",
+      "id": "final_1",
+      "act": "PERMANENT ENDING / 1 OF 5",
+      "title": "Tomorrow arrives safely",
       "paragraphs": [
-        "You send the storm's rhythm to Mika, give Chief Osei the safe coordinates, and fire one clean pulse through the guidance mirror.",
-        "For a moment the red planet appears doubled. Then tomorrow's Wren answers. “We see the real dock,” Mika says. “We see you.”",
-        "The following morning the Wren arrives exactly on time, with three scientists, a crate of seedlings, and a junior pilot who looks straight at you and grins. No one can explain how yesterday's conversation happened. You don't mind. You have questions for tomorrow."
+        "You count with Mika: three fast beats, one slow. The outer mirror answers in the exact rhythm you measured, and the ice ring goes dark for one perfect second.",
+        "Through the silver storm, the Wren's real lights appear. Not a reflection. Not a memory. Chief Osei guides the ship into Dock Seven without opening the hatch until the pressure display reads SAFE.",
+        "The next morning the Wren arrives on schedule anyway. Mika steps off carrying the first Pel seedling and says, “I think we fixed tomorrow yesterday.” TAVI suggests that this sentence is illegal in several branches of mathematics.",
+        "The station's old mirror is rebuilt. The seedlings will grow. Ren keeps the note you wrote during the storm and tapes it above the new console: BELIEVE THE SIGNAL. CHECK THE LIGHT."
       ],
+      "conditionalParagraphs": [],
       "choices": [],
       "ending": {
-        "id": "bridge",
-        "title": "A bridge across tomorrow",
-        "note": "You solved the puzzle together."
+        "id": "final_1",
+        "kind": "final",
+        "rank": 1,
+        "title": "Tomorrow arrives safely",
+        "note": "BEST OUTCOME · Everyone arrives, and the time loop is closed."
       }
     },
     {
-      "id": "ending_beacon",
-      "act": "ENDING / 02",
-      "title": "A light in the wrong place",
+      "id": "final_2",
+      "act": "PERMANENT ENDING / 2 OF 5",
+      "title": "The long way home",
       "paragraphs": [
-        "You turn the outer beacon away from the ice ring. The station's lights blink out for seven long seconds. Then they return—and Dock Seven falls quiet.",
-        "Tomorrow the Wren comes in on a wide, safe loop. It takes longer, but everyone gets home. Mika sends you a message as soon as the ship docks: “Did you hear me yesterday? I think you did.”",
-        "Some mysteries don't need a neat answer to end well."
+        "You choose the older approach route, away from the sharpest ice. Mika repeats the bearings, and the Wren turns into the dark shadow behind the station.",
+        "It takes almost a full day to reach the dock. No one complains. When the Wren finally lands, its passengers are tired and hungry, but unharmed. The seedlings survive the delay.",
+        "The first warning remains on your wrist radio, though nobody remembers sending it. Chief Osei calls this a mystery worth keeping. TAVI calls it a flaw in the universe's filing system.",
+        "Mika asks to see the glass storm from the observation deck. You stand beside them and watch a silver ribbon fade into space."
       ],
+      "conditionalParagraphs": [],
       "choices": [],
       "ending": {
-        "id": "beacon",
-        "title": "A light in the wrong place",
-        "note": "You found a safer route."
+        "id": "final_2",
+        "kind": "final",
+        "rank": 2,
+        "title": "The long way home",
+        "note": "GREAT OUTCOME · Everyone is safe, but the mystery remains."
       }
     },
     {
-      "id": "ending_drone",
-      "act": "ENDING / 03",
-      "title": "The smallest pilot",
+      "id": "final_3",
+      "act": "PERMANENT ENDING / 3 OF 5",
+      "title": "A hard landing",
       "paragraphs": [
-        "The drone shoots into the storm like a blue pebble with opinions. Its old navigation chip remembers a path the station computers forgot.",
-        "Static fills the radio. Then a tinny voice from the drone says, “LEFT. NO, YOUR OTHER LEFT.” You hear Mika laugh.",
-        "The Wren arrives tomorrow with a small scrape on its hull and all its passengers safe. Ren insists the drone gets its own medal. You agree, though you suggest a new sticker: DO TEACH ME TRICKS."
+        "You swing the old mirror into position using the reserve cells. For one breathless moment the signal vanishes. Then the Wren shoots out of the silver fog at a dangerous angle.",
+        "The docking clamps catch the ship just in time. The Wren's crew gets out safely, with the seedling crates mostly intact. But the outer mirror snaps in half and the station loses power to three decks.",
+        "Ren spends the next week helping repair Starport Nine. Chief Osei thanks you for making the dangerous choice that brought the Wren home, then points out the long list of repairs it caused.",
+        "Mika finds you under the broken mirror and says, “Next time, maybe we use the long way around.” You agree. Next time you'll know more."
       ],
+      "conditionalParagraphs": [],
       "choices": [],
       "ending": {
-        "id": "drone",
-        "title": "The smallest pilot",
-        "note": "You trusted an unlikely guide."
+        "id": "final_3",
+        "kind": "final",
+        "rank": 3,
+        "title": "A hard landing",
+        "note": "MIXED OUTCOME · The crew survives, but Starport Nine pays the price."
       }
     },
     {
-      "id": "ending_warning",
-      "act": "ENDING / 04",
-      "title": "Message received",
+      "id": "final_4",
+      "act": "PERMANENT ENDING / 4 OF 5",
+      "title": "The empty docking bay",
       "paragraphs": [
-        "You send Mika everything you know: the ice ring, the mirror angle, and the one course to avoid. The warning disappears into the shining storm.",
-        "Tomorrow, before launch, the station receives a short reply from the Wren. “We changed our approach. Thank you.”",
-        "Chief Osei says you may have just rewritten a piece of history. TAVI calls it an unverified hypothesis. You call it a good day."
+        "You darken the guidance lights and seal the dock. The false reflections disappear. So does the Wren's reply.",
+        "For two terrible hours there is no voice on the radio. Then another station catches Mika's message: the Wren has turned back toward Pel. Its crew is safe, but the seedlings must return to storage and the research mission is cancelled.",
+        "Chief Osei says that protecting the people already on Starport Nine was a defensible choice. It doesn't feel like a victory. The empty dock bell rings once more, then never again.",
+        "You keep the old map and Mika's message. One day there may be a chance to try again—with better evidence and a little more courage."
       ],
+      "conditionalParagraphs": [],
       "choices": [],
       "ending": {
-        "id": "warning",
-        "title": "Message received",
-        "note": "You changed the plan, not the past."
+        "id": "final_4",
+        "kind": "final",
+        "rank": 4,
+        "title": "The empty docking bay",
+        "note": "POOR OUTCOME · The station is safe, but the ship must turn away."
       }
     },
     {
-      "id": "ending_seal",
-      "act": "ENDING / 05",
-      "title": "The door stays shut",
+      "id": "final_5",
+      "act": "PERMANENT ENDING / 5 OF 5",
+      "title": "The light that lied",
       "paragraphs": [
-        "You lock the empty dock and send an urgent navigation warning for tomorrow's flight. The guidance mirror stops turning. The station rides out the storm.",
-        "No one on Starport Nine is hurt. Tomorrow's launch is delayed while the engineers inspect the old mirror, and the Wren lands a day late with everyone aboard.",
-        "You never find out who sent the first message. But sometimes the bravest answer to a strange door is: not yet."
+        "You open the hatch and follow the brightest light. For one second it looks like a clear route. Then the reflection folds, and the real ship disappears behind the ice ring.",
+        "The station's safety field slams shut. A shock travels through the outer deck. The crew evacuates and Starport Nine survives, damaged but intact. The Wren does not answer any of the rescue calls.",
+        "Search ships are launched immediately. Days later, they are still looking. Nobody says the word lost aloud, but the empty dock is quieter than it was before. The glass storm has taken the ship somewhere nobody can find.",
+        "TAVI saves the first warning in the permanent log. You listen to it once more: “Don't open the door.” Next time, you promise yourself, you will hear the whole message before you act."
       ],
+      "conditionalParagraphs": [],
       "choices": [],
       "ending": {
-        "id": "seal",
-        "title": "The door stays shut",
-        "note": "You chose patience over a gamble."
-      }
-    },
-    {
-      "id": "ending_open",
-      "act": "ENDING / 06",
-      "title": "Nothing on the other side",
-      "paragraphs": [
-        "You hit OPEN. The door rolls aside, revealing only the safety field and the stars beyond it. The rushing noise isn't air; it's radio static, pouring through the guidance mirror.",
-        "For an instant you see a shadow of the Wren—then it's gone. The station shuts down the mirror automatically. Tomorrow the engineers ground the ship for inspection, and no one is harmed.",
-        "TAVI files the incident under DOORS / UNWISE. Ren thinks that's unfair. You think maybe the message was worth listening to."
-      ],
-      "choices": [],
-      "ending": {
-        "id": "open",
-        "title": "Nothing on the other side",
-        "note": "You learned why warnings matter."
+        "id": "final_5",
+        "kind": "final",
+        "rank": 5,
+        "title": "The light that lied",
+        "note": "WORST OUTCOME · A reckless choice loses the Wren and endangers the station."
       }
     }
   ]

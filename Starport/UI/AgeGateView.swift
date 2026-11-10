@@ -17,13 +17,13 @@ struct AgeGateView: View {
                     OrbitArtwork()
                         .frame(height: 170)
 
-                    Text(under13 ? "See you when you're older." : "Before you enter Starport")
+                    Text(under13 ? "See you when you're older." : "Before you enter \(AppBrand.current.name)")
                         .font(.system(.largeTitle, design: .rounded, weight: .bold))
                         .foregroundStyle(StarportTheme.paper)
                         .fixedSize(horizontal: false, vertical: true)
 
                     if under13 {
-                        Text("Starport is for people aged 13 and older. You can't open the adventure library yet.")
+                        Text("\(AppBrand.current.name) is for people aged 13 and older. You can't open the adventure library yet.")
                             .font(.title3)
                             .foregroundStyle(StarportTheme.muted)
                             .fixedSize(horizontal: false, vertical: true)
@@ -34,7 +34,7 @@ struct AgeGateView: View {
                             .font(.headline)
                             .padding(.vertical, 12)
                     } else {
-                        Text("Starport is an adventure app for ages 13 and up. Please confirm your age to continue.")
+                        Text("\(AppBrand.current.name) is an adventure app for ages 13 and up. Please confirm your age to continue.")
                             .font(.title3)
                             .foregroundStyle(StarportTheme.muted)
                             .fixedSize(horizontal: false, vertical: true)
@@ -49,7 +49,7 @@ struct AgeGateView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.vertical, 10)
 
-                        Text("We don't ask for your name or date of birth. Starport remembers only that you confirmed you're old enough.")
+                        Text("We don't ask for your name or date of birth. \(AppBrand.current.name) remembers only that you confirmed you're old enough.")
                             .font(.footnote)
                             .foregroundStyle(StarportTheme.muted)
                             .fixedSize(horizontal: false, vertical: true)

@@ -44,7 +44,7 @@ The star train Marigold has twelve cars on its list and thirteen on the track. F
 - **Three endgames that exclude each other.** The Song needs the lantern song, which must be learned earlier. The Skiff needs a reader who has worked outside the train with Wick. The Coupling is always open. Endings 1, 2 and 4 to 7 each belong to exactly one endgame, so no single run can reach them all.
 - Most choices after the first act are trade-offs between Clues, Power and Trust, and some unlock only with a flag earned earlier.
 - **32 achievements of its own** (IDs prefixed `car13_`): seven endings, route and character discoveries, and mastery goals such as finishing by all three endgames. The trophy shelf is grouped per adventure, and each story only awards its own achievements.
-- **A cover and eight interior scenes** on 37 of the 72 interactive pages. They are drawn by `scripts/generate_car_thirteen_art.py` (needs Pillow); re-run it to change a picture.
+- **A cover and eight interior scenes** on 37 of the 72 interactive pages. The scenes are drawn by `scripts/generate_car_thirteen_art.py` and the cover by `scripts/generate_car_thirteen_cover.py` (Pillow and numpy; the cover also uses the Caladea and Inter fonts). Re-run either to change a picture.
 
 Both stories are suspenseful, character-driven, and age-appropriate, with no graphic violence. A poor outcome can be sad without becoming graphic.
 

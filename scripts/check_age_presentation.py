@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+"""Ensure Stuffy Land uses store-managed age classification, not an age prompt.
+
+This is a source-level regression guard for the shared SwiftUI entry point.
+It intentionally does *not* claim to verify the App Store Connect rating;
+that remains a separate distribution setting.
+"""
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+brand = (ROOT / "Starport/App/AppBrand.swift").read_text()
+root = (ROOT / "Starport/UI/StarportRootView.swift").read_text()
+settings = (ROOT / "Starport/UI/SettingsScreen.swift").read_text()
+ads = (ROOT / "Starport/App/AdsController.swift").read_text()
+
+assert "var requiresInAppAgeConfirmation: Bool { !isStuffyLand }" in brand
+assert "private var canOpenLibrary: Bool { !AppBrand.current.requiresInAppAgeConfirmation || ageConfirmed }" in root
+assert "if !canOpenLibrary {" in root
+assert "AgeGateView(onConfirm13Plus:" in root, "Keep Starport's separate gate."
+assert ".task(id: canOpenLibrary)" in root, "Stuffy Land must prepare services without an age prompt."
+assert "if canOpenLibrary, purchases.entitlementsLoaded" in root
+assert "STUFFY LAND · FOR READERS AGES 13+" not in root
+assert "Stuffy Land currently has a 13+ development age gate" not in settings
+assert 'if AppBrand.current.isStuffyLand {' in settings
+assert "configuration.ageRestrictedTreatment = .teen" in ads
+assert "configuration.maxAdContentRating = .general" in ads
+assert "configuration.publisherPrivacyPersonalizationState = .disabled" in ads
+print("PASS Stuffy Land opens directly to stories; Starport gate and ad safeguards remain.")

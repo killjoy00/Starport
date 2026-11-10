@@ -1,0 +1,37 @@
+name: Bake approved StarPort app icon into asset catalog
+on:
+  push:
+    branches: [feat/starport-approved-gateway-icon]
+    paths:
+      - "Starport/Assets.xcassets/AppIcon.appiconset/ApprovedGateway.jpg"
+      - "scripts/bake_approved_icon.sh"
+      - ".github/workflows/bake-approved-icon.yml"
+permissions:
+  contents: write
+jobs:
+  bake:
+    name: Generate and commit the actual icon asset
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Generate 1024x1024 AppIcon.png
+        run: bash scripts/bake_approved_icon.sh
+      - name: Preserve a QA preview of the baked 1024px icon
+        uses: actions/upload-artifact@v4
+        with:
+          name: starport-approved-icon-qa
+          path: Starport/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+          retention-days: 3
+      - name: Commit baked icon to this feature branch
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add Starport/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+          if git diff --cached --quiet; then
+            echo "App icon is already current"
+          else
+            git commit -m "assets: bake approved gateway icon PNG"
+            git push origin HEAD:feat/starport-approved-gateway-icon
+          fi

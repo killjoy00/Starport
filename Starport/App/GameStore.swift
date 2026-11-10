@@ -7,6 +7,8 @@ final class GameStore: ObservableObject {
     @Published private(set) var catalog: AdventureCatalog?
     @Published private(set) var selectedID: String?
     @Published private(set) var engine: AdventureEngine?
+    @Published private(set) var readerBook: RegularBook?
+    @Published private(set) var readerPageIndex = 0
     @Published private(set) var errorMessage: String?
     @Published private(set) var libraryMessage: String?
     @Published private(set) var isRefreshing = false
@@ -42,18 +44,39 @@ final class GameStore: ObservableObject {
             return
         }
         do {
-            let book = try repository.load(entry)
-            let restored = defaults.data(forKey: progressKey(id))
-            let loaded = try AdventureEngine(book: book, restored: restored)
-            engine = loaded
+            if entry.format == .reader {
+                let book = try repository.loadReader(entry)
+                let bookmark = defaults.integer(forKey: readerProgressKey(id, version: book.contentVersion))
+                readerBook = book
+                readerPageIndex = min(max(0, bookmark), book.pages.count - 1)
+                engine = nil
+            } else {
+                let book = try repository.load(entry)
+                let restored = defaults.data(forKey: progressKey(id))
+                let loaded = try AdventureEngine(book: book, restored: restored)
+                engine = loaded
+                readerBook = nil
+                readerPageIndex = 0
+            }
             selectedID = id
             defaults.set(id, forKey: "\(AppBrand.current.storagePrefix).lastAdventure")
             errorMessage = nil
-            awardAchievements(event: .newRun)
+            if engine != nil { awardAchievements(event: .newRun) }
         } catch {
             errorMessage = error.localizedDescription
         }
     }
+
+    /// The bookmark is local, per book and per content version. A new edition
+    /// starts from the beginning instead of reopening a stale page index.
+    func goToReaderPage(_ index: Int) {
+        guard let book = readerBook, !book.pages.isEmpty else { return }
+        readerPageIndex = max(0, min(index, book.pages.count - 1))
+        defaults.set(readerPageIndex, forKey: readerProgressKey(book.id, version: book.contentVersion))
+    }
+
+    func nextReaderPage() { goToReaderPage(readerPageIndex + 1) }
+    func previousReaderPage() { goToReaderPage(readerPageIndex - 1) }
 
     func begin() {
         guard var current = engine else { return }
@@ -126,6 +149,10 @@ final class GameStore: ObservableObject {
         lastAchievement = AchievementCatalog.all(forStuffyLand: AppBrand.current.isStuffyLand).first { newlyEarned.contains($0.id) }
     }
     func clearLibraryMessage() { libraryMessage = nil }
+
+    private func readerProgressKey(_ id: String, version: Int) -> String {
+        "\(AppBrand.current.storagePrefix).reader.\(id).v\(version)"
+    }
 
     private func progressKey(_ id: String) -> String { "\(AppBrand.current.storagePrefix).progress.\(id).v2" }
 

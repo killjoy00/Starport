@@ -150,6 +150,8 @@ public struct AdventureListing: Codable, Identifiable, Equatable, Sendable {
     public let symbol: String
     public let coverAsset: String?
     public let estimatedMinutes: Int
+    /// Optional shelf label for large themed libraries, absent in older catalogs.
+    public let collection: String?
 }
 
 public struct AdventureCatalog: Codable, Sendable {

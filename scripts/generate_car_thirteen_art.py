@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Deterministic original scene art for Episode 02, The Thirteenth Car.
 
-Draws eight interior scenes and one cover as flat, lamp-lit night pictures and
-writes them into Starport/Assets.xcassets. Re-run after editing a scene:
+Draws eight interior scenes as flat, lamp-lit night pictures and writes them
+into Starport/Assets.xcassets. The cover has its own script,
+generate_car_thirteen_cover.py. Re-run after editing a scene:
 
     python3 scripts/generate_car_thirteen_art.py
 """
@@ -365,21 +366,8 @@ def scene_lampcar():
     c.save("car13-scene-lampcar")
 
 
-def cover():
-    c = Canvas(800, 1200, top=(5, 8, 20), bottom=(26, 34, 58), seed=19)
-    c.stars(280, 0.85)
-    ray(c, 400, 380, 900, GOLD, tilt=0.05)
-    c.fog(760, 240, n=10, alpha=36)
-    for i in range(6):
-        t = i / 5
-        lantern(c, 60 + t * 690, 900 - math.sin(t * math.pi) * 60, 5 + t * 3, lit=i != 3)
-    train(c, 30, 960, 5, car_w=128, car_h=50, gap=10, frost_index=1)
-    c.fog(1090, 120, n=8, alpha=40)
-    c.save("cover-car-thirteen")
-
-
 if __name__ == "__main__":
     for make in (scene_train, scene_door, scene_ember, scene_moths, scene_roof, scene_engine,
-                 scene_oldgold, scene_lampcar, cover):
+                 scene_oldgold, scene_lampcar):
         make()
-    print("Wrote 8 scenes and 1 cover to", ASSETS)
+    print("Wrote 8 scenes to", ASSETS)

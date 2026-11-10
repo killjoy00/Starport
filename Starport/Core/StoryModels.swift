@@ -102,6 +102,11 @@ public struct ConditionalParagraph: Codable, Sendable {
     public let text: String
 }
 
+public struct StoryIllustration: Codable, Sendable {
+    public let asset: String
+    public let alt: String
+}
+
 public struct StoryNode: Codable, Identifiable, Sendable {
     public let id: String
     public let act: String
@@ -110,6 +115,7 @@ public struct StoryNode: Codable, Identifiable, Sendable {
     public let conditionalParagraphs: [ConditionalParagraph]?
     public let choices: [StoryChoice]?
     public let ending: StoryEnding?
+    public let illustration: StoryIllustration?
 
     public func visibleParagraphs(stats: AdventureStats, flags: Set<String>) -> [String] {
         paragraphs + (conditionalParagraphs ?? [])
@@ -130,6 +136,7 @@ public struct StoryBook: Codable, Sendable {
     public func node(_ id: String) -> StoryNode? { nodes.first { $0.id == id } }
     public var finalCount: Int { nodes.filter { $0.ending?.kind == .final }.count }
     public var detourCount: Int { nodes.filter { $0.ending?.kind == .detour }.count }
+    public var illustratedCount: Int { nodes.filter { $0.illustration != nil }.count }
 }
 
 public struct AdventureListing: Codable, Identifiable, Equatable, Sendable {
@@ -141,6 +148,7 @@ public struct AdventureListing: Codable, Identifiable, Equatable, Sendable {
     public let blurb: String
     public let genre: String
     public let symbol: String
+    public let coverAsset: String?
     public let estimatedMinutes: Int
 }
 

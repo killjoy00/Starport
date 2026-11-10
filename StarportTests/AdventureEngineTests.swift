@@ -17,6 +17,10 @@ final class AdventureEngineTests: XCTestCase {
         XCTAssertEqual(book.nodes.count, 54)
         XCTAssertEqual(book.finalCount, 5)
         XCTAssertEqual(book.detourCount, 12)
+        XCTAssertEqual(book.illustratedCount, 20)
+        let fullScenes = book.nodes.filter { $0.ending == nil }
+        XCTAssertEqual(fullScenes.count, 37)
+        XCTAssertGreaterThanOrEqual(fullScenes.filter { $0.illustration != nil }.count * 3, fullScenes.count)
         XCTAssertEqual(book.nodes.flatMap { $0.choices ?? [] }.count, 89)
         XCTAssertEqual(book.minimumDecisions, 30)
         XCTAssertNoThrow(try StoryValidator.validate(book))

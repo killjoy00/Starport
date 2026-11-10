@@ -25,7 +25,8 @@ public enum StoryLoader {
         }
         for item in catalog.adventures {
             guard !item.id.isEmpty, !item.title.isEmpty, item.contentVersion > 0,
-                  item.estimatedMinutes > 0, isSafeFilename(item.filename) else {
+                  item.estimatedMinutes > 0, isSafeFilename(item.filename),
+                  (item.coverAsset.map(isSafeFilename) ?? true) else {
                 throw StoryError.invalidBook("Unsafe or incomplete adventure entry.")
             }
         }

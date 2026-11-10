@@ -6,6 +6,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+        D00000000000000000000015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000015 /* Assets.xcassets */; };
+        D00000000000000000000016 /* StoryIllustrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000016 /* StoryIllustrationView.swift */; };
 		D0000000000000000000000B /* AdventureRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000B /* AdventureRepository.swift */; };
 		D0000000000000000000000C /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000C /* PurchaseManager.swift */; };
 		D0000000000000000000000D /* AdsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000D /* AdsController.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+        C00000000000000000000015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Starport/Assets.xcassets; sourceTree = "<group>"; };
+        C00000000000000000000016 /* StoryIllustrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryIllustrationView.swift; sourceTree = "<group>"; };
 		C0000000000000000000000B /* AdventureRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureRepository.swift; sourceTree = "<group>"; };
 		C0000000000000000000000C /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		C0000000000000000000000D /* AdsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 				B0000000000000000000000B /* UI */,
 				B0000000000000000000000C /* Core */,
 				B0000000000000000000000D /* Content */,
+                C00000000000000000000015 /* Assets.xcassets */,
 				B00000000000000000000002 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +94,7 @@
 				C0000000000000000000000F /* SettingsScreen.swift */,
 				C00000000000000000000010 /* AgeGateView.swift */,
 				C00000000000000000000011 /* AchievementsScreen.swift */,
+                C00000000000000000000016 /* StoryIllustrationView.swift */,
 			);
 			path = "Starport/UI";
 			sourceTree = "<group>";
@@ -155,6 +161,7 @@
 				D00000000000000000000009 /* first_signal.json in Resources */,
 				D0000000000000000000000A /* PrivacyInfo.xcprivacy in Resources */,
 				D00000000000000000000013 /* catalog.json in Resources */,
+                D00000000000000000000015 /* Assets.xcassets in Resources */,
 			); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXResourcesBuildPhase section */
 
@@ -176,6 +183,7 @@
 				D00000000000000000000010 /* AgeGateView.swift in Sources */,
 				D00000000000000000000011 /* AchievementsScreen.swift in Sources */,
 				D00000000000000000000012 /* Achievements.swift in Sources */,
+                D00000000000000000000016 /* StoryIllustrationView.swift in Sources */,
 			); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
@@ -184,7 +192,8 @@
 		100000000000000000000002 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; SDKROOT = iphoneos; SWIFT_VERSION = 5.0; }; name = Release; };
 		100000000000000000000003 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {
 			ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-			CODE_SIGN_STYLE = Automatic;
+			ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+            CODE_SIGN_STYLE = Automatic;
 			CURRENT_PROJECT_VERSION = 1;
 			ENABLE_PREVIEWS = YES;
 			GENERATE_INFOPLIST_FILE = YES;
@@ -203,7 +212,8 @@
 			TARGETED_DEVICE_FAMILY = "1,2";
 		}; name = Debug; };
 		100000000000000000000004 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {
-			CODE_SIGN_STYLE = Automatic;
+			ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+            CODE_SIGN_STYLE = Automatic;
 			CURRENT_PROJECT_VERSION = 1;
 			GENERATE_INFOPLIST_FILE = YES;
 			INFOPLIST_KEY_CFBundleDisplayName = Starport;

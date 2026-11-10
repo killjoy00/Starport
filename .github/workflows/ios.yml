@@ -12,6 +12,8 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
+      - name: Validate embedded artwork and coverage
+        run: python3 scripts/audit_artwork.py
       - name: Run Swift tests
         run: swift test
 

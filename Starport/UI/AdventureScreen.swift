@@ -101,6 +101,10 @@ struct AdventureScreen: View {
                                 .frame(width: 36, height: 3)
                                 .padding(.vertical, 5)
 
+                            if let illustration = engine.node.illustration {
+                                StoryIllustrationView(illustration: illustration)
+                            }
+
                             let paragraphs = engine.node.visibleParagraphs(
                                 stats: engine.progress.stats, flags: engine.progress.flags
                             )

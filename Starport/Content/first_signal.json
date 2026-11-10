@@ -51,7 +51,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-warning",
+        "alt": "The cadet hears an impossible warning on a glowing radio."
+      }
     },
     {
       "id": "s02",
@@ -203,7 +207,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-tavi",
+        "alt": "A holographic station computer displays two versions of Dock Seven."
+      }
     },
     {
       "id": "s05",
@@ -402,7 +410,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-navigation",
+        "alt": "A plotted route through crystalline ice toward Starport Nine."
+      }
     },
     {
       "id": "s09",
@@ -564,7 +576,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-warning",
+        "alt": "The cadet checks the mysterious message in a station corridor."
+      }
     },
     {
       "id": "s12",
@@ -776,7 +792,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-storm",
+        "alt": "The Wren flies through the shimmering silver glass storm outside the station."
+      }
     },
     {
       "id": "s16",
@@ -871,7 +891,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-drone",
+        "alt": "Ren works on a small, friendly repair drone in the maintenance bay."
+      }
     },
     {
       "id": "s18",
@@ -979,7 +1003,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-contact",
+        "alt": "A cadet reaches toward a distant pilot on a flickering holographic call."
+      }
     },
     {
       "id": "s20",
@@ -1137,7 +1165,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-seedlings",
+        "alt": "Precious glowing seedlings sit protected in a spacecraft cargo case."
+      }
     },
     {
       "id": "s23",
@@ -1241,7 +1273,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-tavi",
+        "alt": "The station AI shows two overlapping versions of Dock Seven."
+      }
     },
     {
       "id": "s25",
@@ -1347,7 +1383,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-navigation",
+        "alt": "An illuminated safe route winds between huge ice crystals."
+      }
     },
     {
       "id": "s27",
@@ -1501,7 +1541,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-tavi",
+        "alt": "TAVI projects an impossible view of the dock across two timelines."
+      }
     },
     {
       "id": "s30",
@@ -1655,7 +1699,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-warning",
+        "alt": "The cadet studies a warning signal's orange waveform."
+      }
     },
     {
       "id": "s33",
@@ -1766,7 +1814,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-navigation",
+        "alt": "The Wren's suggested flight path winds through dangerous crystalline ice."
+      }
     },
     {
       "id": "s35",
@@ -1877,7 +1929,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-storm",
+        "alt": "The Wren approaches the station through the glass storm."
+      }
     },
     {
       "id": "detour_01",
@@ -2191,7 +2247,11 @@
           "requirements": []
         }
       ],
-      "ending": null
+      "ending": null,
+      "illustration": {
+        "asset": "scene-tavi",
+        "alt": "The station's glowing AI interface displays two possible futures."
+      }
     },
     {
       "id": "final_1",
@@ -2211,6 +2271,10 @@
         "rank": 1,
         "title": "Tomorrow arrives safely",
         "note": "BEST OUTCOME · Everyone arrives, and the time loop is closed."
+      },
+      "illustration": {
+        "asset": "scene-signal",
+        "alt": "A steady blue signal guides the Wren safely toward the starport."
       }
     },
     {
@@ -2231,6 +2295,10 @@
         "rank": 2,
         "title": "The long way home",
         "note": "GREAT OUTCOME · Everyone is safe, but the mystery remains."
+      },
+      "illustration": {
+        "asset": "scene-storm",
+        "alt": "The Wren finds a safer path around the storm and returns toward the station."
       }
     },
     {
@@ -2251,6 +2319,10 @@
         "rank": 3,
         "title": "A hard landing",
         "note": "MIXED OUTCOME · The crew survives, but Starport Nine pays the price."
+      },
+      "illustration": {
+        "asset": "scene-navigation",
+        "alt": "A dangerous flight path threads through bright ice crystals."
       }
     },
     {
@@ -2271,6 +2343,10 @@
         "rank": 4,
         "title": "The empty docking bay",
         "note": "POOR OUTCOME · The station is safe, but the ship must turn away."
+      },
+      "illustration": {
+        "asset": "scene-seedlings",
+        "alt": "Rare seedlings remain inside a protected cargo case while the mission is delayed."
       }
     },
     {
@@ -2291,6 +2367,10 @@
         "rank": 5,
         "title": "The light that lied",
         "note": "WORST OUTCOME · A reckless choice loses the Wren and endangers the station."
+      },
+      "illustration": {
+        "asset": "scene-tavi",
+        "alt": "A holographic view shows the station split between two futures."
       }
     }
   ]

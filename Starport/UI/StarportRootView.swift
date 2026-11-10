@@ -71,20 +71,35 @@ struct StarportRootView: View {
                 }
                 .padding(.top, 10)
 
-                OrbitArtwork()
-                    .frame(height: 185)
+                VStack(alignment: .leading, spacing: 11) {
+                    HStack(spacing: 7) {
+                        Image(systemName: "sparkle")
+                        Text("INTERACTIVE FICTION")
+                    }
+                    .font(.system(.caption, design: .monospaced, weight: .bold))
+                    .tracking(1.4)
+                    .foregroundStyle(StarportTheme.orange)
 
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("CHOOSE YOUR ADVENTURE")
-                        .font(.system(.caption, design: .monospaced, weight: .bold))
-                        .tracking(1.6)
-                        .foregroundStyle(StarportTheme.orange)
-                    Text("Your next story starts here.")
-                        .font(.system(.largeTitle, design: .rounded, weight: .bold))
+                    Text("Choose a story.\nChange the ending.")
+                        .font(.system(size: 33, weight: .bold, design: .rounded))
+                        .tracking(-0.8)
                         .foregroundStyle(StarportTheme.paper)
                         .fixedSize(horizontal: false, vertical: true)
-                    Text("Make the decisions. Find the endings. Then try another route.")
+
+                    Text("The story moves forward because of your decisions.")
                         .font(.body)
+                        .foregroundStyle(StarportTheme.muted)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                HStack {
+                    Text("THE LIBRARY")
+                        .font(.system(.caption, design: .monospaced, weight: .bold))
+                        .tracking(1.6)
+                        .foregroundStyle(StarportTheme.teal)
+                    Spacer()
+                    Text("\(game.catalog?.adventures.count ?? 0) ADVENTURE")
+                        .font(.system(.caption2, design: .monospaced))
                         .foregroundStyle(StarportTheme.muted)
                 }
 
@@ -158,48 +173,61 @@ struct StarportRootView: View {
     private func adventureCard(_ entry: AdventureListing) -> some View {
         let selected = game.selectedID == entry.id ? game.engine : nil
         let count = selected?.progress.endingsFound.count ?? 0
-        return VStack(alignment: .leading, spacing: 15) {
-            HStack {
-                Label(entry.genre.uppercased(), systemImage: entry.symbol)
-                    .font(.system(.caption, design: .monospaced, weight: .bold))
-                    .tracking(0.9)
-                    .foregroundStyle(StarportTheme.orange)
-                Spacer()
-                Text("\(entry.estimatedMinutes) MIN")
-                    .font(.system(.caption2, design: .monospaced))
-                    .foregroundStyle(StarportTheme.muted)
-            }
-            Text(entry.title)
-                .font(.system(.title2, design: .rounded, weight: .bold))
-                .foregroundStyle(StarportTheme.paper)
-                .multilineTextAlignment(.leading)
-            Text(entry.blurb)
-                .font(.subheadline)
-                .foregroundStyle(StarportTheme.muted)
-                .multilineTextAlignment(.leading)
-                .fixedSize(horizontal: false, vertical: true)
 
-            HStack {
-                Text(selected?.progress.started == true
-                     ? "\(count) OF \(selected?.book.finalCount ?? 5) TRUE ENDINGS FOUND"
-                     : "READY TO READ")
-                    .font(.system(.caption, design: .monospaced, weight: .semibold))
-                    .foregroundStyle(StarportTheme.teal)
-                Spacer()
-                Text(selected?.progress.started == true && selected?.isComplete == false ? "CONTINUE" : "OPEN")
-                    .font(.system(.caption, design: .monospaced, weight: .bold))
-                    .foregroundStyle(StarportTheme.teal)
-                Image(systemName: "arrow.up.right")
-                    .foregroundStyle(StarportTheme.teal)
+        return VStack(alignment: .leading, spacing: 17) {
+            HStack(alignment: .top, spacing: 16) {
+                if let cover = entry.coverAsset {
+                    AdventureCoverView(assetName: cover)
+                }
+
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(entry.genre.uppercased())
+                        .font(.system(.caption2, design: .monospaced, weight: .bold))
+                        .tracking(1.1)
+                        .foregroundStyle(StarportTheme.orange)
+
+                    Text(entry.title)
+                        .font(.system(.title2, design: .rounded, weight: .bold))
+                        .foregroundStyle(StarportTheme.paper)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    Text(entry.subtitle)
+                        .font(.subheadline)
+                        .foregroundStyle(StarportTheme.muted)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    Label("\(entry.estimatedMinutes) minute adventure", systemImage: "clock")
+                        .font(.caption)
+                        .foregroundStyle(StarportTheme.muted)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .padding(.top, 6)
+
+            Rectangle()
+                .fill(StarportTheme.line.opacity(0.6))
+                .frame(height: 1)
+
+            HStack(spacing: 8) {
+                Image(systemName: "bookmark")
+                Text(selected?.progress.started == true
+                     ? "\(count) / \(selected?.book.finalCount ?? 5) ENDINGS FOUND"
+                     : "READY TO EXPLORE")
+                Spacer()
+                Text(selected?.progress.started == true && selected?.isComplete == false
+                     ? "CONTINUE" : "READ")
+                Image(systemName: "arrow.up.right")
+            }
+            .font(.system(.caption, design: .monospaced, weight: .bold))
+            .foregroundStyle(StarportTheme.teal)
         }
-        .padding(20)
+        .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(StarportTheme.panel, in: RoundedRectangle(cornerRadius: 18))
+        .background(StarportTheme.panel, in: RoundedRectangle(cornerRadius: 20))
         .overlay {
-            RoundedRectangle(cornerRadius: 18)
-                .strokeBorder(StarportTheme.line, lineWidth: 1)
+            RoundedRectangle(cornerRadius: 20)
+                .strokeBorder(StarportTheme.line.opacity(0.8), lineWidth: 1)
         }
         .accessibilityElement(children: .combine)
     }

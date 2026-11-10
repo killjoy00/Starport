@@ -101,6 +101,12 @@ public enum StoryValidator {
         var finalNodes: Set<String> = []
         var detourNodes: Set<String> = []
         for node in book.nodes {
+            if let art = node.illustration {
+                guard StoryLoader.isSafeFilename(art.asset),
+                      !art.alt.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+                    throw StoryError.invalidBook("Invalid illustration on \(node.id).")
+                }
+            }
             guard !node.title.isEmpty, !node.paragraphs.isEmpty else {
                 throw StoryError.invalidBook("Scene \(node.id) has no text.")
             }

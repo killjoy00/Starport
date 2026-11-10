@@ -6,6 +6,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0000000000000000000000A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000A /* PrivacyInfo.xcprivacy */; };
 		D00000000000000000000001 /* StarportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000001 /* StarportApp.swift */; };
 		D00000000000000000000002 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000002 /* GameStore.swift */; };
 		D00000000000000000000003 /* StarportTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000003 /* StarportTheme.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C0000000000000000000000A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		C00000000000000000000001 /* StarportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarportApp.swift; sourceTree = "<group>"; };
 		C00000000000000000000002 /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
 		C00000000000000000000003 /* StarportTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarportTheme.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				C00000000000000000000009 /* first_signal.json */,
+				C0000000000000000000000A /* PrivacyInfo.xcprivacy */,
 			);
 			path = "Starport/Content";
 			sourceTree = "<group>";
@@ -120,6 +123,7 @@
 /* Begin PBXResourcesBuildPhase section */
 		E00000000000000000000002 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (
 				D00000000000000000000009 /* first_signal.json in Resources */,
+				D0000000000000000000000A /* PrivacyInfo.xcprivacy in Resources */,
 			); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXResourcesBuildPhase section */
 

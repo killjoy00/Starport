@@ -100,9 +100,9 @@ struct AdventureScreen: View {
         }
         .alert("Something went wrong", isPresented: Binding(
             get: { game.errorMessage != nil },
-            set: { _ in }
+            set: { isShowing in if !isShowing { game.dismissError() } }
         )) {
-            Button("OK") { /* Persistent saves are still available when the error clears. */ }
+            Button("OK") { game.dismissError() }
         } message: {
             Text(game.errorMessage ?? "")
         }

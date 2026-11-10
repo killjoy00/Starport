@@ -41,4 +41,6 @@ Write directly to the reader in the second person, with clear language, specific
 
 The MVP has **no login, ads, analytics, chat, notifications, AI-generated responses, or network requests**. Progress stays on the device. It requires no personal information from children. Keep this privacy posture in mind when adding future features.
 
+The app includes a privacy manifest declaring local UserDefaults use. Apple still requires App Store Connect privacy and age-rating information before submission; the target reader age (11–13) is not itself an App Store rating.
+
 This is a first playable episode, not yet a complete multi-episode game, a TestFlight build, or an App Store submission.

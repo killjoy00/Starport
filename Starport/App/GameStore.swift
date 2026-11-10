@@ -47,6 +47,10 @@ final class GameStore: ObservableObject {
         save()
     }
 
+    func dismissError() {
+        errorMessage = nil
+    }
+
     private func save() {
         guard let engine else { return }
         do {

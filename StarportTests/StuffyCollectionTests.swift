@@ -99,6 +99,24 @@ final class StuffyCollectionTests: XCTestCase {
         }
     }
 
+    func testSundaeEndingMemoriesAndClueBadgesAreAdventureSpecific() throws {
+        let book = try StoryLoader.decode(data("sundae_switch"))
+        var engine = try AdventureEngine(book: book)
+        while !engine.isComplete {
+            let candidates = engine.choices.filter {
+                $0.isAvailable(stats: engine.progress.stats, flags: engine.progress.flags)
+                    && book.node($0.to)?.ending?.kind != .detour
+            }
+            let selected = try XCTUnwrap(candidates.first)
+            try engine.choose(selected.id)
+        }
+        let expected = "sundae_ending_\(engine.node.ending!.rank!)"
+        let earned = AchievementCatalog.unlockedBy(engine, event: .choice, stuffyLand: true)
+        XCTAssertTrue(earned.contains(expected))
+        XCTAssertFalse(earned.contains(where: { $0.hasPrefix("snore_ending_") }))
+        XCTAssertFalse(earned.contains(where: { $0.hasPrefix("pillow_ending_") }))
+    }
+
     func testEndingMemoriesAreScopedToTheirAdventure() throws {
         var pillow = try AdventureEngine(book: StoryLoader.decode(data("pillow_fort")))
         while !pillow.isComplete {

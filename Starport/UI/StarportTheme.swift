@@ -20,25 +20,39 @@ enum StarportTheme {
             trait.userInterfaceStyle == .dark ? dark : light
         })
     }
-    static let ink = adaptive(
+    static let ink = AppBrand.current.isStuffyLand ? adaptive(
+        light: UIColor(red: 0.972, green: 0.950, blue: 0.923, alpha: 1),
+        dark: UIColor(red: 0.092, green: 0.084, blue: 0.154, alpha: 1)) : adaptive(
         light: UIColor(red: 0.955, green: 0.969, blue: 0.978, alpha: 1),
         dark: UIColor(red: 0.035, green: 0.068, blue: 0.12, alpha: 1))
-    static let panel = adaptive(
+    static let panel = AppBrand.current.isStuffyLand ? adaptive(
+        light: UIColor(red: 1, green: 0.990, blue: 0.974, alpha: 1),
+        dark: UIColor(red: 0.168, green: 0.145, blue: 0.220, alpha: 1)) : adaptive(
         light: UIColor(red: 0.996, green: 0.997, blue: 1, alpha: 1),
         dark: UIColor(red: 0.085, green: 0.135, blue: 0.21, alpha: 1))
-    static let line = adaptive(
+    static let line = AppBrand.current.isStuffyLand ? adaptive(
+        light: UIColor(red: 0.80, green: 0.74, blue: 0.74, alpha: 1),
+        dark: UIColor(red: 0.37, green: 0.31, blue: 0.42, alpha: 1)) : adaptive(
         light: UIColor(red: 0.77, green: 0.82, blue: 0.86, alpha: 1),
         dark: UIColor(red: 0.24, green: 0.33, blue: 0.42, alpha: 1))
-    static let teal = adaptive(
+    static let teal = AppBrand.current.isStuffyLand ? adaptive(
+        light: UIColor(red: 0.43, green: 0.27, blue: 0.58, alpha: 1),
+        dark: UIColor(red: 0.83, green: 0.68, blue: 0.98, alpha: 1)) : adaptive(
         light: UIColor(red: 0.02, green: 0.42, blue: 0.44, alpha: 1),
         dark: UIColor(red: 0.47, green: 0.91, blue: 0.88, alpha: 1))
-    static let orange = adaptive(
+    static let orange = AppBrand.current.isStuffyLand ? adaptive(
+        light: UIColor(red: 0.66, green: 0.33, blue: 0.29, alpha: 1),
+        dark: UIColor(red: 0.98, green: 0.73, blue: 0.57, alpha: 1)) : adaptive(
         light: UIColor(red: 0.63, green: 0.28, blue: 0.12, alpha: 1),
         dark: UIColor(red: 1, green: 0.66, blue: 0.40, alpha: 1))
-    static let paper = adaptive(
+    static let paper = AppBrand.current.isStuffyLand ? adaptive(
+        light: UIColor(red: 0.20, green: 0.16, blue: 0.24, alpha: 1),
+        dark: UIColor(red: 0.98, green: 0.95, blue: 0.94, alpha: 1)) : adaptive(
         light: UIColor(red: 0.075, green: 0.13, blue: 0.20, alpha: 1),
         dark: UIColor(red: 0.95, green: 0.96, blue: 0.95, alpha: 1))
-    static let muted = adaptive(
+    static let muted = AppBrand.current.isStuffyLand ? adaptive(
+        light: UIColor(red: 0.43, green: 0.38, blue: 0.46, alpha: 1),
+        dark: UIColor(red: 0.79, green: 0.72, blue: 0.83, alpha: 1)) : adaptive(
         light: UIColor(red: 0.31, green: 0.40, blue: 0.45, alpha: 1),
         dark: UIColor(red: 0.68, green: 0.76, blue: 0.79, alpha: 1))
 }
@@ -76,6 +90,9 @@ struct Starfield: View {
 
 struct OrbitArtwork: View {
     var body: some View {
+        if AppBrand.current.isStuffyLand {
+            StorybookPlushArtwork()
+        } else {
         GeometryReader { geometry in
             let width = geometry.size.width
             ZStack {
@@ -113,21 +130,67 @@ struct OrbitArtwork: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .accessibilityHidden(true)
+        }
+    }
+}
+
+
+struct StorybookPlushArtwork: View {
+    var body: some View {
+        GeometryReader { geometry in
+            let side = min(geometry.size.width, geometry.size.height)
+            ZStack {
+                Ellipse()
+                    .fill(StarportTheme.teal.opacity(0.2))
+                    .frame(width: side * 1.4, height: side * 0.6)
+                    .offset(y: side * 0.35)
+                Circle()
+                    .fill(StarportTheme.orange)
+                    .frame(width: side * 0.27, height: side * 0.27)
+                    .offset(x: -side * 0.24, y: -side * 0.20)
+                Circle()
+                    .fill(StarportTheme.orange)
+                    .frame(width: side * 0.27, height: side * 0.27)
+                    .offset(x: side * 0.24, y: -side * 0.20)
+                Capsule()
+                    .fill(StarportTheme.orange)
+                    .frame(width: side * 0.50, height: side * 0.48)
+                    .offset(y: side * 0.30)
+                Circle()
+                    .fill(StarportTheme.orange)
+                    .frame(width: side * 0.62, height: side * 0.57)
+                HStack(spacing: side * 0.22) {
+                    Circle().fill(StarportTheme.ink).frame(width: 7, height: 7)
+                    Circle().fill(StarportTheme.ink).frame(width: 7, height: 7)
+                }
+                .offset(y: -side * 0.06)
+                Ellipse()
+                    .fill(StarportTheme.paper.opacity(0.80))
+                    .frame(width: side * 0.22, height: side * 0.14)
+                    .offset(y: side * 0.10)
+                Image(systemName: "heart.fill")
+                    .font(.system(size: side * 0.10))
+                    .foregroundStyle(StarportTheme.teal)
+                    .offset(y: side * 0.34)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .accessibilityHidden(true)
     }
 }
 
 struct StarportMasthead: View {
     var body: some View {
         HStack(spacing: 9) {
-            Image(systemName: "dot.radiowaves.left.and.right")
+            Image(systemName: AppBrand.current.isStuffyLand ? "heart.fill" : "dot.radiowaves.left.and.right")
                 .font(.system(size: 15, weight: .bold))
                 .foregroundStyle(StarportTheme.teal)
-            Text("STARPORT")
+            Text(AppBrand.current.masthead)
                 .font(.system(.subheadline, design: .monospaced, weight: .bold))
                 .tracking(3)
                 .foregroundStyle(StarportTheme.paper)
             Spacer()
-            Text("STORIES BEYOND HOME")
+            Text(AppBrand.current.tagline)
                 .font(.system(.caption2, design: .monospaced))
                 .foregroundStyle(StarportTheme.muted)
         }
@@ -148,7 +211,7 @@ struct StatPill: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text(stat.title.uppercased())
+            Text(AppBrand.current.statTitle(stat).uppercased())
                 .font(.system(.caption2, design: .monospaced, weight: .semibold))
                 .tracking(1)
                 .foregroundStyle(StarportTheme.muted)
@@ -165,7 +228,7 @@ struct StatPill: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(stat.title), \(value) out of 5")
+        .accessibilityLabel("\(AppBrand.current.statTitle(stat)), \(value) out of 5")
     }
 }
 

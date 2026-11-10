@@ -6,6 +6,7 @@ struct StarportRootView: View {
     @EnvironmentObject private var ads: AdsController
 
     @AppStorage("starport.confirmed13Plus") private var ageConfirmed = false
+    private var canOpenLibrary: Bool { !AppBrand.current.requiresInAppAgeConfirmation || ageConfirmed }
     @State private var reading = false
     @State private var showingSettings = false
     @State private var showingAchievements = false
@@ -13,7 +14,7 @@ struct StarportRootView: View {
     var body: some View {
         ZStack {
             Starfield()
-            if !ageConfirmed {
+            if !canOpenLibrary {
                 AgeGateView(onConfirm13Plus: { ageConfirmed = true })
             } else if reading, game.readerBook != nil {
                 BookReaderView(onExit: { reading = false })
@@ -34,7 +35,7 @@ struct StarportRootView: View {
             }
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
-            if ageConfirmed, purchases.entitlementsLoaded, !purchases.isAdFree,
+            if canOpenLibrary, purchases.entitlementsLoaded, !purchases.isAdFree,
                ads.canShowBanner, let unitID = ads.bannerUnitID {
                 AdBannerView(unitID: unitID)
                     .background(StarportTheme.panel)
@@ -53,8 +54,8 @@ struct StarportRootView: View {
             AchievementsScreen()
                 .environmentObject(game)
         }
-        .task(id: ageConfirmed) {
-            guard ageConfirmed else { return }
+        .task(id: canOpenLibrary) {
+            guard canOpenLibrary else { return }
             await purchases.prepare()
             await ads.prepareIfNeeded()
         }
@@ -279,8 +280,11 @@ struct StarportRootView: View {
 }
 
 
-/// Stuffy Land's own illustrated shelf. The shared engine still opens both formats.
+/// Stuffy Land's compact bookshelf. Open a book straight from the shelf;
+/// the first screen is for choosing a story, not reading marketing copy.
 private struct StuffyLandShelf: View {
+    @EnvironmentObject private var game: GameStore
+
     let entries: [AdventureListing]
     let onOpen: (AdventureListing) -> Void
     let onSettings: () -> Void
@@ -288,184 +292,227 @@ private struct StuffyLandShelf: View {
     let onRefresh: () -> Void
     let refreshing: Bool
     let message: String?
+
     @State private var filter = 0
     @State private var showingNotes = false
 
     private var filtered: [AdventureListing] {
-        entries.filter { filter == 0 || (filter == 1 ? $0.format == .reader : $0.format == .adventure) }
+        entries.filter {
+            filter == 0 || (filter == 1 ? $0.format == .reader : $0.format == .adventure)
+        }
+    }
+
+    // Don't offer "Continue" until someone has actually begun reading.
+    // The selected ID belongs to this app and persists between launches.
+    private var unfinishedStory: AdventureListing? {
+        guard let selectedID = game.selectedID,
+              let entry = entries.first(where: { $0.id == selectedID }) else {
+            return nil
+        }
+        if entry.format == .reader {
+            return game.readerBook != nil && game.readerPageIndex > 0 ? entry : nil
+        }
+        guard let engine = game.engine,
+              engine.progress.started, !engine.isComplete else {
+            return nil
+        }
+        return entry
     }
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 26) {
-                HStack(spacing: 10) {
-                    Image("stuffy-logo").resizable().scaledToFit()
-                        .frame(width: 48, height: 48)
-                        .clipShape(RoundedRectangle(cornerRadius: 13))
+            LazyVStack(alignment: .leading, spacing: 14) {
+                HStack(spacing: 11) {
+                    Image("stuffy-logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 42, height: 42)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                         .accessibilityHidden(true)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Stuffy Land")
-                            .font(.system(.title2, design: .serif, weight: .bold))
-                            .foregroundStyle(StarportTheme.paper)
-                        Text("Opal & friends")
-                            .font(.system(.caption, design: .rounded))
-                            .foregroundStyle(StarportTheme.muted)
-                    }
-                    Spacer(minLength: 0)
-                    Button(action: onMemories) {
-                        Image(systemName: "book.closed").frame(width: 44, height: 44)
-                    }.accessibilityLabel("Open the memory book")
-                    Button(action: onSettings) {
-                        Image(systemName: "gearshape").frame(width: 44, height: 44)
-                    }.accessibilityLabel("Settings")
-                }
-
-                VStack(alignment: .leading, spacing: 0) {
-                    Image("stuffy-tent")
-                        .resizable().scaledToFit()
-                        .accessibilityLabel("Opal and her sloth lovey Lolo read together in their purple galaxy tent.")
-                    VStack(alignment: .leading, spacing: 10) {
-                        Label("COME ON IN", systemImage: "sparkle")
-                            .font(.system(.caption, design: .rounded, weight: .bold))
-                            .tracking(1.8).foregroundStyle(StarportTheme.orange)
-                        Text("A little wonder.\nA lot of friends.")
-                            .font(.system(.largeTitle, design: .serif, weight: .bold))
-                            .foregroundStyle(StarportTheme.paper)
-                            .fixedSize(horizontal: false, vertical: true)
-                        Text("Settle in with a story, or help Opal choose what happens next.")
-                            .font(.body).foregroundStyle(StarportTheme.muted)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }.padding(22)
-                }
-                .background(StarportTheme.panel)
-                .clipShape(RoundedRectangle(cornerRadius: 26))
-                .overlay {
-                    RoundedRectangle(cornerRadius: 26)
-                        .strokeBorder(StarportTheme.line.opacity(0.65), lineWidth: 1)
-                }
-
-                VStack(alignment: .leading, spacing: 14) {
-                    Text("Your story shelf")
+                    Text("Stuffy Land")
                         .font(.system(.title2, design: .serif, weight: .bold))
                         .foregroundStyle(StarportTheme.paper)
-                    Text("\(entries.filter { $0.format == .reader }.count) read-alongs · \(entries.filter { $0.format == .adventure }.count) adventures")
-                        .font(.subheadline).foregroundStyle(StarportTheme.muted)
-                    Picker("Story format", selection: $filter) {
-                        Text("All stories").tag(0)
-                        Text("Read or listen").tag(1)
-                        Text("Adventures").tag(2)
-                    }.pickerStyle(.segmented)
+
+                    Spacer(minLength: 4)
+
+                    Button(action: onMemories) {
+                        Image(systemName: "book.closed")
+                            .frame(width: 44, height: 44)
+                    }
+                    .accessibilityLabel("Memory book")
+
+                    Button(action: onSettings) {
+                        Image(systemName: "gearshape")
+                            .frame(width: 44, height: 44)
+                    }
+                    .accessibilityLabel("Settings")
                 }
+                .padding(.bottom, 4)
+
+                if let unfinishedStory {
+                    Button { onOpen(unfinishedStory) } label: {
+                        HStack(spacing: 13) {
+                            storyCover(unfinishedStory, size: 60)
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Continue")
+                                    .font(.system(.caption, design: .rounded, weight: .bold))
+                                    .foregroundStyle(StarportTheme.orange)
+                                Text(unfinishedStory.title)
+                                    .font(.system(.body, design: .serif, weight: .semibold))
+                                    .foregroundStyle(StarportTheme.paper)
+                                    .lineLimit(2)
+                            }
+                            Spacer(minLength: 0)
+                            Image(systemName: "arrow.right")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundStyle(StarportTheme.teal)
+                        }
+                        .padding(12)
+                        .background(StarportTheme.panel,
+                                    in: RoundedRectangle(cornerRadius: 16))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 16)
+                                .strokeBorder(StarportTheme.teal.opacity(0.45), lineWidth: 1)
+                        }
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Continue \(unfinishedStory.title)")
+                }
+
+                HStack {
+                    Text("Stories")
+                        .font(.system(.title2, design: .serif, weight: .bold))
+                        .foregroundStyle(StarportTheme.paper)
+                    Spacer()
+                }
+                .padding(.top, 3)
+
+                Picker("Story format", selection: $filter) {
+                    Text("All").tag(0)
+                    Text("Read-alongs").tag(1)
+                    Text("Adventures").tag(2)
+                }
+                .pickerStyle(.segmented)
+                .padding(.bottom, 3)
 
                 if entries.isEmpty {
-                    Text(message ?? "Your story shelf couldn't open. Try checking for stories below.")
+                    Text(message ?? "Couldn't open the story shelf. Please try again.")
                         .foregroundStyle(StarportTheme.muted)
-                }
-                ForEach(filtered) { entry in
-                    storyCard(entry)
+                        .padding(.vertical, 20)
                 }
 
-                VStack(alignment: .leading, spacing: 13) {
-                    Label("A place for more stories", systemImage: "books.vertical")
-                        .font(.system(.headline, design: .rounded))
-                        .foregroundStyle(StarportTheme.paper)
-                    Text("Your place is kept for you. Come back whenever you're ready.")
-                        .font(.subheadline).foregroundStyle(StarportTheme.muted)
-                    Button(action: onRefresh) {
-                        HStack {
-                            if refreshing { ProgressView().controlSize(.small) }
-                            else { Image(systemName: "arrow.clockwise") }
-                            Text(refreshing ? "Checking…" : "Check for new stories")
-                        }.frame(minHeight: 44)
-                    }.disabled(refreshing)
-                    if let message {
-                        Text(message).font(.footnote).foregroundStyle(StarportTheme.muted)
-                    }
-                    Button("About these stories") { showingNotes = true }
-                        .font(.footnote).frame(minHeight: 44)
+                ForEach(filtered) { entry in
+                    storyRow(entry)
                 }
-                .padding(22)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(StarportTheme.panel, in: RoundedRectangle(cornerRadius: 22))
-                Text("STUFFY LAND · FOR READERS AGES 13+")
-                    .font(.caption2).foregroundStyle(StarportTheme.muted)
-                    .frame(maxWidth: .infinity).multilineTextAlignment(.center)
+
+                HStack(spacing: 22) {
+                    Button {
+                        onRefresh()
+                    } label: {
+                        Label(refreshing ? "Checking…" : "Check for stories",
+                              systemImage: "arrow.clockwise")
+                            .frame(minHeight: 44)
+                    }
+                    .disabled(refreshing)
+
+                    Spacer(minLength: 0)
+
+                    Button("About these stories") {
+                        showingNotes = true
+                    }
+                    .frame(minHeight: 44)
+                }
+                .font(.footnote.weight(.medium))
+                .padding(.top, 12)
+
+                if let message {
+                    Text(message)
+                        .font(.footnote)
+                        .foregroundStyle(StarportTheme.muted)
+                }
             }
-            .frame(maxWidth: 650)
-            .padding(.horizontal, 20).padding(.top, 16).padding(.bottom, 32)
+            .frame(maxWidth: 600)
+            .padding(.horizontal, 18)
+            .padding(.top, 12)
+            .padding(.bottom, 28)
             .frame(maxWidth: .infinity)
         }
         .sheet(isPresented: $showingNotes) {
             NavigationStack {
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("Stories from Opal’s world")
+                    VStack(alignment: .leading, spacing: 18) {
+                        Text("About the stories")
                             .font(.system(.title, design: .serif, weight: .bold))
-                        Text("The Giggle Games was recovered in full. Pillow-Fort Mystery and Snore-Snatcher are interactive adaptations of complete stories, with new choices and endings.")
-                        Text("Nine read-alongs were newly written from recovered plot summaries. The Treasure of the Thousand Traps is a new story inspired by its surviving title and premise. Their original wording wasn't available.")
-                        Text("The stories celebrate friendship, imagination, and listening. The pictures are new interpretations of the supplied Stuffy Land references.")
-                    }.padding(24).frame(maxWidth: 630)
+                        Text("The Giggle Games preserves the recovered original story. Pillow-Fort Mystery and Snore-Snatcher adapt complete stories with new choices and endings.")
+                        Text("Nine read-alongs are based on surviving story summaries. The Treasure of the Thousand Traps is new fiction inspired by its surviving title and premise.")
+                        Text("Opal and the Great Sundae Switch is a new original choose-your-own-adventure.")
+                    }
+                    .padding(24)
+                    .frame(maxWidth: 600)
                 }
-                .navigationTitle("About these stories")
-                .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { showingNotes = false } } }
-            }.tint(StarportTheme.teal)
+                .navigationTitle("About")
+                .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Done") { showingNotes = false }
+                    }
+                }
+            }
+            .tint(StarportTheme.teal)
         }
     }
 
-    private func storyCard(_ entry: AdventureListing) -> some View {
+    @ViewBuilder
+    private func storyCover(_ entry: AdventureListing, size: CGFloat) -> some View {
+        if let cover = entry.coverAsset {
+            Image(cover)
+                .resizable()
+                .scaledToFill()
+                .frame(width: size, height: size)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .accessibilityHidden(true)
+        } else {
+            Image(systemName: entry.symbol)
+                .font(.system(size: size * 0.34))
+                .foregroundStyle(StarportTheme.orange)
+                .frame(width: size, height: size)
+                .background(StarportTheme.teal.opacity(0.12),
+                            in: RoundedRectangle(cornerRadius: 12))
+                .accessibilityHidden(true)
+        }
+    }
+
+    private func storyRow(_ entry: AdventureListing) -> some View {
         Button { onOpen(entry) } label: {
-            VStack(alignment: .leading, spacing: 0) {
-                if entry.format == .adventure, let cover = entry.coverAsset {
-                    Image(cover).resizable().scaledToFit().accessibilityHidden(true)
+            HStack(spacing: 14) {
+                storyCover(entry, size: 72)
+
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(entry.title)
+                        .font(.system(.body, design: .serif, weight: .semibold))
+                        .foregroundStyle(StarportTheme.paper)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text(entry.format == .reader ? "Read or listen" : "Choose an adventure")
+                        .font(.caption)
+                        .foregroundStyle(StarportTheme.muted)
                 }
-                VStack(alignment: .leading, spacing: 16) {
-                    HStack(alignment: .top, spacing: 15) {
-                        if entry.format == .reader {
-                            Image(systemName: entry.symbol)
-                                .font(.system(size: 23, weight: .regular))
-                                .foregroundStyle(StarportTheme.orange)
-                                .frame(width: 52, height: 64)
-                                .background(StarportTheme.teal.opacity(0.10), in: RoundedRectangle(cornerRadius: 12))
-                                .accessibilityHidden(true)
-                        }
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(entry.format == .reader ? "READ OR LISTEN" : "CHOOSE YOUR ADVENTURE")
-                                .font(.system(.caption2, design: .rounded, weight: .bold))
-                                .tracking(1.3).foregroundStyle(StarportTheme.orange)
-                            Text(entry.title)
-                                .font(.system(.title3, design: .serif, weight: .semibold))
-                                .foregroundStyle(StarportTheme.paper)
-                                .fixedSize(horizontal: false, vertical: true)
-                            Text(entry.subtitle)
-                                .font(.subheadline).foregroundStyle(StarportTheme.muted)
-                                .fixedSize(horizontal: false, vertical: true)
-                        }
-                    }
-                    HStack(spacing: 8) {
-                        Label("About \(entry.estimatedMinutes) min", systemImage: "clock")
-                            .foregroundStyle(StarportTheme.muted)
-                        Spacer(minLength: 4)
-                        Text(entry.format == .reader ? "Open story" : "Explore")
-                        Image(systemName: "arrow.right")
-                    }.font(.system(.caption, design: .rounded, weight: .semibold))
-                    if let note = entry.editorialNote {
-                        Text(note.hasPrefix("Original") ? "Recovered original" : (entry.format == .adventure ? "Interactive adaptation" : "Adapted from the archive"))
-                            .font(.caption2).foregroundStyle(StarportTheme.muted)
-                    }
-                }.padding(20)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+                Image(systemName: "chevron.right")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(StarportTheme.teal)
             }
-            .multilineTextAlignment(.leading)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(StarportTheme.panel)
-            .clipShape(RoundedRectangle(cornerRadius: 23))
+            .padding(11)
+            .frame(maxWidth: .infinity, minHeight: 92, alignment: .leading)
+            .background(StarportTheme.panel,
+                        in: RoundedRectangle(cornerRadius: 16))
             .overlay {
-                RoundedRectangle(cornerRadius: 23)
-                    .inset(by: 6)
-                    .strokeBorder(StarportTheme.line.opacity(0.55), style: StrokeStyle(lineWidth: 1, dash: [3, 5]))
-                    .allowsHitTesting(false)
+                RoundedRectangle(cornerRadius: 16)
+                    .strokeBorder(StarportTheme.line.opacity(0.55), lineWidth: 1)
             }
+            .contentShape(RoundedRectangle(cornerRadius: 16))
         }
         .buttonStyle(.plain)
-        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(entry.title). \(entry.format == .reader ? "Read or listen" : "Choose an adventure").")
+        .accessibilityHint("Open story")
     }
 }

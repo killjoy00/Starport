@@ -66,6 +66,6 @@ Do not reproduce the unrelated “The Lost Realm” poster in the attachment as 
 
 ## Interface language
 
-Use “Story shelf,” “Read or listen,” “Choose an adventure,” “Read to me,” “Back to stories,” and “Try another way.” Shelves explain the two formats before opening. Keep progress local and offer the reader's existing text size, bookmark, voice speed, pause, resume, and stop controls.
+Use “Stories,” “Read or listen,” “Choose an adventure,” “Read to me,” “Back to stories,” and “Try another way.” The Stuffy Land home should be a compact bookshelf: a small logo, saved-story Continue action when applicable, simple format filters, and one-tap title rows with small covers. Do not place a large welcome hero, repeated subtitles, shelf-wide marketing taglines, provenance notes on every card, or prominent age-rating language between the reader and the stories. Keep long notes behind “About these stories.” Keep progress local and offer the reader's existing text size, bookmark, voice speed, pause, resume, and stop controls.
 
 Keep canon and provenance information accessible from the shelf's story notes. The original Giggle Games remains explicitly a recovered original; reconstructed books have a visible adaptation label. Publishing claims, build availability, and audience classification must reflect actual verified app state, independently of this creative guide.

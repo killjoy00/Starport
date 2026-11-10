@@ -20,6 +20,8 @@ jobs:
         run: python3 scripts/audit_artwork.py
       - name: Validate Stuffy Land adventures and reader books
         run: python3 scripts/validate_stuffyland.py
+      - name: Verify Stuffy Land skips consumer age gate
+        run: python3 scripts/check_age_presentation.py
       - name: Run Swift tests
         run: swift test
 
@@ -64,7 +66,8 @@ jobs:
           mkdir -p "$RUNNER_TEMP/stuffy-preview"
           for appearance in dark light; do
             xcrun simctl terminate booted pro.stuffyland.stories || true
-            xcrun simctl launch booted pro.stuffyland.stories -starport.confirmed13Plus YES -starport.appearance "$appearance"
+            # Force an unconfirmed first-run reader to verify Stuffy Land opens the shelf without an age prompt.
+            xcrun simctl launch booted pro.stuffyland.stories -starport.confirmed13Plus NO -starport.appearance "$appearance"
             sleep 3
             xcrun simctl io booted screenshot "$RUNNER_TEMP/stuffy-preview/stuffy-shelf-$appearance.png"
           done

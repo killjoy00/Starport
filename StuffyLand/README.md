@@ -2,6 +2,10 @@
 
 Stuffy Land is a separate iOS app inside the Starport repository. It shares the branching engine, reader, local bookmarks, built-in Read Aloud, and settings infrastructure, with its own target, bundle ID, content, icon, assets, and visual identity.
 
+## Home screen
+
+The Stuffy Land home is a compact **story shelf**, not a marketing splash screen: a small logo/title, an optional **Continue** card when a saved read-along has advanced or a branching adventure is in progress, a three-way All / Read-alongs / Adventures filter, and compact cover-and-title rows that open each story with one tap. Long subtitles, repeated editorial labels, oversized tent hero artwork, and age-rating notices are intentionally absent from the landing screen. Source/provenance notes remain under **About these stories**.
+
 ## The collection
 
 The real Opal universe replaces the provisional Button Hill shelf. There are **14 stories**:
@@ -33,4 +37,4 @@ swift test
 
 The builder deterministically paginates the editorial sources and builds both adventure graphs. The Python validator checks every stat/flag state relevant to ending availability, every ending and detour, original-text preservation, provenance, asset files, and Xcode resource membership. Swift tests decode every published JSON document using the real app models, explore both adventures, restore completed saves, rewind detours, and check story-specific ending memories. CI builds and launches both iOS apps and saves native dark/light shelf screenshots.
 
-The app retains its existing development audience/privacy settings and disabled ads. This content-and-design change does not determine App Store classification or publish a TestFlight release.
+**Age-rating presentation:** Stuffy Land opens directly to Opal's story shelf. The app does not ask readers to confirm their age and does not display 13+ messaging in its shelf or settings. Its distribution age classification is managed separately in App Store Connect; this is not an in-app age-verification system. Starport retains its own confirmation screen. Advertising remains disabled in release builds, and the underlying teen/general-rated, non-personalized ad safeguards are unchanged.

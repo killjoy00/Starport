@@ -12,6 +12,9 @@ enum AppBrand: String {
     }
 
     var isStuffyLand: Bool { self == .stuffyland }
+    // Stuffy Land relies on the App Store age classification, not a consumer-facing age question.
+    // Starport's existing age acknowledgment remains unchanged.
+    var requiresInAppAgeConfirmation: Bool { !isStuffyLand }
     var name: String { isStuffyLand ? "Stuffy Land" : "Starport" }
     var masthead: String { isStuffyLand ? "STUFFY LAND" : "STARPORT" }
     var tagline: String { isStuffyLand ? "A WORLD OF STORIES" : "STORIES BEYOND HOME" }

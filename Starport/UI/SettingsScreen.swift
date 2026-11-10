@@ -111,6 +111,13 @@ struct SettingsScreen: View {
                 }
 
                 Section {
+                    Link("Support and feedback", destination: URL(string: "https://github.com/killjoy00/Starport/blob/main/docs/support.md")!)
+                    Link("Privacy policy", destination: URL(string: "https://github.com/killjoy00/Starport/blob/main/docs/privacy.md")!)
+                } header: {
+                    Text("Help")
+                }
+
+                Section {
                     Text(AppBrand.current.isStuffyLand ? "Stuffy Land currently has a 13+ development age gate. Its intended audience and child-safety rules must be finalized before release." : "Starport is for ages 13 and up only. Stories use accessible, middle-grade-style science-fiction prose; that is a writing choice, not an invitation for younger users.")
                         .font(.subheadline)
                     Text("Version 0.2 · Stories are fictional. No account is required.")

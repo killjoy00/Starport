@@ -28,6 +28,8 @@ jobs:
         run: xcodebuild -project Starport.xcodeproj -scheme Starport -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/starport-build" CODE_SIGNING_ALLOWED=NO build
       - name: Verify compiled app icon is present in the app bundle
         run: python3 scripts/check_compiled_icon.py "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app"
+      - name: Validate generated Info.plist contains AdMob initialization and release privacy switches
+        run: python3 scripts/check_release_plist.py "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app"
       - name: Check iPad and iPhone rotation declarations in built app
         run: |
           plist="$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app/Info.plist"

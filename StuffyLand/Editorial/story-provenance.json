@@ -79,6 +79,12 @@
       "status": "premise_inspired_new_story",
       "source": "stories/thousand_traps.txt",
       "notes": "New story inspired by a surviving title and premise; the original plot and ending were unavailable."
+    },
+    {
+      "id": "stuffy-sundae-switch",
+      "status": "new_original_interactive",
+      "source": "../Content/sundae_switch.json",
+      "notes": "Original new interactive story based on the approved Sundae Switch pitch; 18 main scenes, nine scene illustrations, five endings and ten short rewindable detours. Not recovered archive material."
     }
   ]
 }

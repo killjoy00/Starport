@@ -26,3 +26,11 @@ jobs:
         run: xcodebuild -version
       - name: Build
         run: xcodebuild -project Starport.xcodeproj -scheme Starport -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/starport-build" CODE_SIGNING_ALLOWED=NO build
+      - name: Check iPad and iPhone rotation declarations in built app
+        run: |
+          plist="$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app/Info.plist"
+          test -f "$plist"
+          /usr/libexec/PlistBuddy -c 'Print :UISupportedInterfaceOrientations' "$plist"
+          /usr/libexec/PlistBuddy -c 'Print :UISupportedInterfaceOrientations~ipad' "$plist"
+          /usr/libexec/PlistBuddy -c 'Print :UISupportedInterfaceOrientations~iphone' "$plist"
+

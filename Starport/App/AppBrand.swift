@@ -19,7 +19,7 @@ enum AppBrand: String {
     var heroTitle: String { isStuffyLand ? "Every story starts somewhere." : "Choose a story.\nChange the ending." }
     var heroDescription: String {
         isStuffyLand
-            ? "Meet the friends of Stuffy Land. Every choice changes what happens next."
+            ? "Some stories you read. In others, you decide what happens."
             : "The story moves forward because of your decisions."
     }
     var readerFooter: String { isStuffyLand ? "STUFFY LAND  /  STORYBOOK" : "STARPORT NINE  /  FIELD NOTES" }

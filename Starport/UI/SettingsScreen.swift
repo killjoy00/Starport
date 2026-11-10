@@ -54,9 +54,11 @@ struct SettingsScreen: View {
                         Task { await purchases.restore() }
                     }
                     .disabled(purchases.busy)
-                    Text("Ask a parent or guardian before making a purchase.")
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
+                    if !AppBrand.current.isStuffyLand {
+                        Text("Ask a parent or guardian before making a purchase.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                    }
                     if let message = purchases.message {
                         Text(message).font(.footnote).foregroundStyle(StarportTheme.teal)
                         Button("Dismiss message") { purchases.dismissMessage() }
@@ -94,9 +96,15 @@ struct SettingsScreen: View {
                             Task { await ads.showPrivacyOptions() }
                         }
                     }
-                    Text("\(AppBrand.current.name) is for ages 13+. Ads use teen age treatment, general-rated creative, and non-personalized settings. We don't request your advertising identifier.")
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
+                    if AppBrand.current.isStuffyLand {
+                        Text("If advertising is enabled, it uses general-rated creative and non-personalized settings. We don't request your advertising identifier.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                    } else {
+                        Text("Starport is for ages 13+. Ads use teen age treatment, general-rated creative, and non-personalized settings. We don't request your advertising identifier.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                    }
                     Text("To report an inappropriate ad, tap AdChoices on the banner, then Why this ad? and Report ad.")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
@@ -118,7 +126,9 @@ struct SettingsScreen: View {
                 }
 
                 Section {
-                    Text(AppBrand.current.isStuffyLand ? "Stuffy Land currently has a 13+ development age gate. Its intended audience and child-safety rules must be finalized before release." : "Starport is for ages 13 and up only. Stories use accessible, middle-grade-style science-fiction prose; that is a writing choice, not an invitation for younger users.")
+                    Text(AppBrand.current.isStuffyLand
+                         ? "Stories from Opal’s world, to read or explore. Your place is saved on this device."
+                         : "Starport is for ages 13 and up only. Stories use accessible, middle-grade-style science-fiction prose; that is a writing choice, not an invitation for younger users.")
                         .font(.subheadline)
                     Text("Version 0.2 · Stories are fictional. No account is required.")
                         .font(.footnote)

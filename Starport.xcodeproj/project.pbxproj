@@ -319,6 +319,7 @@
 			CURRENT_PROJECT_VERSION = 1;
 			ENABLE_PREVIEWS = YES;
 			GENERATE_INFOPLIST_FILE = YES;
+            INFOPLIST_FILE = Starport/Info.plist;
 			INFOPLIST_KEY_CFBundleDisplayName = StarPort;
             INFOPLIST_KEY_STORY_BRAND = starport;
 			INFOPLIST_KEY_GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
@@ -342,6 +343,7 @@
             CODE_SIGN_STYLE = Automatic;
 			CURRENT_PROJECT_VERSION = 1;
 			GENERATE_INFOPLIST_FILE = YES;
+            INFOPLIST_FILE = Starport/Info.plist;
             ENABLE_PREVIEWS = NO;
 			INFOPLIST_KEY_CFBundleDisplayName = StarPort;
             INFOPLIST_KEY_STORY_BRAND = starport;
@@ -368,6 +370,7 @@
             CODE_SIGN_STYLE = Automatic;
             CURRENT_PROJECT_VERSION = 1;
             GENERATE_INFOPLIST_FILE = YES;
+            INFOPLIST_FILE = StuffyLand/Info.plist;
             INFOPLIST_KEY_CFBundleDisplayName = "Stuffy Land";
             INFOPLIST_KEY_STORY_BRAND = stuffyland;
             INFOPLIST_KEY_GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
@@ -394,6 +397,7 @@
             CODE_SIGN_STYLE = Automatic;
             CURRENT_PROJECT_VERSION = 1;
             GENERATE_INFOPLIST_FILE = YES;
+            INFOPLIST_FILE = StuffyLand/Info.plist;
             ENABLE_PREVIEWS = NO;
             INFOPLIST_KEY_CFBundleDisplayName = "Stuffy Land";
             INFOPLIST_KEY_STORY_BRAND = stuffyland;

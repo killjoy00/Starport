@@ -1,0 +1,36 @@
+name: Starport iOS
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  story-tests:
+    name: Story engine and branching tests
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate embedded artwork and coverage
+        run: python3 scripts/audit_artwork.py
+      - name: Run Swift tests
+        run: swift test
+
+  simulator-build:
+    name: Build iOS simulator app
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Xcode version
+        run: xcodebuild -version
+      - name: Build
+        run: xcodebuild -project Starport.xcodeproj -scheme Starport -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/starport-build" CODE_SIGNING_ALLOWED=NO build
+      - name: Check iPad and iPhone rotation declarations in built app
+        run: |
+          plist="$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app/Info.plist"
+          test -f "$plist"
+          /usr/libexec/PlistBuddy -c 'Print :UISupportedInterfaceOrientations' "$plist"
+          /usr/libexec/PlistBuddy -c 'Print :UISupportedInterfaceOrientations~ipad' "$plist"
+          /usr/libexec/PlistBuddy -c 'Print :UISupportedInterfaceOrientations~iphone' "$plist"
+

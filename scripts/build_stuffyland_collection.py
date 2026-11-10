@@ -314,7 +314,7 @@ def main():
     listings.insert(2, {
         'id': sundae['id'], 'filename': 'sundae_switch', 'contentVersion': sundae['contentVersion'],
         'kind': 'adventure', 'title': sundae['title'], 'subtitle': sundae['subtitle'],
-        'blurb': 'The Annoyings Express sends a special sundae flying across Stuffy Land. Help Opal save it.',
+        'blurb': 'The Annoyings Express sends a special dessert flying across Stuffy Land. Follow the clues, save the celebration, and decide how to begin again with Swirly.',
         'genre': 'Choose your adventure', 'symbol': 'birthday.cake.fill',
         'estimatedMinutes': 13, 'coverAsset': 'sundae-scene-01',
         'collection': 'Choose an adventure',
@@ -323,7 +323,7 @@ def main():
     provenance.append({
         'id': sundae['id'], 'status': 'new_original_interactive',
         'source': '../Content/sundae_switch.json',
-        'notes': 'Original new interactive story, not recovered archive material; nine of eighteen story scenes are illustrated.'
+        'notes': 'Original new interactive story based on the approved Sundae Switch pitch; 18 main scenes, nine scene illustrations, five endings and ten short rewindable detours. Not recovered archive material.'
     })
     write(CONTENT / 'catalog.json', {'formatVersion': 1, 'adventures': listings})
     write(EDITORIAL / 'story-provenance.json', {'sourceDocumentSHA256': 'ab0dbfbe1381b242ed7da202ae18a6fd52a231cc37e26bf8a649db5b8ac31a63', 'duplicateAttachments': True, 'stories': provenance})

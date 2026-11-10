@@ -99,11 +99,12 @@ public enum AchievementCatalog {
         return earned
     }
 
-    /// Canonical memories belong to one of the two Opal adventures.
+    /// Canonical ending memories are scoped separately to each Opal adventure.
     public static let stuffyLand: [Achievement] = {
         let stories = [
             ("pillow", ["A Galaxy for Everyone", "The Traveling Star", "The Mapmakers’ Night", "A Light for Tomorrow", "A Smaller Castle"]),
-            ("snore", ["Rest and Sound", "The First Soft Wall", "An Invitation", "Home Again", "The Quiet Castle"])
+            ("snore", ["Rest and Sound", "The First Soft Wall", "An Invitation", "Home Again", "The Quiet Castle"]),
+            ("sundae", ["One Spoonful at a Time", "The Grand Unveiling", "The Party Is Saved", "The Mapmakers’ Rescue", "The Lopsided Sundae"])
         ]
         let endings = stories.flatMap { prefix, titles in
             titles.enumerated().map { index, title in
@@ -123,6 +124,8 @@ public enum AchievementCatalog {
             Achievement("heard_duke", "A Listening Ear", "Listen to why Duke cannot sleep.", "ear", .exploration),
             Achievement("quiet_room", "A Place to Rest", "Help Duke plan a quiet room.", "moon.zzz", .exploration),
             Achievement("laughter_clue", "A Laugh Gets Loose", "Discover how laughter frees the sounds.", "music.note", .exploration),
+            Achievement("first_spoonful", "One Spoonful", "Offer Swirly the first taste of the rescued sundae.", "heart.fill", .exploration),
+            Achievement("spinner_untangled", "Express Detective", "Find and free the broken delivery spinner.", "magnifyingglass", .exploration),
             Achievement("full_curiosity", "Curious Paws", "Fill the Curiosity meter.", "eye.fill", .mastery),
             Achievement("full_courage", "Brave Enough", "Fill the Courage meter.", "shield.fill", .mastery),
             Achievement("full_friendship", "Good Friends", "Fill the Friendship meter.", "person.2.fill", .mastery),
@@ -147,7 +150,7 @@ public enum AchievementCatalog {
             earned.insert("all_detours")
         }
         if case .rewind = event { earned.insert("first_rewind") }
-        for flag in ["map_rule", "share_star", "heard_duke", "quiet_room", "laughter_clue"] where p.flags.contains(flag) {
+        for flag in ["map_rule", "share_star", "heard_duke", "quiet_room", "laughter_clue", "first_spoonful", "spinner_untangled"] where p.flags.contains(flag) {
             earned.insert(flag)
         }
         if p.stats.clues == 5 { earned.insert("full_curiosity") }
@@ -158,6 +161,7 @@ public enum AchievementCatalog {
         switch engine.book.id {
         case "stuffy-pillow-fort": prefix = "pillow"
         case "stuffy-snore-snatcher": prefix = "snore"
+        case "stuffy-sundae-switch": prefix = "sundae"
         default: prefix = nil
         }
         if let prefix {

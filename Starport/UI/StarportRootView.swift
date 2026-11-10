@@ -15,6 +15,8 @@ struct StarportRootView: View {
             Starfield()
             if !ageConfirmed {
                 AgeGateView(onConfirm13Plus: { ageConfirmed = true })
+            } else if reading, game.readerBook != nil {
+                BookReaderView(onExit: { reading = false })
             } else if reading, game.engine != nil {
                 AdventureScreen(onExit: { reading = false })
             } else {
@@ -98,7 +100,7 @@ struct StarportRootView: View {
                         .tracking(1.6)
                         .foregroundStyle(StarportTheme.teal)
                     Spacer()
-                    Text("\(game.catalog?.adventures.count ?? 0) ADVENTURE")
+                    Text("\(game.catalog?.adventures.count ?? 0) \(AppBrand.current.isStuffyLand ? "STORIES" : "ADVENTURE")")
                         .font(.system(.caption2, design: .monospaced))
                         .foregroundStyle(StarportTheme.muted)
                 }
@@ -179,9 +181,13 @@ struct StarportRootView: View {
         Button {
             game.select(entry.id)
             guard game.selectedID == entry.id else { return }
+            if entry.format == .reader {
+                reading = game.readerBook != nil
+                return
+            }
             if game.engine?.isComplete == true { game.restart() }
             game.begin()
-            reading = true
+            reading = game.engine != nil
         } label: {
             adventureCard(entry)
         }
@@ -216,7 +222,7 @@ struct StarportRootView: View {
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
 
-                    Label("\(entry.estimatedMinutes) minute adventure", systemImage: "clock")
+                    Label("\(entry.estimatedMinutes) minute \(entry.format == .reader ? "read" : "adventure")", systemImage: "clock")
                         .font(.caption)
                         .foregroundStyle(StarportTheme.muted)
                 }
@@ -229,12 +235,21 @@ struct StarportRootView: View {
 
             HStack(spacing: 8) {
                 Image(systemName: "bookmark")
-                Text(selected?.progress.started == true
-                     ? "\(count) / \(selected?.book.finalCount ?? 5) ENDINGS FOUND"
-                     : "READY TO EXPLORE")
-                Spacer()
-                Text(selected?.progress.started == true && selected?.isComplete == false
-                     ? "CONTINUE" : "READ")
+                if entry.format == .reader {
+                    Text(game.selectedID == entry.id && game.readerBook != nil
+                         ? "PAGE \(game.readerPageIndex + 1) OF \(game.readerBook?.pages.count ?? 1)"
+                         : "READ OR LISTEN")
+                    Spacer()
+                    Text(game.selectedID == entry.id && game.readerPageIndex > 0
+                         ? "CONTINUE" : "OPEN")
+                } else {
+                    Text(selected?.progress.started == true
+                         ? "\(count) / \(selected?.book.finalCount ?? 5) ENDINGS FOUND"
+                         : "READY TO EXPLORE")
+                    Spacer()
+                    Text(selected?.progress.started == true && selected?.isComplete == false
+                         ? "CONTINUE" : "READ")
+                }
                 Image(systemName: "arrow.up.right")
             }
             .font(.system(.caption, design: .monospaced, weight: .bold))

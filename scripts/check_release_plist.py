@@ -11,12 +11,12 @@ from pathlib import Path
 SAMPLE_ID = "ca-app-pub-3940256099942544~1458002511"
 BUNDLE = "pro.starport.story"
 
-def verify(app: Path) -> None:
+def verify(app: Path, bundle: str = BUNDLE) -> None:
     info_path = app / "Info.plist"
     if not info_path.is_file():
         raise SystemExit("Compiled app has no Info.plist")
     info = plistlib.loads(info_path.read_bytes())
-    if info.get("CFBundleIdentifier") != BUNDLE:
+    if info.get("CFBundleIdentifier") != bundle:
         raise SystemExit("Compiled app has an unexpected bundle identifier")
     app_id = info.get("GADApplicationIdentifier")
     if not isinstance(app_id, str) or not app_id.startswith("ca-app-pub-"):
@@ -32,6 +32,6 @@ def verify(app: Path) -> None:
     print("Compiled StarPort app config OK: AdMob ID is present, live ads are disabled.")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    if len(sys.argv) not in (2, 3):
         raise SystemExit("Usage: check_release_plist.py <path/to/Starport.app>")
-    verify(Path(sys.argv[1]))
+    verify(Path(sys.argv[1]), sys.argv[2] if len(sys.argv) == 3 else BUNDLE)

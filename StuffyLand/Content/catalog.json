@@ -1,0 +1,32 @@
+{
+  "formatVersion": 1,
+  "adventures": [
+    {
+      "id": "stuffy-bell",
+      "filename": "bell_button_hill",
+      "contentVersion": 1,
+      "title": "The Bell of Button Hill",
+      "subtitle": "The bell that calls everyone home has disappeared.",
+      "blurb": "A missing bell, a sleeping forest, and a promise to keep.",
+      "genre": "Stuffy Land adventure",
+      "symbol": "heart",
+      "estimatedMinutes": 35,
+      "coverAsset": "cover-bell-button-hill",
+      "collection": "Button Hill Stories"
+    },
+    {
+      "id": "stuffy-reader-sample",
+      "filename": "button_at_window",
+      "contentVersion": 1,
+      "kind": "reader",
+      "title": "The Button at the Window",
+      "subtitle": "A short Stuffy Land read-along sample.",
+      "blurb": "A complete short sample to try the new e-reader and Read Aloud controls.",
+      "genre": "Read-along · sample",
+      "symbol": "book.closed",
+      "estimatedMinutes": 7,
+      "coverAsset": "cover-button-window",
+      "collection": "Read-Along Stories"
+    }
+  ]
+}

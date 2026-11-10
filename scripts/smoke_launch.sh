@@ -5,7 +5,7 @@ set -euo pipefail
 
 app="${1:?Expected path to compiled Starport.app}"
 test -d "$app"
-bundle_id="pro.starport.story"
+bundle_id="${2:-pro.starport.story}"
 
 device=$(xcrun simctl list devices available -j | python3 -c '
 import json,sys

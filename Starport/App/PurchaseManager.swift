@@ -4,7 +4,7 @@ import StoreKit
 /// One-time, non-consumable "Remove Ads" entitlement through StoreKit 2.
 @MainActor
 final class PurchaseManager: ObservableObject {
-    static let productID = "pro.starport.story.remove_ads"
+    static var productID: String { AppBrand.current.removeAdsProductID }
 
     @Published private(set) var product: Product?
     @Published private(set) var isAdFree = false

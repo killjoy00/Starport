@@ -15,6 +15,8 @@ struct StarportRootView: View {
             Starfield()
             if !ageConfirmed {
                 AgeGateView(onConfirm13Plus: { ageConfirmed = true })
+            } else if reading, game.readerBook != nil {
+                BookReaderView(onExit: { reading = false })
             } else if reading, game.engine != nil {
                 AdventureScreen(onExit: { reading = false })
             } else {
@@ -74,19 +76,19 @@ struct StarportRootView: View {
                 VStack(alignment: .leading, spacing: 11) {
                     HStack(spacing: 7) {
                         Image(systemName: "sparkle")
-                        Text("INTERACTIVE FICTION")
+                        Text(AppBrand.current.heroEyebrow)
                     }
                     .font(.system(.caption, design: .monospaced, weight: .bold))
                     .tracking(1.4)
                     .foregroundStyle(StarportTheme.orange)
 
-                    Text("Choose a story.\nChange the ending.")
+                    Text(AppBrand.current.heroTitle)
                         .font(.system(size: 33, weight: .bold, design: .rounded))
                         .tracking(-0.8)
                         .foregroundStyle(StarportTheme.paper)
                         .fixedSize(horizontal: false, vertical: true)
 
-                    Text("The story moves forward because of your decisions.")
+                    Text(AppBrand.current.heroDescription)
                         .font(.body)
                         .foregroundStyle(StarportTheme.muted)
                         .fixedSize(horizontal: false, vertical: true)
@@ -98,29 +100,34 @@ struct StarportRootView: View {
                         .tracking(1.6)
                         .foregroundStyle(StarportTheme.teal)
                     Spacer()
-                    Text("\(game.catalog?.adventures.count ?? 0) ADVENTURE")
+                    Text("\(game.catalog?.adventures.count ?? 0) \(AppBrand.current.isStuffyLand ? "STORIES" : "ADVENTURE")")
                         .font(.system(.caption2, design: .monospaced))
                         .foregroundStyle(StarportTheme.muted)
                 }
 
                 if let entries = game.catalog?.adventures {
-                    ForEach(entries) { entry in
-                        Button {
-                            game.select(entry.id)
-                            guard game.selectedID == entry.id else { return }
-                            if game.engine?.isComplete == true { game.restart() }
-                            game.begin()
-                            reading = true
-                        } label: {
-                            adventureCard(entry)
+                    if AppBrand.current.isStuffyLand {
+                        ForEach(Array(Set(entries.map { $0.collection ?? "Other Adventures" })).sorted(), id: \.self) { shelf in
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text(shelf.uppercased())
+                                    .font(.system(.caption, design: .rounded, weight: .bold))
+                                    .tracking(1.2)
+                                    .foregroundStyle(StarportTheme.orange)
+                                ForEach(entries.filter { ($0.collection ?? "Other Adventures") == shelf }) { entry in
+                                    adventureButton(entry)
+                                }
+                            }
                         }
-                        .buttonStyle(.plain)
+                    } else {
+                        ForEach(entries) { entry in
+                            adventureButton(entry)
+                        }
                     }
                 } else {
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Can't open the library")
                             .font(.title2.bold())
-                        Text(game.errorMessage ?? "Please try opening Starport again.")
+                        Text(game.errorMessage ?? "Please try opening \(AppBrand.current.name) again.")
                             .foregroundStyle(StarportTheme.muted)
                     }
                 }
@@ -155,7 +162,7 @@ struct StarportRootView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(StarportTheme.panel.opacity(0.95), in: RoundedRectangle(cornerRadius: 16))
 
-                Text("STARPORT  ·  FOR READERS AGES 13+")
+                Text("\(AppBrand.current.masthead)  ·  FOR READERS AGES 13+")
                     .font(.system(.caption2, design: .monospaced))
                     .tracking(0.7)
                     .foregroundStyle(StarportTheme.muted)
@@ -168,6 +175,23 @@ struct StarportRootView: View {
             .padding(.bottom, 34)
             .frame(maxWidth: .infinity)
         }
+    }
+
+    private func adventureButton(_ entry: AdventureListing) -> some View {
+        Button {
+            game.select(entry.id)
+            guard game.selectedID == entry.id else { return }
+            if entry.format == .reader {
+                reading = game.readerBook != nil
+                return
+            }
+            if game.engine?.isComplete == true { game.restart() }
+            game.begin()
+            reading = game.engine != nil
+        } label: {
+            adventureCard(entry)
+        }
+        .buttonStyle(.plain)
     }
 
     private func adventureCard(_ entry: AdventureListing) -> some View {
@@ -198,7 +222,7 @@ struct StarportRootView: View {
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
 
-                    Label("\(entry.estimatedMinutes) minute adventure", systemImage: "clock")
+                    Label("\(entry.estimatedMinutes) minute \(entry.format == .reader ? "read" : "adventure")", systemImage: "clock")
                         .font(.caption)
                         .foregroundStyle(StarportTheme.muted)
                 }
@@ -211,12 +235,21 @@ struct StarportRootView: View {
 
             HStack(spacing: 8) {
                 Image(systemName: "bookmark")
-                Text(selected?.progress.started == true
-                     ? "\(count) / \(selected?.book.finalCount ?? 5) ENDINGS FOUND"
-                     : "READY TO EXPLORE")
-                Spacer()
-                Text(selected?.progress.started == true && selected?.isComplete == false
-                     ? "CONTINUE" : "READ")
+                if entry.format == .reader {
+                    Text(game.selectedID == entry.id && game.readerBook != nil
+                         ? "PAGE \(game.readerPageIndex + 1) OF \(game.readerBook?.pages.count ?? 1)"
+                         : "READ OR LISTEN")
+                    Spacer()
+                    Text(game.selectedID == entry.id && game.readerPageIndex > 0
+                         ? "CONTINUE" : "OPEN")
+                } else {
+                    Text(selected?.progress.started == true
+                         ? "\(count) / \(selected?.book.finalCount ?? 5) ENDINGS FOUND"
+                         : "READY TO EXPLORE")
+                    Spacer()
+                    Text(selected?.progress.started == true && selected?.isComplete == false
+                         ? "CONTINUE" : "READ")
+                }
                 Image(systemName: "arrow.up.right")
             }
             .font(.system(.caption, design: .monospaced, weight: .bold))

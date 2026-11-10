@@ -1,0 +1,1388 @@
+{
+  "id": "stuffy-bell",
+  "contentVersion": 1,
+  "title": "The Bell of Button Hill",
+  "subtitle": "The bell that calls everyone home has disappeared.",
+  "start": "s01",
+  "minimumDecisions": 25,
+  "nodes": [
+    {
+      "id": "s01",
+      "act": "PART ONE  /  THE MISSING BELL",
+      "title": "The Empty Hook",
+      "paragraphs": [
+        "Every evening, the Bell of Button Hill tells the stuffed animals of Stuffy Land that it is time to come home. Tonight the bell's hook is empty. The hill seems taller without its little silver shine.",
+        "Pip the rabbit is waiting beside the hook with his ears folded over. He says he heard a tiny song travel toward the woods just before sunset."
+      ],
+      "choices": [
+        {
+          "id": "s01_care",
+          "label": "Inspect the scratches on the hook",
+          "to": "s02",
+          "outcome": "You choose to inspect the scratches on the hook. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "listened_to_pip"
+            }
+          ]
+        },
+        {
+          "id": "s01_try",
+          "label": "Ask Pip to tell the story again",
+          "to": "s02",
+          "outcome": "You choose to ask Pip to tell the story again. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        }
+      ],
+      "illustration": {
+        "asset": "stuffy-scene-hill",
+        "alt": "Storybook illustration of the empty hook in Stuffy Land."
+      }
+    },
+    {
+      "id": "s02",
+      "act": "PART ONE  /  THE MISSING BELL",
+      "title": "The Thread on the Gate",
+      "paragraphs": [
+        "At the bottom of the hill, someone has tied a purple thread around the garden gate. It is the exact color of the bell's handle. The thread is damp, though it has not rained.",
+        "Pip says a careful detective would follow the thread. You think a good friend might first make sure everyone knows the bell is missing."
+      ],
+      "choices": [
+        {
+          "id": "s02_care",
+          "label": "Follow the purple thread",
+          "to": "s03",
+          "outcome": "You choose to follow the purple thread. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "left_note"
+            }
+          ]
+        },
+        {
+          "id": "s02_try",
+          "label": "Leave a note so nobody worries",
+          "to": "s03",
+          "outcome": "You choose to leave a note so nobody worries. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s02_detour",
+          "label": "Follow the jingling buttons",
+          "to": "detour_1",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "act": "PART ONE  /  THE MISSING BELL",
+      "title": "The Tea-Cup Bridge",
+      "paragraphs": [
+        "A stream crosses the path. Its bridge is made of three old tea cups and a ruler, and one cup is wobbling. Mallow Bear is already holding it in place with both paws.",
+        "Mallow does not ask for help, but the ruler is bending. Beyond him the purple thread disappears into a patch of tall grass."
+      ],
+      "choices": [
+        {
+          "id": "s03_care",
+          "label": "Steady the bridge for Mallow",
+          "to": "s04",
+          "outcome": "You choose to steady the bridge for Mallow. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "helped_mallow"
+            }
+          ]
+        },
+        {
+          "id": "s03_try",
+          "label": "Cross quickly and look for tracks",
+          "to": "s04",
+          "outcome": "You choose to cross quickly and look for tracks. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "act": "PART ONE  /  THE MISSING BELL",
+      "title": "A Very Small Footprint",
+      "paragraphs": [
+        "There is a footprint in the mud no wider than a button. A green tuft of stuffing is caught on a thorn above it. Nothing in Stuffy Land is quite that small, except the little mice who live in the clock tower.",
+        "Pip points out a second track going the other way. Someone has been trying to confuse anyone who follows."
+      ],
+      "choices": [
+        {
+          "id": "s04_care",
+          "label": "Make a drawing of both tracks",
+          "to": "s05",
+          "outcome": "You choose to make a drawing of both tracks. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "drew_tracks"
+            }
+          ]
+        },
+        {
+          "id": "s04_try",
+          "label": "Ask the mice for help immediately",
+          "to": "s05",
+          "outcome": "You choose to ask the mice for help immediately. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s04_detour",
+          "label": "Take the clock's secret stair",
+          "to": "detour_2",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ],
+      "illustration": {
+        "asset": "stuffy-scene-bridge",
+        "alt": "Storybook illustration of a very small footprint in Stuffy Land."
+      }
+    },
+    {
+      "id": "s05",
+      "act": "PART ONE  /  THE MISSING BELL",
+      "title": "The Clock-Tower Door",
+      "paragraphs": [
+        "The clock tower smells of warm dust and peppermint. A sign on the door says PLEASE KNOCK SOFTLY. Inside, the mice are arguing about which hand of the clock is supposed to move first.",
+        "Their captain, a gray mouse called Dot, has seen the bell. She will tell you what happened, but she wants a promise that nobody will blame her little crew."
+      ],
+      "choices": [
+        {
+          "id": "s05_care",
+          "label": "Promise Dot you will listen fairly",
+          "to": "s06",
+          "outcome": "You choose to promise Dot you will listen fairly. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "made_promise"
+            }
+          ]
+        },
+        {
+          "id": "s05_try",
+          "label": "Question Dot about the exact time",
+          "to": "s06",
+          "outcome": "You choose to question Dot about the exact time. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "act": "PART ONE  /  THE MISSING BELL",
+      "title": "Dot's Secret",
+      "paragraphs": [
+        "Dot explains that someone borrowed the bell to wake a sleeping part of the woods. The borrower wore a blue patch over one eye. Dot cannot remember whether the patch belonged to a coat or a face.",
+        "An old clock drawing shows a trail that only appears when the big hand points at the moon. The hand is not quite there yet."
+      ],
+      "choices": [
+        {
+          "id": "s06_care",
+          "label": "Help Dot turn the clock hand gently",
+          "to": "s07",
+          "outcome": "You choose to help Dot turn the clock hand gently. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "clock_moved"
+            }
+          ]
+        },
+        {
+          "id": "s06_try",
+          "label": "Copy the drawing before it fades",
+          "to": "s07",
+          "outcome": "You choose to copy the drawing before it fades. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s06_detour",
+          "label": "Trust the drifting feather",
+          "to": "detour_3",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "act": "PART ONE  /  THE MISSING BELL",
+      "title": "The Folded Map",
+      "paragraphs": [
+        "When the clock chimes, a map falls from beneath its face. It shows a trail of buttons stitched through the forest, ending at a blank space labeled HERE BE WHAT WE FORGOT.",
+        "Dot offers the map to you. Pip is excited, but Mallow thinks the whole village should be able to use it after tonight."
+      ],
+      "choices": [
+        {
+          "id": "s07_care",
+          "label": "Promise to share the map with the village",
+          "to": "s08",
+          "outcome": "You choose to promise to share the map with the village. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "shared_map"
+            }
+          ]
+        },
+        {
+          "id": "s07_try",
+          "label": "Mark a private path through the woods",
+          "to": "s08",
+          "outcome": "You choose to mark a private path through the woods. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ],
+      "illustration": {
+        "asset": "stuffy-scene-clock",
+        "alt": "Storybook illustration of the folded map in Stuffy Land."
+      }
+    },
+    {
+      "id": "s08",
+      "act": "PART ONE  /  THE MISSING BELL",
+      "title": "The Patchwork Orchard",
+      "paragraphs": [
+        "The trees here grow small square pieces of cloth instead of leaves. Some pieces are striped, some have polka dots, and one is embroidered with the same musical notes Pip heard on the hill.",
+        "A breeze lifts the embroidered square. It catches on the tip of a branch just beyond reach."
+      ],
+      "choices": [
+        {
+          "id": "s08_care",
+          "label": "Climb carefully for the musical cloth",
+          "to": "s09",
+          "outcome": "You choose to climb carefully for the musical cloth. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "kept_song_cloth"
+            }
+          ]
+        },
+        {
+          "id": "s08_try",
+          "label": "Ask Mallow to give you a lift",
+          "to": "s09",
+          "outcome": "You choose to ask Mallow to give you a lift. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s08_detour",
+          "label": "Crawl into the shortcut blanket",
+          "to": "detour_4",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "act": "PART TWO  /  THE SLEEPING WOODS",
+      "title": "The Song in the Seams",
+      "paragraphs": [
+        "The cloth plays a tune when you rub its stitched edge between your paws. Three notes repeat, then pause for a fourth. It sounds unfinished, like a question nobody has answered.",
+        "Pip hums the fourth note by accident. The orchard shivers, and a tiny door opens in the trunk of the oldest tree."
+      ],
+      "choices": [
+        {
+          "id": "s09_care",
+          "label": "Write down the four notes",
+          "to": "s10",
+          "outcome": "You choose to write down the four notes. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "found_song"
+            }
+          ]
+        },
+        {
+          "id": "s09_try",
+          "label": "Thank Pip and practice together",
+          "to": "s10",
+          "outcome": "You choose to thank Pip and practice together. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "act": "PART TWO  /  THE SLEEPING WOODS",
+      "title": "A Door the Size of a Sock",
+      "paragraphs": [
+        "The tree door is much too small for Mallow, but it swings wider when he offers his scarf to protect the bark. Inside is a tunnel lined with soft blue thread.",
+        "At the far end you can hear wheels moving. Something heavy has passed through here recently, leaving bright silver dust along the floor."
+      ],
+      "choices": [
+        {
+          "id": "s10_care",
+          "label": "Collect a sample of silver dust",
+          "to": "s11",
+          "outcome": "You choose to collect a sample of silver dust. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "kept_dust"
+            }
+          ]
+        },
+        {
+          "id": "s10_try",
+          "label": "Let everyone through before you enter",
+          "to": "s11",
+          "outcome": "You choose to let everyone through before you enter. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s10_detour",
+          "label": "Ask the pudding compass",
+          "to": "detour_5",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ],
+      "illustration": {
+        "asset": "stuffy-scene-orchard",
+        "alt": "Storybook illustration of a door the size of a sock in Stuffy Land."
+      }
+    },
+    {
+      "id": "s11",
+      "act": "PART TWO  /  THE SLEEPING WOODS",
+      "title": "The Lost-and-Found Cart",
+      "paragraphs": [
+        "A wooden cart stands beside the tunnel exit. It is full of lost things: a striped mitten, a little wooden spoon, and six buttons that do not match. Under the cart lies a wheel shaped like a bell.",
+        "Tansy the fox is sitting on the driver's seat. She says she borrowed the cart to bring lost things home, but she did not borrow the bell."
+      ],
+      "choices": [
+        {
+          "id": "s11_care",
+          "label": "Check the bell-shaped wheel",
+          "to": "s12",
+          "outcome": "You choose to check the bell-shaped wheel. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "helped_tansy"
+            }
+          ]
+        },
+        {
+          "id": "s11_try",
+          "label": "Help Tansy sort the lost things",
+          "to": "s12",
+          "outcome": "You choose to help Tansy sort the lost things. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "act": "PART TWO  /  THE SLEEPING WOODS",
+      "title": "Tansy's Blue Patch",
+      "paragraphs": [
+        "Tansy has a blue patch on her satchel. It looks just like Dot's description. Before you can ask, she takes the satchel off and shows you a torn seam. She has been trying to mend it all afternoon.",
+        "Inside the satchel is a piece of silver ribbon, tied to a note that says: THE WOODS ARE FALLING ASLEEP."
+      ],
+      "choices": [
+        {
+          "id": "s12_care",
+          "label": "Ask Tansy who wrote the note",
+          "to": "s13",
+          "outcome": "You choose to ask Tansy who wrote the note. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "mended_satchel"
+            }
+          ]
+        },
+        {
+          "id": "s12_try",
+          "label": "Help repair the satchel first",
+          "to": "s13",
+          "outcome": "You choose to help repair the satchel first. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s12_detour",
+          "label": "Try the rope swing",
+          "to": "detour_6",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "act": "PART TWO  /  THE SLEEPING WOODS",
+      "title": "The Sleepy Hedge",
+      "paragraphs": [
+        "The hedge ahead keeps trying to curl up as if it were a sleepy cat. Every time it closes, the path disappears for a moment. You can hear the bell's four-note tune somewhere past it.",
+        "Mallow finds a loose stitch at the base of the hedge. The hedge might open if somebody gently holds the stitch, but nobody knows for how long."
+      ],
+      "choices": [
+        {
+          "id": "s13_care",
+          "label": "Hold the stitch and guide the others",
+          "to": "s14",
+          "outcome": "You choose to hold the stitch and guide the others. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "held_hedge"
+            }
+          ]
+        },
+        {
+          "id": "s13_try",
+          "label": "Search the hedge for another opening",
+          "to": "s14",
+          "outcome": "You choose to search the hedge for another opening. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ],
+      "illustration": {
+        "asset": "stuffy-scene-cart",
+        "alt": "Storybook illustration of the sleepy hedge in Stuffy Land."
+      }
+    },
+    {
+      "id": "s14",
+      "act": "PART TWO  /  THE SLEEPING WOODS",
+      "title": "The Lantern Without a Flame",
+      "paragraphs": [
+        "A small lantern hangs from the hedge's last branch. It has no candle. Instead, a scrap of paper inside reads: A LIGHT CAN BE A PROMISE KEPT.",
+        "Pip thinks the lantern was left by the person who took the bell. It starts to glow faintly when Dot's promise is mentioned."
+      ],
+      "choices": [
+        {
+          "id": "s14_care",
+          "label": "Tell the others what you promised Dot",
+          "to": "s15",
+          "outcome": "You choose to tell the others what you promised Dot. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "lantern_lit"
+            }
+          ]
+        },
+        {
+          "id": "s14_try",
+          "label": "Try to wake the lantern with the song",
+          "to": "s15",
+          "outcome": "You choose to try to wake the lantern with the song. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s14_detour",
+          "label": "Follow the sleepy sign",
+          "to": "detour_7",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "made_promise",
+            "hint": ""
+          },
+          "text": "Because you promised Dot you would be fair, the lantern glows a little brighter in your paws."
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "act": "PART TWO  /  THE SLEEPING WOODS",
+      "title": "The Quiet Clearing",
+      "paragraphs": [
+        "You reach a clearing where the grass looks like an old green blanket. A dozen stuffed animals are sleeping beneath the trees. Not one of them wakes at the sound of footsteps.",
+        "Tansy kneels next to a tiny hedgehog and finds a card tucked under its paw: WE ONLY WANTED A LITTLE MORE NIGHT."
+      ],
+      "choices": [
+        {
+          "id": "s15_care",
+          "label": "Check that everyone is safe",
+          "to": "s16",
+          "outcome": "You choose to check that everyone is safe. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "checked_sleepers"
+            }
+          ]
+        },
+        {
+          "id": "s15_try",
+          "label": "Read the card for hidden clues",
+          "to": "s16",
+          "outcome": "You choose to read the card for hidden clues. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "act": "PART TWO  /  THE SLEEPING WOODS",
+      "title": "A Feather in the Moss",
+      "paragraphs": [
+        "A bright feather rests on the path beside the clearing. It belongs to Wren, a little fabric bird who used to carry messages between the hill and the deep woods.",
+        "Wren flutters down from a branch and admits she carried the bell away. She says someone told her its sound was making the woods forget how to dream."
+      ],
+      "choices": [
+        {
+          "id": "s16_care",
+          "label": "Listen to Wren's whole reason",
+          "to": "s17",
+          "outcome": "You choose to listen to Wren's whole reason. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "heard_wren"
+            }
+          ]
+        },
+        {
+          "id": "s16_try",
+          "label": "Ask Wren to show the exact route",
+          "to": "s17",
+          "outcome": "You choose to ask Wren to show the exact route. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s16_detour",
+          "label": "Pick the brightest lantern",
+          "to": "detour_8",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ],
+      "illustration": {
+        "asset": "stuffy-scene-lantern",
+        "alt": "Storybook illustration of a feather in the moss in Stuffy Land."
+      }
+    },
+    {
+      "id": "s17",
+      "act": "PART TWO  /  THE SLEEPING WOODS",
+      "title": "The Unfinished Apology",
+      "paragraphs": [
+        "Wren is ashamed. She did not mean to make the village worry. She thought moving the bell for one night would give the woods a chance to sleep properly.",
+        "Pip is angry enough to stamp a foot. Mallow is quiet. What you say next will matter long after the bell is found."
+      ],
+      "choices": [
+        {
+          "id": "s17_care",
+          "label": "Tell Wren mistakes can be repaired",
+          "to": "s18",
+          "outcome": "You choose to tell Wren mistakes can be repaired. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "forgave_wren"
+            }
+          ]
+        },
+        {
+          "id": "s17_try",
+          "label": "Ask Wren to help put things right",
+          "to": "s18",
+          "outcome": "You choose to ask Wren to help put things right. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s18",
+      "act": "PART THREE  /  THE WAY HOME",
+      "title": "The Pond of Reflections",
+      "paragraphs": [
+        "The path ends at a pond as smooth as a polished mirror. In the water you see Button Hill, but the bell is hanging upside down beneath the surface.",
+        "Wren tells you the reflection is not a trick. The bell has been tucked under a floating lily pad, protected from the night air by pond water."
+      ],
+      "choices": [
+        {
+          "id": "s18_care",
+          "label": "Look for the real lily pad",
+          "to": "s19",
+          "outcome": "You choose to look for the real lily pad. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "planned_rescue"
+            }
+          ]
+        },
+        {
+          "id": "s18_try",
+          "label": "Make a plan before anyone jumps",
+          "to": "s19",
+          "outcome": "You choose to make a plan before anyone jumps. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s18_detour",
+          "label": "Sail in the teapot",
+          "to": "detour_9",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ]
+    },
+    {
+      "id": "s19",
+      "act": "PART THREE  /  THE WAY HOME",
+      "title": "The Silver Ripple",
+      "paragraphs": [
+        "A ring of silver crosses the pond. You spot the bell just beneath the biggest lily pad, its little clapper wrapped in blue thread. The water is shallow, but the mud is soft and deep.",
+        "Mallow can reach it if someone holds his scarf. Pip thinks the song might lift the lily pad without anyone getting wet."
+      ],
+      "choices": [
+        {
+          "id": "s19_care",
+          "label": "Hold Mallow's scarf firmly",
+          "to": "s20",
+          "outcome": "You choose to hold Mallow's scarf firmly. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "lifted_bell"
+            }
+          ]
+        },
+        {
+          "id": "s19_try",
+          "label": "Play the four-note song",
+          "to": "s20",
+          "outcome": "You choose to play the four-note song. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ],
+      "illustration": {
+        "asset": "stuffy-scene-pond",
+        "alt": "Storybook illustration of the silver ripple in Stuffy Land."
+      }
+    },
+    {
+      "id": "s20",
+      "act": "PART THREE  /  THE WAY HOME",
+      "title": "One Loose Stitch",
+      "paragraphs": [
+        "The bell is in your paws at last. Its handle is sound, but the silver ribbon tied to the clapper has one loose stitch. If you ring it now, the clapper may slip and the bell may crack.",
+        "Tansy has a needle. Dot has a perfect knot. The friends who came with you are waiting for a decision."
+      ],
+      "choices": [
+        {
+          "id": "s20_care",
+          "label": "Take time to mend the clapper",
+          "to": "s21",
+          "outcome": "You choose to take time to mend the clapper. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "bell_repaired"
+            }
+          ]
+        },
+        {
+          "id": "s20_try",
+          "label": "Ask Dot to tie the safe knot",
+          "to": "s21",
+          "outcome": "You choose to ask Dot to tie the safe knot. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s20_detour",
+          "label": "Call into the echo",
+          "to": "detour_10",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ]
+    },
+    {
+      "id": "s21",
+      "act": "PART THREE  /  THE WAY HOME",
+      "title": "The Woods Stir",
+      "paragraphs": [
+        "As the bell is repaired, the sleeping animals begin to turn in their beds of moss. They are not frightened. They seem to be listening for something you cannot hear.",
+        "Wren says the woods were never angry at the bell. They were simply tired of being rushed. Perhaps there is a way to help the woods and the village."
+      ],
+      "choices": [
+        {
+          "id": "s21_care",
+          "label": "Ask what the sleepers need",
+          "to": "s22",
+          "outcome": "You choose to ask what the sleepers need. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "listened_to_woods"
+            }
+          ]
+        },
+        {
+          "id": "s21_try",
+          "label": "Test the bell's softest note",
+          "to": "s22",
+          "outcome": "You choose to test the bell's softest note. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s22",
+      "act": "PART THREE  /  THE WAY HOME",
+      "title": "The Other Side of Home",
+      "paragraphs": [
+        "You find a second path painted on the map in moonlight. It would let the village reach the woods without the bell waking everyone at once. The line is faint, as though it needs more friends to believe in it.",
+        "Pip holds one end of the map while Mallow smooths it flat. You have enough time to choose whose idea to follow."
+      ],
+      "choices": [
+        {
+          "id": "s22_care",
+          "label": "Share the moonlit path with everyone",
+          "to": "s23",
+          "outcome": "You choose to share the moonlit path with everyone. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "moon_path"
+            }
+          ]
+        },
+        {
+          "id": "s22_try",
+          "label": "Check where the path leads first",
+          "to": "s23",
+          "outcome": "You choose to check where the path leads first. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s22_detour",
+          "label": "Take the ribbon spiral",
+          "to": "detour_11",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ],
+      "illustration": {
+        "asset": "stuffy-scene-bell",
+        "alt": "Storybook illustration of the other side of home in Stuffy Land."
+      },
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "shared_map",
+            "hint": ""
+          },
+          "text": "You have already agreed to share the map. Mallow smiles when he sees the moonlit path."
+        }
+      ]
+    },
+    {
+      "id": "s23",
+      "act": "PART THREE  /  THE WAY HOME",
+      "title": "The Promise of Morning",
+      "paragraphs": [
+        "The sky above Button Hill has begun to lighten. The sleeping woods need rest, and the village needs its bell. Both things are true, which makes the right choice harder.",
+        "Dot reminds you of the promise you made in the clock tower. Wren offers to fly ahead, but will follow your lead."
+      ],
+      "choices": [
+        {
+          "id": "s23_care",
+          "label": "Keep the promise to Dot and Wren",
+          "to": "s24",
+          "outcome": "You choose to keep the promise to Dot and Wren. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "promise_kept"
+            }
+          ]
+        },
+        {
+          "id": "s23_try",
+          "label": "Ask all the friends to vote on a plan",
+          "to": "s24",
+          "outcome": "You choose to ask all the friends to vote on a plan. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s24",
+      "act": "PART THREE  /  THE WAY HOME",
+      "title": "The Climb Back Up",
+      "paragraphs": [
+        "The group climbs Button Hill carrying the bell on Mallow's scarf. People are already gathering at their doors. Some wave. Some ask questions. A few simply look relieved to see everyone safe.",
+        "Near the top you hear the unfinished four-note tune in the breeze again. This time it does not sound frightened. It sounds expectant."
+      ],
+      "choices": [
+        {
+          "id": "s24_care",
+          "label": "Practice the full tune one last time",
+          "to": "s25",
+          "outcome": "You choose to practice the full tune one last time. The others notice what you value.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "told_village"
+            }
+          ]
+        },
+        {
+          "id": "s24_try",
+          "label": "Explain everything to the waiting village",
+          "to": "s25",
+          "outcome": "You choose to explain everything to the waiting village. It changes the way you approach the next part of the search.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "s24_detour",
+          "label": "Stop for the midnight picnic",
+          "to": "detour_12",
+          "outcome": "A tempting shortcut becomes a short adventure of its own."
+        }
+      ]
+    },
+    {
+      "id": "s25",
+      "act": "PART THREE  /  THE WAY HOME",
+      "title": "The Bell and the First Light",
+      "paragraphs": [
+        "You stand where the bell belongs. The sky is pearl gray, the woods are breathing slowly, and Stuffy Land is waiting. You have learned why Wren took the bell, how the woods fell asleep, and what a promise can cost.",
+        "There are several ways to finish this night. One could help almost everyone. Others might keep the village safe but leave a friend behind. The choice is yours."
+      ],
+      "choices": [
+        {
+          "id": "ending_harmony",
+          "label": "Ring the bell softly, then teach everyone the moonlit path",
+          "detail": "Restore the village's tradition without waking the whole forest.",
+          "to": "final_1",
+          "requirements": [
+            {
+              "stat": "clues",
+              "atLeast": 2,
+              "hint": "Learn more about the woods first."
+            },
+            {
+              "stat": "trust",
+              "atLeast": 3,
+              "hint": "You need more friendship to bring everyone together."
+            },
+            {
+              "flag": "shared_map",
+              "hint": "Share the map before proposing a new path."
+            },
+            {
+              "flag": "found_song",
+              "hint": "Learn the full bell-song first."
+            }
+          ],
+          "effects": []
+        },
+        {
+          "id": "ending_home",
+          "label": "Ring the bell and ask Wren to stay",
+          "detail": "Bring the village home, even if the woods remain a mystery.",
+          "to": "final_2",
+          "requirements": [
+            {
+              "stat": "trust",
+              "atLeast": 2,
+              "hint": "You need a friend who will stand beside you."
+            }
+          ],
+          "effects": []
+        },
+        {
+          "id": "ending_wren",
+          "label": "Let Wren ring the bell from the forest edge",
+          "detail": "The village will hear it, though it may not sound the same.",
+          "to": "final_3",
+          "requirements": [
+            {
+              "stat": "clues",
+              "atLeast": 1,
+              "hint": "You need at least one clue about the new route."
+            }
+          ],
+          "effects": []
+        },
+        {
+          "id": "ending_silence",
+          "label": "Hang the bell back without ringing it",
+          "detail": "Keep the woods asleep and let the villagers find each other in daylight.",
+          "to": "final_4",
+          "effects": []
+        },
+        {
+          "id": "ending_rush",
+          "label": "Ring the bell as loudly as you can",
+          "detail": "End the uncertainty immediately, whatever the cost.",
+          "to": "final_5",
+          "effects": []
+        }
+      ],
+      "illustration": {
+        "asset": "stuffy-scene-village",
+        "alt": "Storybook illustration of the bell and the first light in Stuffy Land."
+      }
+    },
+    {
+      "id": "final_1",
+      "act": "THE END",
+      "title": "The Bell for Everyone",
+      "paragraphs": [
+        "You place the bell on its hook, but you do not ring it at full strength. Pip sings the four notes first. The bell answers in a voice gentle enough for the sleeping woods and clear enough for every home in the village.",
+        "The moonlit path shines where everyone can see it. Dot's mice add signs, Tansy helps mark turns, and Wren carries the first invitation to a forest picnic. Stuffy Land has not just found its bell. It has learned a kinder way to come home."
+      ],
+      "ending": {
+        "id": "final_1",
+        "kind": "final",
+        "rank": 1,
+        "title": "The Bell for Everyone",
+        "note": "The best ending"
+      }
+    },
+    {
+      "id": "final_2",
+      "act": "THE END",
+      "title": "The Village Comes Home",
+      "paragraphs": [
+        "The bell rings brightly over Button Hill. Doors open, friends come running, and the worried village gathers around Wren to hear her story. You ask them to listen before anyone gets angry.",
+        "The bell is safe and everyone finds home, but the forest falls silent again. You promise Wren that tomorrow you will return to learn what the woods were trying to say. Some adventures end with a question worth keeping."
+      ],
+      "ending": {
+        "id": "final_2",
+        "kind": "final",
+        "rank": 2,
+        "title": "The Village Comes Home",
+        "note": "A good ending"
+      }
+    },
+    {
+      "id": "final_3",
+      "act": "THE END",
+      "title": "Wren's New Song",
+      "paragraphs": [
+        "Wren carries the bell to the forest edge and rings it among the trees. The sound is different there: softer, stranger, like a lullaby trying to remember its words. The villagers hear it and follow the sound home.",
+        "The woods sleep peacefully, but Button Hill is empty at sundown. Pip misses the familiar silver bell. Together you decide to build a new signal before the next night. You solved one problem and made another you can fix."
+      ],
+      "ending": {
+        "id": "final_3",
+        "kind": "final",
+        "rank": 3,
+        "title": "Wren's New Song",
+        "note": "A mixed ending"
+      }
+    },
+    {
+      "id": "final_4",
+      "act": "THE END",
+      "title": "A Quiet Hill",
+      "paragraphs": [
+        "You hang the bell back on its hook but do not ring it. The sleeping woods are undisturbed. The village waits longer than usual, looking out into the dark for the friends who have not arrived.",
+        "By morning everyone has found a way home, though some have been worried and some are cross. You explain what you learned and accept that silence was not an answer for everybody. Stuffy Land needs a better plan before the next sunset."
+      ],
+      "ending": {
+        "id": "final_4",
+        "kind": "final",
+        "rank": 4,
+        "title": "A Quiet Hill",
+        "note": "A difficult ending"
+      }
+    },
+    {
+      "id": "final_5",
+      "act": "THE END",
+      "title": "The Cracked Bell",
+      "paragraphs": [
+        "You swing the bell hard. Its loose clapper catches, and the silver shell cracks with a sound like a teacup breaking. The village hears the sharp noise and comes running, but so does the frightened forest.",
+        "The sleepers wake confused, Wren flies away ashamed, and Button Hill is quiet for the wrong reason. Mallow puts an arm around Pip. The bell can be repaired, but first you must start again and choose what kind of friend to be."
+      ],
+      "ending": {
+        "id": "final_5",
+        "kind": "final",
+        "rank": 5,
+        "title": "The Cracked Bell",
+        "note": "The worst ending"
+      }
+    },
+    {
+      "id": "detour_1",
+      "act": "A SHORT DETOUR",
+      "title": "The Button Parade",
+      "paragraphs": [
+        "You take the tempting side path and discover the button parade. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_1",
+        "kind": "detour",
+        "title": "The Button Parade",
+        "note": "A parade of buttons circles the path for an hour. Very impressive, but not helpful."
+      }
+    },
+    {
+      "id": "detour_2",
+      "act": "A SHORT DETOUR",
+      "title": "Tea at the Wrong Time",
+      "paragraphs": [
+        "You take the tempting side path and discover tea at the wrong time. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_2",
+        "kind": "detour",
+        "title": "Tea at the Wrong Time",
+        "note": "The mice invite you to a tea party that lasts until the clocks run backward."
+      }
+    },
+    {
+      "id": "detour_3",
+      "act": "A SHORT DETOUR",
+      "title": "The Feather Elevator",
+      "paragraphs": [
+        "You take the tempting side path and discover the feather elevator. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_3",
+        "kind": "detour",
+        "title": "The Feather Elevator",
+        "note": "A feather lifts your group into a nest full of extremely polite spiders."
+      }
+    },
+    {
+      "id": "detour_4",
+      "act": "A SHORT DETOUR",
+      "title": "The Blanket Tunnel",
+      "paragraphs": [
+        "You take the tempting side path and discover the blanket tunnel. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_4",
+        "kind": "detour",
+        "title": "The Blanket Tunnel",
+        "note": "A blanket folds over the trail. The only exit leads back to your own footprints."
+      }
+    },
+    {
+      "id": "detour_5",
+      "act": "A SHORT DETOUR",
+      "title": "The Pudding Compass",
+      "paragraphs": [
+        "You take the tempting side path and discover the pudding compass. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_5",
+        "kind": "detour",
+        "title": "The Pudding Compass",
+        "note": "A pudding cup insists it knows north. It only knows dessert."
+      }
+    },
+    {
+      "id": "detour_6",
+      "act": "A SHORT DETOUR",
+      "title": "The Forever Swing",
+      "paragraphs": [
+        "You take the tempting side path and discover the forever swing. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_6",
+        "kind": "detour",
+        "title": "The Forever Swing",
+        "note": "A rope swing takes you in a perfect circle and returns you to the same tree."
+      }
+    },
+    {
+      "id": "detour_7",
+      "act": "A SHORT DETOUR",
+      "title": "The Sleepy Signpost",
+      "paragraphs": [
+        "You take the tempting side path and discover the sleepy signpost. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_7",
+        "kind": "detour",
+        "title": "The Sleepy Signpost",
+        "note": "A signpost yawns, falls over, and points toward a field of sleeping spoons."
+      }
+    },
+    {
+      "id": "detour_8",
+      "act": "A SHORT DETOUR",
+      "title": "The Wrong Lantern",
+      "paragraphs": [
+        "You take the tempting side path and discover the wrong lantern. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_8",
+        "kind": "detour",
+        "title": "The Wrong Lantern",
+        "note": "A lantern guides you into a cupboard full of socks."
+      }
+    },
+    {
+      "id": "detour_9",
+      "act": "A SHORT DETOUR",
+      "title": "The Floating Teapot",
+      "paragraphs": [
+        "You take the tempting side path and discover the floating teapot. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_9",
+        "kind": "detour",
+        "title": "The Floating Teapot",
+        "note": "A teapot becomes a boat. It travels three feet and decides to retire."
+      }
+    },
+    {
+      "id": "detour_10",
+      "act": "A SHORT DETOUR",
+      "title": "The Echo Choir",
+      "paragraphs": [
+        "You take the tempting side path and discover the echo choir. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_10",
+        "kind": "detour",
+        "title": "The Echo Choir",
+        "note": "The pond echoes every word until nobody can remember what question you asked."
+      }
+    },
+    {
+      "id": "detour_11",
+      "act": "A SHORT DETOUR",
+      "title": "The Ribbon Spiral",
+      "paragraphs": [
+        "You take the tempting side path and discover the ribbon spiral. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_11",
+        "kind": "detour",
+        "title": "The Ribbon Spiral",
+        "note": "The blue ribbon wraps around a stump and calls itself a shortcut."
+      }
+    },
+    {
+      "id": "detour_12",
+      "act": "A SHORT DETOUR",
+      "title": "The Midnight Picnic",
+      "paragraphs": [
+        "You take the tempting side path and discover the midnight picnic. It is a fine little story, but the missing bell is no closer.",
+        "Pip looks at you, brushes off his ears, and asks if you would like to try that last choice again."
+      ],
+      "ending": {
+        "id": "detour_12",
+        "kind": "detour",
+        "title": "The Midnight Picnic",
+        "note": "A picnic blanket appears and refuses to let anyone leave without a fourth biscuit."
+      }
+    }
+  ]
+}

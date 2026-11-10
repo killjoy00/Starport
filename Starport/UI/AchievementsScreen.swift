@@ -6,7 +6,7 @@ struct AchievementsScreen: View {
     @EnvironmentObject private var game: GameStore
 
     private var earned: Int {
-        AchievementCatalog.all.filter { game.achievements.contains($0.id) }.count
+        AchievementCatalog.all(forStuffyLand: AppBrand.current.isStuffyLand).filter { game.achievements.contains($0.id) }.count
     }
 
     var body: some View {
@@ -14,16 +14,16 @@ struct AchievementsScreen: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(alignment: .leading, spacing: 9) {
-                        Text("MISSION RECORD")
+                        Text(AppBrand.current.achievementsEyebrow)
                             .font(.system(.caption, design: .monospaced, weight: .bold))
                             .tracking(1.4)
                             .foregroundStyle(StarportTheme.orange)
-                        Text("\(earned) of \(AchievementCatalog.all.count) unlocked")
+                        Text("\(earned) of \(AchievementCatalog.all(forStuffyLand: AppBrand.current.isStuffyLand).count) unlocked")
                             .font(.system(.title, design: .rounded, weight: .bold))
                             .foregroundStyle(StarportTheme.paper)
-                        ProgressView(value: Double(earned), total: Double(AchievementCatalog.all.count))
+                        ProgressView(value: Double(earned), total: Double(AchievementCatalog.all(forStuffyLand: AppBrand.current.isStuffyLand).count))
                             .tint(StarportTheme.teal)
-                            .accessibilityLabel("\(earned) of \(AchievementCatalog.all.count) achievements unlocked")
+                            .accessibilityLabel("\(earned) of \(AchievementCatalog.all(forStuffyLand: AppBrand.current.isStuffyLand).count) achievements unlocked")
                         Text("Explore every branch, recover from wrong turns, and collect the real endings. Achievements stay on this device.")
                             .font(.subheadline)
                             .foregroundStyle(StarportTheme.muted)
@@ -38,7 +38,7 @@ struct AchievementsScreen: View {
                                 .font(.system(.caption, design: .monospaced, weight: .bold))
                                 .tracking(1.3)
                                 .foregroundStyle(StarportTheme.orange)
-                            ForEach(AchievementCatalog.all.filter { $0.group == group }) { badge in
+                            ForEach(AchievementCatalog.all(forStuffyLand: AppBrand.current.isStuffyLand).filter { $0.group == group }) { badge in
                                 achievementRow(badge)
                             }
                         }

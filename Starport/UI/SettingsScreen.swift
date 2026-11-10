@@ -28,7 +28,7 @@ struct SettingsScreen: View {
                     if purchases.isAdFree {
                         Label("Ads removed", systemImage: "checkmark.seal.fill")
                             .foregroundStyle(StarportTheme.teal)
-                        Text("Thank you for supporting Starport. Your purchase is linked to your Apple Account.")
+                        Text("Thank you for supporting \(AppBrand.current.name). Your purchase is linked to your Apple Account.")
                             .font(.footnote)
                     } else {
                         Text("A one-time purchase removes the banner from every adventure. No subscription.")
@@ -94,7 +94,7 @@ struct SettingsScreen: View {
                             Task { await ads.showPrivacyOptions() }
                         }
                     }
-                    Text("Starport is for ages 13+. Ads use teen age treatment, general-rated creative, and non-personalized settings. We don't request your advertising identifier.")
+                    Text("\(AppBrand.current.name) is for ages 13+. Ads use teen age treatment, general-rated creative, and non-personalized settings. We don't request your advertising identifier.")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                     Text("To report an inappropriate ad, tap AdChoices on the banner, then Why this ad? and Report ad.")
@@ -118,13 +118,13 @@ struct SettingsScreen: View {
                 }
 
                 Section {
-                    Text("Starport is for ages 13 and up only. Stories use accessible, middle-grade-style science-fiction prose; that is a writing choice, not an invitation for younger users.")
+                    Text(AppBrand.current.isStuffyLand ? "Stuffy Land currently has a 13+ development age gate. Its intended audience and child-safety rules must be finalized before release." : "Starport is for ages 13 and up only. Stories use accessible, middle-grade-style science-fiction prose; that is a writing choice, not an invitation for younger users.")
                         .font(.subheadline)
                     Text("Version 0.2 · Stories are fictional. No account is required.")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 } header: {
-                    Text("About Starport")
+                    Text("About \(AppBrand.current.name)")
                 }
             }
             .scrollContentBackground(.hidden)

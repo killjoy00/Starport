@@ -139,6 +139,11 @@ public struct StoryBook: Codable, Sendable {
     public var illustratedCount: Int { nodes.filter { $0.illustration != nil }.count }
 }
 
+public enum StoryFormat: String, Codable, Sendable {
+    case adventure
+    case reader
+}
+
 public struct AdventureListing: Codable, Identifiable, Equatable, Sendable {
     public let id: String
     public let filename: String
@@ -150,6 +155,11 @@ public struct AdventureListing: Codable, Identifiable, Equatable, Sendable {
     public let symbol: String
     public let coverAsset: String?
     public let estimatedMinutes: Int
+    /// Old catalog entries omit this and remain branching adventures.
+    public let kind: StoryFormat?
+    public var format: StoryFormat { kind ?? .adventure }
+    /// Optional shelf label for large themed libraries, absent in older catalogs.
+    public let collection: String?
 }
 
 public struct AdventureCatalog: Codable, Sendable {

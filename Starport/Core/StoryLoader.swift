@@ -24,12 +24,28 @@ public enum StoryLoader {
             throw StoryError.invalidBook("Invalid adventure catalog.")
         }
         for item in catalog.adventures {
-            guard !item.id.isEmpty, !item.title.isEmpty, item.contentVersion > 0,
+            guard isSafeFilename(item.id), !item.title.isEmpty, item.contentVersion > 0,
                   item.estimatedMinutes > 0, isSafeFilename(item.filename),
                   (item.coverAsset.map(isSafeFilename) ?? true) else {
                 throw StoryError.invalidBook("Unsafe or incomplete adventure entry.")
             }
         }
+    }
+
+    public static func loadReader(filename: String) throws -> RegularBook {
+        try decodeReader(try bundledData(filename: filename))
+    }
+
+    public static func decodeReader(_ data: Data) throws -> RegularBook {
+        guard data.count <= 1_000_000 else {
+            throw StoryError.invalidBook("Reader story exceeds the size limit.")
+        }
+        do {
+            let book = try JSONDecoder().decode(RegularBook.self, from: data)
+            try RegularBookValidator.validate(book)
+            return book
+        } catch let error as StoryError { throw error }
+        catch { throw StoryError.invalidBook(error.localizedDescription) }
     }
 
     public static func load(filename: String) throws -> StoryBook {

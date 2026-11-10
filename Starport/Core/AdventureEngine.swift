@@ -10,11 +10,28 @@ public struct AdventureEngine {
         self.book = book
         if let restored,
            let saved = try? JSONDecoder().decode(AdventureProgress.self, from: restored),
-           saved.version == 2, saved.bookID == book.id,
-           saved.bookVersion == book.contentVersion,
-           book.node(saved.nodeID) != nil,
-           saved.history.first == book.start {
-            progress = saved
+           saved.version == 2, saved.bookID == book.id {
+            if saved.bookVersion == book.contentVersion,
+               book.node(saved.nodeID) != nil,
+               saved.history.first == book.start {
+                progress = saved
+            } else if saved.bookVersion != book.contentVersion {
+                // A new version can move or remove scenes. Restart the active
+                // route rather than restoring an impossible branch, but keep
+                // every discovered ending/detour that still exists in the book.
+                let finalIDs = Set(book.nodes.compactMap { node in
+                    node.ending?.kind == .final ? node.ending?.id : nil
+                })
+                let detourIDs = Set(book.nodes.compactMap { node in
+                    node.ending?.kind == .detour ? node.ending?.id : nil
+                })
+                progress = AdventureProgress(
+                    book: book,
+                    endingsFound: saved.endingsFound.intersection(finalIDs),
+                    detoursFound: saved.detoursFound.intersection(detourIDs))
+            } else {
+                progress = AdventureProgress(book: book)
+            }
         } else {
             progress = AdventureProgress(book: book)
         }

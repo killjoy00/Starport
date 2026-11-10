@@ -10,7 +10,7 @@ Both apps have their own Xcode schemes in `Starport.xcodeproj`. Choose `Starport
 
 ## Starport
 
-**Starport** is a native iOS adventure library intended **only for people ages 13 and older**. It has a 13+ self-declaration gate before the library, stories, ads, or purchase UI becomes accessible. No birth date, name, or account is required.
+**Starport** is a native iOS adventure library intended **only for people ages 13 and older**. It has a small one-time 13+ confirmation before library access, ads or purchases. It no longer presents a full-screen age lecture. No birth date, name, or account is required.
 
 **Editorial distinction:** The adventures use the prose length, vocabulary, pacing, and science-fiction sensibility of strong middle-grade books (roughly a 10–12-year-old *reading level*). **The product is not intended for children aged 10–12.** Do not market it as an under-13 app or put it in Apple's Kids category. In App Store Connect, accurately answer the content questions and use **Override to Higher Age Rating → 13+** if Apple's calculated rating is lower. Self-declaration is not independent proof of age.
 
@@ -20,7 +20,7 @@ Starport is a container for multiple separately packaged adventures. The app boo
 
 The manifest `Starport/Content/catalog.json` lists an adventure's stable ID, version, filename, title, genre, symbol, summary, and duration. The `AdventureRepository` downloads the manifest and new stories from the public GitHub repo, validates all story graphs, and atomically activates the catalog. Only safe filenames and validated JSON are permitted. It is intentionally *opt-in*: no background refresh or automatic downloads.
 
-To add an adventure, add a validated story `<story_name>.json`, include its entry in `catalog.json`, and merge both to `main`. Increase `contentVersion` when changing a published story, because saved games are versioned per adventure.
+To add an adventure, add a validated story `<story_name>.json`, include its entry in `catalog.json`, and merge both to `main`. Increase `contentVersion` when changing a published story, because saved games are versioned per adventure. When the story changes substantially, preserve discovered ending collections while restarting a run that can no longer safely resume. See [the episode branching map](docs/episode-one-branching.md).
 
 ## Episode 01 — The Door That Opens Tomorrow
 
@@ -29,7 +29,9 @@ A ship scheduled for tomorrow sends a warning today. Read the evidence, work wit
 - **36 story decisions plus a final decision**, so each route to a permanent ending is **37 decisions long**. The validator enforces a minimum of 30.
 - **Five permanent endings**, individually ranked from **1 (best) to 5 (worst)**. No rewind is permitted once one is reached. A new run begins at the opening scene, while the endings collection is retained.
 - **Twelve false endings** that can be immediately unwound, restoring the prior scene, Clues, Power, Trust, choice history, and decision count. Discovered detours persist as collectibles.
-- Resources and flags change choice availability, follow-up text, and the ending options. Different choices along a shared scene spine have persistent mechanical consequences.
+- **Genuine route splits:** five major narrative forks (archive vs outer hull, engineers vs pilot, live radio vs echo, crew council vs solo rescue, synchronized signal vs manual mirror) and two more forks within the alternative routes. The expanded edition contains **81 nodes, 64 interactive scenes, and roughly 11,400 words across all possible routes**. Only the scenes on the chosen path appear during one run.
+- **Irreversible consequences:** learning with Juno unlocks a flight-safe ending; choosing the echo path prevents the coordinated best ending; a manual override can open a high-risk landing outcome. Clues, Power, Trust and earlier commitments determine which options remain open.
+- **Updated story save handling:** a changed `contentVersion` restarts the active route safely but preserves previously discovered endings and detours.
 - **25 achievements**: one per true ending, recoverable detours, unusual clues, story allies, resource milestones, and completion challenges. Achievements persist across new runs and are displayed on an offline trophy shelf.
 
 The story is suspenseful, character-driven, and age-appropriate, with no graphic violence. A poor outcome can be sad without becoming graphic.
@@ -56,7 +58,7 @@ Dark mode is the default. Settings offers **Dark**, **Light**, and **System**, s
 3. Run `swift test` to validate the story model, all five ending routes, rewind behavior, catalog safety, and achievements.
 4. GitHub Actions runs Swift package tests and a simulator build on PRs.
 
-The bundle ID is currently `pro.starport.story`. Set your Apple signing team and confirm bundle ID availability before publishing. This repository is **not yet a signed TestFlight build or an App Store submission**.
+The bundle ID is currently `pro.starport.story`. Set your Apple signing team and confirm bundle ID availability before publishing. Starport has an existing signed TestFlight build and App Store Connect draft listing. Each future change needs a new signed TestFlight build after CI; no public App Store submission is implied by merging code.
 
 ### Project structure
 

@@ -53,10 +53,19 @@ final class GameStore: ObservableObject {
             } else {
                 let book = try repository.load(entry)
                 let restored = defaults.data(forKey: progressKey(id))
+                let oldVersion = restored.flatMap {
+                    try? JSONDecoder().decode(AdventureProgress.self, from: $0)
+                }?.bookVersion
                 let loaded = try AdventureEngine(book: book, restored: restored)
                 engine = loaded
                 readerBook = nil
                 readerPageIndex = 0
+                if let oldVersion, oldVersion != book.contentVersion {
+                    // A new branching edition cannot resume an old route.
+                    // Preserve discovered endings but restart the active story.
+                    defaults.set(try loaded.encodedProgress(), forKey: progressKey(id))
+                    libraryMessage = "The story has been expanded. Your current run restarted; your discovered endings were kept."
+                }
             }
             selectedID = id
             defaults.set(id, forKey: "\(AppBrand.current.storagePrefix).lastAdventure")

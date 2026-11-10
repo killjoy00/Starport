@@ -53,11 +53,11 @@
 		D1000000000000000000000E /* PrivacyInfo.xcprivacy in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000A /* PrivacyInfo.xcprivacy */; };
 		D10000000000000000000014 /* GoogleMobileAds in Stuffy Frameworks */ = {isa = PBXBuildFile; productRef = A00000000000000000000003 /* GoogleMobileAds */; };
 		D30000000000000000000001 /* RegularBook.swift in Starport Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000001 /* RegularBook.swift */; };
-		D30000000000000000000001A /* RegularBook.swift in Stuffy Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000001 /* RegularBook.swift */; };
+		D3000000000000000000001A /* RegularBook.swift in Stuffy Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000001 /* RegularBook.swift */; };
 		D30000000000000000000002 /* StoryNarrator.swift in Starport Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000002 /* StoryNarrator.swift */; };
-		D30000000000000000000002A /* StoryNarrator.swift in Stuffy Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000002 /* StoryNarrator.swift */; };
+		D3000000000000000000002A /* StoryNarrator.swift in Stuffy Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000002 /* StoryNarrator.swift */; };
 		D30000000000000000000003 /* BookReaderView.swift in Starport Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000003 /* BookReaderView.swift */; };
-		D30000000000000000000003A /* BookReaderView.swift in Stuffy Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000003 /* BookReaderView.swift */; };
+		D3000000000000000000003A /* BookReaderView.swift in Stuffy Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000003 /* BookReaderView.swift */; };
 		D30000000000000000000004 /* button_at_window.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000004 /* button_at_window.json */; };
 
 /* End PBXBuildFile section */
@@ -286,9 +286,9 @@
         E10000000000000000000001 /* Stuffy Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (
             D1000000000000000000000A /* StuffyLandApp.swift in Sources */,
             D10000000000000000000002 /* AppBrand.swift in Stuffy Sources */,
-            D30000000000000000000003A /* BookReaderView.swift in Stuffy Sources */,
-            D30000000000000000000002A /* StoryNarrator.swift in Stuffy Sources */,
-            D30000000000000000000001A /* RegularBook.swift in Stuffy Sources */,
+            D3000000000000000000003A /* BookReaderView.swift in Stuffy Sources */,
+            D3000000000000000000002A /* StoryNarrator.swift in Stuffy Sources */,
+            D3000000000000000000001A /* RegularBook.swift in Stuffy Sources */,
             D20000000000000000000002 /* GameStore.swift in Sources */,
             D20000000000000000000003 /* StarportTheme.swift in Sources */,
             D20000000000000000000004 /* StarportRootView.swift in Sources */,

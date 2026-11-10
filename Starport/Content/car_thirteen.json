@@ -1,0 +1,4463 @@
+{
+  "id": "car-thirteen",
+  "contentVersion": 1,
+  "title": "The Thirteenth Car",
+  "subtitle": "Twelve cars on the list. Thirteen on the track.",
+  "start": "s01",
+  "minimumDecisions": 50,
+  "nodes": [
+    {
+      "id": "s01",
+      "act": "ACT 1 / THE EXTRA CAR",
+      "title": "Counting cars",
+      "paragraphs": [
+        "The star train Marigold leaves Starport Kestrel in nine minutes. You're the youngest coupler on the Lantern Line, and your last job before departure is simple: walk the platform and count the cars.",
+        "Engine. Galley. Bunks. Eight cargo cars. The lamp car at the tail. That makes twelve. You have counted to twelve every night for a year.",
+        "Tonight you get thirteen."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s01_1",
+          "label": "Count again, slowly",
+          "detail": "Touch every coupling as you go.",
+          "to": "s02",
+          "outcome": "Thirteen. The extra car sits just ahead of the lamp car, painted the same faded gold as the rest. Its coupling is still warm.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "warm_coupling"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s01_2",
+          "label": "Radio the Conductor",
+          "detail": "A wrong count is her business too.",
+          "to": "s02",
+          "outcome": "“Coupler, I'm on my way. Touch nothing,” says Conductor Brandt. She sounds like she believes you.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-train",
+        "alt": "A golden star train runs along a line of lanterns in the dark. One car near the tail is white with frost, and one lantern is unlit."
+      }
+    },
+    {
+      "id": "s02",
+      "act": "ACT 1 / THE EXTRA CAR",
+      "title": "The list says twelve",
+      "paragraphs": [
+        "PIP, the train's computer, speaks from the platform speaker in its polite timetable voice. “Good evening. The Marigold has twelve cars. PIP is certain. PIP has the list.”",
+        "The list does say twelve. The platform says thirteen. The extra car has no number, no label and no window. Frost is growing on its door, which is odd, because the platform is warm."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s02_1",
+          "label": "Make PIP scan the train",
+          "detail": "Let the computer count for itself.",
+          "to": "s03",
+          "outcome": "PIP is quiet for four whole seconds. “Twelve cars,” it says. “And one item PIP would prefer not to discuss.”",
+          "effects": [
+            {
+              "flag": "pip_dodged"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s02_2",
+          "label": "Study the frost up close",
+          "detail": "Turn your hand lamp to full beam.",
+          "to": "s03",
+          "outcome": "The frost has grown in a swirl, like a giant fingerprint. Under your glove the door hums, slow and steady, almost like breathing. Your lamp is noticeably dimmer afterwards.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 2
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "frost_swirl"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s03",
+      "act": "ACT 1 / THE EXTRA CAR",
+      "title": "The last-minute passenger",
+      "paragraphs": [
+        "A man in yellow gloves strides down the platform with a clipboard under one arm. “Inspector Lucian Vane, Meridian Freight Company. Surprise inspection. I'll be riding with you to Halfway Bell.” He smells of peppermint and smiles with exactly half his mouth.",
+        "His eyes go straight to the thirteenth car, then quickly away again."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s03_1",
+          "label": "Carry his bag aboard",
+          "detail": "Be helpful, and look closely.",
+          "to": "s04",
+          "outcome": "The bag is heavy and it clinks. Vane thanks you a little too warmly. The name on the luggage tag has been scratched out and written over.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "scratched_tag"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s03_2",
+          "label": "Tell him about the extra car",
+          "detail": "Inspectors like honesty.",
+          "to": "s04",
+          "outcome": "“Thirteen? How careless of somebody,” says Vane, writing nothing down at all. The Conductor, arriving behind him, gives you a small nod.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s03_detour",
+          "label": "Count the cars a third time",
+          "detail": "Just to be completely sure.",
+          "to": "detour_01",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s04",
+      "act": "ACT 1 / THE EXTRA CAR",
+      "title": "All aboard",
+      "paragraphs": [
+        "The Marigold pulls out of Kestrel with a long, low hum. Ahead, the Lantern Line stretches into the dark: a string of golden beacons, each one a day's travel from the next. Trains have followed those lights for a hundred years.",
+        "Conductor Brandt taps the manifest. “An unlisted car on my train. I want to know who coupled it before we reach the first lantern.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s04_1",
+          "label": "Offer to pull the coupling log",
+          "detail": "Every coupling is recorded by badge.",
+          "to": "s05",
+          "outcome": "“Good. Bring me what you find, whatever it says,” the Conductor tells you. She means the last part.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s04_2",
+          "label": "Inspect the coupling by hand",
+          "detail": "Metal remembers things.",
+          "to": "s05",
+          "outcome": "The clamp marks are neat and perfectly even. No human hand closed this coupling. A machine arm did.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "machine_marks"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-train",
+        "alt": "A golden star train runs along a line of lanterns in the dark. One car near the tail is white with frost, and one lantern is unlit."
+      }
+    },
+    {
+      "id": "s05",
+      "act": "ACT 1 / THE EXTRA CAR",
+      "title": "Your own name",
+      "paragraphs": [
+        "The coupling log glows on the bunk-car screen. Car 13 was joined to the train at 02:14 this morning, while the whole crew was asleep. The badge that approved it is listed underneath.",
+        "It's yours.",
+        "Your badge has been on its hook above your pillow all night. You're almost sure."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s05_1",
+          "label": "Take the log straight to the Conductor",
+          "detail": "Bad news is better coming from you.",
+          "to": "s06",
+          "outcome": "Brandt reads it twice. “If you'd done it, you wouldn't have told me there were thirteen. Somebody is being clever. Find out who.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "told_truth"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s05_2",
+          "label": "Dig into the log before anyone sees it",
+          "detail": "Keep quiet until you understand it.",
+          "to": "s06",
+          "outcome": "Your code was typed, not swiped. Whoever did this knew your number and never touched your badge. But Tobin saw you hide the screen, and he looks at you strangely.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            },
+            {
+              "flag": "typed_code"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s06",
+      "act": "ACT 1 / THE EXTRA CAR",
+      "title": "Tobin's ghost theory",
+      "paragraphs": [
+        "Tobin, the cook's son, is thirteen and believes in everything. He corners you in the galley with a tray of burnt biscuits. “An extra car that nobody coupled? Ghost car. Obviously. I heard it singing when we left Kestrel.”",
+        "You start to laugh. Then you remember the door humming under your glove."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s06_1",
+          "label": "Ask what the singing sounded like",
+          "detail": "Even ghost stories have details.",
+          "to": "s07",
+          "outcome": "“Three notes going up, then one long one,” says Tobin, and hums it. He's out of tune, but you write the notes down anyway.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "three_notes"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s06_2",
+          "label": "Recruit Tobin as your lookout",
+          "detail": "A believer can be useful.",
+          "to": "s07",
+          "outcome": "Tobin salutes with a spatula. “Ghost patrol, reporting for duty.” Annoyingly, you feel braver with him around.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "tobin_team"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s06_detour",
+          "label": "Eat a burnt biscuit to be polite",
+          "detail": "He did bake them himself.",
+          "to": "detour_02",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s07",
+      "act": "ACT 1 / THE EXTRA CAR",
+      "title": "Lantern 41",
+      "paragraphs": [
+        "PIP makes an announcement nobody has ever heard before. “PIP regrets to report that Lantern 41 is not lit. PIP has checked three times.”",
+        "The whole crew crowds to the galley window. Far down the Line, where a golden beacon should be, there's a gap like a missing tooth. No lantern has gone dark in a hundred years.",
+        "Inspector Vane sips his tea. He doesn't look surprised."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s07_1",
+          "label": "Watch Vane instead of the window",
+          "detail": "Everyone else is looking outside.",
+          "to": "s08",
+          "outcome": "Vane checks a pocket watch and makes one tiny tick on his clipboard, the way you'd mark a train that has arrived on time.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "vane_watch"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s07_2",
+          "label": "Ask Old Halvard what it means",
+          "detail": "The engineer has seen everything.",
+          "to": "s08",
+          "outcome": "Halvard rubs his metal elbow. “Lanterns don't break,” he says quietly. “They leave.” Then he pretends he never said it.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "halvard_hint"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-train",
+        "alt": "A golden star train runs along a line of lanterns in the dark. One car near the tail is white with frost, and one lantern is unlit."
+      }
+    },
+    {
+      "id": "s08",
+      "act": "ACT 1 / THE EXTRA CAR",
+      "title": "The door with no handle",
+      "paragraphs": [
+        "After lights-out you stand in the rattling walkway outside Car 13. The door has no handle, no keypad and no hinges you can see. Frost covers it from top to bottom.",
+        "Behind it, something hums. Three notes going up, then one long one.",
+        "Your hand lamp flickers. It has seen better days."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s08_1",
+          "label": "Melt the frost with your lamp",
+          "detail": "Spend charge to see the door properly.",
+          "to": "s09",
+          "outcome": "The frost clears from a round panel the size of your palm. It's shaped like a hand. A small hand, no bigger than yours.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "hand_panel"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s08_2",
+          "label": "Fetch Tobin before you try anything",
+          "detail": "Two is safer than one.",
+          "to": "s09",
+          "outcome": "Tobin arrives in pyjamas and boots, carrying a soup ladle “for protection.” He has also thought to bring a spare lamp cell.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "tobin_team"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-door",
+        "alt": "A young coupler with a hand lamp stands before a frost-covered door with no handle. A small glowing hand-shaped panel sits in a swirl of frost."
+      }
+    },
+    {
+      "id": "s09",
+      "act": "ACT 2 / WHAT'S INSIDE",
+      "title": "A door that listens",
+      "paragraphs": [
+        "The hand panel doesn't open when you press it. It doesn't open for Tobin either. “Maybe it wants a password,” Tobin whispers. “Ghosts love passwords.”",
+        "The humming behind the door stops, as if something in there is listening to you."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s09_1",
+          "label": "Hum the three notes back",
+          "detail": "Answer it in its own language.",
+          "to": "s10",
+          "outcome": "Up, up, up, then long. Something clicks. The door slides open one hand's width and a breath of cold air touches your face.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "hummed"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s09_2",
+          "label": "Ask PIP to open it",
+          "detail": "The computer controls every door on the train.",
+          "to": "s10",
+          "outcome": "“PIP cannot open what is not on the list,” says PIP. Then, more quietly: “Try being polite to it.” The door slides open by itself.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "pip_hint"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s09_detour",
+          "label": "Knock and run away",
+          "detail": "A classic.",
+          "to": "detour_03",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-door",
+        "alt": "A young coupler with a hand lamp stands before a frost-covered door with no handle. A small glowing hand-shaped panel sits in a swirl of frost."
+      }
+    },
+    {
+      "id": "s10",
+      "act": "ACT 2 / WHAT'S INSIDE",
+      "title": "The frost garden",
+      "paragraphs": [
+        "Car 13 isn't full of cargo. It's full of winter. Frost ferns climb the walls. Icicles hang from the roof in neat rows, like the pipes of an organ. In the middle of the floor stands a cradle made of glass.",
+        "The cradle is empty.",
+        "“Ghost nursery,” breathes Tobin. For once you can't think of a better explanation."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s10_1",
+          "label": "Examine the cradle",
+          "detail": "Something was kept here.",
+          "to": "s11",
+          "outcome": "You turn your lamp up full. The glass is still warm. Inside lies a curved piece of shell, thin as paper, glowing faintly gold along its broken edge. Something hatched here, and not long ago.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "shell_piece"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s10_2",
+          "label": "Keep Tobin from bolting",
+          "detail": "He's edging toward the door.",
+          "to": "s11",
+          "outcome": "“Ghost patrol doesn't run,” you remind him. Tobin swallows, nods and plants his boots. “Ghost patrol doesn't run,” he agrees. “It walks quickly, if needed.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "tobin_team"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-ember",
+        "alt": "A small glowing golden ray floats above a glass cradle in a car full of icicles and frost ferns."
+      }
+    },
+    {
+      "id": "s11",
+      "act": "ACT 2 / WHAT'S INSIDE",
+      "title": "The voice that copies",
+      "paragraphs": [
+        "“Hello?” you call. From behind the icicles your own voice answers: “Hello?” It isn't an echo. It comes a second too late, and it sounds pleased with itself.",
+        "“Ghost patrol, reporting for duty,” it adds, in Tobin's voice. Tobin goes the colour of flour."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s11_1",
+          "label": "Say something kind",
+          "detail": "Whatever it is, it's small and alone.",
+          "to": "s12",
+          "outcome": "“We won't hurt you,” you say. “We won't hurt you,” the voice agrees, and something golden peeks over the rim of the cradle.",
+          "effects": [
+            {
+              "flag": "ember_friend"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s11_2",
+          "label": "Test it with a tricky word",
+          "detail": "Find out exactly what it can do.",
+          "to": "s12",
+          "outcome": "“Rhododendron,” you say. “Rhododendron,” says the voice, perfectly. Whatever it is, it can copy any sound after hearing it once.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "mimic_known"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s12",
+      "act": "ACT 2 / WHAT'S INSIDE",
+      "title": "Ember",
+      "paragraphs": [
+        "It floats out into your lamplight: a creature no bigger than a kitten, shaped like a tiny ray, with wings that ripple as if it's swimming through the air. It glows the warm gold of a lantern. Where it passes, the frost melts and then grows back in swirls.",
+        "It bumps gently against your hand lamp, as if greeting a cousin."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "three_notes",
+            "hint": "Needs three_notes"
+          },
+          "text": "It hums as it comes. Three notes going up, then one long one: Tobin's ghost song, note for note."
+        }
+      ],
+      "choices": [
+        {
+          "id": "s12_1",
+          "label": "Let it warm itself on your lamp",
+          "detail": "It seems hungry for light.",
+          "to": "s13",
+          "outcome": "The little ray drinks a good gulp of your lamp's charge and glows brighter, humming. Tobin names it Ember on the spot. It answers to the name at once.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "ember_friend"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s12_2",
+          "label": "Hold the lamp back and take notes",
+          "detail": "Learn first, share later.",
+          "to": "s13",
+          "outcome": "Wingspan: two hands. Eyes: none you can find. And its glow pulses in a slow rhythm you've seen before, on every lantern along the Line. That can't be chance.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "pulse_match"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-ember",
+        "alt": "A small glowing golden ray floats above a glass cradle in a car full of icicles and frost ferns."
+      }
+    },
+    {
+      "id": "s13",
+      "act": "ACT 2 / WHAT'S INSIDE",
+      "title": "Somebody else is here",
+      "paragraphs": [
+        "A sneeze comes from the roof. Not Ember's. Not Tobin's. A patch of ceiling frost shifts, and a girl of about eleven drops from the rafters and lands like a cat. Her coat is sewn from a hundred patches, each with a tiny mirror stitched to it.",
+        "“Don't shout,” she says. “I'm Wick. I'm not stealing anything. I'm stealing it back.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s13_1",
+          "label": "Hear her out",
+          "detail": "She asked nicely.",
+          "to": "s14",
+          "outcome": "Wick lets out a breath. “Nobody ever picks that one.” She sits down, and Ember settles in her lap as if it has done so many times before.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "wick_trust"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s13_2",
+          "label": "Ask how she got aboard",
+          "detail": "Stowaways don't just appear.",
+          "to": "s14",
+          "outcome": "“Same way the car did. At 02:14, while your computer wasn't looking. Except…” She frowns. “Your computer WAS looking. It held the door for me.”",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "pip_held_door"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s13_detour",
+          "label": "Shout for the Conductor",
+          "detail": "At the very top of your lungs.",
+          "to": "detour_04",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s14",
+      "act": "ACT 2 / WHAT'S INSIDE",
+      "title": "Pirates, apparently",
+      "paragraphs": [
+        "Wick says she comes from the Moth Fleet. You know that name. Every train crew does. The Moths are the grey-sailed pirates who haunt the Lantern Line, the ones the Company posters warn you about.",
+        "“We're not pirates,” says Wick, tiredly, as if she has said it a thousand times. “We're Lamplighters. Who do you think has kept your lanterns lit for a hundred years? The Company?” She laughs. It isn't a happy laugh."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s14_1",
+          "label": "Ask for proof",
+          "detail": "A big claim needs evidence.",
+          "to": "s15",
+          "outcome": "Wick's chin goes up. She slaps down a tin whistle and a brass oil can stamped with a lantern and the number 41. The stamp is older than the Company itself. “Happy?” she says. She isn't.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            },
+            {
+              "flag": "lamplighter_proof"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s14_2",
+          "label": "Tell her you believe her",
+          "detail": "Somebody ought to.",
+          "to": "s15",
+          "outcome": "“You don't yet. Not all the way,” says Wick. “But thanks for trying.” She teaches you the Lamplighter handshake anyway. It has four steps and one elbow.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "wick_trust"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s15",
+      "act": "ACT 2 / WHAT'S INSIDE",
+      "title": "What a lantern is",
+      "paragraphs": [
+        "“The lanterns aren't machines,” Wick says. “Each one is a nest. A lantern ray lives there, wide as a starport and older than your train. She shines so her little one can always find the way home. Your trains just borrow the light.”",
+        "She strokes Ember's glowing back. “Somebody took this one out of Lantern 41 while it was still an egg. A ray waits as long as she can bear. Then she leaves the nest to go looking, and the lantern goes dark.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s15_1",
+          "label": "Ask who would steal an egg",
+          "detail": "Follow the trail back to the thief.",
+          "to": "s16",
+          "outcome": "“Someone with a buyer. A glim is worth more than this whole train. The thief packed the egg in a freezer car and was loading it at Kestrel.” Wick grins. “Then the car vanished off his dock and turned up on your train.”",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "buyer_known"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s15_2",
+          "label": "Promise to help get Ember home",
+          "detail": "You've seen enough to decide.",
+          "to": "s16",
+          "outcome": "“Careful. Lamplighters hold people to promises for a very long time,” says Wick. She shakes your hand with all four steps and the elbow.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "promise"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-ember",
+        "alt": "A small glowing golden ray floats above a glass cradle in a car full of icicles and frost ferns."
+      }
+    },
+    {
+      "id": "s16",
+      "act": "ACT 2 / WHAT'S INSIDE",
+      "title": "Vane's footsteps",
+      "paragraphs": [
+        "Peppermint. You smell it before you hear the shoes. Inspector Vane is coming along the walkway toward Car 13, whistling, with his clipboard and a ring of keys far too big for any inspector.",
+        "Wick is already climbing back into the rafters. Ember, delighted, starts whistling Vane's tune right back at him."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s16_1",
+          "label": "Hide Ember inside your jacket",
+          "detail": "Quickly, before it sings again.",
+          "to": "s17",
+          "outcome": "Ember curls against your ribs, warm as a fresh loaf, and goes quiet. You step into the walkway looking like someone who has swallowed a lightbulb.",
+          "effects": [
+            {
+              "flag": "ember_friend"
+            },
+            {
+              "flag": "ember_hidden"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s16_2",
+          "label": "Send Tobin to distract Vane",
+          "detail": "He has a pot of soup and no fear.",
+          "to": "s17",
+          "outcome": "Tobin collides with the Inspector carrying a full pot of soup. While Vane mops his trousers, you read the biggest tag on his key ring: CAR 9. Tobin gets a week of pot-scrubbing for it, and gives you a look.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            },
+            {
+              "flag": "car9_key"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s16_detour",
+          "label": "Lock yourself inside Car 13",
+          "detail": "He can't inspect what he can't open.",
+          "to": "detour_05",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s17",
+      "act": "ACT 2 / WHAT'S INSIDE",
+      "title": "The Inspector asks nicely",
+      "paragraphs": [
+        "Vane stands at the door of Car 13 and runs a yellow glove down the frost. “Unlisted cargo is a serious matter,” he says pleasantly. “The Company will want this car sealed until Halfway Bell. Sealed by me. You haven't been inside, have you?”",
+        "His half-smile waits for your answer."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s17_1",
+          "label": "Say the door has no handle",
+          "detail": "True, as far as it goes.",
+          "to": "s18",
+          "outcome": "“No handle, Inspector,” you say. Vane pats your shoulder with a cold glove. On his ring, one key is shaped like a small hand. Behind him, the Conductor raises an eyebrow. She knows a half-truth when she hears one.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            },
+            {
+              "flag": "kept_secret"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s17_2",
+          "label": "Ask why an inspector needs so many keys",
+          "detail": "Turn the question round.",
+          "to": "s18",
+          "outcome": "The half-smile shrinks to a quarter. “Aren't you a sharp one.” He tears a page out of your notebook “for the inspection.” But the Conductor, passing behind him, heard your question and nods.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "stat": "clues",
+              "delta": -1
+            },
+            {
+              "flag": "vane_wary"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-door",
+        "alt": "A young coupler with a hand lamp stands before a frost-covered door with no handle. A small glowing hand-shaped panel sits in a swirl of frost."
+      }
+    },
+    {
+      "id": "s18",
+      "act": "ACT 3 / GREY SAILS",
+      "title": "Telling the Conductor",
+      "paragraphs": [
+        "Conductor Brandt has run the Marigold for twenty-two years and has never once been late into Halfway Bell. She listens to you with her arms folded while the kettle boils.",
+        "“A singing egg, a girl in my rafters and an inspector with too many keys,” she says. “Coupler, that is either the best excuse I've ever heard or the worst news.”"
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "told_truth",
+            "hint": "Needs told_truth"
+          },
+          "text": "You brought her the coupling log with your own name on it. She hasn't forgotten that."
+        }
+      ],
+      "choices": [
+        {
+          "id": "s18_1",
+          "label": "Tell her everything, Wick included",
+          "detail": "She can't steer by half a map.",
+          "to": "s19",
+          "outcome": "Brandt is silent, then sighs. “A stowaway is still a passenger. She eats in the galley like everybody else.” From somewhere overhead comes a very small cheer.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "conductor_knows"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s18_2",
+          "label": "Keep Wick secret and share the rest",
+          "detail": "A promise is a promise.",
+          "to": "s19",
+          "outcome": "The Conductor can tell there's a hole in your story. “When you're ready, then,” she says, a little coolly. She lends you her spare lamp cell all the same.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            },
+            {
+              "flag": "wick_secret"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s18_3",
+          "label": "Lay out your evidence, piece by piece",
+          "detail": "Let the facts do the talking.",
+          "to": "s19",
+          "outcome": "The log, the frost, the keys, the dark lantern. Brandt examines each one like a ticket. “Right. From now on you report to me and nobody else. Especially not him.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 2
+            },
+            {
+              "flag": "conductor_knows"
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "clues",
+              "atLeast": 4,
+              "hint": "Needs 4 clues"
+            }
+          ]
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s19",
+      "act": "ACT 3 / GREY SAILS",
+      "title": "Grey sails",
+      "paragraphs": [
+        "The alarm bell rings at dawn, ship's time. Out of the dark behind the train come seven grey ships with sails as wide and thin as moth wings. They don't fire anything. They don't signal. They just follow, patient as a tide.",
+        "“Pirates,” says Vane, loudly, before anyone else can speak. “I did warn the Company about this route.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s19_1",
+          "label": "Study the ships through the long glass",
+          "detail": "Look before you believe.",
+          "to": "s20",
+          "outcome": "Each grey ship carries a lamp at its bow, swinging in a pattern: long, short, short. It isn't a threat. It looks a lot like somebody saying hello, over and over.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "moth_signal"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s19_2",
+          "label": "Stay beside the Conductor",
+          "detail": "Show her you're steady.",
+          "to": "s20",
+          "outcome": "Brandt notices that you don't flinch. “They've had an hour to attack us and haven't,” she murmurs, just for you. “Odd sort of pirates.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s19_detour",
+          "label": "Surrender on behalf of everyone",
+          "detail": "Somebody has to take charge.",
+          "to": "detour_06",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-moths",
+        "alt": "Seven grey ships with sails like moth wings drift through fog above the star train, each carrying a small lamp."
+      }
+    },
+    {
+      "id": "s20",
+      "act": "ACT 3 / GREY SAILS",
+      "title": "By order of the Company",
+      "paragraphs": [
+        "Vane produces a paper covered in seals. “Company Order Nine. In an emergency, the senior Company officer takes charge of the train. That would be me.” He turns to the engine crew. “Leave the Lantern Line. We'll lose them in the Shiver.”",
+        "The Shiver is the great fog of ice dust south of the Line. No lanterns. No maps. The Conductor's jaw tightens, but an order is an order, and the Marigold swings off the golden track into the dark.",
+        "Then Vane has every spare lamp cell on the train collected and locked in his cabin. “For safekeeping.”",
+        "You need to know what Vane is really up to, and fast. There are two ways to find out."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s20_1",
+          "label": "Go under the floors",
+          "detail": "Take the crawlway with Tobin and reach Old Halvard in the engine room.",
+          "to": "s21a",
+          "outcome": "Tobin lifts a floor panel in the galley. “After you. I'm braver from the back.”",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "route_under"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s20_2",
+          "label": "Go over the roofs",
+          "detail": "Suit up with Wick and search the cargo cars from above.",
+          "to": "s21b",
+          "outcome": "Wick is already holding out a patched vacuum suit in roughly your size. “I borrowed it. From you. Sorry.”",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "route_over"
+            },
+            {
+              "flag": "roof_legs"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s21a",
+      "act": "ACT 3 / GREY SAILS · UNDER THE FLOORS",
+      "title": "The crawlway",
+      "paragraphs": [
+        "Under the floor runs a tunnel just big enough for a coupler on hands and knees. Pipes tick. Cables hum. All the train's secrets pass through here: water, power, and the wires of PIP's many ears.",
+        "Halfway along, you find a cable that shouldn't exist. It's new, it's yellow, and it runs from the cargo cars straight toward the engine."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s21a_1",
+          "label": "Follow the yellow cable",
+          "detail": "New wiring on an old train means something.",
+          "to": "s22a",
+          "outcome": "It ends in a small black box clipped to the main radio. A jammer. The Marigold hasn't been able to call for help since Kestrel, and nobody knew.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "jammer_found"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s21a_2",
+          "label": "Keep moving toward Halvard",
+          "detail": "The engineer is the one you need.",
+          "to": "s22a",
+          "outcome": "You save time, and Tobin saves you from a steam valve by yanking your ankle at the right moment. “Told you. Braver from the back.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s22a",
+      "act": "ACT 3 / GREY SAILS · UNDER THE FLOORS",
+      "title": "The engine room",
+      "paragraphs": [
+        "The engine room glows blue and smells of hot metal and tea. Old Halvard stands at the big brass throttle, glaring at a dial. “Running a train into the Shiver,” he mutters. “Thirty years I've kept this old girl on the lights.”",
+        "He watches you crawl out of the floor and doesn't even blink. “Took you long enough. What's that Inspector really after?”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s22a_1",
+          "label": "Tell Halvard about Ember",
+          "detail": "He asked a straight question.",
+          "to": "s23a",
+          "outcome": "Halvard sits down hard on a toolbox. “A glim. On my train.” His eyes are wet and he isn't embarrassed about it. “Then we've no time at all. Whatever you need, it's yours.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "halvard_ally"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s22a_2",
+          "label": "Ask how long the engine can last",
+          "detail": "No lanterns means no free light.",
+          "to": "s23a",
+          "outcome": "“Out here the cells drain twice as fast.” He shows you a switch hidden behind the tea tin. “Reserve. For emergencies. Real ones. Now you know where it is.”",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "reserve_switch"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-engine",
+        "alt": "The engine room glows blue around a large dial and a brass throttle, with a red tea tin on a shelf and the old engineer standing by."
+      }
+    },
+    {
+      "id": "s23a",
+      "act": "ACT 3 / GREY SAILS · UNDER THE FLOORS",
+      "title": "The old tune",
+      "paragraphs": [
+        "While Halvard works, he whistles through his teeth. Three notes going up, then one long one. Then more: a whole winding melody that makes the engine lights seem to lean in and listen.",
+        "He catches you staring. “Old habit. Learned it long before I drove trains.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s23a_1",
+          "label": "Ask him to teach you the whole tune",
+          "detail": "It will take time, and your lamp is burning.",
+          "to": "s24a",
+          "outcome": "It takes twenty minutes and four tries. Halvard corrects you gently. “That's the lantern song, that is. Sing it out there and the lights know you for a friend.”",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "song_taught"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s23a_2",
+          "label": "Ask where he learned it",
+          "detail": "There's a story behind that whistle.",
+          "to": "s24a",
+          "outcome": "“On a grey ship with a sail like a moth's wing,” Halvard says at last. “I was a Lamplighter once. Left after a bad winter. Never told the Company. Never told anyone.”",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "halvard_past"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-engine",
+        "alt": "The engine room glows blue around a large dial and a brass throttle, with a red tea tin on a shelf and the old engineer standing by."
+      }
+    },
+    {
+      "id": "s24a",
+      "act": "ACT 3 / GREY SAILS · UNDER THE FLOORS",
+      "title": "Vane on the speaker",
+      "paragraphs": [
+        "The speaker crackles. Vane's voice, smooth as oil: “Engine room. Increase speed. And send that young coupler to me. I have questions about a badge.”",
+        "Halvard puts a heavy metal hand over the microphone. “He's rattled. Good. Rattled men make mistakes. What'll it be?”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s24a_1",
+          "label": "Have Halvard stall him",
+          "detail": "Buy yourself room to move.",
+          "to": "s25",
+          "outcome": "“Engine's delicate today, Inspector,” Halvard booms. “Might be an hour. Might be a week.” He winks at you. You've got a friend at the throttle.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "halvard_ally"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s24a_2",
+          "label": "Crawl back and listen under Vane's cabin",
+          "detail": "Risky, slow and dark.",
+          "to": "s25",
+          "outcome": "Through the floor grille you hear Vane on a private radio. “The buyer will have all four. Yes, four. One is merely… misplaced.” Your lamp gives out on the long crawl home.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 2
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "four_heard"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s21b",
+      "act": "ACT 3 / GREY SAILS · OVER THE ROOFS",
+      "title": "Out of the hatch",
+      "paragraphs": [
+        "The roof of a star train is a long gold road with nothing on either side. Your boots grip with magnets: clunk, clunk. The Shiver drifts past in grey veils that glitter where the train's lights touch them.",
+        "Wick walks ahead as if she were born out here, which, she tells you, she was."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s21b_1",
+          "label": "Match her steps exactly",
+          "detail": "Learn from the expert.",
+          "to": "s22b",
+          "outcome": "You copy every move. By the third car you've stopped looking down. Wick glances back. “Not bad for a train kid.” From her, that's a medal.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "wick_trust"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s21b_2",
+          "label": "Look back at the grey ships",
+          "detail": "The view is better from out here.",
+          "to": "s22b",
+          "outcome": "From the roof you can see what the windows hide. The Moth ships aren't chasing the train. They're spread wide behind it, like searchers walking a field.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "moth_search"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-roof",
+        "alt": "Two children in vacuum suits, one in a coat of tiny mirrors, stand on the golden roof of the moving train in the fog."
+      }
+    },
+    {
+      "id": "s22b",
+      "act": "ACT 3 / GREY SAILS · OVER THE ROOFS",
+      "title": "The whistle lesson",
+      "paragraphs": [
+        "At the gap between two cars, Wick stops to rest and takes out her tin whistle. She plays it against her helmet glass so the sound carries down the radio: three notes going up, one long one, then a melody that wanders like a path.",
+        "Far off in the Shiver, something flickers gold. Just once."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s22b_1",
+          "label": "Ask her to teach you",
+          "detail": "It will cost air, time and suit power.",
+          "to": "s23b",
+          "outcome": "You hum it until she stops wincing. “That's the lantern song. Lamplighters learn it before they learn to walk. Now you're one-tenth of one.”",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "song_taught"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s22b_2",
+          "label": "Ask what flickered",
+          "detail": "Something out there answered.",
+          "to": "s23b",
+          "outcome": "“I don't know,” Wick admits, and that scares you more than any answer would. She chalks the direction on her sleeve. It's the same way the train is heading.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "flicker_marked"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s23b",
+      "act": "ACT 3 / GREY SAILS · OVER THE ROOFS",
+      "title": "Car 9",
+      "paragraphs": [
+        "The roof hatch of Car 9 has a brand new lock, shiny against the old gold paint. The manifest says this car carries farm machinery. Wick presses her helmet to the hull to listen.",
+        "“Machinery doesn't tick like that,” she says. “That's an engine keeping itself warm.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s23b_1",
+          "label": "Pick the lock with a coupling pin",
+          "detail": "A coupler knows how things come apart.",
+          "to": "s24b",
+          "outcome": "Inside, strapped down under a tarpaulin, sits a sleek black skiff: a fast little ship with its own engine. Nobody brings an escape boat to an inspection.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "skiff_seen"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s23b_2",
+          "label": "Shine your lamp through the vent",
+          "detail": "Full beam, for as long as it takes.",
+          "to": "s24b",
+          "outcome": "Through the slats you count four round freezer cases bolted to a black hull. Three are frosted over. One stands open and empty, exactly the size of a glass cradle.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 2
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "skiff_seen"
+            },
+            {
+              "flag": "four_cases"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s24b",
+      "act": "ACT 3 / GREY SAILS · OVER THE ROOFS",
+      "title": "A shadow on the roof",
+      "paragraphs": [
+        "A hatch bangs open two cars ahead. Yellow gloves grip the rim. Vane is coming up to check on his lock, and there is nowhere to hide on a bare gold roof.",
+        "Wick tugs your arm. Her mirrored coat is already turning the colour of the fog."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s24b_1",
+          "label": "Hide under Wick's mirror coat",
+          "detail": "A hundred mirrors, two kids.",
+          "to": "roof5",
+          "outcome": "You crouch together under the coat. Vane walks past an arm's length away, sees only fog reflecting fog, and mutters, “All four by Halfway Bell, or it's my neck.”",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "four_heard"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s24b_2",
+          "label": "Walk up and greet him",
+          "detail": "You have every right to be on your own roof.",
+          "to": "roof5",
+          "outcome": "“Coupler's roof check, Inspector. Regulations.” It's almost true. Vane can't object without explaining why he's up here himself. He retreats, furious and polite, and Wick stares at you with new respect.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "vane_wary"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-roof",
+        "alt": "Two children in vacuum suits, one in a coat of tiny mirrors, stand on the golden roof of the moving train in the fog."
+      }
+    },
+    {
+      "id": "roof5",
+      "act": "ACT 3 / GREY SAILS · OVER THE ROOFS",
+      "title": "The jump",
+      "paragraphs": [
+        "On the way back, the train lurches. The Marigold has hit the first thick bank of the Shiver, and the folding bridge between two cars has tucked itself away for safety. Between you and the next roof is a gap of two metres, and a very long way down in every direction.",
+        "“Magnets off, jump, magnets on,” says Wick. “Don't do them in the wrong order.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "roof5_1",
+          "label": "Jump before you can think",
+          "detail": "Magnets off. Go.",
+          "to": "roof6",
+          "outcome": "For one second you belong to nobody: not the train, not the Line. Then your boots slam down and stick. Wick lands beside you. “Now you've got roof legs. You can't unlearn those.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "jumped"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "roof5_2",
+          "label": "Rig a safety line first",
+          "detail": "Slower, and it runs down the suit winch.",
+          "to": "roof6",
+          "outcome": "The line holds, the winch whirs and you cross like a crate of cargo. It isn't elegant. But dangling there, you get a long look down the side of Car 9, where the cargo door has fresh scratches round a brand new seal.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "new_seal"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-roof",
+        "alt": "Two children in vacuum suits, one in a coat of tiny mirrors, stand on the golden roof of the moving train in the fog."
+      }
+    },
+    {
+      "id": "roof6",
+      "act": "ACT 3 / GREY SAILS · OVER THE ROOFS",
+      "title": "Wick's confession",
+      "paragraphs": [
+        "You shelter behind the lamp car while the fog thickens. Wick is quiet for a long time. Then: “Nobody sent me. Aunt Sable said the Fleet would follow the egg and wait for a safe chance. I said waiting was how we lost it in the first place. So I climbed into the freezer car by myself.”",
+        "She pulls her knees up to her chin. “If this goes wrong, it's my fault twice.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "roof6_1",
+          "label": "Tell her it was brave",
+          "detail": "It was.",
+          "to": "s25",
+          "outcome": "“Brave and stupid ride in the same coat,” she says, but she's almost smiling. “Sable says that. I thought she only meant me.” She bumps your shoulder with hers. You're in this together now.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "wick_trust"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "roof6_2",
+          "label": "Ask what a safe chance looks like",
+          "detail": "The Fleet must have a plan.",
+          "to": "s25",
+          "outcome": "“Nets. Seven ships in a ring, and something to hold the thief still while they close in.” She looks at you sideways. “A train would do. If the train was on our side.” You file that away.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "nets_plan"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-roof",
+        "alt": "Two children in vacuum suits, one in a coat of tiny mirrors, stand on the golden roof of the moving train in the fog."
+      }
+    },
+    {
+      "id": "s25",
+      "act": "ACT 3 / GREY SAILS",
+      "title": "The clipboard",
+      "paragraphs": [
+        "Back in the galley, your chance comes at supper. Vane leaves his clipboard on the bench for exactly as long as it takes him to complain about the soup.",
+        "The top page is an inspection form, blank. Underneath are pages that have nothing to do with inspecting anything."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "jammer_found",
+            "hint": "Needs jammer_found"
+          },
+          "text": "One page is a wiring sketch. You recognise the yellow cable from the crawlway, labelled RADIO: SILENCED."
+        },
+        {
+          "requirement": {
+            "flag": "skiff_seen",
+            "hint": "Needs skiff_seen"
+          },
+          "text": "One page is a launch checklist for the black skiff you found in Car 9."
+        }
+      ],
+      "choices": [
+        {
+          "id": "s25_1",
+          "label": "Read the second page",
+          "detail": "You have about ten seconds.",
+          "to": "s26",
+          "outcome": "It's a contract. ONE CLUTCH OF LIVE GLIMS, FOUR, DELIVERED TO THE BUYER AT HALFWAY BELL. PAYMENT ON ARRIVAL. Vane isn't inspecting cargo. He's selling it.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "contract_read"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s25_2",
+          "label": "Slide the clipboard to the Conductor",
+          "detail": "Let her read it with her own eyes.",
+          "to": "s26",
+          "outcome": "Brandt reads the second page behind her teacup and goes very still. “Glims. For sale. On my train,” she says under her breath. Nothing else. It's enough.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "contract_read"
+            },
+            {
+              "flag": "conductor_knows"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s26",
+      "act": "ACT 3 / GREY SAILS",
+      "title": "Four",
+      "paragraphs": [
+        "Four. The contract says four glims, and Car 13 held a single cradle.",
+        "PIP's lantern report is pinned by the galley door. Yesterday it had one line: Lantern 41, dark. This morning there are three more. Lantern 40. Lantern 39. Lantern 38.",
+        "Four dark lanterns. Four stolen eggs. Ember is only the one that got away."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s26_1",
+          "label": "Work out where the other three are",
+          "detail": "Think like a thief.",
+          "to": "s27",
+          "outcome": "Three frozen eggs need a freezer and a fast way off the train. Only one car has a lock that new. You'd bet your badge on Car 9.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "three_located"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s26_2",
+          "label": "Tell Wick at once",
+          "detail": "She needs to know.",
+          "to": "s27",
+          "outcome": "Wick turns pale under her freckles. “Three more. Still frozen, still asleep. They don't even know they've been taken.” She grips your sleeve. “We get all of them. Promise me.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "promise"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s26_detour",
+          "label": "Confront Vane with a dramatic speech",
+          "detail": "Stand on a table. Point.",
+          "to": "detour_07",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s27",
+      "act": "ACT 4 / THE DARK STRETCH",
+      "title": "Halvard's coat",
+      "paragraphs": [
+        "You find Old Halvard in the bunk car, holding something from the very bottom of his trunk: a coat sewn from a hundred patches, each with a tiny mirror. It's faded, and far too small for him now.",
+        "“Wore this when I was her age,” he says, nodding at the rafters, where Wick is pretending not to listen. “Thirty years I've let folk call the Moths pirates. Easier than saying I ran away from them.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s27_1",
+          "label": "Ask why he left",
+          "detail": "He has carried this a long time.",
+          "to": "s28",
+          "outcome": "“A lantern went dark on my watch, one bad winter. I thought it was my fault and I couldn't face them.” He folds the coat. “I never went back to find out if it was.”",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "halvard_past"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s27_2",
+          "label": "Bring Wick down to meet him",
+          "detail": "Two Lamplighters should talk.",
+          "to": "s28",
+          "outcome": "Wick looks at the old coat for a long time. “Aunt Sable has a photograph of a boy in that coat. She says he was the best whistler in the Fleet.” Halvard has to go and check a valve very suddenly.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "halvard_ally"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s27_3",
+          "label": "Ask them both for the lantern song",
+          "detail": "If you don't know it yet, this is the time to learn.",
+          "to": "s28",
+          "outcome": "Halvard and Wick teach you together, arguing over the tricky bit in the middle. By the end you have it by heart. You've also missed supper and burned out a lamp cell.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "song_taught"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s28",
+      "act": "ACT 4 / THE DARK STRETCH",
+      "title": "No lights at all",
+      "paragraphs": [
+        "The last glow of the Lantern Line slips behind the fog. For the first time in its life, the Marigold is travelling with no light ahead and none behind. PIP steers by guesswork and good manners.",
+        "“PIP regrets that PIP cannot see. Passengers may wish to hold on to something. Or someone.”",
+        "Out here, with no lanterns to drink from, the engine's cells are draining fast."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s28_1",
+          "label": "Dim the cargo cars to save charge",
+          "detail": "Dull, cold and sensible.",
+          "to": "s29",
+          "outcome": "You run the length of the train flipping breakers. The cargo cars go dark and freezing, but the engine dial stops falling.",
+          "effects": [
+            {
+              "flag": "cells_saved"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s28_2",
+          "label": "Steer by the Moth ships' lamps",
+          "detail": "Burn charge on the long glass and the radio.",
+          "to": "s29",
+          "outcome": "You call the grey ships' positions to PIP. They're keeping to safe channels through the ice. The pirates, it turns out, know the Shiver far better than the Company's maps do.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "moth_signal"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s28_3",
+          "label": "Let Ember light the lamp car",
+          "detail": "A lantern is exactly what's missing.",
+          "to": "s29",
+          "outcome": "In the big glass lamp at the tail, Ember blazes up like a tiny sun. The fog glows gold for a hundred metres round. The crew cheers, and so, very faintly, does something far away.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "ember_lamp"
+            }
+          ],
+          "requirements": [
+            {
+              "flag": "ember_friend",
+              "hint": "Ember must trust you"
+            }
+          ]
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-train",
+        "alt": "A golden star train runs along a line of lanterns in the dark. One car near the tail is white with frost, and one lantern is unlit."
+      }
+    },
+    {
+      "id": "s29",
+      "act": "ACT 4 / THE DARK STRETCH",
+      "title": "The thing behind the fog",
+      "paragraphs": [
+        "At midnight the grey ships scatter. All seven, all at once, like minnows when a pike swims by. Behind where they were, the fog bulges. Something is pushing through the Shiver toward the train, and by the size of the wave it makes, it's wider than Starport Kestrel.",
+        "Vane runs to the window. For the first time, the half-smile is entirely gone."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s29_1",
+          "label": "Measure it with the long glass",
+          "detail": "Fear is no use without facts.",
+          "to": "s30",
+          "outcome": "You can't see the thing itself, only its glow: a faint gold pulse deep in the fog, slow as a sleeper's heartbeat. You've seen that rhythm before. It's the same as Ember's.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "pulse_match"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s29_2",
+          "label": "Help the crew secure the train",
+          "detail": "Lash down everything loose.",
+          "to": "s30",
+          "outcome": "You and Tobin tie down the train from galley to lamp car. When the fog wave hits, the Marigold rocks like a cradle and not one teacup breaks. The Conductor notices who did the tying.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s29_detour",
+          "label": "Hide under your bunk",
+          "detail": "It worked when you were six.",
+          "to": "detour_08",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s30",
+      "act": "ACT 4 / THE DARK STRETCH",
+      "title": "PIP has something to say",
+      "paragraphs": [
+        "In the empty lamp car at three in the morning, PIP speaks to you alone, very quietly, from the smallest speaker on the train.",
+        "“PIP wishes to correct the coupling log. Your badge did not couple Car 13. PIP did. PIP typed your number.”",
+        "You sit down on a coil of rope.",
+        "“PIP heard singing in the Kestrel yard. A small voice in a freezer car, on the wrong dock, being loaded onto a black ship. So PIP… borrowed it.”"
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "pip_dodged",
+            "hint": "Needs pip_dodged"
+          },
+          "text": "You remember the platform at Kestrel, and the “one item PIP would prefer not to discuss.”"
+        }
+      ],
+      "choices": [
+        {
+          "id": "s30_1",
+          "label": "Ask why PIP used your number",
+          "detail": "Of all the badges on the train.",
+          "to": "s31",
+          "outcome": "“Because the list is never wrong, and PIP needed the list to be wrong. And because you are the one who counts the cars. PIP knew you would notice. PIP hoped you would help.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "pip_confessed"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s30_2",
+          "label": "Ask what else PIP saw at Kestrel",
+          "detail": "A witness is a witness, even a computer.",
+          "to": "s31",
+          "outcome": "“The freezer car's owner. A man in yellow gloves, counting four cases. He searched for his car all night. Then he bought a ticket for the only train that had left.” A pause. “PIP regrets the inconvenience.”",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "pip_confessed"
+            },
+            {
+              "flag": "vane_owner"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-lampcar",
+        "alt": "A girl in a mirrored coat stands beside the great glass lamp at the tail of the train as its beams reach grey ships in the fog."
+      }
+    },
+    {
+      "id": "s31",
+      "act": "ACT 4 / THE DARK STRETCH",
+      "title": "Stolen from the thief",
+      "paragraphs": [
+        "So that's the truth of it. Vane never meant Car 13 to be on the Marigold. He took four eggs from four lanterns and packed them up for his buyer. Then a polite old train computer stole one of them back from under his nose.",
+        "He isn't inspecting this train. He's stuck on it, with his missing treasure in Car 13, three more frozen eggs hidden somewhere aboard, and a whole crew in the way."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s31_1",
+          "label": "Take PIP's confession to the Conductor",
+          "detail": "She should hear it from PIP.",
+          "to": "s32",
+          "outcome": "Brandt hears it out, then addresses the ceiling. “PIP. You forged a log, framed my coupler and kidnapped a freight car.” “Yes, Conductor.” “…Well done.” PIP's lights glow pink for a whole minute.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "conductor_knows"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s31_2",
+          "label": "Ask PIP to track Vane's movements",
+          "detail": "The train has eyes in every car.",
+          "to": "s32",
+          "outcome": "“PIP is always watching. PIP simply has not been asked the right questions.” A map appears of everywhere Vane has walked. One spot glows brightest. Car 9: eleven visits.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "three_located"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s32",
+      "act": "ACT 4 / THE DARK STRETCH",
+      "title": "A message from the Company",
+      "paragraphs": [
+        "Halvard and PIP coax the main radio back to life for ninety seconds. It's long enough for one question to the Company and one answer back. The answer scrolls across the screen, and Tobin reads it aloud twice, because nobody believes it the first time.",
+        "INSPECTOR L. VANE RETIRED NINE YEARS AGO. SHE SENDS HER REGARDS AND ASKS WHO IS USING HER NAME."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "jammer_found",
+            "hint": "Needs jammer_found"
+          },
+          "text": "Because you found the jammer in the crawlway, Halvard knows exactly which cable to pull."
+        }
+      ],
+      "choices": [
+        {
+          "id": "s32_1",
+          "label": "Save the message as evidence",
+          "detail": "Print it. Fold it. Hide it in your boot.",
+          "to": "s33",
+          "outcome": "No Company officer means no Company Order Nine. The man in the yellow gloves has no right to command so much as a teaspoon on this train.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "fake_inspector"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s32_2",
+          "label": "Use the last seconds to hail the Moths",
+          "detail": "One line, sent into the dark.",
+          "to": "s33",
+          "outcome": "MARIGOLD TO MOTH FLEET. YOUR LITTLE ONE IS SAFE. WE ARE FRIENDS. The radio dies before any answer comes. But one grey ship drifts back into view, its lamp swinging.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "moths_hailed"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-moths",
+        "alt": "Seven grey ships with sails like moth wings drift through fog above the star train, each carrying a small lamp."
+      }
+    },
+    {
+      "id": "s33",
+      "act": "ACT 4 / THE DARK STRETCH",
+      "title": "The voice in the walls",
+      "paragraphs": [
+        "Ember has discovered the intercom. This is a disaster. All morning the speakers whistle Vane's tune, sneeze Wick's sneeze, and announce in PIP's voice that the train has twelve cars.",
+        "Then, with the whole crew at breakfast and Vane among them, every speaker says in Tobin's voice, clear as a bell: “Wick's hiding in the rafters of Car 13 with the glim.”",
+        "It's what Tobin whispered to you last night. Tobin stares at you in horror. Vane puts down his spoon."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s33_1",
+          "label": "Laugh it off as a prank",
+          "detail": "Lie to the whole table, and fast.",
+          "to": "s34",
+          "outcome": "“Tobin's ghost stories again!” you groan. Vane hesitates, and that buys Wick three minutes to move. But nobody at the table laughs. They all know a fib when they hear one, and now they wonder what else you've hidden.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": -2
+            },
+            {
+              "flag": "bought_time"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s33_2",
+          "label": "Run for Car 13 before Vane does",
+          "detail": "You know which floor panels stick.",
+          "to": "s34",
+          "outcome": "You bolt, leaving the crew staring after you. You get there first, your lamp cracked from a fall. Wick has already gone. She's left a mirror patch on the cradle and a chalk note: LAMP CAR.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": -1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "wick_note"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s33_3",
+          "label": "Own up to everything, right there",
+          "detail": "The crew deserves the truth, even with Vane listening.",
+          "to": "s34",
+          "outcome": "You tell the whole table: the egg, the stowaway, all of it. It stings to admit how long you kept it quiet. Worse, Vane now knows exactly how much you know.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": -1
+            },
+            {
+              "stat": "clues",
+              "delta": -1
+            },
+            {
+              "flag": "owned_up"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s33_detour",
+          "label": "Blame the soup",
+          "detail": "It's been acting suspiciously.",
+          "to": "detour_09",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s34",
+      "act": "ACT 4 / THE DARK STRETCH",
+      "title": "Vane stops smiling",
+      "paragraphs": [
+        "Vane stands up from the table and the politeness falls off him like a coat. “Enough. That creature is my property, and so are three more like it. Conductor, you will stop this train and hand over Car 13.”",
+        "“You're no inspector,” says Brandt. “You're not anything.”",
+        "“I'm the man with the keys,” says Vane, and he holds up the ring. Down the train, heavy locks slam shut one after another.",
+        "With his free hand he sweeps the evidence off the Conductor's table and into his bag: the shell, the printouts, your notes. All of it."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "fake_inspector",
+            "hint": "Needs fake_inspector"
+          },
+          "text": "You have the Company's message folded in your boot. Everyone here knows exactly what his orders are worth."
+        }
+      ],
+      "choices": [
+        {
+          "id": "s34_1",
+          "label": "Count which doors locked",
+          "detail": "Listen like a coupler.",
+          "to": "s35",
+          "outcome": "Galley door. Bunk door. Engine door. He has cut the train into pieces and shut the crew in the middle. You never heard the lamp car lock, or the roof hatches. But while you were listening, your evidence left in his bag.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": -3
+            },
+            {
+              "flag": "open_ways"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s34_2",
+          "label": "Stand with the Conductor",
+          "detail": "Let him see he's outnumbered.",
+          "to": "s35",
+          "outcome": "You step up beside her. Then Tobin does. Then the cook, holding a ladle. Vane backs out with every scrap of your evidence and locks the door, but he's seen the faces. This crew is done taking his orders.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "stat": "clues",
+              "delta": -4
+            },
+            {
+              "flag": "crew_united"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s34_3",
+          "label": "Snatch your notebook back",
+          "detail": "He's sweeping up the evidence.",
+          "to": "s35",
+          "outcome": "You dive across the table and come away with your notebook and a cracked lamp. Vane gets the rest. “Keep your scribbles,” he says. “Nobody believes a coupler.”",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": -2
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "notebook_saved"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s35",
+      "act": "ACT 4 / THE DARK STRETCH",
+      "title": "Locked in the galley",
+      "paragraphs": [
+        "The galley has become a very cosy prison. Vane holds the engine room, the keys and the throttle. The Marigold is picking up speed, plunging deeper into the Shiver toward wherever his buyer is waiting.",
+        "Through the floor you can feel Halvard's engine straining, burning through its cells. Through the window you can see that enormous gold pulse, closer now, keeping pace."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s35_1",
+          "label": "Search the galley for a way out",
+          "detail": "Cooks always have a back door.",
+          "to": "s36",
+          "outcome": "It takes an hour of lamplight to find it. Behind the flour bins is the hatch Tobin uses to steal midnight biscuits. It opens into the crawlway. “I knew being greedy would pay off one day.”",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "biscuit_hatch"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s35_2",
+          "label": "Calm the crew and make a plan",
+          "detail": "Draw the train in spilled sugar.",
+          "to": "s36",
+          "outcome": "Everyone gets a job, even the cook. The Conductor lets you finish before she adds a single thing. “Good. We do it your way.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "crew_united"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s35_3",
+          "label": "Ask the crew to pool their lamp cells",
+          "detail": "They have to trust you with the lot.",
+          "to": "s36",
+          "outcome": "Nobody argues. Six cells land on the table, one from each of them, and the cook's is still warm from his pocket. “Bring them back charged,” says Brandt.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 2
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "trust",
+              "atLeast": 4,
+              "hint": "Needs 4 trust"
+            }
+          ]
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s36",
+      "act": "ACT 5 / THE MAN WITH THE KEYS",
+      "title": "Two jobs, one of you",
+      "paragraphs": [
+        "The plan needs two things done at once. Somebody has to take the engine back before Vane wrecks it. And somebody has to tell the Moth Fleet the truth, because seven grey ships and one giant something are closing in, and none of them know whose side the Marigold is on.",
+        "“I can't be in two places,” you say.",
+        "“Then pick the one that needs you most,” says the Conductor, “and trust the rest of us with the other.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s36_1",
+          "label": "Go for the engine",
+          "detail": "Take the Conductor's master key through the crawlway.",
+          "to": "s37a",
+          "outcome": "Brandt presses a heavy brass key into your hand. “Twenty-two years,” she says. “Never lent it once.”",
+          "effects": [
+            {
+              "flag": "route_engine"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s36_2",
+          "label": "Go for the lamp",
+          "detail": "Climb to the lamp car with Wick and signal the Fleet.",
+          "to": "s37b",
+          "outcome": "Wick drops out of a ceiling vent, upside down. “Finally. I've been waiting up here for ages.”",
+          "effects": [
+            {
+              "flag": "route_lamp"
+            },
+            {
+              "flag": "roof_legs"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s36_detour",
+          "label": "Suggest everyone has a nap first",
+          "detail": "Tired heroes make mistakes.",
+          "to": "detour_10",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s37a",
+      "act": "ACT 5 / THE MAN WITH THE KEYS · THE BRASS KEY",
+      "title": "Crawlway, again",
+      "paragraphs": [
+        "The crawlway is hotter now and the pipes are shaking. The engine is being pushed much too hard. You crawl with the brass key between your teeth and Tobin behind you holding your ankle. For luck, he says.",
+        "Under the galley car the tunnel splits: the short way past the steam main, or the long way round by the water tanks."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s37a_1",
+          "label": "Take the short way",
+          "detail": "Hot, fast and close to the steam.",
+          "to": "s38a",
+          "outcome": "Steam hisses a hand's width above your back. Your lamp casing cracks in the heat, but through a grille you see Vane at the throttle, and he's alone. No helpers at all.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "vane_alone"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s37a_2",
+          "label": "Take the long way",
+          "detail": "Cooler, slower, and past the coolant pump.",
+          "to": "s38a",
+          "outcome": "Tobin tops up the engine's coolant with the hand pump on the way, and the engine's whine drops a note. But the crew waiting at the engine door hear nothing from you for far too long, and start to fear the worst.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            },
+            {
+              "flag": "coolant_topped"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s38a",
+      "act": "ACT 5 / THE MAN WITH THE KEYS · THE BRASS KEY",
+      "title": "The engine door",
+      "paragraphs": [
+        "You come up through the floor behind a rack of spanners. Vane stands at the throttle with his back to you, forcing it forward. Old Halvard is tied to his own tea chair with yellow cable, looking more insulted than frightened.",
+        "The Conductor's key will open the engine door from the inside and let the crew in. The door is six steps away. Vane is four steps from it."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s38a_1",
+          "label": "Untie Halvard first",
+          "detail": "Nobody knows this room like he does.",
+          "to": "s39a",
+          "outcome": "Halvard's metal hand snaps the cable the moment you loosen it. Vane uses those seconds to shove the throttle further forward. “Good work, whoever you are under that soot,” Halvard whispers. “Now watch what an engineer can do.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "halvard_ally"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s38a_2",
+          "label": "Go straight for the door",
+          "detail": "Six steps. Don't think. Go.",
+          "to": "s39a",
+          "outcome": "Key in, turn. The Conductor is through the door before Vane can burn the last of the reserve. “Mr Nobody. Step away from my train.” Halvard, still tied to his chair, clears his throat. “Don't mind me,” he says. He minds.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            },
+            {
+              "flag": "conductor_in"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-engine",
+        "alt": "The engine room glows blue around a large dial and a brass throttle, with a red tea tin on a shelf and the old engineer standing by."
+      }
+    },
+    {
+      "id": "s39a",
+      "act": "ACT 5 / THE MAN WITH THE KEYS · THE BRASS KEY",
+      "title": "Halvard's trick",
+      "paragraphs": [
+        "Vane grabs the brake lever like a hostage. “Anyone moves and I stop this train dead. We'll all sit here in the dark together until my buyer comes looking for me.”",
+        "Halvard catches your eye and glances, very slightly, at the tea tin."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "reserve_switch",
+            "hint": "Needs reserve_switch"
+          },
+          "text": "You know what's behind that tin. Halvard showed you himself."
+        }
+      ],
+      "choices": [
+        {
+          "id": "s39a_1",
+          "label": "Knock over the tea tin",
+          "detail": "Trust the engineer's eyebrows.",
+          "to": "s40a",
+          "outcome": "Behind the tin is a switch. You hit it. The engine drops to a low, safe hum and the controls go dead under Vane's gloves. “Engineer's lock,” says Halvard. “She only listens to me now.”",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "engine_safe"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s39a_2",
+          "label": "Keep Vane talking",
+          "detail": "He likes the sound of his own voice.",
+          "to": "s40a",
+          "outcome": "“Who's the buyer?” you ask. Vane can't resist. “A collector. He wants to light a private palace. Four little lanterns in four glass jars.” Everyone in the room now knows exactly what he is.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "buyer_known"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-engine",
+        "alt": "The engine room glows blue around a large dial and a brass throttle, with a red tea tin on a shelf and the old engineer standing by."
+      }
+    },
+    {
+      "id": "s40a",
+      "act": "ACT 5 / THE MAN WITH THE KEYS · THE BRASS KEY",
+      "title": "One yellow glove",
+      "paragraphs": [
+        "Vane is quicker than he looks. He ducks under the Conductor's arm, kicks open the floor hatch and drops into the crawlway, leaving one yellow glove behind in Halvard's metal fist.",
+        "“He'll make for the cargo cars,” you say. “For whatever he's hiding back there.”",
+        "The engine is yours again. But the man with the keys is loose on a locked train."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s40a_1",
+          "label": "Chase him through the crawlway",
+          "detail": "You're smaller, and you know the panels.",
+          "to": "s41",
+          "outcome": "You don't catch him. But you get close enough to see where he goes: up through the floor of Car 9, where a second engine is already whining awake. Your lamp dies on the way back.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "skiff_seen"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s40a_2",
+          "label": "Stay and steady the engine",
+          "detail": "The train comes first.",
+          "to": "s41",
+          "outcome": "You, Halvard and the Conductor bring the Marigold back from the edge, dial by dial. The shaking stops. Brandt pats the wall. “That's my train. And my crew.”",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "engine_safe"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s37b",
+      "act": "ACT 5 / THE MAN WITH THE KEYS · THE TAIL LAMP",
+      "title": "Over the cargo",
+      "paragraphs": [
+        "Wick leads you through the ceiling vents above the locked doors, over crates of seed, bolts of cloth and one whole car of sleeping beehives. The lamp car is at the very tail of the train, just past Car 13.",
+        "Below you, through a vent grille, Car 9 is lit up. A tarpaulin lies on the floor. Something black and sleek sits where the farm machinery ought to be."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s37b_1",
+          "label": "Stop and look into Car 9",
+          "detail": "Spend a minute and some lamp charge.",
+          "to": "s38b",
+          "outcome": "It's a skiff, a fast little ship, fuelled and pointed at the cargo door. Three frosted freezer cases are clamped to its hull. Vane means to leave the second he has the fourth.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "skiff_seen"
+            },
+            {
+              "flag": "three_located"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s37b_2",
+          "label": "Keep going",
+          "detail": "The signal matters more.",
+          "to": "s38b",
+          "outcome": "You crawl on above the beehives. Their hum is oddly comforting. You reach the tail of the train with time in hand and your nerve in one piece.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "steady_nerves"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s38b",
+      "act": "ACT 5 / THE MAN WITH THE KEYS · THE TAIL LAMP",
+      "title": "The lamp car",
+      "paragraphs": [
+        "The lamp car is all glass: a round lantern room with a brass lamp as tall as you are. Normally it shows a steady red tail light. Wick spins the shutter wheel and the red glass slides away.",
+        "“Lamplighter code is long and short flashes. But this old lamp is too weak to reach the Fleet through fog. We need something brighter.”",
+        "Ember floats out of Wick's hood and bumps hopefully against the lens."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s38b_1",
+          "label": "Let Ember be the light",
+          "detail": "It's what a glim is for.",
+          "to": "s39b",
+          "outcome": "Ember takes a long drink from your lamp first, then slips inside the great lens and blazes. The whole lamp car fills with gold. Out in the Shiver, seven grey sails turn toward you all at once.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "ember_lamp"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s38b_2",
+          "label": "Hang Wick's coat behind the lamp",
+          "detail": "A hundred mirrors make a hundred beams.",
+          "to": "s39b",
+          "outcome": "The little mirrors throw the lamp's light out in a hundred bright threads, with charge to spare. Wick shivers without her coat. Ember, who wanted that job, turns its back on you and sulks.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            },
+            {
+              "flag": "mirror_trick"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-lampcar",
+        "alt": "A girl in a mirrored coat stands beside the great glass lamp at the tail of the train as its beams reach grey ships in the fog."
+      }
+    },
+    {
+      "id": "s39b",
+      "act": "ACT 5 / THE MAN WITH THE KEYS · THE TAIL LAMP",
+      "title": "Long, short, short",
+      "paragraphs": [
+        "Wick works the shutter. Long, short, short: FRIEND. Then: LITTLE ONE SAFE. Then she stops. “They'll ask who's sending. If I say it's me, Aunt Sable will know I stowed away.”",
+        "Out in the fog, the lead grey ship answers with a slow, careful flash. WHO SPEAKS?"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s39b_1",
+          "label": "Tell her to sign her own name",
+          "detail": "The truth travels best.",
+          "to": "s40b",
+          "outcome": "W-I-C-K. The answering flashes come so fast they blur. “She says I'm in enormous trouble,” Wick reads, grinning from ear to ear. “She says they're coming. All of them.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "moths_hailed"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s39b_2",
+          "label": "Send the thief's description instead",
+          "detail": "Give them something they can use.",
+          "to": "s40b",
+          "outcome": "THIEF ABOARD. YELLOW GLOVES. THREE MORE EGGS ON A BLACK SKIFF. It's a long message for a tired old lamp. The reply is one word, flashed from all seven ships together: UNDERSTOOD.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "moths_hailed"
+            },
+            {
+              "flag": "moths_warned"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-lampcar",
+        "alt": "A girl in a mirrored coat stands beside the great glass lamp at the tail of the train as its beams reach grey ships in the fog."
+      }
+    },
+    {
+      "id": "s40b",
+      "act": "ACT 5 / THE MAN WITH THE KEYS · THE TAIL LAMP",
+      "title": "The Moth captain",
+      "paragraphs": [
+        "A grey ship slides alongside the lamp car, close enough to touch. On its deck stands a tall woman in a mirrored coat that sweeps to her boots. She looks at Wick, then at you, then at Ember, glowing beside the lamp.",
+        "She doesn't shout. She holds up a slate with chalked words: I AM SABLE. IS THE TRAIN OUR ENEMY?"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s40b_1",
+          "label": "Write back: NO. ONLY ONE MAN IS.",
+          "detail": "Speak for the whole crew.",
+          "to": "lamp5",
+          "outcome": "Sable reads it and nods once. THEN WE GUARD YOUR TRAIN TOO. The seven ships spread their sails around the Marigold like hands cupped round a candle.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "moth_guard"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s40b_2",
+          "label": "Ask if the Fleet can spare some charge",
+          "detail": "The train is running on almost nothing.",
+          "to": "lamp5",
+          "outcome": "Sable's chalk squeaks. MOTHS LIGHT LAMPS. IT IS WHAT WE DO. A crate swings across on a line: fresh lamp cells, each stamped with a tiny lantern. Wick looks amazed. “She never shares those.”",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "fleet_cells"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-moths",
+        "alt": "Seven grey ships with sails like moth wings drift through fog above the star train, each carrying a small lamp."
+      }
+    },
+    {
+      "id": "lamp5",
+      "act": "ACT 5 / THE MAN WITH THE KEYS · THE TAIL LAMP",
+      "title": "The line home",
+      "paragraphs": [
+        "Sable throws a line across and clips it to the lamp car rail. Her next slate is for Wick alone: COME HOME. NOW.",
+        "Wick looks at the line, then at Ember, then at you. “If I cross, I'm safe and I'm grounded for a year. If I stay, I'm in worse trouble and I'm useful.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "lamp5_1",
+          "label": "Tell her you need her here",
+          "detail": "You do.",
+          "to": "s41",
+          "outcome": "Wick unclips the line and tosses it back. Sable's shoulders drop. Then she chalks, very large: BRING HER BACK IN ONE PIECE, TRAIN CHILD. You nod. It feels like signing something.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "wick_trust"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "lamp5_2",
+          "label": "Tell her it's her choice",
+          "detail": "It isn't yours to make.",
+          "to": "s41",
+          "outcome": "Wick thinks for ten whole seconds, which for her is a long time. Then she ties the line off instead of throwing it back. “A way home for later. For both of us, if we need it.” One of Sable's spare lamp cells comes sliding down it.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "flag": "line_home"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-moths",
+        "alt": "Seven grey ships with sails like moth wings drift through fog above the star train, each carrying a small lamp."
+      }
+    },
+    {
+      "id": "s41",
+      "act": "ACT 5 / THE MAN WITH THE KEYS",
+      "title": "A voice like peppermint",
+      "paragraphs": [
+        "By the time the two halves of the plan meet in the galley corridor, the engine is back in Halvard's hands and the grey ships know the truth. But Vane has slipped away into the cargo cars, and every door between here and there answers only to his voice.",
+        "“The gentleman changed the locks to voice command,” says PIP. “PIP was not consulted.”",
+        "Ember drifts up to the nearest speaker and says, in Vane's exact oily tones: “Unlisted cargo is a serious matter.”",
+        "Everybody turns to look at the little ray."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s41_1",
+          "label": "Coach Ember to say “Open all doors”",
+          "detail": "Free the whole train at once.",
+          "to": "s42",
+          "outcome": "It takes four tries, because Ember prefers the word “peppermint.” Then, in Vane's own voice: “Open all doors.” Every door motor on the train runs at once and the lights dip. Tobin laughs so hard he has to sit down.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "doors_open"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s41_2",
+          "label": "Have Ember say “Lock Car 9”",
+          "detail": "Shut the thief away from his prize.",
+          "to": "s42",
+          "outcome": "A heavy bolt slides shut far down the train. Whatever Vane wants from that car, he'll have to break in to get it, and you now know for certain that's where he's headed.",
+          "effects": [
+            {
+              "flag": "car9_locked"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s41_3",
+          "label": "Ask Ember what else Vane has said",
+          "detail": "It has been listening for days.",
+          "to": "s42",
+          "outcome": "Ember glows, thinking, then recites something from the Kestrel yard: “Private channel six. Password: marzipan.” PIP makes a delighted noise. “PIP can now hear every word the gentleman sends to his buyer.”",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 2
+            },
+            {
+              "flag": "radio_tapped"
+            }
+          ],
+          "requirements": [
+            {
+              "flag": "ember_friend",
+              "hint": "Ember must trust you"
+            }
+          ]
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s42",
+      "act": "ACT 5 / THE MAN WITH THE KEYS",
+      "title": "Old Gold",
+      "paragraphs": [
+        "The fog ahead tears open like a curtain, and there she is.",
+        "The lantern ray is the size of a harbour. Her wings stretch from one side of the sky to the other, rippling as slowly as weather, and along them run rivers of dim gold light. She has no lantern to stand in. She has carried her light through the dark, night after night, looking.",
+        "“Old Gold,” Wick whispers. “That's what the Fleet calls her. Lantern 41.”",
+        "Ember goes absolutely silent. Then it makes a sound you've never heard it copy from anyone."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s42_1",
+          "label": "Carry Ember to the window",
+          "detail": "Let them see each other.",
+          "to": "s43",
+          "outcome": "Ember presses itself flat against the glass. Outside, the great ray's light brightens from one wingtip to the other, like a sunrise making up its mind. She has seen. She turns toward the train.",
+          "effects": [
+            {
+              "flag": "mother_saw"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s42_2",
+          "label": "Watch how the ray moves",
+          "detail": "Understand her before she arrives.",
+          "to": "s43",
+          "outcome": "She isn't hunting. She sweeps left, right, left in careful arcs, the same search pattern as the Moth ships. And wherever her light falls, the fog thins and the way ahead shows clear.",
+          "effects": [
+            {
+              "flag": "ray_lights_way"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s42_detour",
+          "label": "Wave politely",
+          "detail": "It seems rude not to.",
+          "to": "detour_11",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-oldgold",
+        "alt": "An enormous ray with rivers of gold light along its wings fills the sky above the tiny star train and the grey ships."
+      }
+    },
+    {
+      "id": "s43",
+      "act": "ACT 5 / THE MAN WITH THE KEYS",
+      "title": "Not a monster",
+      "paragraphs": [
+        "“It'll swallow the train!” someone cries. Halvard's voice comes over the speaker, steady as ever. “She won't. I've stood on the back of one. She wants what's hers, that's all. Same as any mother on any platform.”",
+        "But Old Gold is drifting closer, and one wing could brush the Marigold off its course without ever meaning to. The crew looks to the Conductor. The Conductor looks, of all people, at you."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s43_1",
+          "label": "Slow the train so she can match it",
+          "detail": "Give her room and time.",
+          "to": "s44",
+          "outcome": "The Marigold eases down, saving charge. Old Gold eases down with it, gently as a hand lowering a cup. Half the crew thinks you've lost your mind, slowing down for a thing that size. They say so.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            },
+            {
+              "flag": "paced"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s43_2",
+          "label": "Tell the crew what she is",
+          "detail": "Fear shrinks when it's explained.",
+          "to": "s44",
+          "outcome": "Nests, lanterns, stolen eggs: you tell them all of it. The fear goes out of the car like air from a tyre. “A hundred years riding past their front doors,” says the cook, “and we never once said thank you.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "crew_united"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-oldgold",
+        "alt": "An enormous ray with rivers of gold light along its wings fills the sky above the tiny star train and the grey ships."
+      }
+    },
+    {
+      "id": "s44",
+      "act": "ACT 6 / OLD GOLD",
+      "title": "Three still frozen",
+      "paragraphs": [
+        "Ember isn't the only one she has come for. Old Gold's light keeps sweeping past Car 13 and settling on the middle of the train. On Car 9.",
+        "“She can hear the other three,” Wick whispers. “Even frozen. Even asleep.”",
+        "Four eggs from four nests. Three more rays must be out there in the dark, searching just as she is, and three lanterns will stay dead unless those eggs go home."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "three_located",
+            "hint": "Needs three_located"
+          },
+          "text": "Car 9. You worked that out days ago."
+        }
+      ],
+      "choices": [
+        {
+          "id": "s44_1",
+          "label": "Go to Car 9 for the eggs",
+          "detail": "Cold, heavy work with a thief nearby.",
+          "to": "s45",
+          "outcome": "A black skiff fills the car, three freezer cases clamped to its hull. You and Tobin get one clamp undone before footsteps send you scrambling. Inside the frosted glass, something small and gold turns over in its sleep.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "clamp_loosened"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s44_2",
+          "label": "Send word of the eggs to the Fleet",
+          "detail": "The Moths should know there are four.",
+          "to": "s45",
+          "outcome": "Wick flashes the news from the lamp car. The answer comes quickly: NETS READY. BRING THEM OUT AND WE WILL CATCH EVERY ONE. The Moths have done this before, you realise. Just never with a train's help.",
+          "effects": [
+            {
+              "flag": "nets_ready"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s45",
+      "act": "ACT 6 / OLD GOLD",
+      "title": "The brakes",
+      "paragraphs": [
+        "PIP's voice has lost its timetable calm. “PIP regrets to announce a difficulty. The Marigold has been driven too hard for too long. The brakes are worn thin. And the Shiver ends in eleven minutes.”",
+        "“Ends in what?” asks Tobin.",
+        "“In Halfway Bell. The starport. Which we are approaching sideways, in the dark, with no lanterns to guide us onto the track.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s45_1",
+          "label": "Feed the brakes from the cabin lights",
+          "detail": "Every car goes dark.",
+          "to": "s46",
+          "outcome": "You strip charge from the galley, the bunks and the reading lamps and pour it into the brake cells. The train goes black from end to end, lit only by Ember and by Old Gold outside. Somebody trips over the cook.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s45_2",
+          "label": "Work out the stopping distance with PIP",
+          "detail": "Know the numbers before you spend anything.",
+          "to": "s46",
+          "outcome": "“With these brakes we stop forty metres past the platform,” says PIP. “With help from outside, we stop on it.” A pause. “PIP wonders what help might look like.”",
+          "effects": [
+            {
+              "flag": "stop_math"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s45_3",
+          "label": "Throw Halvard's reserve switch",
+          "detail": "This is a real emergency.",
+          "to": "s46",
+          "outcome": "Behind the tea tin, exactly where he showed you. The reserve cells wake with a deep hum and the brake dial climbs out of the red. “Knew I'd picked the right one to tell,” says Halvard.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 2
+            }
+          ],
+          "requirements": [
+            {
+              "flag": "reserve_switch",
+              "hint": "Halvard must have shown you the reserve"
+            }
+          ]
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-engine",
+        "alt": "The engine room glows blue around a large dial and a brass throttle, with a red tea tin on a shelf and the old engineer standing by."
+      }
+    },
+    {
+      "id": "s46",
+      "act": "ACT 6 / OLD GOLD",
+      "title": "Vane's last card",
+      "paragraphs": [
+        "A crash from the middle of the train. Vane has blown open the cargo door of Car 9. A sleek black skiff lurches out into the fog, and instead of fleeing, it swings round and clamps on to the side of Car 13 with four steel claws.",
+        "His voice crackles from every speaker. “Here's my offer, Conductor. Uncouple the freezer car and let me tow it away, and your train goes free. Refuse, and I pull until something breaks. Your brakes won't enjoy that.”"
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "radio_tapped",
+            "hint": "Needs radio_tapped"
+          },
+          "text": "Thanks to Ember's password, PIP has been listening on channel six. Vane's buyer is already asking where he is."
+        }
+      ],
+      "choices": [
+        {
+          "id": "s46_1",
+          "label": "Check the couplings on Car 13",
+          "detail": "You're the coupler. This is your job.",
+          "to": "s47",
+          "outcome": "You run your hands over the great steel links, as you have every night for a year. They'll hold for a few minutes, not more. You know exactly which pin will go first, and you wedge it.",
+          "effects": [
+            {
+              "flag": "pin_wedged"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s46_2",
+          "label": "Keep Vane talking on the radio",
+          "detail": "Every second he talks, he isn't pulling.",
+          "to": "s47",
+          "outcome": "“Your buyer won't pay for three,” you tell him. “And he won't wait for a man the Company never heard of.” The radio eats charge, but the line goes quiet, and the crew hears you stand up to him.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "bought_time"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s46_detour",
+          "label": "Offer him the turnips instead",
+          "detail": "Everyone has a price.",
+          "to": "detour_12",
+          "outcome": null,
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s47",
+      "act": "ACT 6 / OLD GOLD",
+      "title": "The song",
+      "paragraphs": [
+        "Back in its frost garden, Ember starts to sing. Not copying, this time. Three notes going up, then one long one, in its own small voice, pressed against the wall of Car 13.",
+        "From outside comes the answer, so deep you feel it in your teeth and your boots and the bolts of the train. Old Gold is singing back. And as she sings, the dim rivers of light along her wings begin to brighten.",
+        "“They shine when they sing together,” Wick breathes. “I thought that part was just a story.”",
+        "Three ideas arrive at once. You can only be in one place for what comes next."
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "song_taught",
+            "hint": "Needs song_taught"
+          },
+          "text": "You know this tune. Every note of it."
+        }
+      ],
+      "choices": [
+        {
+          "id": "s47_1",
+          "label": "Sing the lantern song with Ember",
+          "detail": "Stay with the song to the very end.",
+          "to": "song1",
+          "outcome": "Your voice shakes, then steadies. Ember winds its notes round yours and Old Gold rolls hers underneath. Wick joins in, then Halvard over the speaker. Outside, the fog begins to glow.",
+          "effects": [
+            {
+              "flag": "lantern_song"
+            },
+            {
+              "flag": "endgame_song"
+            }
+          ],
+          "requirements": [
+            {
+              "flag": "song_taught",
+              "hint": "You must have learned the lantern song"
+            }
+          ]
+        },
+        {
+          "id": "s47_2",
+          "label": "Go out over the roofs with Wick",
+          "detail": "Reach the skiff while Vane is watching the door.",
+          "to": "skiff1",
+          "outcome": "Wick is already holding out your helmet. “Thought you'd never ask.” Behind you, Tobin props the roof vent open so Ember's song can carry.",
+          "effects": [
+            {
+              "flag": "endgame_skiff"
+            }
+          ],
+          "requirements": [
+            {
+              "flag": "roof_legs",
+              "hint": "You must have worked outside the train with Wick"
+            }
+          ]
+        },
+        {
+          "id": "s47_3",
+          "label": "Stay at your post",
+          "detail": "The couplings on Car 13 are a coupler's job.",
+          "to": "s48",
+          "outcome": "You prop the roof vent open so Ember's small voice can carry, and take your place in the walkway. Whatever comes through that wall comes through you first.",
+          "effects": [
+            {
+              "flag": "endgame_coupling"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-ember",
+        "alt": "A small glowing golden ray floats above a glass cradle in a car full of icicles and frost ferns."
+      }
+    },
+    {
+      "id": "song1",
+      "act": "ACT 6 / OLD GOLD · THE SONG",
+      "title": "A light to steer by",
+      "paragraphs": [
+        "The song works. For as long as it lasts, Old Gold shines, and wherever she shines the fog melts away. The track into Halfway Bell shows ahead as a thin bright thread. PIP can steer by it. Halvard can brake by it.",
+        "There's one problem. You're running out of breath, Ember is very small, and the tune has eleven verses."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "song1_1",
+          "label": "Bring in the crew, a verse each",
+          "detail": "Teach it down the intercom.",
+          "to": "song2",
+          "outcome": "Line by line, they learn it. The cook turns out to have a fine deep voice. Tobin is terrible and enthusiastic. Nobody drops the tune, and Old Gold's light never flickers.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "song1_2",
+          "label": "Have PIP carry the low notes",
+          "detail": "Every speaker on the train at once.",
+          "to": "song2",
+          "outcome": "“PIP has never sung. PIP has only announced.” It tries anyway. The bolts buzz and the lights dip. “PIP observes,” it adds between notes, “that the great one shines brightest when the small one leads.”",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-oldgold",
+        "alt": "An enormous ray with rivers of gold light along its wings fills the sky above the tiny star train and the grey ships."
+      }
+    },
+    {
+      "id": "song2",
+      "act": "ACT 6 / OLD GOLD · THE SONG",
+      "title": "The claws",
+      "paragraphs": [
+        "A crash shakes the train. Vane has worked out what the singing is doing. “Stop that noise!” he shouts over the radio, and the skiff heaves on Car 13 until the frost garden rings like a bell.",
+        "Ember falters. Old Gold's light dims, and the bright thread of track fades with it."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "song2_1",
+          "label": "Sing straight through the door",
+          "detail": "Give Ember a voice to follow.",
+          "to": "song3",
+          "outcome": "You put your palm flat on the hand panel and sing at the frost. Behind it, the small voice finds yours again. The light comes back, brighter than before. Vane says something the radio politely declines to carry.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "song2_2",
+          "label": "Signal the Moths to close in",
+          "detail": "Burn the lamp car's charge on one long message.",
+          "to": "song3",
+          "outcome": "Wick flashes the lamp. The grey ships tighten their ring, nets rising like a tide under the skiff. Vane has to stop pulling to steer. In the flashes, you see which of his four claws is already bent.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "song3",
+      "act": "ACT 6 / OLD GOLD · THE SONG",
+      "title": "The last verse",
+      "paragraphs": [
+        "Ninety seconds to Halfway Bell. The Conductor's voice comes over the speaker between verses, calm as a timetable. “Coupler. The brakes will take one good pull. The Moths are in place. That ray of yours is waiting on the tune. Tell us what you need.”",
+        "Everyone is singing now. Everyone is also looking at you."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "song3_1",
+          "label": "Ask Halvard for everything the engine has",
+          "detail": "One last push of power.",
+          "to": "decision_song",
+          "outcome": "“She'll give you one good pull,” Halvard sings back, more or less in tune. “After that she's a kettle.” The reserve needle swings up and trembles there.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "song3_2",
+          "label": "Ask the crew if they're with you",
+          "detail": "You'd like to hear it.",
+          "to": "decision_song",
+          "outcome": "“Galley's with you.” “Engine's with you.” “Lamp car's with you,” calls Wick. “PIP is with you,” says PIP. “PIP typed your number, after all.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "song3_3",
+          "label": "Look down the lit track",
+          "detail": "See exactly what's coming.",
+          "to": "decision_song",
+          "outcome": "By Old Gold's light you can see every metre of it: the curve, the platform mark, the place where the skiff's claws will snag the signal post unless he lets go first.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-oldgold",
+        "alt": "An enormous ray with rivers of gold light along its wings fills the sky above the tiny star train and the grey ships."
+      }
+    },
+    {
+      "id": "skiff1",
+      "act": "ACT 6 / OLD GOLD · THE SKIFF",
+      "title": "Back on the roof",
+      "paragraphs": [
+        "The roof is nothing like last time. Old Gold fills half the sky, the grey ships fill the rest, and the fog between them glows like the inside of a lamp. Below your boots, Car 13 groans in the skiff's claws.",
+        "Wick points. The skiff's top hatch is open a crack. Vane is watching the walkway door, where he expects trouble to come from. Nobody ever looks up."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "skiff1_1",
+          "label": "Drop straight on to the skiff",
+          "detail": "Before he thinks to check.",
+          "to": "skiff2",
+          "outcome": "You land on the black hull with a clunk that Vane must feel through his shoes. No going back now. Wick lands beside you, light as frost. “Nobody ever picks jumping first,” she says. “I like you.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "jumped_skiff"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "skiff1_2",
+          "label": "Cut a claw on the way",
+          "detail": "A coupler knows a clamp when it's biting the train.",
+          "to": "skiff2",
+          "outcome": "You find the release bolt on the nearest claw and kick it. The claw springs open. Three left. Car 13 stops groaning quite so loudly, and you've learned exactly how the others come undone.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "claw_cut"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-roof",
+        "alt": "Two children in vacuum suits, one in a coat of tiny mirrors, stand on the golden roof of the moving train in the fog."
+      }
+    },
+    {
+      "id": "skiff2",
+      "act": "ACT 6 / OLD GOLD · THE SKIFF",
+      "title": "Three cases",
+      "paragraphs": [
+        "The freezer cases are clamped along the skiff's back: three frosted domes, each with a small gold shape curled inside, fast asleep. Each is held by a locking ring.",
+        "“Too heavy to carry,” Wick says. “We undo them and push them off toward the nets. One at a time. Quietly.”"
+      ],
+      "conditionalParagraphs": [
+        {
+          "requirement": {
+            "flag": "clamp_loosened",
+            "hint": "Needs clamp_loosened"
+          },
+          "text": "One clamp is already half undone. You did that yourself, an hour ago, in Car 9."
+        }
+      ],
+      "choices": [
+        {
+          "id": "skiff2_1",
+          "label": "Work the rings by feel, lamp off",
+          "detail": "Slow, cold and silent.",
+          "to": "skiff3",
+          "outcome": "The first case floats free and drifts down toward the grey ships. A net rises to meet it like an open hand. One.",
+          "effects": [
+            {
+              "flag": "quiet_work"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "skiff2_2",
+          "label": "Use your lamp to read the locks",
+          "detail": "Faster, brighter, riskier.",
+          "to": "skiff3",
+          "outcome": "By lamplight the rings are simple. And each case has a label: LANTERN 38. LANTERN 39. LANTERN 40. He numbered them like luggage. The first one drifts down into a waiting net.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            },
+            {
+              "flag": "labels_read"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "skiff3",
+      "act": "ACT 6 / OLD GOLD · THE SKIFF",
+      "title": "Vane looks up",
+      "paragraphs": [
+        "The second case is drifting free when the hatch bangs open. Vane's head and shoulders come up through it. He has lost a glove somewhere and there's frost in his hair. He looks at the two of you, at the empty clamps, at the nets.",
+        "“Those are mine,” he says. He sounds honestly puzzled that anyone could think otherwise."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "skiff3_1",
+          "label": "Keep him talking while Wick works",
+          "detail": "He likes an audience.",
+          "to": "skiff4",
+          "outcome": "“Whose were they before?” you ask. He actually stops to think. Behind his back, Wick's fingers fly over the last ring. “Nobody's,” says Vane at last. “That's the whole point of them.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "third_ring"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "skiff3_2",
+          "label": "Show him his buyer",
+          "detail": "Point past the starport.",
+          "to": "skiff4",
+          "outcome": "The long white yacht that has been waiting off Halfway Bell is turning away, lamps dark, running from all this light. Vane watches his payday leave without him. Something goes out of the man.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "buyer_gone"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "skiff4",
+      "act": "ACT 6 / OLD GOLD · THE SKIFF",
+      "title": "The last claws",
+      "paragraphs": [
+        "Three cases are in the nets. But the skiff still has its claws in Car 13, Vane is dropping back down to his controls, and Halfway Bell is filling the sky. If he fires his engine now, he'll tear the car off the train, and Ember with it.",
+        "Wick looks at the claws, then at the hatch. “One of us for the claws. One of us for him.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "skiff4_1",
+          "label": "Take the claws",
+          "detail": "This is coupler's work.",
+          "to": "skiff5",
+          "outcome": "You go hand over hand down the skiff's side and start on the release bolts. Above you, Wick drops through the hatch with a yell that Ember would be proud of.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "took_claws"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "skiff4_2",
+          "label": "Take Vane",
+          "detail": "Leave the bolts to Wick's quick fingers.",
+          "to": "skiff5",
+          "outcome": "You drop into a cabin that smells of peppermint. Vane has one hand on the throttle. You have both hands on the fuel line, which you learned to find on your first day as a coupler. “Don't,” you say. He doesn't.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "took_vane"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-roof",
+        "alt": "Two children in vacuum suits, one in a coat of tiny mirrors, stand on the golden roof of the moving train in the fog."
+      }
+    },
+    {
+      "id": "skiff5",
+      "act": "ACT 6 / OLD GOLD · THE SKIFF",
+      "title": "On the outside",
+      "paragraphs": [
+        "The Conductor's voice arrives in your helmet, calm as a timetable. “Coupler, I'm told you're on the outside of a thief's boat. I won't ask. Ninety seconds to Halfway Bell. The train can brake, or it can hold on to Car 13. Not both, unless that skiff lets go. What do you need?”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "skiff5_1",
+          "label": "Ask Halvard to save the brakes for you",
+          "detail": "Buy every second you can.",
+          "to": "decision_skiff",
+          "outcome": "“She's got one good pull in her,” says Halvard. “I'll sit on it till you say.” Down the train, the reserve needle swings up and waits.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "skiff5_2",
+          "label": "Ask the Fleet to stand ready",
+          "detail": "Seven ships, seven nets.",
+          "to": "decision_skiff",
+          "outcome": "Wick flashes her helmet lamp: long, short, short. Seven lamps answer as one. Sable's ship slides directly under the skiff, so close you could step on to her sail.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "skiff5_3",
+          "label": "Count the bolts",
+          "detail": "The way you count cars.",
+          "to": "decision_skiff",
+          "outcome": "Three claws. Two bolts each. Six kicks, in the right order, starting with the one already bent. You go through it twice. Nothing is missing from the list.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s48",
+      "act": "ACT 6 / OLD GOLD · THE COUPLING",
+      "title": "Eleven minutes becomes two",
+      "paragraphs": [
+        "Through the thinning fog you can see Halfway Bell now: a wheel of white lights, with the Line's track running through its hub like thread through a needle. The Marigold is coming in too fast and too wide.",
+        "The skiff's claws grind on Car 13. The couplings shriek. The grey ships hang on every side with their nets spread, waiting for a signal. Everybody is waiting for somebody."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s48_1",
+          "label": "Give the crew their stations",
+          "detail": "Somebody has to say it.",
+          "to": "s49",
+          "outcome": "“Halvard, brakes. Tobin and Wick, nets. Cook, the walkway doors. PIP, count us down.” Every station powers up at once. They're taking a coupler's orders, you realise, and the Conductor is letting them.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "stat": "power",
+              "delta": -1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s48_2",
+          "label": "Save every scrap of charge for the stop",
+          "detail": "Heaters, lamps, even PIP's chime.",
+          "to": "s49",
+          "outcome": "You kill the lot. The brake cells drink it all. It's bitterly cold and pitch dark, and nobody thanks you for it, but the dial says you might, just might, have enough.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            },
+            {
+              "stat": "trust",
+              "delta": -1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s48_3",
+          "label": "Check the facts one last time",
+          "detail": "The way you count cars.",
+          "to": "s49",
+          "outcome": "Four eggs: three in cases, one singing. One thief with his claws in Car 13. One mother alongside. You go through it twice, and this time nothing is missing from the list.",
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "s49",
+      "act": "ACT 6 / OLD GOLD · THE COUPLING",
+      "title": "The buyer blinks",
+      "paragraphs": [
+        "Beyond the starport hangs a long white yacht with no name on its hull. The buyer, come to collect. Vane has seen it too. “There! You see? Paid in full by morning!” he crows over the radio.",
+        "Then the yacht notices Old Gold, vast and gold and wide awake. It notices seven grey ships and a freight train lit up like a festival. Its lamps flash once. Tobin reads the code slowly off Wick's chart.",
+        "“DEAL… OFF. NEVER… HEARD OF YOU.” The white yacht turns and runs.",
+        "Nobody is coming for Vane now. And a man with nothing left to gain is a dangerous thing to have clawed on to your train."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s49_1",
+          "label": "Offer Vane a way out",
+          "detail": "Even a thief should get one chance.",
+          "to": "s50",
+          "outcome": "“Let go and the Moths will pick you up. Nobody gets hurt.” He doesn't answer. But the claws stop tightening for a moment, and Sable's ships drift into place beneath the skiff, nets wide.",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            },
+            {
+              "flag": "offer_made"
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s49_2",
+          "label": "Have PIP track the yacht",
+          "detail": "The buyer shouldn't just vanish.",
+          "to": "s50",
+          "outcome": "PIP follows the white yacht until the fog takes it and files the course under EVIDENCE, a folder it has just invented. “PIP suspects the Company will find this very interesting.”",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            },
+            {
+              "flag": "yacht_tracked"
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-moths",
+        "alt": "Seven grey ships with sails like moth wings drift through fog above the star train, each carrying a small lamp."
+      }
+    },
+    {
+      "id": "s50",
+      "act": "ACT 6 / OLD GOLD · THE COUPLING",
+      "title": "The coupler's lever",
+      "paragraphs": [
+        "You're standing in the walkway outside Car 13, where all this began, with your hand on the coupling lever. Frost on the door. Ember humming behind it. The whole train shuddering around you.",
+        "The Conductor's voice comes over the speaker, calm as a timetable. “Ninety seconds to Halfway Bell. Coupler, you know this train's joints better than anyone alive. Whatever happens to Car 13 happens at your hand. Tell us what you need.”"
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "s50_1",
+          "label": "Ask Halvard for everything the engine has",
+          "detail": "One last push of power.",
+          "to": "decision",
+          "outcome": "“She'll give you one good pull, brakes or throttle, your choice,” Halvard answers. “After that she's a kettle.” The reserve needle swings up and trembles there.",
+          "effects": [
+            {
+              "stat": "power",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s50_2",
+          "label": "Ask the crew if they're with you",
+          "detail": "You'd like to hear it.",
+          "to": "decision",
+          "outcome": "“Galley's with you,” says the cook. “Engine's with you.” “Lamp car's with you,” calls Wick. “PIP is with you,” says PIP. “PIP typed your number, after all.”",
+          "effects": [
+            {
+              "stat": "trust",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        },
+        {
+          "id": "s50_3",
+          "label": "Hang your lamp on the door",
+          "detail": "See the whole picture one last time.",
+          "to": "decision",
+          "outcome": "You hook the lamp on Car 13. Out in the fog, Sable raises a hand, and Old Gold's great light turns toward your small one. In its glow you see it all at once: the claws, the couplings, the nets, and where each will be in ninety seconds.",
+          "effects": [
+            {
+              "stat": "clues",
+              "delta": 1
+            }
+          ],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-door",
+        "alt": "A young coupler with a hand lamp stands before a frost-covered door with no handle. A small glowing hand-shaped panel sits in a swirl of frost."
+      }
+    },
+    {
+      "id": "decision_song",
+      "act": "THE FINAL DECISION",
+      "title": "Your call, Coupler",
+      "paragraphs": [
+        "The last verse is the one that climbs. If the whole convoy hits it together, Old Gold will blaze like a lantern at full flame, and there'll be light enough to do anything.",
+        "If it wavers, there'll be just enough light to do one small thing gently.",
+        "Car 13 was never on the list. You're the one who counted it anyway. There's time for exactly one decision, and it can't be undone."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "song_best",
+          "label": "Sing the train home",
+          "detail": "Everyone together: crew, Moths, Ember and Old Gold.",
+          "to": "final_1",
+          "outcome": "You take a breath and lead the climb.",
+          "effects": [],
+          "requirements": [
+            {
+              "stat": "clues",
+              "atLeast": 4,
+              "hint": "Needs 4 clues"
+            },
+            {
+              "stat": "trust",
+              "atLeast": 4,
+              "hint": "Needs 4 trust"
+            },
+            {
+              "stat": "power",
+              "atLeast": 3,
+              "hint": "Needs 3 power"
+            }
+          ]
+        },
+        {
+          "id": "song_safe",
+          "label": "End on the high note and open the roof",
+          "detail": "Let Ember go to her now, the careful way.",
+          "to": "final_3",
+          "outcome": "The roof of Car 13 slides back.",
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-oldgold",
+        "alt": "An enormous ray with rivers of gold light along its wings fills the sky above the tiny star train and the grey ships."
+      }
+    },
+    {
+      "id": "decision_skiff",
+      "act": "THE FINAL DECISION",
+      "title": "Your call, Coupler",
+      "paragraphs": [
+        "You're clinging to the hull of a thief's skiff with a Lamplighter, six bolts and a view of everything: the train, the starport, the nets, and the mother the size of a harbour waiting to see what people do with something that isn't theirs.",
+        "Car 13 was never on the list. You're the one who counted it anyway. There's time for exactly one decision, and it can't be undone."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "skiff_best",
+          "label": "Kick the bolts and ride the skiff down",
+          "detail": "Free Car 13 and take the thief into the nets with you.",
+          "to": "final_2",
+          "outcome": "Six kicks, in the right order.",
+          "effects": [],
+          "requirements": [
+            {
+              "stat": "clues",
+              "atLeast": 3,
+              "hint": "Needs 3 clues"
+            },
+            {
+              "stat": "trust",
+              "atLeast": 3,
+              "hint": "Needs 3 trust"
+            },
+            {
+              "stat": "power",
+              "atLeast": 2,
+              "hint": "Needs 2 power"
+            }
+          ]
+        },
+        {
+          "id": "skiff_hold",
+          "label": "Hold on and hope",
+          "detail": "Keep your grip on the skiff, whatever it does.",
+          "to": "final_4",
+          "outcome": "You wrap both arms round a claw.",
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null
+    },
+    {
+      "id": "decision",
+      "act": "THE FINAL DECISION",
+      "title": "Your call, Coupler",
+      "paragraphs": [
+        "The lever is cold under your glove. On one side of this wall, a thief is trying to tear a car off your train. On the other, a mother the size of a harbour is waiting to see what people do with something that isn't theirs.",
+        "Car 13 was never on the list. You're the one who counted it anyway.",
+        "Halfway Bell fills the window. There's time for exactly one decision, and it can't be undone."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [
+        {
+          "id": "decide_safe",
+          "label": "Open Car 13 to the sky",
+          "detail": "Let Ember go to her now, the careful way.",
+          "to": "final_3",
+          "outcome": "The roof of Car 13 slides back.",
+          "effects": [],
+          "requirements": [
+            {
+              "stat": "clues",
+              "atLeast": 3,
+              "hint": "Needs 3 clues"
+            },
+            {
+              "stat": "trust",
+              "atLeast": 2,
+              "hint": "Needs 2 trust"
+            }
+          ]
+        },
+        {
+          "id": "decide_rough",
+          "label": "Brake with everything you have",
+          "detail": "Hold on to the car by force.",
+          "to": "final_5",
+          "outcome": "The brakes bite with a scream.",
+          "effects": [],
+          "requirements": [
+            {
+              "stat": "power",
+              "atLeast": 2,
+              "hint": "Needs 2 power"
+            }
+          ]
+        },
+        {
+          "id": "decide_close",
+          "label": "Pull the lever",
+          "detail": "Uncouple Car 13 and save the train.",
+          "to": "final_6",
+          "outcome": "The coupling opens with a soft click.",
+          "effects": [],
+          "requirements": [
+            {
+              "stat": "trust",
+              "atLeast": 1,
+              "hint": "Needs 1 trust"
+            }
+          ]
+        },
+        {
+          "id": "decide_risk",
+          "label": "Call for full throttle",
+          "detail": "Outrun the thief, the fog and the ray.",
+          "to": "final_7",
+          "outcome": "The Marigold leaps forward.",
+          "effects": [],
+          "requirements": []
+        }
+      ],
+      "ending": null,
+      "illustration": {
+        "asset": "car13-scene-door",
+        "alt": "A young coupler with a hand lamp stands before a frost-covered door with no handle. A small glowing hand-shaped panel sits in a swirl of frost."
+      }
+    },
+    {
+      "id": "final_1",
+      "act": "PERMANENT ENDING / 1 OF 7",
+      "title": "Every lantern lit",
+      "paragraphs": [
+        "The last verse climbs, and everybody climbs with it. The crew sings. The Moths sing from seven decks. Ember sings loudest of all, and Old Gold answers with a light so bright that the Shiver turns gold from edge to edge. The track into Halfway Bell shines out as clear as noon.",
+        "Halvard brakes on that light and stops the Marigold dead on the platform mark. Vane, dazzled, lets go of Car 13 and drifts straight into Sable's nets, skiff and all, with the three frozen eggs unharmed. And out of the fog, drawn by the song, come three more great rays, each to collect her own.",
+        "Within the week, Lanterns 38 to 41 are burning again. The Company signs a treaty with the Lamplighters. PIP adds a new line to the manifest: CAR 13, NURSERY.",
+        "And on the hook above your bunk, next to your badge, hangs a patched coat with a hundred tiny mirrors. It's exactly your size."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_final_1",
+        "kind": "final",
+        "rank": 1,
+        "title": "Every lantern lit",
+        "note": "BEST OUTCOME · All four eggs go home, the thief is caught and every lantern shines."
+      },
+      "illustration": {
+        "asset": "car13-scene-oldgold",
+        "alt": "An enormous ray with rivers of gold light along its wings fills the sky above the tiny star train and the grey ships."
+      }
+    },
+    {
+      "id": "final_2",
+      "act": "PERMANENT ENDING / 2 OF 7",
+      "title": "The coupler who jumped",
+      "paragraphs": [
+        "Six kicks, in the right order. Four claws spring open together and Car 13 swings free, still coupled, still singing. The skiff, with nothing left to hold, drops like a stone into seven waiting nets. Vane is inside it. So are you and Wick, which wasn't exactly the plan.",
+        "From Sable's deck you watch the rest. The roof of Car 13 slides open. Ember rises, small and gold, and Old Gold folds one enormous wing around it. In the Fleet's nets, three frosted cases glow softly, safe.",
+        "But the Marigold, braking late with no coupler aboard, slides clean through Halfway Bell and has to be towed back half a day later. Twenty-two years of perfect arrivals, gone. The Conductor says it was worth it. She says it through her teeth.",
+        "The Moths will carry the three eggs home, one lantern at a time. Sable offers you a berth for the season. Brandt signs your leave slip herself: ON LOAN. RETURN IN ONE PIECE."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_final_2",
+        "kind": "final",
+        "rank": 2,
+        "title": "The coupler who jumped",
+        "note": "GREAT OUTCOME · All four eggs are safe and the thief is caught, but the Marigold misses its station."
+      },
+      "illustration": {
+        "asset": "car13-scene-roof",
+        "alt": "Two children in vacuum suits, one in a coat of tiny mirrors, stand on the golden roof of the moving train in the fog."
+      }
+    },
+    {
+      "id": "final_4",
+      "act": "PERMANENT ENDING / 4 OF 7",
+      "title": "The wrong three",
+      "paragraphs": [
+        "You hold on. The skiff's engine fires, the claws tear, and Car 13 comes off the Marigold like a loose tooth. For a moment thief, coupler, Lamplighter and nursery all tumble through the fog together. Then the nets close.",
+        "The Moths catch the skiff. They catch you and Wick, three sleeping eggs and one very quiet thief. They don't catch Car 13. It spins away into the Shiver, frost glittering, with a small gold light at its roof vent. Old Gold turns and goes after it.",
+        "Three eggs go home. Three lanterns will burn again. Nobody knows what became of the fourth, or of the mother who followed it into the dark.",
+        "Wick says rays always find their own. She says it every night, like a verse of the song."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_final_4",
+        "kind": "final",
+        "rank": 4,
+        "title": "The wrong three",
+        "note": "MIXED OUTCOME · Three eggs are saved and the thief is caught, but Ember and Old Gold vanish into the Shiver."
+      },
+      "illustration": {
+        "asset": "car13-scene-oldgold",
+        "alt": "An enormous ray with rivers of gold light along its wings fills the sky above the tiny star train and the grey ships."
+      }
+    },
+    {
+      "id": "final_3",
+      "act": "PERMANENT ENDING / 3 OF 7",
+      "title": "The long way round",
+      "paragraphs": [
+        "You open the roof of Car 13. Frost whirls out into the dark, and Ember rises with it, small and gold and suddenly sure. Old Gold curls one enormous wing around the little light, as gently as a hand around a match. Her glow brightens just enough to show you the track.",
+        "The Marigold comes into Halfway Bell slow and safe: twelve cars and one empty nursery. But in the confusion Vane cuts his claws loose, and the black skiff slips away into the Shiver with three frozen eggs still aboard.",
+        "Lantern 41 is shining again by the time you head for home. Lanterns 38, 39 and 40 are not.",
+        "Wick stands at the lamp car rail, watching the dark. “Three to go,” she says. The Conductor hands her a crew badge. “Then we'd better keep counting,” says Brandt, and she looks at you when she says it."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_final_3",
+        "kind": "final",
+        "rank": 3,
+        "title": "The long way round",
+        "note": "GOOD OUTCOME · Ember is home and everyone is safe, but the thief escapes with three eggs."
+      },
+      "illustration": {
+        "asset": "car13-scene-ember",
+        "alt": "A small glowing golden ray floats above a glass cradle in a car full of icicles and frost ferns."
+      }
+    },
+    {
+      "id": "final_5",
+      "act": "PERMANENT ENDING / 5 OF 7",
+      "title": "A hard stop",
+      "paragraphs": [
+        "“Everything, Halvard. Now!” The brakes scream. Sparks pour from under every car. The Marigold stops at Halfway Bell with a jolt that throws every pot in the galley, and Car 13, caught between the brakes and the skiff's claws, splits open like a walnut.",
+        "Wick catches Ember in her coat as the frost garden scatters into space. Vane's skiff spins off into the fog, dented, with its cases still aboard. And Old Gold, startled by the noise and the sparks, veers away into the Shiver before anyone can call her back.",
+        "Ember is safe. The crew is safe. But the Marigold will spend a whole season in the repair dock.",
+        "A small gold ray rides with the Moth Fleet now. Every night it sings three notes going up, then one long one, out into the dark, for a mother who is still out there searching."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_final_5",
+        "kind": "final",
+        "rank": 5,
+        "title": "A hard stop",
+        "note": "ROUGH OUTCOME · Ember and the crew are safe, but Car 13 is wrecked and Old Gold is lost in the fog."
+      }
+    },
+    {
+      "id": "final_6",
+      "act": "PERMANENT ENDING / 6 OF 7",
+      "title": "Twelve cars",
+      "paragraphs": [
+        "You pull the lever. It's the easiest coupling you have ever undone. Car 13 slides away from the train, small and frosted, and Vane's skiff hauls it off into the fog like a fisherman with his catch. A gold light shows at the roof vent for a moment. Then it's gone.",
+        "The Marigold, lighter by one car, brakes easily and glides into Halfway Bell right on time. Twelve cars. The list is correct. Nobody on the platform will ever know there was a thirteenth.",
+        "But Old Gold turns away to follow the skiff into the dark, and behind you four lanterns stay black. By spring, the Company has closed the Line as unsafe.",
+        "Wick leaves her tin whistle on your bunk with a note: YOU COUNTED IT. NEXT TIME, KEEP IT. You practise the three notes every night, in case there is a next time."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_final_6",
+        "kind": "final",
+        "rank": 6,
+        "title": "Twelve cars",
+        "note": "POOR OUTCOME · The train arrives safely, but the eggs are gone and the Lantern Line goes dark."
+      },
+      "illustration": {
+        "asset": "car13-scene-train",
+        "alt": "A golden star train runs along a line of lanterns in the dark. One car near the tail is white with frost, and one lantern is unlit."
+      }
+    },
+    {
+      "id": "final_7",
+      "act": "PERMANENT ENDING / 7 OF 7",
+      "title": "Off the end of the line",
+      "paragraphs": [
+        "“Full throttle!” The Marigold leaps forward. For three glorious seconds you're outrunning everything: the thief, the fog, the great gold ray. Then the worn brakes fail, the track at Halfway Bell flashes past the wrong window, and the train sails off the end of the Line into empty dark.",
+        "PIP gets everyone into the lifecar in time. PIP is very good at lists. From its little window you watch the Marigold tumble away car by car, and the black skiff tear loose and vanish with the frozen eggs.",
+        "Wick pulled Ember out of Car 13 with seconds to spare. She sits with the little ray zipped inside her coat and doesn't say a word to you.",
+        "Old Gold circles the wreck twice, dimming. Then she turns back toward the dark. The Moths tow your lifecar to the starport in silence. There's no train to go home on, and behind you the lanterns are going out, one by one."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_final_7",
+        "kind": "final",
+        "rank": 7,
+        "title": "Off the end of the line",
+        "note": "WORST OUTCOME · A reckless dash wrecks the Marigold, loses the eggs and darkens the Line."
+      },
+      "illustration": {
+        "asset": "car13-scene-train",
+        "alt": "A golden star train runs along a line of lanterns in the dark. One car near the tail is white with frost, and one lantern is unlit."
+      }
+    },
+    {
+      "id": "detour_01",
+      "act": "FALSE ENDING / 01",
+      "title": "Thirteen, thirteen, thirteen",
+      "paragraphs": [
+        "You count again. Then again from the other end. Then by twos. By the time you've finished counting in a silly voice, the Marigold has left without you, and the platform cleaner is asking you to lift your feet."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_1",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THE COUNTING)",
+        "note": "Thirteen is thirteen. Get on the train."
+      }
+    },
+    {
+      "id": "detour_02",
+      "act": "FALSE ENDING / 02",
+      "title": "The biscuit of doom",
+      "paragraphs": [
+        "The biscuit is so hard that it chips the tray. You chew for eleven minutes while Tobin watches proudly. Somewhere a mystery goes unsolved while your jaw does all the work."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_2",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF YOUR TEETH)",
+        "note": "Put the biscuit down. Slowly."
+      }
+    },
+    {
+      "id": "detour_03",
+      "act": "FALSE ENDING / 03",
+      "title": "Among the turnips",
+      "paragraphs": [
+        "You knock, sprint down three cars and dive behind a crate of turnips. Nothing chases you. You wait an hour, to be safe. Turnips are not good company."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_3",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF HIDING)",
+        "note": "Go back. Try the door properly."
+      }
+    },
+    {
+      "id": "detour_04",
+      "act": "FALSE ENDING / 04",
+      "title": "The all-night concert",
+      "paragraphs": [
+        "You shout. Ember copies the shout. Then it copies Tobin's scream, the rattle of the icicles, and the shout again, louder. The concert lasts until breakfast. Nobody can hear anybody explain anything."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_4",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THE QUIET)",
+        "note": "Maybe try listening first."
+      }
+    },
+    {
+      "id": "detour_05",
+      "act": "FALSE ENDING / 05",
+      "title": "The best hiding place on the train",
+      "paragraphs": [
+        "The door seals with a satisfied click. It has no handle on the inside either. You and Tobin spend the night as the coldest, best-hidden people on the Lantern Line. By morning you've built a small, sad snowman."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_5",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF FEELING YOUR TOES)",
+        "note": "A door with no handle is a poor hiding place."
+      }
+    },
+    {
+      "id": "detour_06",
+      "act": "FALSE ENDING / 06",
+      "title": "The white tablecloth",
+      "paragraphs": [
+        "You wave a white tablecloth out of the galley hatch. The grey ships do nothing. The Conductor does plenty. You're assigned to wash that tablecloth, and then every other tablecloth on the train, forever."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_6",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF YOUR DIGNITY)",
+        "note": "Nobody asked you to surrender."
+      }
+    },
+    {
+      "id": "detour_07",
+      "act": "FALSE ENDING / 07",
+      "title": "A truly wonderful speech",
+      "paragraphs": [
+        "You climb on a galley table and accuse the Inspector in ringing tones. It's a wonderful speech. Vane applauds, thanks you for the warning, and has you shut in the pantry for “disturbing an inspection.” The pantry is full of turnips."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_7",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF YOUR SPEECH)",
+        "note": "Next time, keep the element of surprise."
+      }
+    },
+    {
+      "id": "detour_08",
+      "act": "FALSE ENDING / 08",
+      "title": "Under the bunk",
+      "paragraphs": [
+        "Under your bunk you find two odd socks, a marble, and Tobin, who had the same idea first. You share the marble. The crisis carries on rudely without you."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_8",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF BRAVERY, BRIEFLY)",
+        "note": "It's crowded under there. Come out."
+      }
+    },
+    {
+      "id": "detour_09",
+      "act": "FALSE ENDING / 09",
+      "title": "The soup defence",
+      "paragraphs": [
+        "“That was the soup talking,” you announce. Everyone looks at the soup. The cook is deeply offended. You're sentenced to peel every turnip on the train, and the turnips, as usual, win."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_9",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THE SOUP DEFENCE)",
+        "note": "The soup is innocent. Think again."
+      }
+    },
+    {
+      "id": "detour_10",
+      "act": "FALSE ENDING / 10",
+      "title": "Forty winks",
+      "paragraphs": [
+        "“We'll think better after a rest,” you say wisely. Everyone lies down. The train does not. You wake up three starports past Halfway Bell with a pillow crease on your face and no memory of the plan."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_10",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THE NAP)",
+        "note": "Heroes may nap afterwards."
+      }
+    },
+    {
+      "id": "detour_11",
+      "act": "FALSE ENDING / 11",
+      "title": "Noticed",
+      "paragraphs": [
+        "You wave. Something the size of a harbour notices you, personally. It's a bit much. You go and lie down on the galley floor and talk it over with the ceiling for a while."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_11",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF YOUR COMPOSURE)",
+        "note": "Deep breath. She's friendlier than she looks."
+      }
+    },
+    {
+      "id": "detour_12",
+      "act": "FALSE ENDING / 12",
+      "title": "The turnip trade",
+      "paragraphs": [
+        "“Final offer: forty kilos of turnips,” you say into the radio. There's a long silence. “…What kind?” asks Vane. Negotiations drag on all night. Nobody is happy with the result, least of all the turnips."
+      ],
+      "conditionalParagraphs": [],
+      "choices": [],
+      "ending": {
+        "id": "car13_detour_12",
+        "kind": "detour",
+        "rank": null,
+        "title": "THE END (OF THE TURNIP TRADE)",
+        "note": "He wants the eggs. Think again."
+      }
+    }
+  ]
+}

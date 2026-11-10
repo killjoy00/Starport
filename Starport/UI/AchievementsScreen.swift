@@ -32,15 +32,12 @@ struct AchievementsScreen: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(StarportTheme.panel, in: RoundedRectangle(cornerRadius: 16))
 
-                    ForEach(Achievement.Group.allCases, id: \.self) { group in
-                        VStack(alignment: .leading, spacing: 11) {
-                            Text(AppBrand.current.isStuffyLand && group == .endings ? "STORY ENDINGS" : group.rawValue.uppercased())
-                                .font(.system(.caption, design: .monospaced, weight: .bold))
-                                .tracking(1.3)
-                                .foregroundStyle(StarportTheme.orange)
-                            ForEach(AchievementCatalog.all(forStuffyLand: AppBrand.current.isStuffyLand).filter { $0.group == group }) { badge in
-                                achievementRow(badge)
-                            }
+                    if AppBrand.current.isStuffyLand {
+                        groupSections(AchievementCatalog.stuffyLand)
+                    } else {
+                        ForEach(AchievementCatalog.shelves) { shelf in
+                            shelfHeader(shelf.title, AchievementCatalog.achievements(for: shelf.bookID))
+                            groupSections(AchievementCatalog.achievements(for: shelf.bookID))
                         }
                     }
                 }
@@ -60,6 +57,34 @@ struct AchievementsScreen: View {
             }
         }
         .tint(StarportTheme.teal)
+    }
+
+    private func shelfHeader(_ title: String, _ badges: [Achievement]) -> some View {
+        let found = badges.filter { game.achievements.contains($0.id) }.count
+        return VStack(alignment: .leading, spacing: 4) {
+            Text(title)
+                .font(.system(.title3, design: .rounded, weight: .bold))
+                .foregroundStyle(StarportTheme.paper)
+            Text("\(found) of \(badges.count) unlocked")
+                .font(.subheadline)
+                .foregroundStyle(StarportTheme.muted)
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isHeader)
+    }
+
+    private func groupSections(_ badges: [Achievement]) -> some View {
+        ForEach(Achievement.Group.allCases, id: \.self) { group in
+            VStack(alignment: .leading, spacing: 11) {
+                Text(AppBrand.current.isStuffyLand && group == .endings ? "STORY ENDINGS" : group.rawValue.uppercased())
+                    .font(.system(.caption, design: .monospaced, weight: .bold))
+                    .tracking(1.3)
+                    .foregroundStyle(StarportTheme.orange)
+                ForEach(badges.filter { $0.group == group }) { badge in
+                    achievementRow(badge)
+                }
+            }
+        }
     }
 
     private func achievementRow(_ item: Achievement) -> some View {

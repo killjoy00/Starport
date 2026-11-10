@@ -17,6 +17,7 @@
 		D00000000000000000000011 /* AchievementsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000011 /* AchievementsScreen.swift */; };
 		D00000000000000000000012 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000012 /* Achievements.swift */; };
 		D00000000000000000000013 /* catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000013 /* catalog.json */; };
+		D000000000000000000000C3 /* car_thirteen.json in Resources */ = {isa = PBXBuildFile; fileRef = C000000000000000000000C3 /* car_thirteen.json */; };
 		D00000000000000000000014 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A00000000000000000000003 /* GoogleMobileAds */; };
 		D0000000000000000000000A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000A /* PrivacyInfo.xcprivacy */; };
 		D00000000000000000000001 /* StarportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000001 /* StarportApp.swift */; };
@@ -88,6 +89,7 @@
 		C00000000000000000000011 /* AchievementsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsScreen.swift; sourceTree = "<group>"; };
 		C00000000000000000000012 /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
 		C00000000000000000000013 /* catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalog.json; sourceTree = "<group>"; };
+		C000000000000000000000C3 /* car_thirteen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = car_thirteen.json; sourceTree = "<group>"; };
 		C0000000000000000000000A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		C00000000000000000000001 /* StarportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarportApp.swift; sourceTree = "<group>"; };
 		C00000000000000000000002 /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				C00000000000000000000009 /* first_signal.json */,
 				C0000000000000000000000A /* PrivacyInfo.xcprivacy */,
 				C00000000000000000000013 /* catalog.json */,
+				C000000000000000000000C3 /* car_thirteen.json */,
 			);
 			path = "Starport/Content";
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				D00000000000000000000009 /* first_signal.json in Resources */,
 				D0000000000000000000000A /* PrivacyInfo.xcprivacy in Resources */,
 				D00000000000000000000013 /* catalog.json in Resources */,
+				D000000000000000000000C3 /* car_thirteen.json in Resources */,
                 D00000000000000000000015 /* Assets.xcassets in Resources */,
 			); runOnlyForDeploymentPostprocessing = 0; };
 

@@ -16,7 +16,7 @@ Both apps have their own Xcode schemes in `Starport.xcodeproj`. Choose `Starport
 
 ## Story library
 
-Starport is a container for multiple separately packaged adventures. The app boots with one story and a **Check for new adventures** action. New stories can be published as JSON data in `Starport/Content/` on `main`, without an iOS binary change (the reader executes no downloaded code). A cached, previously validated version works offline.
+Starport is a container for multiple separately packaged adventures. The app ships with two stories and a **Check for new adventures** action. New stories can be published as JSON data in `Starport/Content/` on `main`, without an iOS binary change (the reader executes no downloaded code). A cached, previously validated version works offline.
 
 The manifest `Starport/Content/catalog.json` lists an adventure's stable ID, version, filename, title, genre, symbol, summary, and duration. The `AdventureRepository` downloads the manifest and new stories from the public GitHub repo, validates all story graphs, and atomically activates the catalog. Only safe filenames and validated JSON are permitted. It is intentionally *opt-in*: no background refresh or automatic downloads.
 
@@ -34,7 +34,19 @@ A ship scheduled for tomorrow sends a warning today. Read the evidence, work wit
 - **Updated story save handling:** a changed `contentVersion` restarts the active route safely but preserves previously discovered endings and detours.
 - **25 achievements**: one per true ending, recoverable detours, unusual clues, story allies, resource milestones, and completion challenges. Achievements persist across new runs and are displayed on an offline trophy shelf.
 
-The story is suspenseful, character-driven, and age-appropriate, with no graphic violence. A poor outcome can be sad without becoming graphic.
+## Episode 02 — The Thirteenth Car
+
+The star train Marigold has twelve cars on its list and thirteen on the track. Find out what is singing behind the door with no handle, who the grey-sailed "pirates" really are, and what is following the train through the dark.
+
+- **Routes of different lengths:** 51 to 56 decisions. `minimumDecisions` is 50 and the validator enforces it on every route.
+- **Seven permanent endings**, ranked 1 (best) to 7 (worst), and **twelve false endings** that can be rewound. The manuscript has **91 nodes, 72 interactive scenes and roughly 12,800 words** across all routes.
+- **Two mid-story forks** send the reader through different scenes: under the floors (4 scenes) or over the roofs (6), then the brass key (4) or the tail lamp (5).
+- **Three endgames that exclude each other.** The Song needs the lantern song, which must be learned earlier. The Skiff needs a reader who has worked outside the train with Wick. The Coupling is always open. Endings 1, 2 and 4 to 7 each belong to exactly one endgame, so no single run can reach them all.
+- Most choices after the first act are trade-offs between Clues, Power and Trust, and some unlock only with a flag earned earlier.
+- **32 achievements of its own** (IDs prefixed `car13_`): seven endings, route and character discoveries, and mastery goals such as finishing by all three endgames. The trophy shelf is grouped per adventure, and each story only awards its own achievements.
+- **A cover and eight interior scenes** on 37 of the 72 interactive pages. They are drawn by `scripts/generate_car_thirteen_art.py` (needs Pillow); re-run it to change a picture.
+
+Both stories are suspenseful, character-driven, and age-appropriate, with no graphic violence. A poor outcome can be sad without becoming graphic.
 
 ## Appearance
 

@@ -12,9 +12,13 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
+      - name: Verify committed app icon matches approved artwork
+        run: |
+          bash scripts/bake_approved_icon.sh
+          git diff --exit-code -- Starport/Assets.xcassets/AppIcon.appiconset/AppIcon.png
       - name: Validate embedded artwork and coverage
         run: python3 scripts/audit_artwork.py
-      - name: Validate Stuffy Land story graph and content
+      - name: Validate Stuffy Land adventures and reader books
         run: python3 scripts/validate_stuffyland.py
       - name: Run Swift tests
         run: swift test
@@ -26,7 +30,32 @@ jobs:
       - uses: actions/checkout@v4
       - name: Xcode version
         run: xcodebuild -version
+      - name: Verify committed app icon matches approved artwork
+        run: |
+          bash scripts/bake_approved_icon.sh
+          git diff --exit-code -- Starport/Assets.xcassets/AppIcon.appiconset/AppIcon.png
       - name: Build
         run: xcodebuild -project Starport.xcodeproj -scheme Starport -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/starport-build" CODE_SIGNING_ALLOWED=NO build
+      - name: Verify compiled app icon is present in the app bundle
+        run: python3 scripts/check_compiled_icon.py "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app"
+      - name: Validate generated Info.plist contains AdMob initialization and release privacy switches
+        run: python3 scripts/check_release_plist.py "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app"
+      - name: Install and launch the actual app on an iPhone simulator
+        run: bash scripts/smoke_launch.sh "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app"
+      - name: Check iPad and iPhone rotation declarations in built app
+        run: |
+          plist="$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/Starport.app/Info.plist"
+          test -f "$plist"
+          /usr/libexec/PlistBuddy -c 'Print :UISupportedInterfaceOrientations' "$plist"
+          /usr/libexec/PlistBuddy -c 'Print :UISupportedInterfaceOrientations~ipad' "$plist"
+          /usr/libexec/PlistBuddy -c 'Print :UISupportedInterfaceOrientations~iphone' "$plist"
+
+
       - name: Build Stuffy Land
         run: xcodebuild -project Starport.xcodeproj -scheme StuffyLand -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/starport-build" CODE_SIGNING_ALLOWED=NO build
+      - name: Verify compiled Stuffy Land icon
+        run: python3 scripts/check_compiled_icon.py "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/StuffyLand.app"
+      - name: Verify Stuffy Land app privacy and AdMob init flags
+        run: python3 scripts/check_release_plist.py "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/StuffyLand.app" pro.stuffyland.stories
+      - name: Launch Stuffy Land on simulator and verify it stays alive
+        run: bash scripts/smoke_launch.sh "$RUNNER_TEMP/starport-build/Build/Products/Debug-iphonesimulator/StuffyLand.app" pro.stuffyland.stories

@@ -1,0 +1,86 @@
+{
+  "id": "stuffy-reader-sample",
+  "contentVersion": 1,
+  "title": "The Button at the Window",
+  "subtitle": "A short Stuffy Land read-along sample.",
+  "pages": [
+    {
+      "id": "page_01",
+      "heading": "The Window",
+      "paragraphs": [
+        "In a little house beside Button Hill, a blue button sat in a sewing box at the foot of a bed. It had four neat holes and a pale scratch across one side. The button had belonged to three coats, a winter mitten, and, for one rainy afternoon, a very brave umbrella.",
+        "Now it had nothing to hold together. Through the open window came the smell of wet grass and the sound of shoes on the path. The button wondered whether there might be room in the world for something whose best work had already been done."
+      ],
+      "illustration": {
+        "asset": "reader-button-window",
+        "alt": "A small blue button resting beside an open storybook window."
+      }
+    },
+    {
+      "id": "page_02",
+      "heading": "The Breeze",
+      "paragraphs": [
+        "At noon a breeze slipped through the curtains. It turned a page of the book on the desk, lifted a scrap of yellow ribbon, and nudged the sewing box until its lid fell open.",
+        "The blue button rolled onto the sill. Below it stretched a path dotted with fallen leaves. Farther away rose the trees of the patchwork orchard. The button had never been that far from home. It waited for someone to say it was allowed to go.",
+        "No one did. So, very carefully, it tipped forward and landed in the soft moss beneath the window."
+      ]
+    },
+    {
+      "id": "page_03",
+      "heading": "A Friend on the Path",
+      "paragraphs": [
+        "The button had rolled only a few feet when it met a little felt bird trying to carry a long red thread. The thread kept catching on twigs, and the bird kept pretending not to mind.",
+        "\"I could hold one end,\" said the button. Its voice was thin and round, like a pebble falling into a teacup.",
+        "The bird looked surprised. Then it threaded the red string through two of the button's holes. Together they walked toward the orchard, one carrying the thread and one keeping it from trailing into the mud."
+      ],
+      "illustration": {
+        "asset": "reader-thread-path",
+        "alt": "A little felt bird and a blue button traveling beside a red thread."
+      }
+    },
+    {
+      "id": "page_04",
+      "heading": "The Bridge",
+      "paragraphs": [
+        "By evening they reached a narrow bridge made from a ruler laid across two teacups. Wind rocked the ruler. The bird needed both wings to keep its balance, but that left no way to hold the thread.",
+        "The button thought of the old coats it had fastened and the rainy umbrella it had kept shut. Holding things together had once seemed like ordinary work. Here, at the bridge, it felt like a gift.",
+        "\"Loop the thread through me,\" the button said. \"Then tie it around the rail.\" The bird did as it was told, and they crossed without losing a single strand."
+      ]
+    },
+    {
+      "id": "page_05",
+      "heading": "The Orchard",
+      "paragraphs": [
+        "On the other side, the patchwork orchard was filled with cloth leaves that whispered against one another. In the middle stood a small tree with a torn branch. The branch was wrapped in a strip of green fabric, but the fabric had come loose.",
+        "The bird tugged gently at the wrapping. \"It needs a fastener,\" it said.",
+        "The button did not ask whether it was good enough. It settled against the green cloth while the bird worked the red thread through all four holes. The fabric held. The branch rested. The orchard grew quiet."
+      ],
+      "illustration": {
+        "asset": "reader-patchwork-orchard",
+        "alt": "A patchwork tree repaired with a blue button and red thread."
+      }
+    },
+    {
+      "id": "page_06",
+      "heading": "A New Place",
+      "paragraphs": [
+        "When the first stars came out, the bird took a step back to admire their work. The blue button could see the path they had traveled and, beyond it, the small warm square of the window where its journey began.",
+        "\"You can come home with me,\" the bird offered. \"I have a coat missing its very best button.\"",
+        "The button looked at the little tree, standing steady under its new green wrapping. \"Thank you,\" it said, \"but I think I have found somewhere I am needed.\""
+      ]
+    },
+    {
+      "id": "page_07",
+      "heading": "The Morning",
+      "paragraphs": [
+        "Every morning after that, the bird visited the orchard. Sometimes it brought a fresh ribbon. Sometimes it brought news from Button Hill. And sometimes it just sat beneath the tree and listened to the leaves.",
+        "The button stayed where it was, holding the green cloth close. It was no longer part of a coat or a mitten or an umbrella. It was part of a tree, and a friendship, and a story worth telling.",
+        "When the wind moved through the orchard, the button shone a little. It had never needed the whole world. It had only needed a place in it."
+      ],
+      "illustration": {
+        "asset": "reader-button-morning",
+        "alt": "Morning light falls on a blue button sewn onto a repaired tree."
+      }
+    }
+  ]
+}

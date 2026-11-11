@@ -570,10 +570,10 @@ private struct StuffyOpeningSequence: View {
         let frameHeight = source.height / 2
         return (0..<6).compactMap { number in
             let rect = CGRect(
-                x: (number % columns) * frameWidth,
-                y: (number / columns) * frameHeight,
-                width: frameWidth,
-                height: frameHeight
+                x: CGFloat((number % columns) * frameWidth),
+                y: CGFloat((number / columns) * frameHeight),
+                width: CGFloat(frameWidth),
+                height: CGFloat(frameHeight)
             )
             guard let cropped = source.cropping(to: rect) else { return nil }
             return UIImage(cgImage: cropped)

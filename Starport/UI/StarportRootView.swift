@@ -479,6 +479,7 @@ private struct StuffyLandShelf: View {
                             .font(.system(.title, design: .serif, weight: .bold))
                         Text("The Giggle Games preserves the recovered original story. Pillow-Fort Mystery and Snore-Snatcher adapt complete stories with new choices and endings.")
                         Text("Nine read-alongs are based on surviving story summaries. The Treasure of the Thousand Traps is new fiction inspired by its surviving title and premise.")
+                        Text("Wobble-Palooza is a complete original story supplied for Stuffy Land, presented without rewritten prose.")
                         Text("Opal and the Great Sundae Switch is a new original choose-your-own-adventure.")
                     }
                     .padding(24)

@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct StarportRootView: View {
     @EnvironmentObject private var game: GameStore
@@ -10,6 +11,8 @@ struct StarportRootView: View {
     @State private var reading = false
     @State private var showingSettings = false
     @State private var showingAchievements = false
+    // This brief, skippable opening belongs only to the Stuffy Land app.
+    @State private var showingStuffyOpening = AppBrand.current.isStuffyLand
 
     var body: some View {
         ZStack {
@@ -32,6 +35,15 @@ struct StarportRootView: View {
                 )
             } else {
                 library
+            }
+            if AppBrand.current.isStuffyLand && showingStuffyOpening {
+                StuffyOpeningSequence {
+                    withAnimation(.easeOut(duration: 0.22)) {
+                        showingStuffyOpening = false
+                    }
+                }
+                .transition(.opacity)
+                .zIndex(20)
             }
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
@@ -536,5 +548,93 @@ private struct StuffyLandShelf: View {
         .buttonStyle(.plain)
         .accessibilityLabel("\(entry.title). \(entry.format == .reader ? "Read or listen" : "Choose an adventure").")
         .accessibilityHint("Open story")
+    }
+}
+
+
+/// A short storybook curtain-raising sequence for Stuffy Land only.
+/// The six hand-illustrated frames are cropped from one asset-catalog atlas.
+/// Runs once per app launch, never when returning to the shelf or a saved book.
+private struct StuffyOpeningSequence: View {
+    let onFinish: () -> Void
+
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var frameIndex = 0
+
+    private static let frames: [UIImage] = {
+        guard let source = UIImage(named: "stuffy-intro-frames")?.cgImage else {
+            return []
+        }
+        let columns = 3
+        let frameWidth = source.width / columns
+        let frameHeight = source.height / 2
+        return (0..<6).compactMap { number in
+            let rect = CGRect(
+                x: (number % columns) * frameWidth,
+                y: (number / columns) * frameHeight,
+                width: frameWidth,
+                height: frameHeight
+            )
+            guard let cropped = source.cropping(to: rect) else { return nil }
+            return UIImage(cgImage: cropped)
+        }
+    }()
+
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack(alignment: .topTrailing) {
+                Color(red: 0.13, green: 0.07, blue: 0.2)
+                if Self.frames.indices.contains(frameIndex) {
+                    Image(uiImage: Self.frames[frameIndex])
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geometry.size.width,
+                               height: geometry.size.height)
+                        .clipped()
+                        .accessibilityHidden(true)
+                }
+
+                Button(action: onFinish) {
+                    Text("Skip")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 17)
+                        .frame(minHeight: 44)
+                        .background(.black.opacity(0.42),
+                                    in: Capsule())
+                }
+                .accessibilityLabel("Skip Stuffy Land opening")
+                .padding(.trailing, 20)
+                .padding(.top, 54)
+            }
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .contentShape(Rectangle())
+            .onTapGesture(perform: onFinish)
+        }
+        .ignoresSafeArea()
+        .task {
+            // Respect Reduce Motion and avoid delaying a reader who needs
+            // an immediate, predictable path to the shelf.
+            if reduceMotion || Self.frames.count != 6 {
+                onFinish()
+                return
+            }
+            for next in 1..<6 {
+                do {
+                    try await Task.sleep(nanoseconds: 270_000_000)
+                } catch {
+                    return
+                }
+                guard !Task.isCancelled else { return }
+                frameIndex = next
+            }
+            do {
+                try await Task.sleep(nanoseconds: 550_000_000)
+            } catch {
+                return
+            }
+            guard !Task.isCancelled else { return }
+            onFinish()
+        }
     }
 }

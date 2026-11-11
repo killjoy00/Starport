@@ -325,9 +325,59 @@ def main():
         'source': '../Content/sundae_switch.json',
         'notes': 'Original new interactive story based on the approved Sundae Switch pitch; 18 main scenes, nine scene illustrations, five endings and ten short rewindable detours. Not recovered archive material.'
     })
+    # Wobble-Palooza is complete new source prose supplied by the author.
+    # Its pages are e-reader sections, not rewritten chapters or choices.
+    source = EDITORIAL / 'source/wobble_palooza.md'
+    original_parts = paragraphs(source.read_text(encoding='utf-8'))
+    wobble_title = original_parts[0].removeprefix('**').removesuffix('**')
+    wobble_paragraphs = original_parts[1:]
+    wobble_pages, current_page, current_words = [], [], 0
+    for para in wobble_paragraphs:
+        count = len(para.split())
+        if current_page and (current_words + count > 230 or len(current_page) >= 30):
+            wobble_pages.append(current_page)
+            current_page, current_words = [], 0
+        current_page.append(para)
+        current_words += count
+    if current_page:
+        wobble_pages.append(current_page)
+    wobble_subtitle = "Langston's Troll-O-Matic starts a giant day of games, surprises and a very wobbly party."
+    wobble_note = 'Complete original story supplied in full.'
+    wobble_book = {
+        'id': 'stuffy-wobble-palooza',
+        'contentVersion': 1,
+        'title': wobble_title,
+        'subtitle': wobble_subtitle,
+        'editorialNote': wobble_note,
+        'pages': [{'id': f'page_{i+1:02}', 'paragraphs': page}
+                  for i, page in enumerate(wobble_pages)]
+    }
+    assert [text for page in wobble_pages for text in page] == wobble_paragraphs
+    write(CONTENT / 'wobble_palooza.json', wobble_book)
+    listings.insert(3, {
+        'id': wobble_book['id'],
+        'filename': 'wobble_palooza',
+        'contentVersion': 1,
+        'kind': 'reader',
+        'title': wobble_title,
+        'subtitle': 'The Troll-O-Matic 5000 turns an ordinary day into a giant party.',
+        'blurb': 'Join Opal, Lolo, Langston and the Stuffy Land crew for games, a runaway machine and one last surprise.',
+        'genre': 'Read or listen',
+        'symbol': 'party.popper.fill',
+        'estimatedMinutes': max(4, math.ceil(sum(len(p.split()) for p in wobble_paragraphs) / 145)),
+        'coverAsset': 'stuffy-tent',
+        'collection': 'Read or listen',
+        'editorialNote': wobble_note
+    })
+    provenance.append({
+        'id': wobble_book['id'],
+        'status': 'user_supplied_original',
+        'source': 'source/wobble_palooza.md',
+        'notes': 'Complete original story supplied directly by the user. Text and paragraph order are preserved verbatim, with 19 reading sections added only for pagination.'
+    })
     write(CONTENT / 'catalog.json', {'formatVersion': 1, 'adventures': listings})
     write(EDITORIAL / 'story-provenance.json', {'sourceDocumentSHA256': 'ab0dbfbe1381b242ed7da202ae18a6fd52a231cc37e26bf8a649db5b8ac31a63', 'duplicateAttachments': True, 'stories': provenance})
-    print(f'Built {len(listings)} stories: 3 adventures and {len(readers)} readers')
+    print(f'Built {len(listings)} stories: 3 adventures and {len(readers)+1} readers')
 
 
 if __name__ == '__main__':

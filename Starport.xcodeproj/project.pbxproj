@@ -75,6 +75,7 @@
         D4000000000000000000000C /* star_eater.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C4000000000000000000000C /* star_eater.json */; };
         D4000000000000000000000D /* thousand_traps.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C4000000000000000000000D /* thousand_traps.json */; };
         D50000000000000000000001 /* sundae_switch.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C50000000000000000000001 /* sundae_switch.json */; };
+        D60000000000000000000001 /* wobble_palooza.json in Stuffy Resources */ = {isa = PBXBuildFile; fileRef = C60000000000000000000001 /* wobble_palooza.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,7 @@
         C4000000000000000000000C /* star_eater.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = star_eater.json; sourceTree = "<group>"; };
         C4000000000000000000000D /* thousand_traps.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = thousand_traps.json; sourceTree = "<group>"; };
         C50000000000000000000001 /* sundae_switch.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sundae_switch.json; sourceTree = "<group>"; };
+        C60000000000000000000001 /* wobble_palooza.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wobble_palooza.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,7 +219,7 @@
         B10000000000000000000003 /* Stuffy Content */ = {
             isa = PBXGroup;
             children = (C1000000000000000000000B /* catalog.json */, C1000000000000000000000C /* bell_button_hill.json */,
-                C30000000000000000000004 /* button_at_window.json */, C40000000000000000000001 /* concert.json */, C40000000000000000000002 /* giggle_games.json */, C40000000000000000000003 /* gigglequake.json */, C40000000000000000000004 /* heart_monster.json */, C40000000000000000000005 /* impossible_birthday.json */, C40000000000000000000006 /* inside_out.json */, C40000000000000000000007 /* invisible_bracelet.json */, C40000000000000000000008 /* monster_disguise.json */, C40000000000000000000009 /* pillow_fort.json */, C4000000000000000000000A /* sneaky_troll.json */, C4000000000000000000000B /* snore_snatcher.json */, C4000000000000000000000C /* star_eater.json */, C4000000000000000000000D /* thousand_traps.json */, C50000000000000000000001 /* sundae_switch.json */,);
+                C30000000000000000000004 /* button_at_window.json */, C40000000000000000000001 /* concert.json */, C40000000000000000000002 /* giggle_games.json */, C40000000000000000000003 /* gigglequake.json */, C40000000000000000000004 /* heart_monster.json */, C40000000000000000000005 /* impossible_birthday.json */, C40000000000000000000006 /* inside_out.json */, C40000000000000000000007 /* invisible_bracelet.json */, C40000000000000000000008 /* monster_disguise.json */, C40000000000000000000009 /* pillow_fort.json */, C4000000000000000000000A /* sneaky_troll.json */, C4000000000000000000000B /* snore_snatcher.json */, C4000000000000000000000C /* star_eater.json */, C4000000000000000000000D /* thousand_traps.json */, C50000000000000000000001 /* sundae_switch.json */, C60000000000000000000001 /* wobble_palooza.json */,);
             path = "StuffyLand/Content";
             sourceTree = "<group>";
         };
@@ -298,6 +300,7 @@
             D4000000000000000000000C /* star_eater.json in Stuffy Resources */,
             D4000000000000000000000D /* thousand_traps.json in Stuffy Resources */,
             D50000000000000000000001 /* sundae_switch.json in Stuffy Resources */,
+            D60000000000000000000001 /* wobble_palooza.json in Stuffy Resources */,
             D1000000000000000000000D /* Stuffy Assets.xcassets in Resources */,
             D1000000000000000000000E /* PrivacyInfo.xcprivacy in Stuffy Resources */,
         ); runOnlyForDeploymentPostprocessing = 0; };
@@ -428,7 +431,7 @@
             INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
             INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
             IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-            MARKETING_VERSION = 0.1.3;
+            MARKETING_VERSION = 0.1.4;
             PRODUCT_BUNDLE_IDENTIFIER = pro.stuffyland.stories;
             PRODUCT_NAME = "$(TARGET_NAME)";
             SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -456,7 +459,7 @@
             INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
             INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
             IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-            MARKETING_VERSION = 0.1.3;
+            MARKETING_VERSION = 0.1.4;
             PRODUCT_BUNDLE_IDENTIFIER = pro.stuffyland.stories;
             PRODUCT_NAME = "$(TARGET_NAME)";
             SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

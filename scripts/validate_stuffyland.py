@@ -120,8 +120,8 @@ print(f"PASS Stuffy Land catalog: {len(seen_ids)} total stories (both formats)")
 root = content.parents[1]
 provenance = json.loads((root / "StuffyLand/Editorial/story-provenance.json").read_text())
 assert {p["id"] for p in provenance["stories"]} == seen_ids
-assert len(seen_ids) == 14
-assert sum(x.get("kind") == "reader" for x in catalog["adventures"]) == 11
+assert len(seen_ids) == 15
+assert sum(x.get("kind") == "reader" for x in catalog["adventures"]) == 12
 assert sum(x.get("kind") == "adventure" for x in catalog["adventures"]) == 3
 sundae = json.loads((content / "sundae_switch.json").read_text())
 sundae_scenes = [node for node in sundae["nodes"] if not node.get("ending")]
@@ -133,6 +133,20 @@ assert len([node for node in sundae["nodes"] if node.get("ending", {}).get("kind
 original = (root / "StuffyLand/Editorial/source/giggle_games.txt").read_text().strip().split("\n\n")
 giggles = json.loads((content / "giggle_games.json").read_text())
 assert [p for page in giggles["pages"] for p in page["paragraphs"]] == original[1:], "Original Giggle Games text changed"
+# The user's long read-along must be reproduced in full with no prose edits.
+wobble_source = (root / "StuffyLand/Editorial/source/wobble_palooza.md").read_text(encoding="utf-8").strip().split("\n\n")
+wobble = json.loads((content / "wobble_palooza.json").read_text())
+wobble_listing = next(entry for entry in catalog["adventures"] if entry["id"] == wobble["id"])
+assert wobble["id"] == "stuffy-wobble-palooza"
+assert wobble["title"] == wobble_source[0].removeprefix("**").removesuffix("**")
+assert wobble_listing["kind"] == "reader" and wobble_listing["estimatedMinutes"] == 24
+assert len(wobble["pages"]) == 19
+assert [p["id"] for p in wobble["pages"]] == [f"page_{i+1:02}" for i in range(19)]
+assert all("heading" not in p and "choices" not in p for p in wobble["pages"])
+assert [para for page in wobble["pages"] for para in page["paragraphs"]] == wobble_source[1:], "Original Wobble-Palooza text changed"
+assert sum(len(p.split()) for p in wobble_source[1:]) == 3447, "Original Wobble-Palooza was truncated"
+assert next(x for x in provenance["stories"] if x["id"] == wobble["id"])["status"] == "user_supplied_original"
+print("PASS user-supplied Wobble-Palooza prose preserved word-for-word across 19 reader sections")
 project = (root / "Starport.xcodeproj/project.pbxproj").read_text()
 resource_phase = project.split("/* Begin PBXResourcesBuildPhase section */")[1].split("/* End PBXResourcesBuildPhase section */")[0]
 for entry in catalog["adventures"]:

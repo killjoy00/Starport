@@ -47,6 +47,21 @@
       "editorialNote": "New original interactive story, written for the Stuffy Land app; not a recovered transcript."
     },
     {
+      "id": "stuffy-wobble-palooza",
+      "filename": "wobble_palooza",
+      "contentVersion": 1,
+      "kind": "reader",
+      "title": "Opal and the Great Stuffy Land Wobble-Palooza",
+      "subtitle": "The Troll-O-Matic 5000 turns an ordinary day into a giant party.",
+      "blurb": "Join Opal, Lolo, Langston and the Stuffy Land crew for games, a runaway machine and one last surprise.",
+      "genre": "Read or listen",
+      "symbol": "party.popper.fill",
+      "estimatedMinutes": 24,
+      "coverAsset": "stuffy-tent",
+      "collection": "Read or listen",
+      "editorialNote": "Original story supplied in full."
+    },
+    {
       "id": "stuffy-giggle-games",
       "filename": "giggle_games",
       "contentVersion": 1,

@@ -13,8 +13,8 @@ final class StuffyCollectionTests: XCTestCase {
     func testEveryPublishedStoryDecodesWithTheActualAppModels() throws {
         let catalog = try JSONDecoder().decode(AdventureCatalog.self, from: data("catalog"))
         try StoryLoader.validateCatalog(catalog)
-        XCTAssertEqual(catalog.adventures.count, 14)
-        XCTAssertEqual(catalog.adventures.filter { $0.format == .reader }.count, 11)
+        XCTAssertEqual(catalog.adventures.count, 15)
+        XCTAssertEqual(catalog.adventures.filter { $0.format == .reader }.count, 12)
         XCTAssertEqual(catalog.adventures.filter { $0.format == .adventure }.count, 3)
         XCTAssertFalse(catalog.adventures.contains { $0.id == "stuffy-bell" || $0.id == "stuffy-reader-sample" })
         for entry in catalog.adventures {
@@ -51,6 +51,30 @@ final class StuffyCollectionTests: XCTestCase {
         let book = try StoryLoader.decodeReader(data("giggle_games"))
         XCTAssertEqual(book.title, original.first)
         XCTAssertEqual(book.pages.flatMap(\.paragraphs), Array(original.dropFirst()))
+    }
+
+    func testWobblePaloozaPreservesAllAuthorSuppliedParagraphs() throws {
+        let raw = try String(
+            contentsOf: root.appendingPathComponent("StuffyLand/Editorial/source/wobble_palooza.md"),
+            encoding: .utf8
+        ).trimmingCharacters(in: .whitespacesAndNewlines)
+        let source = raw.components(separatedBy: "\n\n")
+        let book = try StoryLoader.decodeReader(data("wobble_palooza"))
+        XCTAssertEqual(book.id, "stuffy-wobble-palooza")
+        XCTAssertEqual(book.title, "Opal and the Great Stuffy Land Wobble-Palooza")
+        XCTAssertEqual(book.pages.count, 19)
+        XCTAssertEqual(book.pages.flatMap(\.paragraphs), Array(source.dropFirst()))
+        XCTAssertTrue(book.pages.allSatisfy { $0.heading == nil })
+        XCTAssertTrue(book.pages.allSatisfy { $0.paragraphs.count <= 30 })
+        XCTAssertEqual(book.pages.first?.paragraphs.first,
+                       "The day began with sunshine, sparkles, and a very suspicious noise coming from Langston’s bedroom.")
+        XCTAssertEqual(book.pages.last?.paragraphs.last, "The end.")
+        let entry = try XCTUnwrap(
+            JSONDecoder().decode(AdventureCatalog.self, from: data("catalog"))
+                .adventures.first(where: { $0.id == book.id })
+        )
+        XCTAssertEqual(entry.format, .reader)
+        XCTAssertEqual(entry.estimatedMinutes, 24)
     }
 
     func testAllAdventuresCanReachEveryEndingAndRewindEveryDetour() throws {

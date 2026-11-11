@@ -6,6 +6,20 @@ Stuffy Land is a separate iOS app inside the Starport repository. It shares the 
 
 The Stuffy Land home is a compact **story shelf**, not a marketing splash screen: a small logo/title, an optional **Continue** card when a saved read-along has advanced or a branching adventure is in progress, a three-way All / Read-alongs / Adventures filter, and compact cover-and-title rows that open each story with one tap. Long subtitles, repeated editorial labels, oversized tent hero artwork, and age-rating notices are intentionally absent from the landing screen. Source/provenance notes remain under **About these stories**.
 
+## Opening and illustration style
+
+Stuffy Land starts with a brief, six-frame storybook animation: the
+galaxy tent lights up, the Stuffy Land title appears, and Opal and Lolo
+arrive before the story shelf. It is skippable immediately, bypassed
+with Reduce Motion, and does not replay when returning from a story.
+It changes neither StarPort's opening nor the direct-to-story shelf.
+
+**Opal and the Great Sundae Switch** now uses nine approved, textured
+storybook illustrations rather than the original flat Pillow-rendered
+scenes. Its 18-scene choice graph, five endings, ten detours, saves and
+achievements remain unchanged. The illustration manifest pins the nine
+art assets and intro atlas to the reviewed artwork.
+
 ## The collection
 
 The real Opal universe replaces the provisional Button Hill shelf. There are **14 stories**:

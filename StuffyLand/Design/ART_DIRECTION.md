@@ -33,20 +33,32 @@ Use the icon as the small masthead mark. Use the tent image as welcome art and P
 
 ## Opal and the Great Sundae Switch — nine illustrated scenes
 
-Nine distinct 1200×720 illustrations are bundled in the `sundae-scene-XX.imageset` directories, for interactive scenes **1, 3, 5, 7, 9, 11, 13, 15 and 17**. They are *original code-rendered felt-and-paper illustrations*, not recovered story paintings, ImageGen outputs, app screenshots or unaltered source material. They are produced deterministically by `scripts/generate_sundae_art.py` using Pillow. Do not confuse the new source with the older ImageGen work documented above.
+The original code-rendered vector scene illustrations have been replaced with **nine
+individual, richly textured storybook illustrations** generated with ImageGen.
+They use the established Stuffy Land palette of plum, lavender, warm gold,
+cushioned fabrics, twinkling stitched stars and soft glowing lanterns.
 
-Continuity is based on the universe bible: Opal has shoulder-length dirty-blonde curls and purple star pajamas; Lolo is a thin gray-and-tan **sloth** lovey; Swirly is a chocolate-brown ice-cream **cat**, Vanilla-y a pale vanilla cat, Axey a pink axolotl, Langston a visibly taller boy in a blue hoodie, and Finley and Stella exactly two fluffy white doodle dogs. Coatl's shell belongs on his back. Character groupings vary by scene. The nine artworks show different events rather than relabeling one illustration.
+The illustrated scenes remain **1, 3, 5, 7, 9, 11, 13, 15 and 17**
+(exactly half the 18 main story pages). They depict nine distinct story moments:
+the floating dessert, the difficult Swirly conversation, the mystery trail,
+Swirly's confession, the reversed route mechanism, the big chase, the rescue
+planning, the sundae landing, and the shared first spoonful.
 
-| Scene | Composition |
-| --- | --- |
-| 1 | The flying cherry, Langston, Frosted Kitty, Opal and Lolo in the galaxy tent |
-| 3 | Opal talks cautiously to Swirly; Lolo listens |
-| 5 | Axey and the two white doodle detectives follow the cushion tunnel |
-| 7 | Swirly confides in Opal with Lolo close by |
-| 9 | The upside-down route spinner behind the reading pillows |
-| 11 | A giant floating sundae races toward the village |
-| 13 | Opal coordinates a real rescue plan with the specialist friends |
-| 15 | Swirly, Vanilla-y, Coatl and Axey guide the giant sundae to safety |
-| 17 | Opal and Swirly share a quieter moment beside the rescued dessert |
+The source images were reviewed alongside the established Stuffy Land
+illustrations rather than redrawn as code-drawn shapes. Optimized 1200×720
+JPEG derivatives are installed in the existing asset-catalog paths. The exact
+approved bytes are hashed in `sundae-art-manifest.json` to guard against an
+accidental return to the old flat artwork.
 
-The story shelf uses scene 1 as this adventure's unique cover art. Its illustrations are purely visual and contain no printed text, labels or UI.
+The opening sequence uses **six individually illustrated frames** from the
+approved opening animation, assembled into a 3×2 atlas named
+`stuffy-intro-frames.imageset` (each source frame 370×996). The app plays
+these frames once per launch, then fades into the compact shelf; the user can
+skip immediately, and Reduce Motion bypasses playback. There is no animated
+hero or distracting loop on the story shelf itself.
+
+These are new commissioned illustrations for the interactive story,
+not recovered archive images. Canon character details continue to be
+defined by `../Editorial/UNIVERSE.md`, not by incidental image-generation
+details. The older code-drawn generator has been retired and must not be run
+against the approved image assets.

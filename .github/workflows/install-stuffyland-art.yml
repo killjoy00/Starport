@@ -1,0 +1,66 @@
+name: Install generated Stuffy Land artwork
+
+on:
+  push:
+    branches: [feat/stuffyland-story-art-and-opening]
+    paths:
+      - .github/workflows/install-stuffyland-art.yml
+      - .artwork/stuffyland-chunks/**
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify generated artwork archive
+        run: |
+          set -euo pipefail
+          cat .artwork/stuffyland-chunks/part-* > "$RUNNER_TEMP/stuffyland-art.zip"
+          echo "c5c45efa7233a937d72997fa8317559303d9f46cae9786f25d4d19a48ab4e035  $RUNNER_TEMP/stuffyland-art.zip" | sha256sum -c -
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, zipfile
+          archive = pathlib.Path(os.environ["RUNNER_TEMP"]) / "stuffyland-art.zip"
+          root = pathlib.Path("StuffyLand/Assets.xcassets")
+          expected = [1, 3, 5, 7, 9, 11, 13, 15, 17]
+          with zipfile.ZipFile(archive) as z:
+              manifest = json.loads(z.read("art_manifest.json"))
+              assert len(manifest["files"]) == 10
+              assert manifest["opening_frames"] == 6
+              assert manifest["opening_grid"] == {"columns": 3, "rows": 2, "frame_width": 370, "frame_height": 996}
+              for name, digest in manifest["files"].items():
+                  assert name.endswith(".jpg"), name
+                  assert ".." not in pathlib.PurePosixPath(name).parts
+                  assert hashlib.sha256(z.read(name)).hexdigest() == digest, name
+              for n in expected:
+                  name = f"sundae-scene-{n:02d}"
+                  assert f"{name}.imageset/{name}.jpg" in manifest["files"]
+              assert "stuffy-intro-frames.imageset/stuffy-intro-frames.jpg" in manifest["files"]
+              for info in z.infolist():
+                  if info.filename.startswith("stuffy-intro-frames.imageset/") or info.filename.startswith("sundae-scene-"):
+                      dest = root / info.filename
+                  elif info.filename == "art_manifest.json":
+                      dest = pathlib.Path("StuffyLand/Design/sundae-art-manifest.json")
+                  else:
+                      raise ValueError(f"Unexpected archive entry: {info.filename}")
+                  dest.parent.mkdir(parents=True, exist_ok=True)
+                  dest.write_bytes(z.read(info))
+          print("Verified and installed nine story images plus the six-frame opening atlas.")
+          PY
+      - name: Commit installed assets to source branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add StuffyLand/Assets.xcassets/sundae-scene-*.imageset
+          git add StuffyLand/Assets.xcassets/stuffy-intro-frames.imageset
+          git add StuffyLand/Design/sundae-art-manifest.json
+          git rm -r .artwork/stuffyland-chunks
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m "Replace flat Sundae art with painterly house style and install animated intro"
+            git push origin HEAD:feat/stuffyland-story-art-and-opening
+          fi

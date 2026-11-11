@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "origin": "Stuffy Land generated art approved in conversation",
+  "stories": 9,
+  "opening_frames": 6,
+  "opening_grid": {
+    "columns": 3,
+    "rows": 2,
+    "frame_width": 370,
+    "frame_height": 996
+  },
+  "files": {
+    "stuffy-intro-frames.imageset/stuffy-intro-frames.jpg": "167c1a4eff1cc86c6b2095bcc6485c76378e3cb6fdd9abc330ade040dd069525",
+    "sundae-scene-01.imageset/sundae-scene-01.jpg": "a00f9455fcb480afb06807bdc07a1b3e0a3de7d970d6c31b5e4d858469cfc096",
+    "sundae-scene-03.imageset/sundae-scene-03.jpg": "0839a752a00ae8b43cf9f2744c29cec937ecfdba69e3143836ca1a12d86d6416",
+    "sundae-scene-05.imageset/sundae-scene-05.jpg": "5cfba8f804337250afb877a3193995c3839d60e249009799bbfef9aa75c41ffc",
+    "sundae-scene-07.imageset/sundae-scene-07.jpg": "a200e2e261ab178827b4d0ea4af78cce6ad5c67f0d944a0bdb603e3247b8b57b",
+    "sundae-scene-09.imageset/sundae-scene-09.jpg": "5f3c8d9712ee1f1b0c97e80c2bb233eb036d7bd597819bb3b05117b6a91bce4e",
+    "sundae-scene-11.imageset/sundae-scene-11.jpg": "c0711b27699141f76635708f5734058a5ddcf48ef41f217606f66c041201db99",
+    "sundae-scene-13.imageset/sundae-scene-13.jpg": "cd4412a231b5a90ebea14f6ae7bd8f6803339bba87ebecfc31d2f7261658fe21",
+    "sundae-scene-15.imageset/sundae-scene-15.jpg": "55c80d9e96939049c8d4fc59243de0cd1fe583edaae3ac4a54a63e9b59a4bf3c",
+    "sundae-scene-17.imageset/sundae-scene-17.jpg": "2f77bd09ffe2285483233656c1bc14c37c64326ba4f7eacd83e5e0b316817364"
+  }
+}

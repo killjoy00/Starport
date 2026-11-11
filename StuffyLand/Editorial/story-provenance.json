@@ -85,6 +85,12 @@
       "status": "new_original_interactive",
       "source": "../Content/sundae_switch.json",
       "notes": "Original new interactive story based on the approved Sundae Switch pitch; 18 main scenes, nine scene illustrations, five endings and ten short rewindable detours. Not recovered archive material."
+    },
+    {
+      "id": "stuffy-wobble-palooza",
+      "status": "user_supplied_original",
+      "source": "source/wobble_palooza.md",
+      "notes": "Complete original story supplied directly by the user. Text and paragraph order are preserved verbatim, with 19 reading sections added only for pagination."
     }
   ]
 }

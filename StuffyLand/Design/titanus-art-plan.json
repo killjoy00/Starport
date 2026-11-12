@@ -1,0 +1,119 @@
+{
+  "story": "stuffy-titanus",
+  "status": "pending",
+  "note": "Planned illustrations. The scenes already reference these asset names; the app shows its drawn storybook placeholder until each image is added to StuffyLand/Assets.xcassets as <asset>.imageset/<asset>.jpg (1200x720 for scenes).",
+  "style": "Landscape Stuffy Land storybook illustration, 1200x720. Textured, painterly children's fantasy with tactile plush fabric and stitched seams, warm amber light, plum, lavender and gold palette. Human Opal is a young girl with shoulder-length dirty-blonde curls. Lolo is exactly one slender gray-and-tan sloth lovey with a cream-tan face and dark eye patches, never a bear. Langston is Opal's visibly taller, bigger older brother in a blanket cape and saucepan helmet. Every Aphmau plush is clearly a cat. Include only the named characters, once each. No words, labels or watermarks.",
+  "cover": {
+    "asset": "titanus-cover",
+    "prompt": "Portrait 900x1350 storybook cover. Titanus, a gentle-eyed stone giant with a crystal crown and a golden bell, leans down over the mountains of Stuffy Land; small Opal holding Lolo looks up at him from the meadow, with Langston in his saucepan helmet beside her. A tiny star glows near the giant's shoulder. Leave clear space at the top for the title."
+  },
+  "scenes": [
+    {
+      "asset": "titanus-scene-tree",
+      "scene": "Upside down in a tree",
+      "alt": "Langston dangles upside down from a tree by one foot while Coatl gently lowers the branch and Opal and Lolo watch, laughing.",
+      "prompt": "A bright morning meadow with marshmallow clouds. Langston hangs upside down from a tree branch by one foot, his blanket cape wrapped round his head and his saucepan helmet dangling from a smaller branch. Coatl, a gentle giant turtle with his shell on his back, gently lowers the branch. Opal holds Lolo and giggles; Axey, a pink axolotl plush, bounces nearby.",
+      "usedBy": [
+        "s01"
+      ]
+    },
+    {
+      "asset": "titanus-scene-arrival",
+      "scene": "I AM TITANUS",
+      "alt": "The giant Titanus leans over the mountains with glowing purple eyes, a crown of crystals and a golden bell, while the tiny friends look up from the meadow.",
+      "prompt": "The sky has gone dark. Titanus, an enormous stone giant taller than the mountains, with stone shoulders, glowing purple eyes, arms like bridges, dark armour and a crown of jagged crystals, leans over the mountains. A giant golden bell hangs round his neck. Far below in the meadow, a glowing heart-shaped crystal floats above a small pedestal. Tiny Opal holding Lolo, Langston in his saucepan helmet, and Coatl look up. Awe, not terror: he is grand and a little sad-eyed.",
+      "usedBy": [
+        "s03"
+      ]
+    },
+    {
+      "asset": "titanus-scene-float",
+      "scene": "Everybody floats",
+      "alt": "Opal hugs Lolo as friends float up into the sky, and a glowing moon-shaped shield gathers them together while Coatl stays planted on the ground.",
+      "prompt": "After the giant bell rings, Stuffy Land friends float into the air above the meadow: Opal hugging Lolo, Langston holding Frosted Kitty (a donut cat), Finley holding Stella (two fluffy white doodle girls). Nebula Johnny, a cosmic cat, spreads a glowing moon-shaped shield bubble around them. Coatl stays firmly planted below. Whimsical, gentle, a little silly.",
+      "usedBy": [
+        "s04"
+      ]
+    },
+    {
+      "asset": "titanus-scene-waterfall",
+      "scene": "Behind the waterfall",
+      "alt": "Behind a waterfall, Opal, Lolo, Coatl, Finley and Stella study old carvings of a giant protecting a little star.",
+      "prompt": "Inside a cave behind a shimmering waterfall, ancient carvings glow faintly on the stone: a giant holding a small glowing star, protecting many tiny creatures; the giant standing alone; a golden bell. Opal and Lolo study them. Coatl's underside buttons glow softly. Finley holds a detective notebook; Stella sniffs a gold fragment on the floor.",
+      "usedBy": [
+        "a3",
+        "a4"
+      ]
+    },
+    {
+      "asset": "titanus-scene-lullaby",
+      "scene": "A song in the fortress",
+      "alt": "Through a fortress window at dusk, Axey and Aaron-y watch Titanus sitting beside an empty stone cradle, humming a sad lullaby.",
+      "prompt": "Dusk. Through a tall purple-glowing window of a mountain fortress, we see Titanus sitting on the floor beside an empty stone cradle, his huge head bowed, humming. In the foreground, peeking over the window ledge: Axey the pink axolotl and Aaron-y, a gray-and-black wolf-like spy cat in a black hoodie with red ear and tail highlights. Tender and quiet.",
+      "usedBy": [
+        "b2",
+        "b3"
+      ]
+    },
+    {
+      "asset": "titanus-scene-river",
+      "scene": "A river that goes uphill",
+      "alt": "Opal, Lolo and friends ride a raft up a sparkling river that flows uphill toward a mountain fortress.",
+      "prompt": "A sparkling magical river flows UPHILL toward a mountain fortress with purple windows. Water Kitty and Mermaid Kitty guide it. On a leaf raft: Opal holding Lolo, Langston, Axey, Finley and Stella. Stella points her nose at a golden glint under the water. Joyful and adventurous.",
+      "usedBy": [
+        "c1",
+        "c2"
+      ]
+    },
+    {
+      "asset": "titanus-scene-bell",
+      "scene": "The crack in the bell",
+      "alt": "The Dragon Couple carries Opal and Lolo around a giant cracked golden bell at the top of the fortress tower.",
+      "prompt": "High above the clouds, the Dragon Couple fly together: an entirely purple boy dragon-cat and a dark-blue girl dragon-cat with a light-blue gem. Opal, holding Lolo, rides on one. They circle a gigantic golden bell at the top of a fortress tower; a long crack runs down the bell and a tiny round door sits near its base. Windswept and wondrous.",
+      "usedBy": [
+        "d2",
+        "d3"
+      ]
+    },
+    {
+      "asset": "titanus-scene-throne",
+      "scene": "The throne and I have no heart of my own",
+      "alt": "Titanus sits on a stone throne holding the glowing Heart of Stuffy Land, with an empty stone cradle behind him, as Opal steps forward.",
+      "prompt": "A vast throne room inside the mountain fortress. Titanus sits on a giant stone throne, cupping the glowing heart-shaped crystal of Stuffy Land in both enormous hands. Behind the throne, an empty stone cradle in a dark alcove. Small Opal steps forward holding Lolo, with Coatl and Langston behind her. Purple light, a hint of loneliness in the giant's face.",
+      "usedBy": [
+        "s17",
+        "s18"
+      ]
+    },
+    {
+      "asset": "titanus-scene-lever",
+      "scene": "The tiny team",
+      "alt": "Crumb-sized Onion Ring Kitty and rainbow Caterpillar Kitty pull together on a small golden lever inside the giant bell.",
+      "prompt": "Inside the brass workings of a giant bell, enormous gears all around. Onion Ring Kitty, shrunk to crumb size, and Caterpillar Kitty, a tiny cat with rainbow segments each a different colour, wrap around a small golden lever and pull with all their might. A sliver of light from a tiny round door behind them. Heroic and tiny.",
+      "usedBy": [
+        "h1",
+        "h2"
+      ]
+    },
+    {
+      "asset": "titanus-scene-donut",
+      "scene": "HEY, GIANT!",
+      "alt": "Langston in his saucepan helmet and Frosted Kitty point up at a giant donut that has landed on Titanus's shoulder.",
+      "prompt": "Throne room. A giant pink-frosted donut decoy has landed on Titanus's enormous shoulder and he stares at it, baffled. Below, Langston in a saucepan helmet and blanket cape points up triumphantly beside Frosted Kitty, a donut cat. Evil Queen Kitty, a purple cat with silver tiara and royal cape, stands on a broken piece of throne mid-speech. Comic and lively.",
+      "usedBy": [
+        "x1",
+        "x2"
+      ]
+    },
+    {
+      "asset": "titanus-scene-star",
+      "scene": "Everybody, bring your light!",
+      "alt": "Friends stand in a glowing circle around a stone cradle as a tiny star rises toward Titanus's open hand.",
+      "prompt": "A circle of Stuffy Land friends stands round an empty stone cradle, each glowing with their own light: Opal with a glowing gemstone pendant and Lolo holding her hand, Coatl, Langston and Frosted Kitty, the Dragon Couple, and as many of the Aphmau cats as fit, each once. A tiny golden star rises out of the cradle toward Titanus's enormous open hand. A single huge golden tear on his cheek. The emotional climax: warm, golden, hopeful.",
+      "usedBy": [
+        "e4",
+        "decide_circle"
+      ]
+    }
+  ]
+}

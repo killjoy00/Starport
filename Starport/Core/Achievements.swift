@@ -225,7 +225,8 @@ public enum AchievementCatalog {
         let stories = [
             ("pillow", ["A Galaxy for Everyone", "The Traveling Star", "The Mapmakers’ Night", "A Light for Tomorrow", "A Smaller Castle"]),
             ("snore", ["Rest and Sound", "The First Soft Wall", "An Invitation", "Home Again", "The Quiet Castle"]),
-            ("sundae", ["One Spoonful at a Time", "The Grand Unveiling", "The Party Is Saved", "The Mapmakers’ Rescue", "The Lopsided Sundae"])
+            ("sundae", ["One Spoonful at a Time", "The Grand Unveiling", "The Party Is Saved", "The Mapmakers’ Rescue", "The Lopsided Sundae"]),
+            ("titanus", ["The Biggest New Friend", "A Star for Two", "The Quiet Bell", "The Upside-Down Fortress", "The Snack Truce", "An Igloo for a Giant", "Everybody Floats"])
         ]
         let endings = stories.flatMap { prefix, titles in
             titles.enumerated().map { index, title in
@@ -247,12 +248,16 @@ public enum AchievementCatalog {
             Achievement("laughter_clue", "A Laugh Gets Loose", "Discover how laughter frees the sounds.", "music.note", .exploration),
             Achievement("first_spoonful", "One Spoonful", "Offer Swirly the first taste of the rescued sundae.", "heart.fill", .exploration),
             Achievement("spinner_untangled", "Express Detective", "Find and free the broken delivery spinner.", "magnifyingglass", .exploration),
+            Achievement("titan_carvings", "The Waterfall Secret", "Read the carvings behind the waterfall.", "mountain.2.fill", .exploration),
+            Achievement("titan_lullaby", "A Giant’s Lullaby", "Hear Titanus sing to the empty cradle.", "music.quarternote.3", .exploration),
+            Achievement("titan_crumb", "Crumb-Sized Hero", "Send Onion Ring Kitty through the tiny door.", "circle.dotted", .exploration),
+            Achievement("titan_donut", "Donut of Distraction", "Launch the Donut of Distraction.", "circle.circle", .exploration),
             Achievement("full_curiosity", "Curious Paws", "Fill the Curiosity meter.", "eye.fill", .mastery),
             Achievement("full_courage", "Brave Enough", "Fill the Courage meter.", "shield.fill", .mastery),
             Achievement("full_friendship", "Good Friends", "Fill the Friendship meter.", "person.2.fill", .mastery),
             Achievement("clean_run", "A Steady Path", "Finish an adventure without taking a detour.", "checkmark.seal.fill", .mastery),
             Achievement("two_endings", "Another Way", "Discover two endings in one adventure.", "arrow.triangle.branch", .mastery),
-            Achievement("all_endings", "Every Way Home", "Discover all five endings in one adventure.", "star.circle.fill", .mastery)
+            Achievement("all_endings", "Every Way Home", "Discover every ending in one adventure.", "star.circle.fill", .mastery)
         ]
     }()
 
@@ -271,7 +276,8 @@ public enum AchievementCatalog {
             earned.insert("all_detours")
         }
         if case .rewind = event { earned.insert("first_rewind") }
-        for flag in ["map_rule", "share_star", "heard_duke", "quiet_room", "laughter_clue", "first_spoonful", "spinner_untangled"] where p.flags.contains(flag) {
+        for flag in ["map_rule", "share_star", "heard_duke", "quiet_room", "laughter_clue", "first_spoonful", "spinner_untangled",
+                     "titan_carvings", "titan_lullaby", "titan_crumb", "titan_donut"] where p.flags.contains(flag) {
             earned.insert(flag)
         }
         if p.stats.clues == 5 { earned.insert("full_curiosity") }
@@ -283,6 +289,7 @@ public enum AchievementCatalog {
         case "stuffy-pillow-fort": prefix = "pillow"
         case "stuffy-snore-snatcher": prefix = "snore"
         case "stuffy-sundae-switch": prefix = "sundae"
+        case "stuffy-titanus": prefix = "titanus"
         default: prefix = nil
         }
         if let prefix {

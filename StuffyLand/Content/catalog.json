@@ -47,6 +47,21 @@
       "editorialNote": "New original interactive story, written for the Stuffy Land app; not a recovered transcript."
     },
     {
+      "id": "stuffy-titanus",
+      "filename": "titanus",
+      "contentVersion": 1,
+      "kind": "adventure",
+      "title": "Opal and TITANUS: The Biggest Bad Guy Stuffy Land Had Ever Seen",
+      "subtitle": "A giant with a gravity bell wants the Heart of Stuffy Land. Find out why before everything floats away.",
+      "blurb": "A giant taller than the mountains rings a bell that makes everything float, and he wants the Heart of Stuffy Land. Choose how Opal and her friends find out why.",
+      "genre": "Choose your adventure",
+      "symbol": "bell.fill",
+      "estimatedMinutes": 25,
+      "coverAsset": "stuffy-tent",
+      "collection": "Choose an adventure",
+      "editorialNote": "Interactive retelling of a complete story supplied by the author."
+    },
+    {
       "id": "stuffy-wobble-palooza",
       "filename": "wobble_palooza",
       "contentVersion": 1,
@@ -59,7 +74,7 @@
       "estimatedMinutes": 24,
       "coverAsset": "stuffy-tent",
       "collection": "Read or listen",
-      "editorialNote": "Original story supplied in full."
+      "editorialNote": "Complete original story supplied in full."
     },
     {
       "id": "stuffy-giggle-games",

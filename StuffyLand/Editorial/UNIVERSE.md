@@ -58,6 +58,8 @@ Duke Dozington is the giant purple pillow-shaped Snore-Snatcher: tiny legs, four
 
 A blue-and-black kitty outside the Aphmau collection becomes a heart monster in the recovered Halloween summary. The adaptation uses the editorial name Hearts-y, informed by a label in a source illustration; the expanded written archive does not establish her name. Do not count her among the 31. The giant cloud villain, Skykeeper, Star Eater, Inside-Out Storm, and time storm are recovered premises; their detailed new dialogue and mechanics belong to the current adaptations.
 
+Titanus is a stone giant taller than the mountains, with glowing purple eyes, arms like bridges, a crown of jagged crystals and a golden bell that controls gravity. He comes from the author-supplied story **Opal and TITANUS**: once the guardian of a little star, he lost it and came looking for the Heart of Stuffy Land, the floating crystal in the meadow whose magic connects every stuffy, adventure and friendship. In the author's story the star was hiding inside the Heart. The interactive retelling adds the cracked bell, the tiny door into the bell's workings, the uphill river and the alternate endings; those are retelling details, not part of the supplied text. The author's ending hints at a second, even bigger giant with a second bell.
+
 ## Recurring places and objects
 
 The galaxy tent and Opal's bed are home, comfort, and departure point. The village square is a place for gatherings. The Whispering Woods contain glowing mushrooms, a wobbly bridge, sleepy flowers, and Duke's pillow castle. The pillow fort becomes Opal's Royal Resting Castle while she is sick. The Lost Star becomes the Friendship Star through shared light. Langston's pumpkin helmet, troll cape, and mission snacks support comic continuity.
@@ -66,7 +68,7 @@ Other details in new adaptations—including a weather keeper, the memory chest'
 
 ## Current collection
 
-The app contains two adventures adapted from complete source stories, one original read-along, nine read-alongs expanded from recovered summaries, and one new story based on a surviving title/premise: 13 total. Exact source status, filenames, and references appear in `story-provenance.json`.
+The app contains 16 stories. Four are adventures: two adapted from complete recovered stories, the new original Sundae Switch, and Opal and TITANUS, retold as a branching adventure from a complete story the author supplied. Twelve are read-alongs: the recovered original Giggle Games, the author-supplied Wobble-Palooza, nine stories expanded from recovered summaries, and one new story based on a surviving title and premise. Exact source status, filenames, and references appear in `story-provenance.json`.
 
 The complete original Pillow-Fort and Snore-Snatcher texts remain in editorial sources for reference rather than duplicate linear entries in the app. The provisional Pip/Mallow/Button Hill pilot is retired from the visible catalog; it is not Stuffy Land canon.
 

@@ -120,9 +120,9 @@ print(f"PASS Stuffy Land catalog: {len(seen_ids)} total stories (both formats)")
 root = content.parents[1]
 provenance = json.loads((root / "StuffyLand/Editorial/story-provenance.json").read_text())
 assert {p["id"] for p in provenance["stories"]} == seen_ids
-assert len(seen_ids) == 15
+assert len(seen_ids) == 16
 assert sum(x.get("kind") == "reader" for x in catalog["adventures"]) == 12
-assert sum(x.get("kind") == "adventure" for x in catalog["adventures"]) == 3
+assert sum(x.get("kind") == "adventure" for x in catalog["adventures"]) == 4
 sundae = json.loads((content / "sundae_switch.json").read_text())
 sundae_scenes = [node for node in sundae["nodes"] if not node.get("ending")]
 sundae_art = [node["illustration"]["asset"] for node in sundae_scenes if "illustration" in node]
@@ -147,6 +147,27 @@ assert [para for page in wobble["pages"] for para in page["paragraphs"]] == wobb
 assert sum(len(p.split()) for p in wobble_source[1:]) == 3447, "Original Wobble-Palooza was truncated"
 assert next(x for x in provenance["stories"] if x["id"] == wobble["id"])["status"] == "user_supplied_original"
 print("PASS user-supplied Wobble-Palooza prose preserved word-for-word across 19 reader sections")
+# Opal and TITANUS: an interactive retelling of a complete user-supplied story.
+titanus = json.loads((content / "titanus.json").read_text(encoding="utf-8"))
+titanus_nodes = titanus["nodes"]
+assert (root / "StuffyLand/Editorial/source/titanus.md").read_text(encoding="utf-8").startswith(
+    "Opal and TITANUS: The Biggest Bad Guy Stuffy Land Had Ever Seen"), "Titanus original missing"
+assert len([n for n in titanus_nodes if n.get("ending", {}).get("kind") == "final"]) == 7
+assert len([n for n in titanus_nodes if n.get("ending", {}).get("kind") == "detour"]) == 12
+assert titanus["minimumDecisions"] == 22
+assert next(x for x in provenance["stories"] if x["id"] == titanus["id"])["status"] == "user_supplied_interactive_retelling"
+print("PASS Opal and TITANUS: original kept, 7 endings, 12 detours, 22+ choices per run")
+
+# Illustrations a story already references but that have not been painted yet.
+# Only assets listed in a pending art plan may be missing; the app shows its
+# drawn storybook placeholder for them until the image is added.
+pending_art = {}
+for plan_path in (root / "StuffyLand/Design").glob("*-art-plan.json"):
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    if plan.get("status") == "pending":
+        for item in plan["scenes"]:
+            pending_art[item["asset"]] = plan["story"]
+
 project = (root / "Starport.xcodeproj/project.pbxproj").read_text()
 resource_phase = project.split("/* Begin PBXResourcesBuildPhase section */")[1].split("/* End PBXResourcesBuildPhase section */")[0]
 for entry in catalog["adventures"]:
@@ -155,6 +176,11 @@ for entry in catalog["adventures"]:
     illustrations = [p["illustration"] for p in book.get("pages", book.get("nodes", [])) if "illustration" in p]
     for art in [entry["coverAsset"]] + [i["asset"] for i in illustrations]:
         folder = root / "StuffyLand/Assets.xcassets" / (art + ".imageset")
+        if not folder.is_dir() and pending_art.get(art) == entry["id"] and art != entry["coverAsset"]:
+            continue
         meta = json.loads((folder / "Contents.json").read_text())
         assert (folder / meta["images"][0]["filename"]).is_file(), ("Missing art", art)
+missing = sorted(a for a in pending_art if not (root / "StuffyLand/Assets.xcassets" / (a + ".imageset")).is_dir())
 print("PASS provenance, verbatim original, bundled resource membership, and artwork files")
+if missing:
+    print(f"PENDING ART {len(missing)} planned illustrations not yet added: {', '.join(missing)}")

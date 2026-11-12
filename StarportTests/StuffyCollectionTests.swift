@@ -13,9 +13,9 @@ final class StuffyCollectionTests: XCTestCase {
     func testEveryPublishedStoryDecodesWithTheActualAppModels() throws {
         let catalog = try JSONDecoder().decode(AdventureCatalog.self, from: data("catalog"))
         try StoryLoader.validateCatalog(catalog)
-        XCTAssertEqual(catalog.adventures.count, 15)
+        XCTAssertEqual(catalog.adventures.count, 16)
         XCTAssertEqual(catalog.adventures.filter { $0.format == .reader }.count, 12)
-        XCTAssertEqual(catalog.adventures.filter { $0.format == .adventure }.count, 3)
+        XCTAssertEqual(catalog.adventures.filter { $0.format == .adventure }.count, 4)
         XCTAssertFalse(catalog.adventures.contains { $0.id == "stuffy-bell" || $0.id == "stuffy-reader-sample" })
         for entry in catalog.adventures {
             XCTAssertNotNil(entry.editorialNote)
@@ -27,8 +27,9 @@ final class StuffyCollectionTests: XCTestCase {
             } else {
                 let book = try StoryLoader.decode(data(entry.filename))
                 XCTAssertEqual(book.id, entry.id)
-                XCTAssertEqual(book.finalCount, 5)
-                XCTAssertEqual(book.detourCount, 10)
+                let isTitanus = entry.id == "stuffy-titanus"
+                XCTAssertEqual(book.finalCount, isTitanus ? 7 : 5)
+                XCTAssertEqual(book.detourCount, isTitanus ? 12 : 10)
             }
         }
     }
@@ -78,7 +79,7 @@ final class StuffyCollectionTests: XCTestCase {
     }
 
     func testAllAdventuresCanReachEveryEndingAndRewindEveryDetour() throws {
-        for filename in ["pillow_fort", "snore_snatcher", "sundae_switch"] {
+        for filename in ["pillow_fort", "snore_snatcher", "sundae_switch", "titanus"] {
             let book = try StoryLoader.decode(data(filename))
             let relevantFlags = Set(book.nodes.flatMap { $0.choices ?? [] }
                 .flatMap { $0.requirements ?? [] }.compactMap(\.flag))
@@ -118,8 +119,8 @@ final class StuffyCollectionTests: XCTestCase {
                 }
                 XCTAssertLessThan(seen.count, 100_000)
             }
-            XCTAssertEqual(finals, Set((1...5).map { "final_\($0)" }))
-            XCTAssertEqual(detours.count, 10)
+            XCTAssertEqual(finals, Set((1...book.finalCount).map { "final_\($0)" }))
+            XCTAssertEqual(detours.count, book.detourCount)
         }
     }
 

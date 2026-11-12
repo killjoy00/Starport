@@ -91,6 +91,12 @@
       "status": "user_supplied_original",
       "source": "source/wobble_palooza.md",
       "notes": "Complete original story supplied directly by the user. Text and paragraph order are preserved verbatim, with 19 reading sections added only for pagination."
+    },
+    {
+      "id": "stuffy-titanus",
+      "status": "user_supplied_interactive_retelling",
+      "source": "source/titanus.md",
+      "notes": "Complete original story supplied by the user, retold as a branching adventure at the user's request: new branch scenes, seven endings and twelve detours. The supplied text is kept unchanged in source/titanus.md. Scene illustrations are planned in Design/titanus-art-plan.json."
     }
   ]
 }

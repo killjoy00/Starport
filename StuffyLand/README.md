@@ -22,10 +22,11 @@ art assets and intro atlas to the reviewed artwork.
 
 ## The collection
 
-The real Opal universe replaces the provisional Button Hill shelf. There are **15 stories**:
+The real Opal universe replaces the provisional Button Hill shelf. There are **16 stories**:
 
 - Two adventures adapted from the recovered archive: **Opal and the Great Pillow-Fort Mystery** and **Opal and the Great Snore-Snatcher**. Each has 36 scenes, 17 decisions per completed route, four pairs of distinct investigation/action branches, five endings, and ten rewindable detours. Clues and promises affect later prose and available endings.
 - One **new original interactive adventure**, **Opal and the Great Sundae Switch**. The reader makes choices across 18 main story scenes, with five endings and ten rewindable detours. Nine of the 18 scenes have individually composed illustrations (50%). This new story is separate from recovered source material.
+- **Opal and TITANUS: The Biggest Bad Guy Stuffy Land Had Ever Seen**, a branching retelling of a complete story supplied by the author, whose original is kept unchanged in `Editorial/source/titanus.md`. It has 40 scenes, two forks whose routes differ in length, and three endgames that earlier discoveries unlock or close: bringing the little star home needs the star's story and the last golden piece; sending the tiny team into the bell needs the tiny door; The Annoyings' distraction is always open. Seven endings and twelve detours; every run is 22 to 25 choices. Only the best ending carries the author's sequel teaser. `scripts/build_titanus_adventure.py` is its editable source. Its 11 scene illustrations are planned in `Design/titanus-art-plan.json`; until each is added, the app shows its drawn storybook placeholder, and the shelf uses the tent cover.
 - Twelve regular books with saved places, adjustable text, and Read Aloud. **The Giggle Games** preserves the complete recovered wording. **Opal and the Great Stuffy Land Wobble-Palooza** is a new complete story supplied by the author, kept word-for-word in 19 reading sections (3,447 words, approximately 24 minutes aloud). Nine stories expand surviving summaries. **The Treasure of the Thousand Traps** is new fiction inspired by a surviving title and premise, because its original plot and ending were unavailable.
 
 Reader pages have no added chapter headings. The Wobble-Palooza source is preserved in `Editorial/source/wobble_palooza.md`; the deterministic builder only paginates it into `Content/wobble_palooza.json`, and Swift/Python tests verify every paragraph survives unchanged. Provenance appears on cards, in the reader, and in “About these stories.” Complete source prose and new adaptations are kept separately in `Editorial/`. The two DOCX uploads were byte-identical and are counted once. Old pilot fixtures remain for compatibility tests, but are absent from the visible shelf and ignored when an older cached catalog is combined with the current collection.
@@ -44,6 +45,7 @@ The shelf uses the purple galaxy tent, golden Friendship Star, lavender cushione
 Select `StuffyLand` in `Starport.xcodeproj` on Xcode 16+. Bundle ID: `pro.stuffyland.stories`.
 
 ```sh
+python3 scripts/build_titanus_adventure.py
 python3 scripts/build_stuffyland_collection.py
 python3 scripts/validate_stuffyland.py
 swift test

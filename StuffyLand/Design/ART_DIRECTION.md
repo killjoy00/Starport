@@ -62,3 +62,28 @@ not recovered archive images. Canon character details continue to be
 defined by `../Editorial/UNIVERSE.md`, not by incidental image-generation
 details. The older code-drawn generator has been retired and must not be run
 against the approved image assets.
+
+
+## Opal and TITANUS: planned illustrations
+
+Status: **pending**. The adventure is published without its own art. Its
+scenes already point at eleven planned asset names, so each picture appears
+as soon as it is added, with no story change. Until then the app shows its
+drawn storybook placeholder, and the shelf uses the tent cover.
+
+`titanus-art-plan.json` holds the shared style line, each image's prompt,
+alt text and the scenes that use it, plus a portrait cover prompt
+(`titanus-cover`). Make them as textured, painterly storybook scenes in the
+Sundae Switch style, not with a code-drawn generator. Save each as
+`StuffyLand/Assets.xcassets/<asset>.imageset/<asset>.jpg` (1200×720 for scenes)
+with a matching `Contents.json`. When the cover exists, change the catalog's
+`coverAsset` for `stuffy-titanus` in `scripts/build_stuffyland_collection.py`
+and rebuild.
+
+The eleven scenes are: Langston upside down in the tree; Titanus arriving over
+the mountains; everybody floating in the moon shield; the carvings behind the
+waterfall; Titanus's lullaby by the empty cradle; the river that flows uphill;
+the Dragon Couple circling the cracked bell; the throne room; the tiny team at
+the golden lever; the Donut of Distraction; and everybody bringing their light
+to the cradle. `scripts/validate_stuffyland.py` allows only these planned
+assets to be missing and reports them as pending art.

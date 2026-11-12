@@ -375,9 +375,27 @@ def main():
         'source': 'source/wobble_palooza.md',
         'notes': 'Complete original story supplied directly by the user. Text and paragraph order are preserved verbatim, with 19 reading sections added only for pagination.'
     })
+    # Opal and TITANUS is an interactive retelling of a complete story the
+    # author supplied. Its graph is built by scripts/build_titanus_adventure.py;
+    # the original is kept unchanged in Editorial/source/titanus.md.
+    titanus = json.loads((CONTENT / 'titanus.json').read_text(encoding='utf-8'))
+    listings.insert(3, {
+        'id': titanus['id'], 'filename': 'titanus', 'contentVersion': titanus['contentVersion'],
+        'kind': 'adventure', 'title': titanus['title'], 'subtitle': titanus['subtitle'],
+        'blurb': 'A giant taller than the mountains rings a bell that makes everything float, and he wants the Heart of Stuffy Land. Choose how Opal and her friends find out why.',
+        'genre': 'Choose your adventure', 'symbol': 'bell.fill',
+        'estimatedMinutes': 25, 'coverAsset': 'stuffy-tent',
+        'collection': 'Choose an adventure',
+        'editorialNote': 'Interactive retelling of a complete story supplied by the author.'
+    })
+    provenance.append({
+        'id': titanus['id'], 'status': 'user_supplied_interactive_retelling',
+        'source': 'source/titanus.md',
+        'notes': 'Complete original story supplied by the user, retold as a branching adventure at the user\'s request: new branch scenes, seven endings and twelve detours. The supplied text is kept unchanged in source/titanus.md. Scene illustrations are planned in Design/titanus-art-plan.json.'
+    })
     write(CONTENT / 'catalog.json', {'formatVersion': 1, 'adventures': listings})
     write(EDITORIAL / 'story-provenance.json', {'sourceDocumentSHA256': 'ab0dbfbe1381b242ed7da202ae18a6fd52a231cc37e26bf8a649db5b8ac31a63', 'duplicateAttachments': True, 'stories': provenance})
-    print(f'Built {len(listings)} stories: 3 adventures and {len(readers)+1} readers')
+    print(f'Built {len(listings)} stories: 4 adventures and {len(readers)+1} readers')
 
 
 if __name__ == '__main__':

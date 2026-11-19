@@ -9,7 +9,7 @@ on:
 jobs:
   story-tests:
     name: Story engine and branching tests
-    runs-on: macos-15
+    runs-on: xcode-27
     steps:
       - uses: actions/checkout@v4
       - name: Verify committed app icon matches approved artwork
@@ -29,11 +29,16 @@ jobs:
 
   simulator-build:
     name: Build iOS simulator app
-    runs-on: macos-15
+    runs-on: xcode-27
     steps:
       - uses: actions/checkout@v4
-      - name: Xcode version
-        run: xcodebuild -version
+      - name: Verify iOS 27 SDK
+        run: |
+          set -euo pipefail
+          xcodebuild -version
+          sdk="$(xcrun --sdk iphoneos --show-sdk-version)"
+          major="${sdk%%.*}"
+          if (( major < 27 )); then echo "::error::iOS 27 SDK required, found $sdk"; exit 1; fi
       - name: Verify committed app icon matches approved artwork
         run: |
           bash scripts/bake_approved_icon.sh

@@ -7,16 +7,10 @@ app="${1:?Expected path to compiled Starport.app}"
 test -d "$app"
 bundle_id="${2:-pro.starport.story}"
 
-device=$(xcrun simctl list devices available -j | python3 -c '
-import json,sys
-data=json.load(sys.stdin)["devices"]
-for runtime in sorted(data,reverse=True):
-    for d in data[runtime]:
-        if d.get("isAvailable") and "iPhone" in d["name"]:
-            print(d["udid"])
-            sys.exit(0)
-sys.exit("No available iPhone simulator on runner")
-')
+device="${STARPORT_SIMULATOR_UDID:-}"
+if [[ -z "$device" ]]; then
+    device=$(bash "$(dirname "$0")/select_iphone_simulator.sh")
+fi
 echo "Using simulator $device"
 xcrun simctl boot "$device" || true
 xcrun simctl bootstatus "$device" -b
